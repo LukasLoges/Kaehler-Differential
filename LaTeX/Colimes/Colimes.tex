@@ -1,0 +1,163 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usetikzlibrary{babel}
+\usepackage{cleveref}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+\newtheorem{satz}{Satz}
+\newtheorem{theorem}[satz]{Theorem}
+\newtheorem{prop}[satz]{Proposition}
+\newtheorem{korrolar}[satz]{Korrolar}
+\newtheorem{lemma}[satz]{Lemma}
+\newtheorem{bem}[satz]{Bemerkung}
+\newtheorem{definition}[satz]{Definition}
+
+\newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
+\newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
+\newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\tensor}[3]{#1 \otimes_#2 #3}
+
+
+\newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
+\newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand*{\defshow}{\stackrel{!}{=}}
+\newcommand{\kernel}[1]{KERN(#1)}
+\newcommand{\immage}[1]{BILD(#1)}
+
+\begin{document}
+\comment
+{
+\begin{definition}
+Sei $\mathcal{A}$ eine Kathegorie und $C \in \mathcal{A}$ ein Objekt
+\begin{itemize}
+\item Ein \underline{Diagramm} über $\mathcal{A}$ ist eine Kathegorie $\mathcal{B}$ zusammen mit einem Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$.
+\item Ein \underline{Morphismus} $\functionfront{\psi}{\mathcal{B}}{\mathcal{A}}$ ist eine Menge von Funktionen 
+$\nolinebreak{\lbrace \psi_B \in Hom(B,C) \vert B \in \mathcal{B} \rbrace}$, wobei für alle $B_1,B_1 \in \mathcal{B}$ und $\varphi \in Hom(B_1,B_2)$ folgendes Diagramm kommutiert:
+\begin{center}
+\begin{tikzcd}
+\mathcal{F}(B_1) \arrow[rrd, "\psi_{B_1}"] \arrow[dd, "\mathcal{F}(\varphi )"] &  &   \\
+                                   &  & C \\
+\mathcal{F}(B_2) \arrow[rru, "\psi_{B_2}"]                 &  &  
+\end{tikzcd}
+\end{center}
+\item Der \underline{Colimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{C}$ und folgender universellen Eigenschaft:
+\begin{center}
+\comment{$\forall Morphismen \functionfront{\psi '}{\mathcal{F}}{\mathcal{A}'}\exists ! \varphi \in Hom_{\mathcal{A}}(A,A') \forall B \in \mathcal{B}: \varphi \circ \psi_B = \psi'_B $}
+
+für alle Morphismen $\functionfront{\psi '}{\mathcal{F}}{A'}$ existiert genau eine Funktion $\varphi \in Hom(A,A')$, sodass folgendes Diagramm kommutiert:
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi '"'] &                            \\
+A' &                                    & A \arrow[ll, "\exists ! \varphi "', dashed]
+\end{tikzcd}
+\end{center}
+
+\end{itemize}
+\end{definition}
+Bei dem Colimes handelt es sich um ein Objekt aus $\mathcal{A}$, das die Eigenschaften besitzt, welche alle Objekte in \nolinebreak{$\lbrace \mathcal{F} (B) \vert B \in \mathcal{B} \rbrace$} gemein haben und einem dazugehörigen Morphismus, welcher die Eigenschaften der Funktionen aus \nolinebreak{$ \lbrace \mathcal{F}(f) \vert f \in \cup \lbrace\ Hom_{\mathcal{B}}(B,B') \vert B \in \mathcal{B} \rbrace \rbrace$} erhält. Der Colimes kann also unformal als ein Art Schnitt von $\mathcal{F}(\mathcal{B}) \subseteq \mathcal{A}$ gesehen werden.\\
+Meistens handelt es sich bei einem Diagramm um eine Unterkathegorie $\mathcal{B} \subseteq \mathcal{A}$ zusammen mit dem Inklusionsfunktor $\infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$. In diesem Fall wird im folgendem zur Vereinfachung von dem Diagramm $\mathcal{B}$ gesprochen.\\
+Bevor der Cokern weiter charakterisiert wird, zeigen wir zunächst, dass er durch die obige Definition eindeutig bestimmt ist.
+\begin{lemma}
+Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor, so git:\\ 
+Im Falle der Existenz sind $\colimes \mathcal{F}$ und der dazugehörige Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ bis auf Isomorphie eindeutig bestimmt.
+\end{lemma}
+\begin{proof}
+Seien $A_1 \in \mathcal{A}, (\functionfront{\psi_1}{\mathcal{F}}{A_1}) $ und $A_ \in \mathcal{A} , (\functionfront{\psi_2}{\mathcal{F}}{A_2}) $ beide gleich $\colimes \mathcal{F}$:\\
+Durch die universelle Eigenschaft des Colimes erhalte die eindeutig bestimmten Funktionen $\varphi_1 \in Hom_{\mathcal{A}}(A_1,A_2)$ und $\varphi_2 \in Hom_{\mathcal{A}}(A_2,A_1)$, für die folgende Diagramme kommutieren:
+
+\comment{$\functionfront{\varphi_1}{\mathcal{A}_1}{\mathcal{A}_2}$ und $\functionfront{\varphi_2}{\mathcal{A}_2}{\mathcal{A}_1}$}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_2"'] &                            &  &   & \mathcal{F} \arrow[rd, "\psi_2"] \arrow[ld, "\psi_1"'] &                            \\
+A_2 &                                    & A_1 \arrow[ll, "\exists ! \varphi_1"', dashed] &  & A_1 &                                    & A_2 \arrow[ll, "\exists ! \varphi_2"', dashed]
+\end{tikzcd}
+\end{center}
+\begin{flushleft}
+Wende nun die Universelle Eigenschaft von $\psi_1$ auf $\psi_1$ selbst an und erhalte $id_{A_1} = \varphi_2 \circ \varphi_1$. Analog erhalte auch $id_{A_2} = \varphi_1 \circ \varphi_2$.
+\end{flushleft}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_1"'] &                            \\
+A_1 &                                    & A_1 \arrow[ll, "\exists ! id_{A_1} = \varphi_2 \circ \varphi_1"', dashed]
+\end{tikzcd}
+\end{center}
+\end{proof}
+Im folgenden beschäftigen wir uns mit dem besonderen Fall des $\colimes \functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$, bei welchem $\mathcal{B}$ eine Unterkategorie von $\mathcal{A}$ ist. Dazu untersuchen wir bei einer gegebenen Kategorie $\mathcal{A}$ das Coprodukt einer Menge von Objekten $A_i \in \mathcal{A}$, sowie den Differenzkokern zweier Morphismen $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.
+\begin{definition} \label{altDifferenzkoerndef}
+Sei $\mathcal{A}$ eine Kathegorie.\\
+\begin{itemize}
+\item Das Coprodukt von $ \lbrace B_i \rbrace \subseteq \mathcal{A}$ wird durch $\prod_i \lbrace B_i \rbrace := \colimes(\infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}})$ definiert, 
+wobei $\mathcal{B}$ $\lbrace B_i \rbrace$ als Objekte und die Identitätsabbildungen $\functionfront{id_{B_i}}{B_i}{B_i}$ als Morphismen enthält.
+\item Der Differenzkokern (oder auch Koequilizer) von $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ wird durch $\colimes(\infunctionfront{\mathcal{F}}{\mathcal{C}}{\mathcal{A}})$ definiert,
+wobei $\mathcal{C}$ $\lbrace C_1,C_2 \rbrace$ als Objekte und $ \lbrace f,g \rbrace \defeq Hom_{\mathcal{C}}(C_1,C_2)$ als Morphismen enthält.
+\end{itemize}
+\end{definition}
+In der Einführung des Differenzkokern`s in \cref{altDifferenzkoerndef} ist deutliche zu sehen, inwiefern dieser ein Colimes ist. Um mit dem Differenzkokern zu arbeiten wird er allerdings meist anders Eingeführt. Daher betrachten auch wir ab nun eine andere, aber äquivalente Definition des Differenzkokern`s.
+\begin{lemma}\label{Differenzenkokerndef} Sei $\mathcal{A}$ eine Kathegorie mit $C_1,C_2 \in Hom_{\mathcal{A}}(C_1,C_2)$, so sind folgende Formulierungen äquivalent zur Definition des Differenzenkokern $Z \defeq \colimes \functionfront{\mathcal{F}}{\mathcal{C}}{\mathcal{A}}$
+\begin{itemize}
+\item[1.] Es existiert ein Morphismus $\functionfront{\psi}{\mathcal{F}}{Z}$, mit der Eigenschaft, dass für alle Morphismen $\functionfront{\psi '}{\mathcal{F}}{Z '}$ genau ein $\varphi \in Hom_{\mathcal{A}}(Z,Z')$ mit $\varphi \circ \psi = \psi '$ existiert.
+\item[2.] Es existiert ein $q \in Hom_{\mathcal{A}}(C_2,Z)$ mit $q \circ f = q \circ g$ und der Eigenschaft, dass für alle Morphismen $q' \in Hom_{\mathcal{A}}(C_2,Z)$ mit $q' \circ f = q' \circ g$ genau ein $\varphi \in Hom_{\mathcal{A}}(Z,Z')$ mit $\varphi \circ q = q'$ existiert.
+\begin{center}
+\begin{tikzcd}
+C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & Z \arrow[d, "\exists !\varphi", dashed] \\
+                                 &                                     & Z'                                     
+\end{tikzcd}
+\end{center}
+\end{itemize}
+\end{lemma}
+\begin{proof}
+\ \\
+\begin{itemize}
+\item \underline{1 $\Rightarrow$ 2:}
+\begin{itemize}
+\item[] Da $\functionfront{\psi}{\mathcal{F}}{Z}$ ein Morphismus ist, gilt für $\lbrace f,g \rbrace = Hom_{\mathcal{C}}(C_1,C_2)$:\\ $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_1} \circ \psi_{C_2}$, setze also 
+ $q  \defeq \psi_{C_2}$.
+\item[] Sei nun $q' \in Hom_{\mathcal{A}}(C_2,Z)$ mit der Eigenschaft $q' \circ f = q' \circ g$ gegeben:\\
+ Definiere den Morphismus $\functionfront{\psi '}{\mathcal{F}}{Z}$ als $\lbrace \psi_1 = q' \circ f , \psi_2 = q' \rbrace$,  somit folgt direkt aus der Universellen Eigenschaft von $\psi$, dass genau ein $\varphi \in Hom_{A}(C_2,Z)$ existiert, mit $ \varphi \circ q = q '$.
+\end{itemize}
+
+\item \underline{2 $\Rightarrow$ 1:}
+\begin{itemize}
+\item[] Definiere $\functionfront{\psi }{\mathcal{F}}{Z}$ als $\lbrace \psi_1 = q \circ f , \psi_2 = q \rbrace$.
+Durch die Eigenschaft von $q$ gilt $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_2} \circ g$.
+\item[] Sei nun $\functionfront{\psi '}{\mathcal{F}}{\mathcal{A}}$ ein beliebiger Morphismus.\\
+Definiere $d' \defeq \psi '$, somit existiert durch die Eigenschaft von $d$ genau ein $\varphi \in Hom_{\mathcal{A}}(C_2,Z)$ mit $\varphi \circ q = q'$. \\
+$\Rightarrow \varphi \circ \psi_2 = \psi '_2$ 
+und $\varphi \circ \psi_1 = \varphi \circ \psi_2 \circ f = \varphi \circ \psi '_2 \circ f = \varphi \circ \psi '_1$
+\end{itemize}
+\end{itemize}
+\end{proof}
+\begin{lemma}
+Für einen Ring $R$, zwei R-Algebren $C_1,C_2$ und zwei R-Algebra-Homomorphismen $\functionfront{f,g}{C_1}{C_2}$, lässt sich der Differenzenkokern durch\\ $\colimes \functionfront{\mathcal{F}}{\mathcal{C}}{(R-Algebren)} = C_2/Q$ darstellen, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$.
+\end{lemma}
+\begin{proof}
+Verwende \cref{Differenzenkokerndef}, definiere dazu $\function{q}{C_2}{C_2/Q}{y}{ [ y ] }$:
+\begin{itemize}
+\item[] Zeige $q \circ f \defshow q \circ g$:\\
+$q \circ f = q \circ g \Leftrightarrow q \circ f - q \circ g = 0 \Leftrightarrow q \circ (f-g) = 0$. Dies gilt, da $\kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$.
+\item[] Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(C_2,Z')$ mit $q' \circ f = q$ gegeben.
+ Zeige, dass genau ein $\varphi \in {Hom(Z,Z')}$  mit $\varphi \circ q = q'$ existiert:\\
+Definiere $Q' = Kern(q')$, somit ist $\function{q'}{C_2}{C_2/Q'}{y}{[y]}$ eine Isomophe Darstellung von $q'$.\\
+Des weiteren folgt aus $q' \circ (f - g) = q' \circ f - q' \circ g = 0$, dass $Q'$ ein Untermodul von $Q$ ist.\\
+Definiere $\function{\varphi}{C_2/Q}{(C_2)/(Q'/Q))}{[y]}{[y]''}$ als die Eindeutige Abbildung in die Faktoralgebra.
+Der HOMOMORPHIESATZ [kommutative Algebra 2.10] gibt uns nun die Isomorphie $\nolinebreak{(C_2)/(Q'/Q)) \simeq C_2/Q'}$.\\
+Damit haben wir eine eine eindeutige Funktion $\function{\varphi}{C_2/Q}{(C_2)/ C_2/Q'}{[y]}{[y]'}$ mit
+ $\function{\varphi \circ q}{C_2}{C_2/Q'}{y}{[y]'} = q'$ gefunden.
+\end{itemize}
+\end{proof}
+}
+hallo
+\end{document}

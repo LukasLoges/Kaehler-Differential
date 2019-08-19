@@ -1,0 +1,4 @@
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, " \exists ! "] &                           \\
+\mathcal{A}' &                                   & \mathcal{A} \arrow[ll, "\psi '", dotted]
+\end{tikzcd}

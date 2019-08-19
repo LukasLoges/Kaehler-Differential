@@ -1,0 +1,45 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[arrow, matrix, curve]{xy}
+
+\usepackage{tikz-cd}
+
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+
+\usetikzlibrary{babel}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+\newtheorem{satz}{Satz}
+\newtheorem{theorem}[satz]{Theorem}
+\newtheorem{prop}[satz]{Proposition}
+\newtheorem{korrolar}[satz]{Korrolar}
+\newtheorem{lemma}[satz]{Lemma}
+\newtheorem{bem}[satz]{Bemerkung}
+
+\newcommand{\functionfront}[3]{#1:#2 \longrightarrow #3}
+\newcommand{\functionback}[3]{#1:#2 \longmapsto #3}
+\newcommand{\function}[5]{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\tensor}[3]{#1 \otimes_#2 #3}
+
+
+\begin{document}
+
+
+\begin{spacing}{1.5}
+mit: $\function{f}{I/I^2}{{\tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}{d_S(a)}}$\\
+\leftskip2.3em $\function{D\pi}{\tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{d_S(c)}}{b \cdot (d \circ \pi)(c)}$
+\end{spacing}
+
+
+
+
+\end{document}

@@ -1,0 +1,79 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usetikzlibrary{babel}
+\usepackage{cleveref}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+\newtheorem{satz}{Satz}
+\newtheorem{theorem}[satz]{Theorem}
+\newtheorem{prop}[satz]{Proposition}
+\newtheorem{korrolar}[satz]{Korrolar}
+\newtheorem{lemma}[satz]{Lemma}
+\newtheorem{bem}[satz]{Bemerkung}
+\newtheorem{definition}[satz]{Definition}
+
+\newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
+\newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
+\newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\tensor}[3]{#1 \otimes_#2 #3}
+
+\newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
+\newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand*{\defshow}{\stackrel{!}{=}}
+\newcommand{\kernel}[1]{KERN(#1)}
+\newcommand{\immage}[1]{BILD(#1)}
+
+\begin{document}
+Proposition 16.3 aus Moduls of Differenzials
+\begin{satz}
+\raggedright
+Sei $\functionfront{\pi}{S}{T}$ ein R-Algebrenephimorphismus mit Kern($\pi$):= I \\
+Dann ist folgende Sequenz rechtsexakt: \\
+\begin{center}
+\begin{tikzcd}
+I/I^2 \arrow[r, "f"] & \tensor{T}{S}{\divR{S}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+\begin{spacing}{1.5}
+mit: $\function{f}{I/I^2}{{\tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}{d_S(a)}}$\\
+\leftskip2.3em $\function{g}{\tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{d_S(c)}}{b \cdot (d \circ \pi)(c)}$
+\end{spacing}
+\end{satz}
+
+\begin{proof} \ \\
+\underline{$f$ ist wohldefiniert:} Seien $a,b\in I^2$. Zeige $f(a \cdot b)=0$ :
+$$ f(a \cdot b) =
+\tensor{1}{S}{( d_S \circ \pi )(a \cdot b)} =
+\tensor{1}{S}{\pi(a) \cdot (d_S \circ \pi )(b) + \pi(b) \cdot ( d_S \circ \pi )(a)} =0$$
+\underline{$D\pi$ ist surjektiv:}
+
+\begin{center}
+\begin{tikzcd}
+\divR{S}{R} \arrow[r, " D\pi "]                & \divR{T}{R}                \\
+S \arrow[r, " \pi "] \arrow[u, " d_S "] & T \arrow[u, " d_T "]
+\end{tikzcd}
+\end{center}
+Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $d_S$ und $d_T$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\tensor{1}{S}{D\pi}$ surjektiv.\\
+\underline{$Im(f)=kern(\tensor{1}{S}{d\pi})$:}\\ Dies folgt direkt aus der Isomorphie von $(\tensor{T}{S}{\divR{S}{R}})/Im(f)$ und $\divR{T}{R}$:
+$$(\tensor{T}{S}{\divR{S}{R}})/Im(f) = (\tensor{T}{S}{\divR{S}{R}})/(\tensor{T}{S}{d_S(I)}) = \tensor{T}{S}{(\divR{S}{R}/d_S(I))} \simeq \tensor{T}{S}{d_S(S/I)} \simeq \tensor{T}{S}{d_T(T)}$$
+
+\end{proof}
+
+
+
+
+\end{document}
