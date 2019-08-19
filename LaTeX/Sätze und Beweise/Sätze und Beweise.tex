@@ -68,12 +68,8 @@ S \arrow[r, " \pi "] \arrow[u, " d_S "] & T \arrow[u, " d_T "]
 \end{tikzcd}
 \end{center}
 Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $d_S$ und $d_T$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\tensor{1}{S}{D\pi}$ surjektiv.\\
-\underline{$Im(f)=kern(\tensor{1}{S}{d\pi})$:}\\ Dies folgt direkt aus der Isomorphie von $(\tensor{T}{S}{\divR{S}{R}})/Im(f)$ und $\divR{T}{R}$:
+\underline{$immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus folgender Isomorphie: $(\tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R} = \immage{f}$.
 $$(\tensor{T}{S}{\divR{S}{R}})/Im(f) = (\tensor{T}{S}{\divR{S}{R}})/(\tensor{T}{S}{d_S(I)}) = \tensor{T}{S}{(\divR{S}{R}/d_S(I))} \simeq \tensor{T}{S}{d_S(S/I)} \simeq \tensor{T}{S}{d_T(T)}$$
 
 \end{proof}
-
-
-
-
 \end{document}
