@@ -14,19 +14,22 @@
 \newcommand{\comment}[1]{}
 \renewcommand{\baselinestretch}{1.1}
 
-\newtheorem{satz}{Satz}
-\newtheorem{theorem}[satz]{Theorem}
-\newtheorem{prop}[satz]{Proposition}
-\newtheorem{korrolar}[satz]{Korrolar}
-\newtheorem{lemma}[satz]{Lemma}
-\newtheorem{bem}[satz]{Bemerkung}
-\newtheorem{definition}[satz]{Definition}
+
+\newcounter{Aussage}[chapter]
+
+\newtheorem{satz}[Aussage]{Satz}
+\newtheorem{theorem}[Aussage]{Theorem}
+\newtheorem{prop}[Aussage]{Proposition}
+\newtheorem{korrolar}[Aussage]{Korrolar}
+\newtheorem{lemma}[Aussage]{Lemma}
+\newtheorem{bem}[Aussage]{Bemerkung}
+\newtheorem{definition}[Aussage]{Definition}
 
 \newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
 \newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
 \newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
 \newcommand{\divR}[2]{\Omega_{#1/#2}}
-\newcommand{\tensor}[3]{#1 \otimes_#2 #3}
+\newcommand{\tensor}[3]{#1 \otimes_{#2} #3}
 
 \newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
 \newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
@@ -34,10 +37,11 @@
                      \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
                      =}
 \newcommand*{\defshow}{\stackrel{!}{=}}
-\newcommand{\kernel}[1]{KERN(#1)}
-\newcommand{\immage}[1]{BILD(#1)}
+\newcommand{\kernel}[1]{kern(#1)}
+\newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
+\chapter{grundlegende Sätze}
 Proposition 16.3 aus Moduls of Differenzials
 \begin{satz}
 \raggedright
@@ -50,7 +54,7 @@ I/I^2 \arrow[r, "f"] & \tensor{T}{S}{\divR{S}{R}} \arrow[r, "g"] & \divR{T}{R} \
 \end{center}
 \begin{spacing}{1.5}
 mit: $\function{f}{I/I^2}{{\tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}{d_S(a)}}$\\
-\leftskip2.3em $\function{g}{\tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{d_S(c)}}{b \cdot (d \circ \pi)(c)}$
+\textsc{\leftskip2.3em} $\function{g}{\tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{d_S(c)}}{b \cdot (d \circ \pi)(c)}$
 \end{spacing}
 \end{satz}
 
@@ -70,6 +74,165 @@ S \arrow[r, " \pi "] \arrow[u, " d_S "] & T \arrow[u, " d_T "]
 Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $d_S$ und $d_T$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\tensor{1}{S}{D\pi}$ surjektiv.\\
 \underline{$immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus folgender Isomorphie: $(\tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R} = \immage{f}$.
 $$(\tensor{T}{S}{\divR{S}{R}})/Im(f) = (\tensor{T}{S}{\divR{S}{R}})/(\tensor{T}{S}{d_S(I)}) = \tensor{T}{S}{(\divR{S}{R}/d_S(I))} \simeq \tensor{T}{S}{d_S(S/I)} \simeq \tensor{T}{S}{d_T(T)}$$
+\end{proof}
+
+\chapter{Colimes}
+\comment
+{}
+\begin{definition}
+Sei $\mathcal{A}$ eine Kathegorie und $C \in \mathcal{A}$ ein Objekt
+\begin{itemize}
+\item Ein \underline{Diagramm} über $\mathcal{A}$ ist eine Kathegorie $\mathcal{B}$ zusammen mit einem Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$.
+\item Ein \underline{Morphismus} $\functionfront{\psi}{\mathcal{B}}{\mathcal{A}}$ ist eine Menge von Funktionen 
+$\nolinebreak{\lbrace \psi_B \in Hom(B,C) \vert B \in \mathcal{B} \rbrace}$, wobei für alle $B_1,B_1 \in \mathcal{B}$ und $\varphi \in Hom(B_1,B_2)$ folgendes Diagramm kommutiert:
+\begin{center}
+\begin{tikzcd}
+\mathcal{F}(B_1) \arrow[rrd, "\psi_{B_1}"] \arrow[dd, "\mathcal{F}(\varphi )"] &  &   \\
+                                   &  & C \\
+\mathcal{F}(B_2) \arrow[rru, "\psi_{B_2}"]                 &  &  
+\end{tikzcd}
+\end{center}
+\item Der \underline{Colimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{C}$ und folgender universellen Eigenschaft:
+\begin{center}
+\comment{$\forall Morphismen \functionfront{\psi '}{\mathcal{F}}{\mathcal{A}'}\exists ! \varphi \in Hom_{\mathcal{A}}(A,A') \forall B \in \mathcal{B}: \varphi \circ \psi_B = \psi'_B $}
+
+für alle Morphismen $\functionfront{\psi '}{\mathcal{F}}{A'}$ existiert genau eine Funktion $\varphi \in Hom(A,A')$, sodass folgendes Diagramm kommutiert:
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi '"'] &                            \\
+A' &                                    & A \arrow[ll, "\exists ! \varphi "', dashed]
+\end{tikzcd}
+\end{center}
+
+\end{itemize}
+\end{definition}
+Bei dem Colimes handelt es sich um ein Objekt aus $\mathcal{A}$, das die Eigenschaften besitzt, welche alle Objekte in \nolinebreak{$\lbrace \mathcal{F} (B) \vert B \in \mathcal{B} \rbrace$} gemein haben und einem dazugehörigen Morphismus, welcher die Eigenschaften der Funktionen aus \nolinebreak{$ \lbrace \mathcal{F}(f) \vert f \in \cup \lbrace\ Hom_{\mathcal{B}}(B,B') \vert B \in \mathcal{B} \rbrace \rbrace$} erhält. Der Colimes kann also unformal als ein Art Schnitt von $\mathcal{F}(\mathcal{B}) \subseteq \mathcal{A}$ gesehen werden.\\
+Meistens handelt es sich bei einem Diagramm um eine Unterkathegorie $\mathcal{B} \subseteq \mathcal{A}$ zusammen mit dem Inklusionsfunktor $\infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$. In diesem Fall wird im folgendem zur Vereinfachung von dem Diagramm $\mathcal{B}$ gesprochen.\\
+Bevor der Cokern weiter charakterisiert wird, zeigen wir zunächst, dass er durch die obige Definition eindeutig bestimmt ist.
+\begin{lemma}
+Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor, so git:\\ 
+Im Falle der Existenz sind $\colimes \mathcal{F}$ und der dazugehörige Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ bis auf Isomorphie eindeutig bestimmt.
+\end{lemma}
+\begin{proof}
+Seien $A_1 \in \mathcal{A}, (\functionfront{\psi_1}{\mathcal{F}}{A_1}) $ und $A_ \in \mathcal{A} , (\functionfront{\psi_2}{\mathcal{F}}{A_2}) $ beide gleich $\colimes \mathcal{F}$:\\
+Durch die universelle Eigenschaft des Colimes erhalte die eindeutig bestimmten Funktionen $\varphi_1 \in Hom_{\mathcal{A}}(A_1,A_2)$ und $\varphi_2 \in Hom_{\mathcal{A}}(A_2,A_1)$, für die folgende Diagramme kommutieren:
+
+\comment{$\functionfront{\varphi_1}{\mathcal{A}_1}{\mathcal{A}_2}$ und $\functionfront{\varphi_2}{\mathcal{A}_2}{\mathcal{A}_1}$}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_2"'] &                            &  &   & \mathcal{F} \arrow[rd, "\psi_2"] \arrow[ld, "\psi_1"'] &                            \\
+A_2 &                                    & A_1 \arrow[ll, "\exists ! \varphi_1"', dashed] &  & A_1 &                                    & A_2 \arrow[ll, "\exists ! \varphi_2"', dashed]
+\end{tikzcd}
+\end{center}
+\begin{flushleft}
+Wende nun die Universelle Eigenschaft von $\psi_1$ auf $\psi_1$ selbst an und erhalte $id_{A_1} = \varphi_2 \circ \varphi_1$. Analog erhalte auch $id_{A_2} = \varphi_1 \circ \varphi_2$.
+\end{flushleft}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_1"'] &                            \\
+A_1 &                                    & A_1 \arrow[ll, "\exists ! id_{A_1} = \varphi_2 \circ \varphi_1"', dashed]
+\end{tikzcd}
+\end{center}
+\end{proof}
+Im folgenden beschäftigen wir uns mit dem besonderen Fall des $\colimes \functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$, bei welchem $\mathcal{B}$ eine Unterkategorie von $\mathcal{A}$ ist. Dazu untersuchen wir bei einer gegebenen Kategorie $\mathcal{A}$ das Coprodukt einer Menge von Objekten $A_i \in \mathcal{A}$, sowie den Differenzkokern zweier Morphismen $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.
+\begin{definition} \label{altDifferenzkoerndef}
+Sei $\mathcal{A}$ eine Kathegorie.
+\begin{itemize}
+\item Das Coprodukt von $ \lbrace B_i \rbrace \subseteq \mathcal{A}$ wird durch $\prod_i \lbrace B_i \rbrace := \colimes(\infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}})$ definiert, 
+wobei $\mathcal{B}$ $\lbrace B_i \rbrace$ als Objekte und die Identitätsabbildungen $\functionfront{id_{B_i}}{B_i}{B_i}$ als Morphismen enthält.
+\item Der Differenzkokern (oder auch Koequilizer) von $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ wird durch $\colimes(\infunctionfront{\mathcal{F}}{\mathcal{C}}{\mathcal{A}})$ definiert,
+wobei $\mathcal{C}$ $\lbrace C_1,C_2 \rbrace$ als Objekte und $ \lbrace f,g \rbrace \defeq Hom_{\mathcal{C}}(C_1,C_2)$ als Morphismen enthält.
+\end{itemize}
+\end{definition}
+
+In der Einführung des Differenzkokern`s in \cref{altDifferenzkoerndef} ist deutliche zu sehen, inwiefern dieser ein Colimes ist. Um mit dem Differenzkokern zu arbeiten wird er allerdings meist anders Eingeführt. Daher betrachten auch wir ab nun eine andere, aber äquivalente Definition des Differenzkokern`s.
+
+\begin{lemma}\label{Differenzenkokerndef} Sei $\mathcal{A}$ eine Kathegorie mit $C_1,C_2 \in Hom_{\mathcal{A}}(C_1,C_2)$, so sind folgende Formulierungen äquivalent zur Definition des Differenzenkokern $Z \defeq \colimes \functionfront{\mathcal{F}}{\mathcal{C}}{\mathcal{A}}$
+\begin{itemize}
+\item[1.] Es existiert ein Morphismus $\functionfront{\psi}{\mathcal{F}}{Z}$, mit der Eigenschaft, dass für alle Morphismen $\functionfront{\psi '}{\mathcal{F}}{Z '}$ genau ein $\varphi \in Hom_{\mathcal{A}}(Z,Z')$ mit $\varphi \circ \psi = \psi '$ existiert.
+\item[2.] Es existiert ein $q \in Hom_{\mathcal{A}}(C_2,Z)$ mit $q \circ f = q \circ g$ und der Eigenschaft, dass für alle Morphismen $q' \in Hom_{\mathcal{A}}(C_2,Z)$ mit $q' \circ f = q' \circ g$ genau ein $\varphi \in Hom_{\mathcal{A}}(Z,Z')$ mit $\varphi \circ q = q'$ existiert.
+\begin{center}
+\begin{tikzcd}
+C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & Z \arrow[d, "\exists !\varphi", dashed] \\
+                                 &                                     & Z'                                     
+\end{tikzcd}
+\end{center}
+\end{itemize}
+\end{lemma}
+\begin{proof}
+\ \\
+\begin{itemize}
+\item \underline{1 $\Rightarrow$ 2:}
+\begin{itemize}
+\item[] Da $\functionfront{\psi}{\mathcal{F}}{T}$ ein Morphismus ist, gilt für $\lbrace f,g \rbrace = Hom_{\mathcal{C}}(C_1,C_2)$:\\ $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_1} \circ \psi_{C_2}$, setze also 
+ $q  \defeq \psi_{C_2}$.
+\item[] Sei nun $q' \in Hom_{\mathcal{A}}(C_2,T)$ mit der Eigenschaft $q' \circ f = q' \circ g$ gegeben:\\
+ Definiere den Morphismus $\functionfront{\psi '}{\mathcal{F}}{T}$ als $\lbrace \psi_1 = q' \circ f , \psi_2 = q' \rbrace$,  somit folgt direkt aus der Universellen Eigenschaft von $\psi$, dass genau ein $\varphi \in Hom_{A}(C_2,T)$ existiert, mit $ \varphi \circ q = q '$.
+\end{itemize}
+\item \underline{2 $\Rightarrow$ 1:}
+\begin{itemize}
+\item[] Definiere $\functionfront{\psi }{\mathcal{F}}{T}$ als $\lbrace \psi_1 = q \circ f , \psi_2 = q \rbrace$.
+Durch die Eigenschaft von $q$ gilt $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_2} \circ g$.
+\item[] Sei nun $\functionfront{\psi '}{\mathcal{F}}{\mathcal{A}}$ ein beliebiger Morphismus.\\
+Definiere $d' \defeq \psi '$, somit existiert durch die Eigenschaft von $d$ genau ein $\varphi \in Hom_{\mathcal{A}}(C_2,T)$ mit $\varphi \circ q = q'$. \\
+$\Rightarrow \varphi \circ \psi_2 = \psi '_2$ 
+und $\varphi \circ \psi_1 = \varphi \circ \psi_2 \circ f = \varphi \circ \psi '_2 \circ f = \varphi \circ \psi '_1$
+\end{itemize}
+\end{itemize}
+\end{proof}
+
+Wenn im weiteren Verlauf von dem Differenzenkokern zweier Homomorphismen $\functionfront{f,g}{C_1}{C_2}$ gesprchen wird, meinen wir damit den Homomorphismus $\functionfront{q}{C_2}{T}$ aus \cref{Differenzenkokerndef}.
+
+\begin{bem}
+Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\tensor{T}{C_1}{M}$ definieren.
+\begin{gather*}
+\textit{für } s_1 \in S_1 \textit{ und } \tensor{t}{S_1}{m}) \in \tensor{T}{C_1}{M} \textit{ gilt: }\\
+s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \tensor{((q \circ g)) \cdot (s_1)t}{S_1}{m}
+\end{gather*}
+\end{bem}
+
+\begin{lemma}
+Seien $\functionfront{f,g}{C_1}{C_2}$ R-Algebra-Homomorphismen, setze $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$.\\
+Dann ist $\function{q}{C_2}{C_2/Q}{y}{[y]}$ der Differenzenkokern von $f,g$.
+\end{lemma}
+\begin{proof}
+$$q \circ f = q \circ g \textit{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$$
+
+Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(C_2,T')$ mit $q' \circ f = q' \circ$ gegeben.
+\begin{spacing}{1.5}
+$q' \circ (f - g) = 0 \Rightarrow Q\textit{ ist Untermodul von }Q' \defeq \kernel{q'}.$\\
+$\textit{Nach HOMOMORPHIESATZ [kommutative Algebra 2.10] gilt } \nolinebreak{C_2/Q' \simeq (C_2/Q)/(Q'/Q))}.$\\
+$\Rightarrow \textit{für } \function{q'}{C_2}{(C_2/Q)/(Q'/Q))}{y}{[y]'} \textit{ ist eine isomorphw Darstellung von } \functionfront{q'}{C_2}{T'}$\\
+$\Rightarrow \exists ! \function{\varphi}{C_2/Q}{(C_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.$
+\end{spacing}
+\end{proof}
+
+
+Verbinde nun den Colimes mit dem Kählerdifferenziel:\\
+Differenzialekokerne bleiben unter der Bildung von Differenzialen erhalten:
+Korrolar 16.7 aus Moduls of Differenzials:
+\begin{prop}
+Seien $S_1,S_2$ R-Algebra`s und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzenkokern von $\varphi$,$\varphi '$.
+Dann ist folgende Sequenz rechtsexakt:\\
+\begin{center}
+\begin{tikzcd}
+\tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "F"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "G"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+\begin{spacing}{1.5}
+mit: $\function{F}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{d_{S_1}(x_1)}}{\tensor{t}{S_2}{d_{S_2}(\varphi(x_1) - \varphi(x_2))}}$\\
+$\function{G}{\tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{d_{S_2}(x_2)}}{(d_{S_2}\circ q)(x_2)}$
+\end{spacing}
+\end{prop}
+Beweis mit PROP 16.3
+\begin{proof}
+[Falls $d$ surjektiv ist:] nach PROP 16.3 ist folgende Sequenz rechtsexakt:
+\begin{center}
+\begin{tikzcd}
+Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+mit: $\function{f'}{Q/Q^2}{{\tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{d_{S_2}(s_2)}}$\\
+Zeige also noch$immage{f} = Immage{f'}$:
 
 \end{proof}
 \end{document}
