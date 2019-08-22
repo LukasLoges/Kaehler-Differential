@@ -83,8 +83,8 @@ $$(\tensor{T}{S}{\divR{S}{R}})/Im(f) = (\tensor{T}{S}{\divR{S}{R}})/(\tensor{T}{
 Sei $\mathcal{A}$ eine Kathegorie und $C \in \mathcal{A}$ ein Objekt
 \begin{itemize}
 \item Ein \underline{Diagramm} über $\mathcal{A}$ ist eine Kathegorie $\mathcal{B}$ zusammen mit einem Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$.
-\item Ein \underline{Morphismus} $\functionfront{\psi}{\mathcal{B}}{\mathcal{A}}$ ist eine Menge von Funktionen 
-$\nolinebreak{\lbrace \psi_B \in Hom(B,C) \vert B \in \mathcal{B} \rbrace}$, wobei für alle $B_1,B_1 \in \mathcal{B}$ und $\varphi \in Hom(B_1,B_2)$ folgendes Diagramm kommutiert:
+\item Ein \underline{Morphismus} $\functionfront{\psi}{\mathcal{F}}{C}$ ist eine Menge von Funktionen 
+$\nolinebreak{\lbrace \psi_B \in Hom(F(B),C) \vert B \in \mathcal{B} \rbrace}$, wobei für alle $B_1,B_2 \in \mathcal{B}$ und $\varphi \in Hom(B_1,B_2)$ folgendes Diagramm kommutiert:
 \begin{center}
 \begin{tikzcd}
 \mathcal{F}(B_1) \arrow[rrd, "\psi_{B_1}"] \arrow[dd, "\mathcal{F}(\varphi )"] &  &   \\
@@ -92,7 +92,7 @@ $\nolinebreak{\lbrace \psi_B \in Hom(B,C) \vert B \in \mathcal{B} \rbrace}$, wob
 \mathcal{F}(B_2) \arrow[rru, "\psi_{B_2}"]                 &  &  
 \end{tikzcd}
 \end{center}
-\item Der \underline{Colimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{C}$ und folgender universellen Eigenschaft:
+\item Der \underline{Colimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ und folgender universellen Eigenschaft:
 \begin{center}
 \comment{$\forall Morphismen \functionfront{\psi '}{\mathcal{F}}{\mathcal{A}'}\exists ! \varphi \in Hom_{\mathcal{A}}(A,A') \forall B \in \mathcal{B}: \varphi \circ \psi_B = \psi'_B $}
 
@@ -190,7 +190,33 @@ s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \
 \end{gather*}
 \end{bem}
 
-\begin{lemma}
+Für einen kommutativen Ring $R$ definieren wir $\mathcal{M}$ als die Kategorie der $R-Module$
+\begin{lemma}\label{R-Modul-Colimiten}
+In $\mathcal{M}$ existieren Coprodukte und Differenzenkokerne, wobei:
+\begin{itemize}
+\item[\textbf{1.}] das Coprodukt $\prod_i M_i = \bigoplus_i M_i$ entspricht der direkten Summe
+\item[\textbf{2.}] der Differenzenkokern zweier Homomorphismen $\functionfront{f,g}{M_1}{M_2}$ entspricht dem Kokern $M/\immage{f-g}$ der Differenzenabbildung.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+
+für \textit{\textbf{1.}} Sei $\functionfront{\phi}{\lbrace M_i \rbrace}{\mathcal{M}}$ ein beliebiger Morphismus. Zeige: \\
+\begin{center}
+\begin{tikzcd}
+  & \infunctionfront{\mathcal{F}}{\lbrace M_i \rbrace}{\mathcal{M}} \arrow[rd, "\psi_i"] \arrow[ld, "\psi_i"'] &                                            \\
+M' &                                              & \bigoplus_i M_i \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}\\
+\end{center}
+Für ein beliebiges $i$ existiert genau ein $\function{\varphi_i}{M_i \bigoplus 0}{M'}{(0,...,0,m_i,0,...,0}{\psi_i '(m_i)}$
+ mit $\psi_i ' = \psi_i \circ \varphi_i$\\
+$\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\sum_i \psi_i(m_i)}$\\
+\ \\
+\textit{\textbf{2.}} ist Analog zu \cref{R-Algebra-Differenzenkokern}
+\end{itemize}
+\end{proof}
+
+\begin{lemma} \label{R-Algebra-Differenzenkokern}
 Seien $\functionfront{f,g}{C_1}{C_2}$ R-Algebra-Homomorphismen, setze $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$.\\
 Dann ist $\function{q}{C_2}{C_2/Q}{y}{[y]}$ der Differenzenkokern von $f,g$.
 \end{lemma}

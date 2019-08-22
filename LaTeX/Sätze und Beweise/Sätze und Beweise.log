@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  20 AUG 2019 18:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  22 AUG 2019 11:26
 entering extended mode
 **"./Sätze und Beweise.tex"
 ("Sätze und Beweise.tex"
@@ -609,7 +609,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
 
-Overfull \hbox (61.30215pt too wide) in paragraph at lines 86--88
+Overfull \hbox (78.08551pt too wide) in paragraph at lines 86--88
 []\OT1/cmr/m/it/10 Ein $[]$ $[]$ ist ei-ne Men-ge von Funk-tio-nen $[]$,
  []
 
@@ -628,10 +628,6 @@ cmsy/m/n/10 g$ \OT1/cmr/m/it/10 als Ob-jek-te und die Iden-tit[]atsabbildungen
 $[]$
  []
 
-
-LaTeX Warning: Reference `altDifferenzkoerndef' on page 1 undefined on input li
-ne 147.
-
 [3]
 Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
@@ -639,68 +635,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
-
-LaTeX Warning: Reference `Differenzenkokerndef' on page 1 undefined on input li
-ne 183.
-
 [4]
-Overfull \hbox (46.75372pt too wide) in paragraph at lines 202--206
+Overfull \hbox (7.80167pt too wide) in paragraph at lines 198--199
+[]\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
+nt-spricht
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
+
+ []
+
+
+Overfull \hbox (67.92253pt too wide) in paragraph at lines 211--216
+\OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
+i-stiert ge-nau ein $[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--216
+
+ []
+
+
+Overfull \hbox (46.75372pt too wide) in paragraph at lines 228--232
 [][]\OML/cmm/m/it/10 :$ 
  []
 
 
-Overfull \hbox (75.4pt too wide) in paragraph at lines 202--206
+Overfull \hbox (75.4pt too wide) in paragraph at lines 228--232
 \OMS/cmsy/m/n/10 ) [][][][]$ 
  []
 
 
-Overfull \hbox (57.83958pt too wide) in paragraph at lines 214--216
-[]\OT1/cmr/bx/n/10 Proposition 7. []\OT1/cmr/m/it/10 Sei-en $\OML/cmm/m/it/10 S
+Overfull \hbox (57.83958pt too wide) in paragraph at lines 240--242
+[]\OT1/cmr/bx/n/10 Proposition 8. []\OT1/cmr/m/it/10 Sei-en $\OML/cmm/m/it/10 S
 []; S[]$ \OT1/cmr/m/it/10 R-Algebra`s und $[]$ R-Algebra-Homomorphismen.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--216
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 
  []
 
 
-Overfull \hbox (34.7274pt too wide) in paragraph at lines 222--224
+Overfull \hbox (34.7274pt too wide) in paragraph at lines 248--250
 []\OT1/cmr/m/it/10 mit: $[]$ 
  []
 
-[5] ("Sätze und Beweise.aux")
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[5] [6] ("Sätze und Beweise.aux") ) 
 Here is how much of TeX's memory you used:
- 16490 strings out of 492895
- 339666 string characters out of 3133483
- 398309 words of memory out of 3000000
- 20103 multiletter control sequences out of 15000+200000
- 7905 words of font info for 30 fonts, out of 3000000 for 9000
+ 16531 strings out of 492895
+ 340684 string characters out of 3133483
+ 399309 words of memory out of 3000000
+ 20143 multiletter control sequences out of 15000+200000
+ 8264 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,15n,84p,584b,1137s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmti7.pfb>
-Output written on "Sätze und Beweise.pdf" (5 pages, 189498 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb>
+Output written on "Sätze und Beweise.pdf" (6 pages, 202001 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
