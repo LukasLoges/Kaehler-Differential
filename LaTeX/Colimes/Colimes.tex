@@ -41,29 +41,47 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
-Für einen kommutativen Ring $R$ definieren wir $\mathcal{M}$ als die Kategorie der $R-Module$
-\begin{lemma}
-In $\mathcal{M}$ existieren Coprodukte und Differenzenkokerne, wobei:
+\begin{prop} \label{R-Algebra-Coprodukt,Differenzenkokern}
+in der Kategorie der R-Algeben existieren Coprodukte und Differenzenkokerne, wobei:
 \begin{itemize}
-\item[\textbf{1.}] das Coprodukt $\prod_i M_i = \bigoplus_i M_i$ entspricht der direkten Summe
-\item[\textbf{2.}] der Differenzenkokern zweier Homomorphismen $\functionfront{f,g}{M_1}{M_2}$ entspricht dem Kokern $M/\immage{f-g}$ der Differenzenabbildung.
+\item[\textbf{1.}] Das Coprodukt $\colimes (\infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace_{i \in \Lambda}}{R-Agebren}$ einer endlichen Familie von $R-Algebren$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} B_i$. 
+\item[\textbf{2.}] Seien $\functionfront{f,g}{C_1}{C_2}$ R-Algebra-Homomorphismen, setze $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$.\\
+Dann ist $\function{q}{C_2}{C_2/Q}{y}{[y]}$ der Differenzenkokern von $f,g$.
 \end{itemize}
-\end{lemma}
-\begin{proof}
-\begin{itemize}
+\end{prop}
 
-für \textit{\textbf{1.}} Sei $\functionfront{\phi}{\lbrace M_i \rbrace}{\mathcal{M}}$ ein beliebiger Morphismus. Zeige: \\
+\begin{proof}
+Zu \textit{\textbf{1.}}:\ \\
+Nutze die universellen Eigenschaften des Tensorproduktes und des Kähler-Differenzials.\\
+Es sind also der Morphismus $\functionfront{\psi}{(\infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace}{(R-Algebren)})}{\colimes \mathcal{F}}$ und die bilineare Abbildung $\functionfront{g}{\oplus_i B_i}{\otimes_i B_i}$ gegeben.\\
+Konstruieren den Morphismus $\functionfront{\psi'}{\mathcal{F}}{\otimes_i B_i}$ durch $\function{\psi'_i}{B_i}{\otimes_i B_i}{b_i}{g(1,..,1,b_i,1,..,1)}$ für $i \in \lambda$. Konstruiere außerdem die bilineare Abbildung $\function{f}{\oplus_i B_i}{\colimes \mathcal{F}}{b}{\prod_i \psi_i b_i}$.\\
+\ \\
+Durch die universellen Eigenschaften erhalten wir die R-Algebra-Homomorphismen $\functionfront{\varphi}{\colimes \mathcal{F}}{\bigotimes _i B_i}$ und $\functionfront{\phi}{\bigotimes _i B_i}{\colimes \mathcal{F}}$.
 \begin{center}
 \begin{tikzcd}
-  & \infunctionfront{\mathcal{F}}{\lbrace M_i \rbrace}{\mathcal{M}} \arrow[rd, "\psi_i"] \arrow[ld, "\psi_i"'] &                                            \\
-M' &                                              & \bigoplus_i M_i \arrow[ll, "\exists ! \varphi"', dashed]
-\end{tikzcd}\\
+  & \infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace}{(R-Algebren)} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            &  &   & \oplus_i B_i \arrow[rd, "g"] \arrow[ld, "f"'] &                                         \\
+\otimes_i B_i &                                           & \colimes \mathcal{F} \arrow[ll, "\exists ! \varphi"', dashed] &  & \colimes \mathcal{F} &                                    & \otimes_i B_i \arrow[ll, "\exists ! \phi"', dashed]
+\end{tikzcd}
 \end{center}
-Für ein beliebiges $i$ existiert genau ein $\function{\varphi_i}{M_i \bigoplus 0}{M'}{(0,...,0,m_i,0,...,0}{\psi_i '(m_i)}$
- mit $\psi_i ' = \psi_i \circ \varphi_i$\\
-$\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\sum_i \psi_i(m_i)}$\\
+Weiter ergeben sich auch durch die universellen Eigenschaften\\ $id_{\colimes \mathcal{F}} = \phi \circ \varphi \textit{ und } id_{\bigotimes_i B_i} = \varphi \circ \phi$.
+\begin{center}
+\begin{tikzcd}
+         & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i B_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
+\colimes \mathcal{F} &                                                    & \colimes \mathcal{F} \arrow[ll, "\exists ! id_{\colimes \mathcal{F}} = \phi \circ \varphi ", dashed] &  & \bigotimes_i B_i &                                                  & \bigotimes_i B_i \arrow[ll, "\exists ! id_{\bigotimes_i B_i} = \varphi \circ \phi "', dashed]
+\end{tikzcd}
+\end{center}
 \ \\
-\textit{\textbf{2.}} ist Analog zu PENIS
-\end{itemize}
+\ \\
+\ \\
+Zu \textit{\textbf{2.}}:\
+$$q \circ f = q \circ g \textit{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$$
+
+Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(C_2,T')$ mit $q' \circ f = q' \circ$ gegeben.
+\begin{spacing}{1.5}
+$q' \circ (f - g) = 0 \Rightarrow Q\textit{ ist Untermodul von }Q' \defeq \kernel{q'}.$\\
+$\textit{Nach HOMOMORPHIESATZ [kommutative Algebra 2.10] gilt } \nolinebreak{C_2/Q' \simeq (C_2/Q)/(Q'/Q))}.$\\
+$\Rightarrow \textit{für } \function{q'}{C_2}{(C_2/Q)/(Q'/Q))}{y}{[y]'} \textit{ ist eine isomorphw Darstellung von } \functionfront{q'}{C_2}{T'}$\\
+$\Rightarrow \exists ! \function{\varphi}{C_2/Q}{(C_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.$
+\end{spacing}
 \end{proof}
 \end{document}

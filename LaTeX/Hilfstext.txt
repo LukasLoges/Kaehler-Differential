@@ -1,4 +1,4 @@
 \begin{tikzcd}
-  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, " \exists ! "] &                           \\
-\mathcal{A}' &                                   & \mathcal{A} \arrow[ll, "\psi '", dotted]
+         & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i B_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
+\colimes \mathcal{F} &                                                    & \colimes \mathcal{F} \arrow[ll, "\existes ! id_{\colimes \mathcal{F}} = \phi \circ \varphi", dashed] &  & \bigotimes_i B_i &                                                  & \bigotimes_i B_i \arrow[ll, "\exists ! id_{Tensoru} = \varphi \circ \phi"', dashed]
 \end{tikzcd}

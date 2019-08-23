@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  22 AUG 2019 11:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  23 AUG 2019 16:41
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -570,35 +570,67 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 47.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 47.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (7.80167pt too wide) in paragraph at lines 49--50
-[]\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
-nt-spricht
+Overfull \hbox (29.13948pt too wide) in paragraph at lines 54--60
+\OT1/cmr/m/n/10 Nutze die uni-ver-sel-len Ei-gen-schaf-ten des Ten-sor-pro-duk-
+tes und des K[]ahler-Differenzials. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Overfull \hbox (74.69592pt too wide) in paragraph at lines 54--60
+\OT1/cmr/m/n/10 Konstruieren den Mor-phis-mus $[]$ durch $[]$
+ []
+
+
+Overfull \hbox (46.84995pt too wide) in paragraph at lines 54--60
+\OT1/cmr/m/n/10 f[]ur $\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 
+$\OT1/cmr/m/n/10 . Kon-stru-ie-re au-er-dem die bi-li-nea-re Ab-bil-dung $[]$.
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--60
 
  []
 
 
-Overfull \hbox (67.92253pt too wide) in paragraph at lines 62--67
-\OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
-i-stiert ge-nau ein $[]$
+Overfull \hbox (11.30615pt too wide) in paragraph at lines 54--60
+\OT1/cmr/m/n/10 Durch die uni-ver-sel-len Ei-gen-schaf-ten er-hal-ten wir die R
+-Algebra-Homomorphismen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--67
+Overfull \hbox (86.1726pt too wide) in paragraph at lines 64--65
+ [] 
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--77
+
+ []
+
+
+Overfull \hbox (46.75372pt too wide) in paragraph at lines 81--85
+[][]\OML/cmm/m/it/10 :$ 
+ []
+
+
+Overfull \hbox (75.4pt too wide) in paragraph at lines 81--85
+\OMS/cmsy/m/n/10 ) [][][][]$ 
  []
 
 [1
@@ -606,27 +638,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--67
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 (Colimes.aux) ) 
 Here is how much of TeX's memory you used:
- 16092 strings out of 492895
- 330050 string characters out of 3133483
- 390309 words of memory out of 3000000
- 19711 multiletter control sequences out of 15000+200000
- 6352 words of font info for 25 fonts, out of 3000000 for 9000
+ 16211 strings out of 492895
+ 332909 string characters out of 3133483
+ 401309 words of memory out of 3000000
+ 19829 multiletter control sequences out of 15000+200000
+ 7050 words of font info for 27 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,14n,84p,471b,1114s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,18n,84p,471b,1053s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
 10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
-b>
-Output written on Colimes.pdf (1 page, 117886 bytes).
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb>
+Output written on Colimes.pdf (1 page, 166084 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 69 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
