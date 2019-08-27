@@ -42,46 +42,47 @@
 
 \begin{document}
 \begin{prop} \label{R-Algebra-Coprodukt,Differenzenkokern}
-in der Kategorie der R-Algeben existieren Coprodukte und Differenzenkokerne, wobei:
+in der Kategorie der R-Algebren existieren Coprodukte und Differenzenkokerne, wobei:
 \begin{itemize}
-\item[\textbf{1.}] Das Coprodukt $\colimes (\infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace_{i \in \Lambda}}{R-Agebren}$ einer endlichen Familie von $R-Algebren$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} B_i$. 
-\item[\textbf{2.}] Seien $\functionfront{f,g}{C_1}{C_2}$ R-Algebra-Homomorphismen, setze $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$.\\
-Dann ist $\function{q}{C_2}{C_2/Q}{y}{[y]}$ der Differenzenkokern von $f,g$.
+\item[\textbf{1.}] Das Coprodukt einer endlichen Familie von $R-Algebren$ $\lbrace B_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} B_i$. 
+\item[\textbf{2.}] Der Differenzenkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{C_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
 \end{itemize}
 \end{prop}
 
 \begin{proof}
-Zu \textit{\textbf{1.}}:\ \\
-Nutze die universellen Eigenschaften des Tensorproduktes und des Kähler-Differenzials.\\
-Es sind also der Morphismus $\functionfront{\psi}{(\infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace}{(R-Algebren)})}{\colimes \mathcal{F}}$ und die bilineare Abbildung $\functionfront{g}{\oplus_i B_i}{\otimes_i B_i}$ gegeben.\\
-Konstruieren den Morphismus $\functionfront{\psi'}{\mathcal{F}}{\otimes_i B_i}$ durch $\function{\psi'_i}{B_i}{\otimes_i B_i}{b_i}{g(1,..,1,b_i,1,..,1)}$ für $i \in \lambda$. Konstruiere außerdem die bilineare Abbildung $\function{f}{\oplus_i B_i}{\colimes \mathcal{F}}{b}{\prod_i \psi_i b_i}$.\\
+Zu \textit{\textbf{1.}}:\\
+Sei $\infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace}{(R-Algebren)}$ der Inklusionsfunktor. Nutze die universellen Eigenschaften des Tensorproduktes und des Kähler-Differenzials um einen Isomorphismus zwischen $\colimes \mathcal{F}$ und $\bigotimes_{i \in \Lambda} B_i$ zu finden.\\ Es sind der Morphismus $\functionfront{\psi}{\mathcal{F}}{\colimes \mathcal{F}}$ und die bilineare Abbildung $\functionfront{g}{\oplus_i B_i}{\otimes_i B_i}$ gegeben.\\
+Konstruiere den Morphismus $\functionfront{\psi'}{\mathcal{F}}{\otimes_i B_i}$ durch $\function{\psi'_i}{B_i}{\otimes_i B_i}{b_i}{g(1,..,1,b_i,1,..,1)}$ für $i \in \lambda$ und die bilineare Abbildung $\function{f}{\oplus_i B_i}{\colimes \mathcal{F}}{b}{\prod_i \psi_i b_i}$.\\
 \ \\
-Durch die universellen Eigenschaften erhalten wir die R-Algebra-Homomorphismen $\functionfront{\varphi}{\colimes \mathcal{F}}{\bigotimes _i B_i}$ und $\functionfront{\phi}{\bigotimes _i B_i}{\colimes \mathcal{F}}$.
+Somit liefern uns die universellen Eigenschaften folgende zwei R-Algebra-Homomorphismen:
+\begin{gather*}
+\functionfront{\varphi}{\colimes \mathcal{F}}{\bigotimes_i B_i} \\
+\functionfront{\phi}{\bigotimes_i B_i}{\colimes \mathcal{F}}.
+\end{gather*}
 \begin{center}
 \begin{tikzcd}
-  & \infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace}{(R-Algebren)} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            &  &   & \oplus_i B_i \arrow[rd, "g"] \arrow[ld, "f"'] &                                         \\
+  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            &  &   & \oplus_i B_i \arrow[rd, "g"] \arrow[ld, "f"'] &                                         \\
 \otimes_i B_i &                                           & \colimes \mathcal{F} \arrow[ll, "\exists ! \varphi"', dashed] &  & \colimes \mathcal{F} &                                    & \otimes_i B_i \arrow[ll, "\exists ! \phi"', dashed]
 \end{tikzcd}
 \end{center}
-Weiter ergeben sich auch durch die universellen Eigenschaften\\ $id_{\colimes \mathcal{F}} = \phi \circ \varphi \textit{ und } id_{\bigotimes_i B_i} = \varphi \circ \phi$.
+Die Eindeutigkeit der universellen Eigenschaften liefert uns, das $\varphi$ und $\phi$ zueinander Inverse sind und somit haben wir unsere gesuchten Isomorphismen zwischen $\colimes \mathcal{F}$ und $\bigotimes_i B_i$ gefunden.
 \begin{center}
 \begin{tikzcd}
          & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i B_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
 \colimes \mathcal{F} &                                                    & \colimes \mathcal{F} \arrow[ll, "\exists ! id_{\colimes \mathcal{F}} = \phi \circ \varphi ", dashed] &  & \bigotimes_i B_i &                                                  & \bigotimes_i B_i \arrow[ll, "\exists ! id_{\bigotimes_i B_i} = \varphi \circ \phi "', dashed]
 \end{tikzcd}
 \end{center}
-\ \\
-\ \\
+
 \ \\
 Zu \textit{\textbf{2.}}:\
 $$q \circ f = q \circ g \textit{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$$
 
 Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(C_2,T')$ mit $q' \circ f = q' \circ$ gegeben.
-\begin{spacing}{1.5}
-$q' \circ (f - g) = 0 \Rightarrow Q\textit{ ist Untermodul von }Q' \defeq \kernel{q'}.$\\
-$\textit{Nach HOMOMORPHIESATZ [kommutative Algebra 2.10] gilt } \nolinebreak{C_2/Q' \simeq (C_2/Q)/(Q'/Q))}.$\\
-$\Rightarrow \textit{für } \function{q'}{C_2}{(C_2/Q)/(Q'/Q))}{y}{[y]'} \textit{ ist eine isomorphw Darstellung von } \functionfront{q'}{C_2}{T'}$\\
-$\Rightarrow \exists ! \function{\varphi}{C_2/Q}{(C_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.$
-\end{spacing}
+\begin{gather*}
+q' \circ (f - g) = 0 \Rightarrow Q\textit{ ist Untermodul von }Q' \defeq \kernel{q'}.\\
+\textit{Nach HOMOMORPHIESATZ [kommutative Algebra 2.10] gilt somit } \nolinebreak{C_2/Q' \simeq (C_2/Q)/(Q'/Q))}.\\
+\Rightarrow \function{q'}{C_2}{(C_2/Q)/(Q'/Q))}{y}{[y]'} \textit{ ist eine isomorphe Darstellung von } \functionfront{q'}{C_2}{T'}\\
+\Rightarrow \exists ! \function{\varphi}{C_2/Q}{(C_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
+\end{gather*}
 \end{proof}
 \end{document}
