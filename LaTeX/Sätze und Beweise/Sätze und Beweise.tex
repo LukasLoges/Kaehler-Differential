@@ -29,7 +29,8 @@
 \newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
 \newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
 \newcommand{\divR}[2]{\Omega_{#1/#2}}
-\newcommand{\tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\tensor}[3]{#1 \otimes #3}
 
 \newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
 \newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
@@ -43,18 +44,18 @@
 \begin{document}
 \chapter{grundlegende Sätze}
 Proposition 16.3 aus Moduls of Differenzials
-\begin{satz}
+\begin{satz} \label{prop16.3}
 \raggedright
 Sei $\functionfront{\pi}{S}{T}$ ein R-Algebrenephimorphismus mit Kern($\pi$):= I \\
 Dann ist folgende Sequenz rechtsexakt: \\
 \begin{center}
 \begin{tikzcd}
-I/I^2 \arrow[r, "f"] & \tensor{T}{S}{\divR{S}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+I/I^2 \arrow[r, "f"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
 \end{tikzcd}
 \end{center}
 \begin{spacing}{1.5}
-mit: $\function{f}{I/I^2}{{\tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}{d_S(a)}}$\\
-\textsc{\leftskip2.3em} $\function{g}{\tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{d_S(c)}}{b \cdot (d \circ \pi)(c)}$
+mit: $\function{f}{I/I^2}{{\Tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}{d_S(a)}}$\\
+\textsc{\leftskip2.3em} $\function{g}{\Tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{d_S(c)}}{b \cdot (d \circ \pi)(c)}$
 \end{spacing}
 \end{satz}
 
@@ -71,9 +72,9 @@ $$ f(a \cdot b) =
 S \arrow[r, " \pi "] \arrow[u, " d_S "] & T \arrow[u, " d_T "]
 \end{tikzcd}
 \end{center}
-Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $d_S$ und $d_T$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\tensor{1}{S}{D\pi}$ surjektiv.\\
-\underline{$immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus folgender Isomorphie: $(\tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R} = \immage{f}$.
-$$(\tensor{T}{S}{\divR{S}{R}})/Im(f) = (\tensor{T}{S}{\divR{S}{R}})/(\tensor{T}{S}{d_S(I)}) = \tensor{T}{S}{(\divR{S}{R}/d_S(I))} \simeq \tensor{T}{S}{d_S(S/I)} \simeq \tensor{T}{S}{d_T(T)}$$
+Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $d_S$ und $d_T$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\Tensor{1}{S}{D\pi}$ surjektiv.\\
+\underline{$\immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus folgender Isomorphie: $(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R} = \immage{f}$.
+$$(\Tensor{T}{S}{\divR{S}{R}})/Im(f) = (\Tensor{T}{S}{\divR{S}{R}})/(\Tensor{T}{S}{d_S(I)}) = \Tensor{T}{S}{(\divR{S}{R}/d_S(I))} \simeq \Tensor{T}{S}{d_S(S/I)} \simeq \Tensor{T}{S}{d_T(T)}$$
 \end{proof}
 
 \chapter{Colimes}
@@ -133,7 +134,9 @@ A_1 &                                    & A_1 \arrow[ll, "\exists ! id_{A_1} = 
 \end{tikzcd}
 \end{center}
 \end{proof}
+
 Im folgenden beschäftigen wir uns mit dem besonderen Fall des $\colimes \functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$, bei welchem $\mathcal{B}$ eine Unterkategorie von $\mathcal{A}$ ist. Dazu untersuchen wir bei einer gegebenen Kategorie $\mathcal{A}$ das Coprodukt einer Menge von Objekten $A_i \in \mathcal{A}$, sowie den Differenzkokern zweier Morphismen $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.
+
 \begin{definition} \label{altDifferenzkoerndef}
 Sei $\mathcal{A}$ eine Kathegorie.
 \begin{itemize}
@@ -183,9 +186,9 @@ und $\varphi \circ \psi_1 = \varphi \circ \psi_2 \circ f = \varphi \circ \psi '_
 Wenn im weiteren Verlauf von dem Differenzenkokern zweier Homomorphismen $\functionfront{f,g}{C_1}{C_2}$ gesprchen wird, meinen wir damit den Homomorphismus $\functionfront{q}{C_2}{T}$ aus \cref{Differenzenkokerndef}.
 
 \begin{bem}
-Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\tensor{T}{C_1}{M}$ definieren.
+Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\Tensor{T}{C_1}{M}$ definieren.
 \begin{gather*}
-\textit{für } s_1 \in S_1 \textit{ und } \tensor{t}{S_1}{m}) \in \tensor{T}{C_1}{M} \textit{ gilt: }\\
+\textit{für } s_1 \in S_1 \textit{ und } \tensor{t}{S_1}{m}) \in \Tensor{T}{C_1}{M} \textit{ gilt: }\\
 s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \tensor{((q \circ g)) \cdot (s_1)t}{S_1}{m}
 \end{gather*}
 \end{bem}
@@ -220,7 +223,7 @@ $\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\
 in der Kategorie der R-Algebren existieren Coprodukte und Differenzenkokerne, wobei:
 \begin{itemize}
 \item[\textbf{1.}] Das Coprodukt einer endlichen Familie von $R-Algebren$ $\lbrace B_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} B_i$. 
-\item[\textbf{2.}] Der Differenzenkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{C_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
+\item[\textbf{2.}] Der Differenzenkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{Ss_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{C_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
 \end{itemize}
 \end{prop}
 
@@ -247,7 +250,6 @@ Die Eindeutigkeit der universellen Eigenschaften liefert uns, das $\varphi$ und 
 \colimes \mathcal{F} &                                                    & \colimes \mathcal{F} \arrow[ll, "\exists ! id_{\colimes \mathcal{F}} = \phi \circ \varphi ", dashed] &  & \bigotimes_i B_i &                                                  & \bigotimes_i B_i \arrow[ll, "\exists ! id_{\bigotimes_i B_i} = \varphi \circ \phi "', dashed]
 \end{tikzcd}
 \end{center}
-
 \ \\
 Zu \textit{\textbf{2.}}:\
 $$q \circ f = q \circ g \textit{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$$
@@ -264,17 +266,19 @@ q' \circ (f - g) = 0 \Rightarrow Q\textit{ ist Untermodul von }Q' \defeq \kernel
 Verbinde nun den Colimes mit dem Kählerdifferenziel:\\
 Differenzialekokerne bleiben unter der Bildung von Differenzialen erhalten:
 Korrolar 16.7 aus Moduls of Differenzials:
+\comment
+{
 \begin{prop}
 Seien $S_1,S_2$ R-Algebra`s und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzenkokern von $\varphi$,$\varphi '$.
 Dann ist folgende Sequenz rechtsexakt:\\
 \begin{center}
 \begin{tikzcd}
-\tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "F"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "G"] & \divR{T}{R} \arrow[r] & 0
+\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "F"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "G"] & \divR{T}{R} \arrow[r] & 0
 \end{tikzcd}
 \end{center}
 \begin{spacing}{1.5}
-mit: $\function{F}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{d_{S_1}(x_1)}}{\tensor{t}{S_2}{d_{S_2}(\varphi(x_1) - \varphi(x_2))}}$\\
-$\function{G}{\tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{d_{S_2}(x_2)}}{(d_{S_2}\circ q)(x_2)}$
+mit: $\function{F}{\Tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{d_{S_1}(x_1)}}{\tensor{t}{S_2}{d_{S_2}(\varphi(x_1) - \varphi(x_2))}}$\\
+$\function{G}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{d_{S_2}(x_2)}}{(d_{S_2}\circ q)(x_2)}$
 \end{spacing}
 \end{prop}
 Beweis mit PROP 16.3
@@ -285,8 +289,8 @@ Beweis mit PROP 16.3
 Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
 \end{tikzcd}
 \end{center}
-mit: $\function{f'}{Q/Q^2}{{\tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{d_{S_2}(s_2)}}$\\
+mit: $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{d_{S_2}(s_2)}}$\\
 Zeige also noch$immage{f} = Immage{f'}$:
-
 \end{proof}
+}
 \end{document}

@@ -29,7 +29,8 @@
 \newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
 \newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
 \newcommand{\divR}[2]{\Omega_{#1/#2}}
-\newcommand{\tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\tensor}[3]{#1 \otimes #3}
 
 \newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
 \newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
@@ -41,48 +42,28 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
-\begin{prop} \label{R-Algebra-Coprodukt,Differenzenkokern}
-in der Kategorie der R-Algebren existieren Coprodukte und Differenzenkokerne, wobei:
-\begin{itemize}
-\item[\textbf{1.}] Das Coprodukt einer endlichen Familie von $R-Algebren$ $\lbrace B_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} B_i$. 
-\item[\textbf{2.}] Der Differenzenkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{C_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
-\end{itemize}
+\begin{prop}\label{Kählerdifferenzial des Colimes}
+Seien $S_1,S_2$ R-Algebra`s und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzenkokern von $\varphi$,$\varphi '$.
+Dann ist folgende Sequenz rechtsexakt:\\
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "f"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\begin{gather*}
+\textit{mit: } \function{f}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{d_{S_1}(x_1)}}{\tensor{t}{S_2}{d_{S_2}(\varphi(x_1) - \varphi(x_2))}}\\
+\function{g}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{d_{S_2}(x_2)}}{(d_{S_2}\circ q)(x_2)}
+\end{gather*}
+\end{center}
 \end{prop}
-
 \begin{proof}
-Zu \textit{\textbf{1.}}:\\
-Sei $\infunctionfront{\mathcal{F}}{\lbrace B_i \rbrace}{(R-Algebren)}$ der Inklusionsfunktor. Nutze die universellen Eigenschaften des Tensorproduktes und des Kähler-Differenzials um einen Isomorphismus zwischen $\colimes \mathcal{F}$ und $\bigotimes_{i \in \Lambda} B_i$ zu finden.\\ Es sind der Morphismus $\functionfront{\psi}{\mathcal{F}}{\colimes \mathcal{F}}$ und die bilineare Abbildung $\functionfront{g}{\oplus_i B_i}{\otimes_i B_i}$ gegeben.\\
-Konstruiere den Morphismus $\functionfront{\psi'}{\mathcal{F}}{\otimes_i B_i}$ durch $\function{\psi'_i}{B_i}{\otimes_i B_i}{b_i}{g(1,..,1,b_i,1,..,1)}$ für $i \in \lambda$ und die bilineare Abbildung $\function{f}{\oplus_i B_i}{\colimes \mathcal{F}}{b}{\prod_i \psi_i b_i}$.\\
-\ \\
-Somit liefern uns die universellen Eigenschaften folgende zwei R-Algebra-Homomorphismen:
-\begin{gather*}
-\functionfront{\varphi}{\colimes \mathcal{F}}{\bigotimes_i B_i} \\
-\functionfront{\phi}{\bigotimes_i B_i}{\colimes \mathcal{F}}.
-\end{gather*}
+Wende \cref{prop16.3} auf den Differenzenkokern $\functionfront{q}{S_2}{S_2/Q}$ an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
 \begin{center}
 \begin{tikzcd}
-  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            &  &   & \oplus_i B_i \arrow[rd, "g"] \arrow[ld, "f"'] &                                         \\
-\otimes_i B_i &                                           & \colimes \mathcal{F} \arrow[ll, "\exists ! \varphi"', dashed] &  & \colimes \mathcal{F} &                                    & \otimes_i B_i \arrow[ll, "\exists ! \phi"', dashed]
+Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
 \end{tikzcd}
 \end{center}
-Die Eindeutigkeit der universellen Eigenschaften liefert uns, das $\varphi$ und $\phi$ zueinander Inverse sind und somit haben wir unsere gesuchten Isomorphismen zwischen $\colimes \mathcal{F}$ und $\bigotimes_i B_i$ gefunden.
-\begin{center}
-\begin{tikzcd}
-         & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i B_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
-\colimes \mathcal{F} &                                                    & \colimes \mathcal{F} \arrow[ll, "\exists ! id_{\colimes \mathcal{F}} = \phi \circ \varphi ", dashed] &  & \bigotimes_i B_i &                                                  & \bigotimes_i B_i \arrow[ll, "\exists ! id_{\bigotimes_i B_i} = \varphi \circ \phi "', dashed]
-\end{tikzcd}
-\end{center}
-
-\ \\
-Zu \textit{\textbf{2.}}:\
-$$q \circ f = q \circ g \textit{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace$$
-
-Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(C_2,T')$ mit $q' \circ f = q' \circ$ gegeben.
-\begin{gather*}
-q' \circ (f - g) = 0 \Rightarrow Q\textit{ ist Untermodul von }Q' \defeq \kernel{q'}.\\
-\textit{Nach HOMOMORPHIESATZ [kommutative Algebra 2.10] gilt somit } \nolinebreak{C_2/Q' \simeq (C_2/Q)/(Q'/Q))}.\\
-\Rightarrow \function{q'}{C_2}{(C_2/Q)/(Q'/Q))}{y}{[y]'} \textit{ ist eine isomorphe Darstellung von } \functionfront{q'}{C_2}{T'}\\
-\Rightarrow \exists ! \function{\varphi}{C_2/Q}{(C_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
-\end{gather*}
+$mit: \function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{d_{S_2}(s_2)}}$\\
+Somit gilt $\immage{f} = \Tensor{T}{S_2}{d_{S_2}(Q)} = \immage{f'}$.\\
+$\Rightarrow$ die gesuchte Sequenz ist exakt.
 \end{proof}
 \end{document}
