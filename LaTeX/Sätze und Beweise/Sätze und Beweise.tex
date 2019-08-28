@@ -266,31 +266,64 @@ q' \circ (f - g) = 0 \Rightarrow Q\textit{ ist Untermodul von }Q' \defeq \kernel
 Verbinde nun den Colimes mit dem Kählerdifferenziel:\\
 Differenzialekokerne bleiben unter der Bildung von Differenzialen erhalten:
 Korrolar 16.7 aus Moduls of Differenzials:
-\comment
-{
-\begin{prop}
-Seien $S_1,S_2$ R-Algebra`s und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzenkokern von $\varphi$,$\varphi '$.
+\comment{Beide Beweise sind sehr kurz gefasst}
+\begin{prop} \comment{\label{Kählerdifferenzial des Colimes}}
+\ \\
+\begin{itemize}
+\item[\textbf{1.}]
+Sei $T = \otimes_{i \in \Lambda} S_i$ das Coprodukt der R-Algebren $S_i$.\\
+Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )
+\end{gather*}
+\item[\textbf{2.}]
+Seien $S_1,S_2$ R-Algebren und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzenkokern von $\varphi$,$\varphi '$.
 Dann ist folgende Sequenz rechtsexakt:\\
 \begin{center}
 \begin{tikzcd}
-\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "F"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "G"] & \divR{T}{R} \arrow[r] & 0
+\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "f"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
 \end{tikzcd}
+\begin{gather*}
+\textit{mit: } \function{f}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{d_{S_1}(x_1)}}{\tensor{t}{S_2}{d_{S_2}(\varphi(x_1) - \varphi(x_2))}}\\
+\function{g}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{d_{S_2}(x_2)}}{(d_{S_2}\circ q)(x_2)}
+\end{gather*}
 \end{center}
-\begin{spacing}{1.5}
-mit: $\function{F}{\Tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{d_{S_1}(x_1)}}{\tensor{t}{S_2}{d_{S_2}(\varphi(x_1) - \varphi(x_2))}}$\\
-$\function{G}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{d_{S_2}(x_2)}}{(d_{S_2}\circ q)(x_2)}$
-\end{spacing}
+\end{itemize}
 \end{prop}
-Beweis mit PROP 16.3
-\begin{proof}
-[Falls $d$ surjektiv ist:] nach PROP 16.3 ist folgende Sequenz rechtsexakt:
+\begin{proof}\ \\
+Für \textit{\textbf{1.}} Finde durch die Universelle Eigenschaft des Kählerdifferenzials Isomorphismen $ \divR{T}{R} \longleftrightarrow \bigoplus_{i \in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$.\\
+Definiere das Differenzial $\function{e}{T}{\sum_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{(\tensor{s_i}{R}{...})}{(\tensor{1}{S_i}{d_{S_1},...)}}$ und erhalte dadurch
+\begin{center}
+\begin{tikzcd}
+T \arrow[rd, "e"'] \arrow[r, "d_T"] & \divR{T}{R} \arrow[d, "\exists ! \varphi", dashed] \\
+                                    & \sum_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
+\end{tikzcd}
+$\functionfront{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}$.
+\end{center}
+Definiere nun das Differenzial $k: S_i \hookrightarrow T \longrightarrow \divR{T}{R}$ und erhalte dadurch
+\begin{center}
+\begin{tikzcd}
+S_i \arrow[rd, "k"'] \arrow[r, "d_{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, "a"] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
+                                          & \divR{T}{R}                                                    &                     
+\end{tikzcd}
+$\functionfront{\phi_i}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}{\divR{T}{R}}$\\
+\begin{gather*}
+\function{\phi}{\sum_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(\tensor{t_1}{S_1}{d_{S_i}s_1},...)}{\prod_{i\in \Lambda} t_i \cdot \phi_i(d_{S_i}(s_i))}. 
+\end{gather*}
+\end{center}
+Damit haben wir zwei zueinander inverse Funktionen $\varphi ,\phi$ gefunden.\\
+$\Rightarrow \divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$\\
+\ \\
+Für \textit{\textbf{2.}} Wende \cref{prop16.3} auf den Differenzenkokern $\functionfront{q}{S_2}{S_2/Q}$ an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
 \begin{center}
 \begin{tikzcd}
 Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
 \end{tikzcd}
 \end{center}
-mit: $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{d_{S_2}(s_2)}}$\\
-Zeige also noch$immage{f} = Immage{f'}$:
+mit $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{d_{S_2}(s_2)}}$.\\
+Somit gilt $\immage{f} = \Tensor{T}{S_2}{d_{S_2}(Q)} = \immage{f'}$.\\
+$\Rightarrow$ die gesuchte Sequenz ist exakt.
 \end{proof}
-}
+
+
 \end{document}

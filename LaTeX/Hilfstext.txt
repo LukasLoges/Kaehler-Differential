@@ -1,4 +1,4 @@
 \begin{tikzcd}
-         & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i B_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
-\colimes \mathcal{F} &                                                    & \colimes \mathcal{F} \arrow[ll, "\existes ! id_{\colimes \mathcal{F}} = \phi \circ \varphi", dashed] &  & \bigotimes_i B_i &                                                  & \bigotimes_i B_i \arrow[ll, "\exists ! id_{Tensoru} = \varphi \circ \phi"', dashed]
+S_i \arrow[rd, "k"'] \arrow[r, "d_{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, "a"] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
+                                          & \divR{T}{R}                                                    &                     
 \end{tikzcd}
