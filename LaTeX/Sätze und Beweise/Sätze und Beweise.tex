@@ -31,6 +31,8 @@
 \newcommand{\divR}[2]{\Omega_{#1/#2}}
 \newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
 \newcommand{\tensor}[3]{#1 \otimes #3}
+\newcommand{\lok}[2]{#1 [#2^{-1}]}
+\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}
 
 \newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
 \newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
@@ -326,5 +328,61 @@ $\Rightarrow$ die gesuchte Sequenz ist exakt.
 \end{proof}
 
 \chapter{Aufgaben}
-
+Exersize A6.7
+\begin{lemma}\comment{\label{Lokalisierung als Colimes}}
+Seit $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
+Dann gilt:
+\begin{gather*}
+ S[U^{-1}] = \colimes (\infunctionfront{\mathcal{F}}{\mathcal{B}}{(R-Algebren)})
+\end{gather*}
+Wobei $\mathcal{B}$ aus den Objekten $\lbrace \lok{S}{t} \vert t \in U \rbrace$ und den Morphismen\\
+$\lok{S}{t} \longrightarrow \lok{S}{tt'}, \loke{s}{t^n}{t} \longmapsto \loke{st'^n}{t^nt'^n}{(tt')} \,
+\forall t,t' \in U$ besteht.\\
+\end{lemma}
+\begin{proof}
+Sei $\functionfront{\psi}{\mathcal{F}}{A}$ der Colimes von $\mathcal{F}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu:
+\begin{gather*}
+\functionfront{\psi'}{\mathcal{F}}{\lok{S}{U}}\\
+\function{\psi'_{\lok{S}{t}}}{\lok{S}{t}}{\lok{S}{t}}{\loke{s}{t^n}{t}}{\loke{s}{t^n}{U}}
+\end{gather*}
+$\psi'$ ist ein Morphismus, da für beliebige $t,t' \in U$ und $s \in S$ gilt:
+$$\loke{s}{t^n}{U} = \loke{st'^n}{t^nt'^n}{U}$$
+Durch die Universelle Eigenschaft des Colimes, erhalten wir den Homomorphismus $\functionfront{\varphi}{A}{\lok{S}{U}}$.
+\begin{center}
+\begin{tikzcd}
+            & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+{S[U^{-1}]} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\functionfront{\phi}{S[U^{-1}]}{A}$ benötigen wir kleinere Vorüberlegungen.\\
+Zunächst können wir jedes Element $(s,u)_{mod\sim_{U}} \in \lok{S}{U}$ als $\psi_{\lok{S}{t}}(\loke{s}{t}{t})$ schreiben.\\
+\comment{\label{wobei u = t}}
+Weiter gilt für alle $s_1,s_2 \in S , \, t_1,t_2 \in U$: 
+\begin{align*}
+\psi'_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi'_{\lok{S}{t}}(\loke{s_2}{t_2}{t})\\
+\Rightarrow  \exists u \in U: (s_1t_1 - s_2t_2) \cdot u = 0\\
+\Rightarrow  \loke{s_1u}{t_1u}{tu} = \loke{s_2u}{t_2u}{tu}\\
+\Rightarrow  \psi_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi_{\lok{S}{t}}(\loke{s_2}{t_2}{t})
+\end{align*}
+Mit diesem Wissen können wir den R-Algebra-Homomorphismus $\functionfront{\phi}{\lok{S}{U}}{A}$ definieren:
+\begin{gather*}
+\function{\phi}{\lok{S}{U}}{A}{\psi'_{\lok{S}{t}}(\loke{s}{t}{t})}{\psi_{\lok{S}{t}}(\loke{s}{t}{t})}
+\end{gather*}
+$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Colimes:
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                              \\
+A &                                                    & A \arrow[ll, "\exists ! id_A = \phi \circ \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\varphi \circ \phi = id_{\lok{S}{U}}$ wähle beliebige $s \in S , t \in U$, für diese gilt:
+\begin{gather*}
+(\varphi \circ \phi)(\psi(\loke{s}{t}{t})) =
+ \varphi (\psi'(\loke{s}{t}{t}) =
+  \psi(\loke{s}{t}{t})
+\end{gather*}
+Damit haben wir gezeigt, dass $\varphi,\phi$ Isomorphismen sind und somit $A \simeq \lok{S}{U}$ gilt.\\
+Da der Colimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}$ als den eindeutigen Colimes von
+ $\functionfront{\mathcal{F}}{\mathcal{B}}{(R-Algebren)}$.
+ \end{proof}
 \end{document}
