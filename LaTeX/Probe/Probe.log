@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  2 SEP 2019 15:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  2 SEP 2019 15:13
 entering extended mode
 **./Probe.tex
 (Probe.tex
@@ -615,22 +615,13 @@ Overfull \hbox (78.08551pt too wide) in paragraph at lines 90--92
 
 [2
 
-]
-
-LaTeX Warning: Reference `DifferenzkokernUndKoproduktDef' on page 1 undefined o
-n input line 152.
-
-[3]
+] [3]
 
 LaTeX Warning: Reference `DifferenzkokernUndCoproduktDef' on page 1 undefined o
 n input line 167.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 169.
-
-LaTeX Warning: Reference `NeuDifferenzenkokerndef' on page 1 undefined on input
- line 189.
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 189--192
 
@@ -658,10 +649,6 @@ Overfull \hbox (49.22292pt too wide) in paragraph at lines 201--207
 -de zwei R-Algebra-Homomorphismen: 
  []
 
-
-LaTeX Warning: Reference `NeuDifferenzenkokerndef' on page 1 undefined on input
- line 226.
-
 [5]
 Overfull \hbox (20.97945pt too wide) in paragraph at lines 243--244
 []\OT1/cmr/m/n/10 Um im wei-te-ren auch Ko-pro-duk-te bzw. Dif-fe-ren-zen-ko-ke
@@ -680,10 +667,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 254--255
  []
 
 
-LaTeX Warning: Reference `R-Algebra-Kolimiten' on page 1 undefined on input lin
-e 265.
-
-
 Overfull \hbox (67.92253pt too wide) in paragraph at lines 261--266
 \OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
 i-stiert ge-nau ein $[]$
@@ -693,10 +676,6 @@ i-stiert ge-nau ein $[]$
 Underfull \hbox (badness 10000) in paragraph at lines 261--266
 
  []
-
-
-LaTeX Warning: Reference `R-Modul-Kolimiten' on page 1 undefined on input line 
-268.
 
 [6]
 Kapitel 3.
@@ -725,18 +704,15 @@ Overfull \hbox (8.7656pt too wide) in paragraph at lines 306--308
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 16671 strings out of 492895
- 343857 string characters out of 3133483
+ 16663 strings out of 492895
+ 343669 string characters out of 3133483
  401309 words of memory out of 3000000
- 20283 multiletter control sequences out of 15000+200000
+ 20275 multiletter control sequences out of 15000+200000
  8264 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,18n,84p,540b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,18n,84p,541b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
@@ -752,7 +728,7 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX
 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti7.pfb>
-Output written on Probe.pdf (8 pages, 223305 bytes).
+Output written on Probe.pdf (8 pages, 223292 bytes).
 PDF statistics:
  96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
