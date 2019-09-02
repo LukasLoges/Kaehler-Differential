@@ -44,5 +44,19 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
-
+Zu \textit{\textbf{2.}}:\\
+Zeige, dass $\functionfront{q}{S_2}{S_2/Q}$ die in \cref{NeuDifferenzenkokerndef} eingeführten Eigenschaften des Differenzkokern`s  besitzt.
+\begin{gather*}
+q \circ f = q \circ g \text{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace.
+\end{gather*}
+Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(S_2,T')$ mit $q' \circ f = q' \circ$ gegeben.\\
+Somit gilt $q' \circ (f - g) = 0$, wodurch $Q$ ein Untermodul von $Q' \defeq \kernel{q'}$ ist.\\ Mit dem Isomorphiesatz \comment{HOMOMORPHIESATZ [kommutative Algebra 2.10]} für R-Algebren erhalten wir:
+\begin{gather*}
+ \nolinebreak{S_2/Q' \simeq (S_2/Q)/(Q'/Q))}.\\
+\end{gather*}
+Somit ist $\function{q'}{S_2}{(S_2/Q)/(Q'/Q))}{y}{[y]'}$ eine isomorphe Darstellung von $\functionfront{q'}{S_2}{T'}$\\
+\begin{gather*}
+\Rightarrow \exists ! \function{\varphi}{S_2/Q}{(S_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
+\end{gather*}
+Also ist $\functionfront{q}{S_2}{S_2/Q}$ der bis auf Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.
 \end{document}

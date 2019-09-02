@@ -186,18 +186,8 @@ Definiere $d' \defeq \psi '$, somit existiert durch die Eigenschaft von $d$ gena
 \end{itemize}
 \end{itemize}
 \end{proof}
-Wenn im weiteren Verlauf von dem Differenzkokern zweier Homomorphismen $\functionfront{f,g}{C_1}{C_2}$ gesprochen wird, meinen wir damit den Homomorphismus $\functionfront{q}{C_2}{T}$ aus \cref{NeuDifferenzenkokerndef}.
-
-
-\begin{bem}
-Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\Tensor{T}{C_1}{M}$ definieren. 
-\begin{gather*}
-\textit{für } s_1 \in S_1 \textit{ und } \tensor{t}{S_1}{m}) \in \Tensor{T}{C_1}{M} \textit{ gilt: }\\
-s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \tensor{((q \circ g)) \cdot (s_1)t}{S_1}{m}
-\end{gather*}
-\end{bem}
-
-
+Wenn im weiteren Verlauf von dem Differenzkokern zweier Homomorphismen $\functionfront{f,g}{C_1}{C_2}$ gesprochen wird, meinen wir damit den Homomorphismus $\functionfront{q}{C_2}{T}$ aus \cref{NeuDifferenzenkokerndef}.\\
+\ \\
 Da wir es hauptsächlich mit R-Algebren zu tun haben, wollen wir natürlich auch wissen, wie sich Koprodukte und Differenzkokerne von R-Algebren verhalten. Daher betrachten wir in der folgenden Proposition genauer welche Form diese haben.
 \begin{prop} \label{R-Algebra-Kolimiten}
 in der Kategorie der R-Algebren existieren Koprodukte und Differenzkokerne, wobei:
@@ -275,70 +265,7 @@ $\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\
 \textit{\textbf{2.}} ist Analog zu \cref{R-Algebra-Kolimiten}
 \end{itemize}
 \end{proof}
-Die in \cref{R-Modul-Kolimiten} gezeigten Darstellungen gelten mit kurzen Überlegungen auch für S-Module, wobei S eine R-Algebra ist.\\
-\ \\
-
-Wie schon angekündigt, bringen wir nun dieses Kapitel zu einem Ende, indem wir die gerade kennen gelernte Theorie mit dem Kähler-Differenzial in Verbindung setzen.\\
-Folgende Proposition zeigt uns, dass Differenzkokerne und Koprodukte unter der Bildung des Kähler-Differenzial`s erhalten bleiben.\\
-\textit{vlg.Korrolar 16.7 aus \ModulsOfDifferenzials.}
-\comment{Beide Beweise sind sehr kurz gefasst}
-\begin{prop} \comment{\label{Kählerdifferenzial des Kolimes}}
-\ \\
-\begin{itemize}
-\item[\textbf{1.}]
-Sei $T = \otimes_{i \in \Lambda} S_i$ das Koprodukt der R-Algebren $S_i$.\\
-Dann gilt:
-\begin{gather*}
-\divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )
-\end{gather*}
-\item[\textbf{2.}]
-Seien $S_1,S_2$ R-Algebren und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzkokern von $\varphi$,$\varphi '$.
-Dann ist folgende Sequenz rechtsexakt:
-\begin{center}
-\begin{tikzcd}
-\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "f"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
-\end{tikzcd}
-\begin{gather*}
-\textit{mit: } \function{f}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{d_{S_1}(x_1)}}{\tensor{t}{S_2}{d_{S_2}(\varphi(x_1) - \varphi(x_2))}}\\
-\function{g}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{d_{S_2}(x_2)}}{(d_{S_2}\circ q)(x_2)}
-\end{gather*}
-\end{center}
-\end{itemize}
-\end{prop}
-\begin{proof}\ \\
-Für \textit{\textbf{1.}} finde durch die Universelle Eigenschaft des Kähler-Differenzials Isomorphismen $ \divR{T}{R} \longleftrightarrow \bigoplus_{i \in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$.\\
-Definiere das Differenzial $\function{e}{T}{\sum_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{(\tensor{s_i}{R}{...})}{(\tensor{1}{S_i}{d_{S_1},...)}}$ und erhalte dadurch
-\begin{center}
-\begin{tikzcd}
-T \arrow[rd, "e"'] \arrow[r, "d_T"] & \divR{T}{R} \arrow[d, "\exists ! \varphi", dashed] \\
-                                    & \sum_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
-\end{tikzcd}
-$\functionfront{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}$.
-\end{center}
-Definiere nun das Differenzial $k: S_i \hookrightarrow T \longrightarrow \divR{T}{R}$ und erhalte dadurch
-\begin{center}
-\begin{tikzcd}
-S_i \arrow[rd, "k"'] \arrow[r, "d_{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, "a"] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
-                                          & \divR{T}{R}                                                    &                     
-\end{tikzcd}
-$\functionfront{\phi_i}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}{\divR{T}{R}}$\\
-\begin{gather*}
-\function{\phi}{\sum_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(\tensor{t_1}{S_1}{d_{S_i}s_1},...)}{\prod_{i\in \Lambda} t_i \cdot \phi_i(d_{S_i}(s_i))}. 
-\end{gather*}
-\end{center}
-Damit haben wir zwei zueinander inverse Funktionen $\varphi ,\phi$ gefunden.\\
-$\Rightarrow \divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$\\
-\ \\
-Für \textit{\textbf{2.}} Wende \cref{prop16.3} auf den Differenzkokern $\functionfront{q}{S_2}{S_2/Q}$ \textit{(vlg. \cref{R-Algebra-Kolimiten})} an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
-\begin{center}
-\begin{tikzcd}
-Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
-\end{tikzcd}
-\end{center}
-mit $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{d_{S_2}(s_2)}}$.\\
-Somit gilt $\immage{f} = \Tensor{T}{S_2}{d_{S_2}(Q)} = \immage{f'}$.\\
-$\Rightarrow$ die gesuchte Sequenz ist exakt.
-\end{proof}
+Die in \cref{R-Modul-Kolimiten} gezeigten Darstellungen gelten mit kurzen Überlegungen auch für S-Module, wobei S eine R-Algebra ist.
 
 \chapter{Aufgaben}
 \textit{Aufgabe A6.7 aus \ModulsOfDifferenzials.}
