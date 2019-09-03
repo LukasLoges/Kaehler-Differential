@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  2 SEP 2019 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  3 SEP 2019 11:09
 entering extended mode
 **"./Sätze und Beweise.tex"
 ("Sätze und Beweise.tex"
@@ -579,171 +579,153 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (84.73883pt too wide) detected at line 80
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 
-[] \OT1/cmr/m/n/10 
-[])\OML/cmm/m/it/10 =Im\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ) = (
-\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 
-[] \OT1/cmr/m/n/10 
-[])\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 
-[] \OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )) = 
-\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 
-[] \OT1/cmr/m/n/10 (
-[]\OML/cmm/m/it/10 =d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )) \O
-MS/cmsy/m/n/10 ' \OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 
-[] \OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 S=I\OT1/cmr/m/n/10 ) \
-OMS/cmsy/m/n/10 ' \OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 
-[] \OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 )
- []
-
-[1
+) [1
 
 
-{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 Kapitel 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 89.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
 
-Overfull \hbox (78.08551pt too wide) in paragraph at lines 90--92
+Overfull \hbox (78.08551pt too wide) in paragraph at lines 97--99
 []\OT1/cmr/m/it/10 Ein $[]$ $[]$ ist ei-ne Men-ge von Funk-tio-nen $[]$,
  []
 
-[2
+[3
 
-] [3]
+] [4]
 
 LaTeX Warning: Reference `DifferenzkokernUndCoproduktDef' on page 1 undefined o
-n input line 167.
+n input line 174.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 169.
-[4]
-Overfull \hbox (25.93779pt too wide) in paragraph at lines 211--217
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 176.
+[5]
+Overfull \hbox (25.93779pt too wide) in paragraph at lines 218--224
 \OT1/cmr/m/n/10 Es sind der Mor-phis-mus $[]$ und die bi-li-nea-re Ab-bil-dung 
 $[]$
  []
 
 
-Overfull \hbox (64.2643pt too wide) in paragraph at lines 211--217
+Overfull \hbox (64.2643pt too wide) in paragraph at lines 218--224
 \OT1/cmr/m/n/10 Konstruiere den Mor-phis-mus $[]$ durch $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--217
+Underfull \hbox (badness 10000) in paragraph at lines 218--224
 
  []
 
 
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 211--217
+Overfull \hbox (49.22292pt too wide) in paragraph at lines 218--224
 \OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
 -de zwei R-Algebra-Homomorphismen: 
  []
 
-[5]
-Overfull \hbox (20.97945pt too wide) in paragraph at lines 253--254
+[6]
+Overfull \hbox (20.97945pt too wide) in paragraph at lines 260--261
 []\OT1/cmr/m/n/10 Um im wei-te-ren auch Ko-pro-duk-te bzw. Dif-fe-ren-zen-ko-ke
 r-ne des K[]ahlerdifferenzials
  []
 
 
-Overfull \hbox (7.80167pt too wide) in paragraph at lines 258--259
+Overfull \hbox (7.80167pt too wide) in paragraph at lines 265--266
 []\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
 nt-spricht
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
 
 
-Overfull \hbox (67.92253pt too wide) in paragraph at lines 271--276
+Overfull \hbox (67.92253pt too wide) in paragraph at lines 278--283
 \OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
 i-stiert ge-nau ein $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--276
+Underfull \hbox (badness 10000) in paragraph at lines 278--283
 
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 278--280
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--280
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
-
- []
-
-
-Overfull \hbox (6.95387pt too wide) in paragraph at lines 295--297
-[]\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S[]; S[]$ \OT1/cmr/m/it/10 R-Algebre
-n und $[]$ R-Algebra-Homomorphismen.
- []
-
-
-Overfull \hbox (15.95953pt too wide) detected at line 304
-[]
- []
-
-
-Overfull \hbox (4.93825pt too wide) in paragraph at lines 308--311
-\OT1/cmr/m/n/10 Definiere das Dif-fe-ren-zi-al $[]$
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 329--333
-
- []
-
-[8]
-Kapitel 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 350--354
+Underfull \hbox (badness 10000) in paragraph at lines 285--289
 
  []
 
 
-Overfull \hbox (1.02167pt too wide) in paragraph at lines 370--374
+Underfull \hbox (badness 10000) in paragraph at lines 294--298
+
+ []
+
+
+Overfull \hbox (1.02167pt too wide) in paragraph at lines 314--318
 \OT1/cmr/m/n/10 Zun[]achst k[]onnen wir je-des Ele-ment $(\OML/cmm/m/it/10 s; u
 \OT1/cmr/m/n/10 )[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 S\OT1/cmr/m/n/10 [\OML/
 cmm/m/it/10 U[]\OT1/cmr/m/n/10 ]$ als $\OML/cmm/m/it/10  []\OT1/cmr/m/n/10 ((\O
 ML/cmm/m/it/10 s; t\OT1/cmr/m/n/10 )[])$
  []
 
-[9
-
-]
-Overfull \hbox (8.7656pt too wide) in paragraph at lines 379--381
+[8]
+Overfull \hbox (8.7656pt too wide) in paragraph at lines 323--325
 \OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
 []$
  []
 
-[10] ("Sätze und Beweise.aux")
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
+
+ []
+
+
+Overfull \hbox (6.95387pt too wide) in paragraph at lines 361--363
+[]\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S[]; S[]$ \OT1/cmr/m/it/10 R-Algebre
+n und $[]$ R-Algebra-Homomorphismen.
+ []
+
+[9]
+Overfull \hbox (15.95953pt too wide) detected at line 370
+[]
+ []
+
+
+Overfull \hbox (4.93825pt too wide) in paragraph at lines 374--377
+\OT1/cmr/m/n/10 Definiere das Dif-fe-ren-zi-al $[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--399
+
+ []
+
+[10]
+Kapitel 3.
+[11
+
+] ("Sätze und Beweise.aux")
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16830 strings out of 492895
- 348112 string characters out of 3133483
+ 16832 strings out of 492895
+ 348171 string characters out of 3133483
  401309 words of memory out of 3000000
- 20442 multiletter control sequences out of 15000+200000
+ 20444 multiletter control sequences out of 15000+200000
  8264 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,18n,84p,555b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,18n,84p,556b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
@@ -758,10 +740,11 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti7.pfb>
-Output written on "Sätze und Beweise.pdf" (10 pages, 233800 bytes).
+ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb>
+Output written on "Sätze und Beweise.pdf" (11 pages, 238362 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -76,8 +76,15 @@ S \arrow[r, " \pi "] \arrow[u, " d_S "] & T \arrow[u, " d_T "]
 \end{tikzcd}
 \end{center}
 Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $d_S$ und $d_T$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\Tensor{1}{S}{D\pi}$ surjektiv.\\
-\underline{$\immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus folgender Isomorphie: $(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R} = \immage{f}$.
-$$(\Tensor{T}{S}{\divR{S}{R}})/Im(f) = (\Tensor{T}{S}{\divR{S}{R}})/(\Tensor{T}{S}{d_S(I)}) = \Tensor{T}{S}{(\divR{S}{R}/d_S(I))} \simeq \Tensor{T}{S}{d_S(S/I)} \simeq \Tensor{T}{S}{d_T(T)}$$
+\underline{$\immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus  der Isomorphie $(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R}$:
+\begin{align*}
+(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \\
+= (\Tensor{T}{S}{\divR{S}{R}})/(\Tensor{T}{S}{d_S(I)}) \\
+= \Tensor{T}{S}{(\divR{S}{R}/d_S(I))} \\ 
+= \Tensor{T}{S}{(d_S(S)/d_S(I))} \\
+\simeq \Tensor{T}{S}{d_S(S/I)} \\
+\simeq \Tensor{T}{S}{d_T(T)} \\
+\end{align*}
 \end{proof}
 
 \chapter{Kolimes}
@@ -277,6 +284,65 @@ $\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\
 \end{proof}
 Die in \cref{R-Modul-Kolimiten} gezeigten Darstellungen gelten mit kurzen Überlegungen auch für S-Module, wobei S eine R-Algebra ist.\\
 \ \\
+Eine Anwendung des Kolimes ist die Lokalisation. Hier können wir den Kolimes nutzen, um die multiplikativ abgeschlossene Menge $U \subseteq S$ ohne Einschränkung auf den Fall $U = \lbrace t^n \vert n \in \mathbb{N}_0 \rbrace$ für ein $t \in S$ herunter zu brechen. Betrachte dazu die folgenden zwei Aussagen.\\
+\textit{Aufgabe A6.7 aus \ModulsOfDifferenzials.}
+\begin{lemma}\label{Lokalisierung als Kolimes}
+Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
+Dann gilt:
+\begin{gather*}
+ S[U^{-1}] = \colimes \mathcal{B}
+\end{gather*}
+Wobei $\mathcal{B}$ aus den Objekten $\lbrace \lok{S}{t} \vert t \in U \rbrace$ und den Morphismen\\
+$\lok{S}{t} \longrightarrow \lok{S}{tt'}, \loke{s}{t^n}{t} \longmapsto \loke{st'^n}{t^nt'^n}{(tt')} \,
+\forall t,t' \in U$ besteht.\\
+\end{lemma}
+\begin{proof}
+Sei $\functionfront{\psi}{\mathcal{B}}{A}$ der Kolimes von $\mathcal{B}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu:
+\begin{gather*}
+\functionfront{\psi'}{\mathcal{B}}{\lok{S}{U}}\\
+\function{\psi'_{\lok{S}{t}}}{\lok{S}{t}}{\lok{S}{t}}{\loke{s}{t^n}{t}}{\loke{s}{t^n}{U}}
+\end{gather*}
+$\psi'$ ist ein Morphismus, da für beliebige $t,t' \in U$ und $s \in S$ gilt:
+$$\loke{s}{t^n}{U} = \loke{st'^n}{t^nt'^n}{U}$$
+Durch die Universelle Eigenschaft des Kolimes, erhalten wir den Homomorphismus $\functionfront{\varphi}{A}{\lok{S}{U}}$.
+\begin{center}
+\begin{tikzcd}
+            & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+{S[U^{-1}]} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\functionfront{\phi}{S[U^{-1}]}{A}$ benötigen wir kleinere Vorüberlegungen.\\
+Zunächst können wir jedes Element $(s,u)_{mod\sim_{U}} \in \lok{S}{U}$ als $\psi_{\lok{S}{t}}(\loke{s}{t}{t})$ schreiben.\\
+\comment{\label{wobei u = t}}
+Weiter gilt für alle $s_1,s_2 \in S , \, t_1,t_2 \in U$: 
+\begin{align*}
+\psi'_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi'_{\lok{S}{t}}(\loke{s_2}{t_2}{t})\\
+\Rightarrow  \exists u \in U: (s_1t_1 - s_2t_2) \cdot u = 0\\
+\Rightarrow  \loke{s_1u}{t_1u}{tu} = \loke{s_2u}{t_2u}{tu}\\
+\Rightarrow  \psi_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi_{\lok{S}{t}}(\loke{s_2}{t_2}{t})
+\end{align*}
+Mit diesem Wissen können wir den R-Algebra-Homomorphismus $\functionfront{\phi}{\lok{S}{U}}{A}$ definieren:
+\begin{gather*}
+\function{\phi}{\lok{S}{U}}{A}{\psi'_{\lok{S}{t}}(\loke{s}{t}{t})}{\psi_{\lok{S}{t}}(\loke{s}{t}{t})}
+\end{gather*}
+$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Kolimes:
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                              \\
+A &                                                    & A \arrow[ll, "\exists ! id_A = \phi \circ \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\varphi \circ \phi = id_{\lok{S}{U}}$ wähle beliebige $s \in S , t \in U$, für diese gilt:
+\begin{gather*}
+(\varphi \circ \phi)(\psi(\loke{s}{t}{t})) =
+ \varphi (\psi'(\loke{s}{t}{t}) =
+  \psi(\loke{s}{t}{t})
+\end{gather*}
+Damit haben wir gezeigt, dass $\varphi,\phi$ Isomorphismen sind und somit $A \simeq \lok{S}{U}$ gilt.\\
+Da der Kolimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}$ als den eindeutigen Kolimes von $\mathcal{B}$.
+ \end{proof}
+\ \\
+
 
 Wie schon angekündigt, bringen wir nun dieses Kapitel zu einem Ende, indem wir die gerade kennen gelernte Theorie mit dem Kähler-Differenzial in Verbindung setzen.\\
 Folgende Proposition zeigt uns, dass Differenzkokerne und Koprodukte unter der Bildung des Kähler-Differenzial`s erhalten bleiben.\\
@@ -341,60 +407,7 @@ $\Rightarrow$ die gesuchte Sequenz ist exakt.
 \end{proof}
 
 \chapter{Aufgaben}
-\textit{Aufgabe A6.7 aus \ModulsOfDifferenzials.}
-\begin{lemma}\comment{\label{Lokalisierung als Kolimes}}
-Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
-Dann gilt:
-\begin{gather*}
- S[U^{-1}] = \colimes \mathcal{B}
-\end{gather*}
-Wobei $\mathcal{B}$ aus den Objekten $\lbrace \lok{S}{t} \vert t \in U \rbrace$ und den Morphismen\\
-$\lok{S}{t} \longrightarrow \lok{S}{tt'}, \loke{s}{t^n}{t} \longmapsto \loke{st'^n}{t^nt'^n}{(tt')} \,
-\forall t,t' \in U$ besteht.\\
-\end{lemma}
-\begin{proof}
-Sei $\functionfront{\psi}{\mathcal{B}}{A}$ der Kolimes von $\mathcal{B}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu:
-\begin{gather*}
-\functionfront{\psi'}{\mathcal{B}}{\lok{S}{U}}\\
-\function{\psi'_{\lok{S}{t}}}{\lok{S}{t}}{\lok{S}{t}}{\loke{s}{t^n}{t}}{\loke{s}{t^n}{U}}
-\end{gather*}
-$\psi'$ ist ein Morphismus, da für beliebige $t,t' \in U$ und $s \in S$ gilt:
-$$\loke{s}{t^n}{U} = \loke{st'^n}{t^nt'^n}{U}$$
-Durch die Universelle Eigenschaft des Kolimes, erhalten wir den Homomorphismus $\functionfront{\varphi}{A}{\lok{S}{U}}$.
-\begin{center}
-\begin{tikzcd}
-            & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
-{S[U^{-1}]} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
-\end{tikzcd}
-\end{center}
-Für $\functionfront{\phi}{S[U^{-1}]}{A}$ benötigen wir kleinere Vorüberlegungen.\\
-Zunächst können wir jedes Element $(s,u)_{mod\sim_{U}} \in \lok{S}{U}$ als $\psi_{\lok{S}{t}}(\loke{s}{t}{t})$ schreiben.\\
-\comment{\label{wobei u = t}}
-Weiter gilt für alle $s_1,s_2 \in S , \, t_1,t_2 \in U$: 
-\begin{align*}
-\psi'_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi'_{\lok{S}{t}}(\loke{s_2}{t_2}{t})\\
-\Rightarrow  \exists u \in U: (s_1t_1 - s_2t_2) \cdot u = 0\\
-\Rightarrow  \loke{s_1u}{t_1u}{tu} = \loke{s_2u}{t_2u}{tu}\\
-\Rightarrow  \psi_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi_{\lok{S}{t}}(\loke{s_2}{t_2}{t})
-\end{align*}
-Mit diesem Wissen können wir den R-Algebra-Homomorphismus $\functionfront{\phi}{\lok{S}{U}}{A}$ definieren:
-\begin{gather*}
-\function{\phi}{\lok{S}{U}}{A}{\psi'_{\lok{S}{t}}(\loke{s}{t}{t})}{\psi_{\lok{S}{t}}(\loke{s}{t}{t})}
-\end{gather*}
-$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Kolimes:
-\begin{center}
-\begin{tikzcd}
-  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                              \\
-A &                                                    & A \arrow[ll, "\exists ! id_A = \phi \circ \varphi"', dashed]
-\end{tikzcd}
-\end{center}
-Für $\varphi \circ \phi = id_{\lok{S}{U}}$ wähle beliebige $s \in S , t \in U$, für diese gilt:
-\begin{gather*}
-(\varphi \circ \phi)(\psi(\loke{s}{t}{t})) =
- \varphi (\psi'(\loke{s}{t}{t}) =
-  \psi(\loke{s}{t}{t})
-\end{gather*}
-Damit haben wir gezeigt, dass $\varphi,\phi$ Isomorphismen sind und somit $A \simeq \lok{S}{U}$ gilt.\\
-Da der Kolimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}$ als den eindeutigen Kolimes von $\mathcal{B}$.
- \end{proof}
+\begin{itemize}
+\item Aufgabe A6.7 aus \ModulsOfDifferenzials ist \cref{Lokalisierung als Kolimes}.
+\end{itemize}
 \end{document}
