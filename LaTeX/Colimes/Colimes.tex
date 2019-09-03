@@ -44,19 +44,41 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
-Zu \textit{\textbf{2.}}:\\
-Zeige, dass $\functionfront{q}{S_2}{S_2/Q}$ die in \cref{NeuDifferenzenkokerndef} eingeführten Eigenschaften des Differenzkokern`s  besitzt.
+\begin{korrolar}\comment{\label{Lokalisierung von Moduln als Kolimes}}
+Sei M ein S-Modul, wobei eine R-Algebra ist. Sei weiter $U \subseteq S$ multiplikativ abgeschlossen. Dann gilt:
 \begin{gather*}
-q \circ f = q \circ g \text{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace.
+\lok{M}{U} = \colimes \mathcal{C}
 \end{gather*}
-Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(S_2,T')$ mit $q' \circ f = q' \circ$ gegeben.\\
-Somit gilt $q' \circ (f - g) = 0$, wodurch $Q$ ein Untermodul von $Q' \defeq \kernel{q'}$ ist.\\ Mit dem Isomorphiesatz \comment{HOMOMORPHIESATZ [kommutative Algebra 2.10]} für R-Algebren erhalten wir:
+Wobei $\mathcal{C}$ aus den Objekten $\lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \vert t \in U \rbrace$ und folgenden Morphismen besteht:
 \begin{gather*}
- \nolinebreak{S_2/Q' \simeq (S_2/Q)/(Q'/Q))}.\\
+\tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \longrightarrow
+\tensor{\lok{S}{U}}{\lok{S}{(tt')}}{\lok{M}{(tt')}} ,\\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} \longmapsto
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{t'^nm}{t^nt'^n}{t}} 
 \end{gather*}
-Somit ist $\function{q'}{S_2}{(S_2/Q)/(Q'/Q))}{y}{[y]'}$ eine isomorphe Darstellung von $\functionfront{q'}{S_2}{T'}$\\
+\end{korrolar}
+\begin{proof}
+Schließe zunächst den trivialen Fall $0 \in U$ aus.\\
+Sei $\functionfront{\phi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu:
+
 \begin{gather*}
-\Rightarrow \exists ! \function{\varphi}{S_2/Q}{(S_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
+\functionfront{\psi}{\mathcal{C}}{\lok{M}{U}} \\
+\comment{
+\function{\psi_{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}} \\
+}
+\function{\psi_{t}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}}
 \end{gather*}
-Also ist $\functionfront{q}{S_2}{S_2/Q}$ der bis auf Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.
+\begin{itemize}
+\item \underline{$\phi$ ist wohldefiniert:} Seien dazu $s,s' \in S ; \, t,u,u' \in U ; \, n,n' \in \mathbb{N}$ und $m,m' \in M$ beliebig, somit gilt:
+\begin{gather*}
+\textit{Sei }\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} = \tensor{\loke{s'}{u'}{U}}{\lok{S}{t}}{\loke{m'}{t^{n'}}{t}} \\
+\Rightarrow \tensor{\loke{s}{ut^n}{U}}{\lok{S}{t}}{m} = \tensor{\loke{s}{ut^n}{U}}{\lok{S}{t}}{m} \\
+\textit{da M ein S-Modul ist und für beliebige $v,v' \in S$ gilt } (\loke{v}{1}{t} = \loke{v'}{1}{t} \Rightarrow v = v') { ,folgt:}\\
+\exists k,k' \in S \textit{ mit } km = k'm' \textit{ und } \loke{s}{ut^nk}{U} = \loke{s'}{u't^{n'}k'}{U} \\
+\Rightarrow \loke{sm}{ut^n}{U} = \loke{skm}{ut^nk}{U} = \loke{s'k'm'}{u't^{n'}k'}{U} =\loke{s'm'}{u't^{n'}}{U} 
+\end{gather*}
+\item \underline{$\phi$ ist ein Morphismus:}
+\end{itemize}
+
+\end{proof}
 \end{document}
