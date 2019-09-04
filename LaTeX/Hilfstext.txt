@@ -1,4 +1,4 @@
 \begin{tikzcd}
-  & \mathcal{C} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
-\lok{M}{U} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\lok{S}{U} \oplus \lok{M}{t} \arrow[r, "g"] \arrow[rd, "f"'] & \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \arrow[d, "\exists ! \psi_t", dashed] \\
+                                      & \lok{M}{U}                               
 \end{tikzcd}
