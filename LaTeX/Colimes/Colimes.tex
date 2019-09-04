@@ -57,10 +57,10 @@ Wobei $\mathcal{C}$ aus den Objekten $\lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\l
 \tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{t'^nm}{t^nt'^n}{t}} 
 \end{gather*}
 \end{korrolar}
+\textit{Auch wenn sich \cref{Lokalisierung von Algebren als Kolimes} sich hier nicht direkt anwenden lässt, so können wir doch im Beweis gleich vorgehen.}
 \begin{proof}
 Schließe zunächst den trivialen Fall $0 \in U$ aus.\\
-Sei $\functionfront{\phi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu:
-
+Sei $\functionfront{\psi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu folgenden Morphismus \comment{\label{das phi ein Mophismus ist überlasse ich dem Leser}}:
 \begin{gather*}
 \functionfront{\psi}{\mathcal{C}}{\lok{M}{U}} \\
 \comment{
@@ -68,17 +68,41 @@ Sei $\functionfront{\phi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige 
 }
 \function{\psi_{t}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}}
 \end{gather*}
-\begin{itemize}
-\item \underline{$\phi$ ist wohldefiniert:} Seien dazu $s,s' \in S ; \, t,u,u' \in U ; \, n,n' \in \mathbb{N}$ und $m,m' \in M$ beliebig, somit gilt:
+Um die Wohldefiniertheit von $\phi$ zu zeigen seien $s,s' \in S ; \, t,u,u' \in U ; \, n,n' \in \mathbb{N}$ und $m,m' \in M$ beliebig. Somit gilt:
 \begin{gather*}
 \textit{Sei }\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} = \tensor{\loke{s'}{u'}{U}}{\lok{S}{t}}{\loke{m'}{t^{n'}}{t}} \\
-\Rightarrow \tensor{\loke{s}{ut^n}{U}}{\lok{S}{t}}{m} = \tensor{\loke{s}{ut^n}{U}}{\lok{S}{t}}{m} \\
+\Rightarrow \tensor{\loke{s}{ut^n}{U}}{\lok{S}{t}}{\loke{m}{1}{t}} = \tensor{\loke{s'}{u't^{n'}}{U}}{\lok{S}{t}}{\loke{m'}{1}{t}} \\
 \textit{da M ein S-Modul ist und für beliebige $v,v' \in S$ gilt } (\loke{v}{1}{t} = \loke{v'}{1}{t} \Rightarrow v = v') { ,folgt:}\\
+\comment{\label{Es ist nich ganz klar, dass das so schon folgt}}
 \exists k,k' \in S \textit{ mit } km = k'm' \textit{ und } \loke{s}{ut^nk}{U} = \loke{s'}{u't^{n'}k'}{U} \\
 \Rightarrow \loke{sm}{ut^n}{U} = \loke{skm}{ut^nk}{U} = \loke{s'k'm'}{u't^{n'}k'}{U} =\loke{s'm'}{u't^{n'}}{U} 
 \end{gather*}
-\item \underline{$\phi$ ist ein Morphismus:}
-\end{itemize}
-
+Durch die Universelle Eigenschaft des Kolimes erhalten wir den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{M}{U}}$.
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{C} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+\lok{M}{U} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\functionfront{\phi}{\lok{M}{U}}{A}$ benötigen wir kleinere Vorüberlegungen.\\
+Zunächst können wir jedes Element $\loke{m}{u} \in \lok{M}{U}$ als $\nolinebreak{\psi(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}}})$schreiben.
+Wobei mit $\psi$ gemeint ist, dass wir ein beliebiges $t \in U$ wählen und dann $\psi_t$ betrachten. Diese Verallgemeinerung ist möglich, da für beliebige $t,t',u \in U$ und $m \in M$ gilt:
+\begin{gather*}
+\psi_t({\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}}}) =
+\loke{m}{u}{U} = 
+\psi_{t'}({\tensor{\loke{1}{u}{U}}{\lok{M}{t'}}{\loke{m}{1}{t'}}})
+\end{gather*}
+Definiere nun mit diesem Wissen folgenden Homomorphismus:
+\begin{gather*}
+\function{\phi}{\lok{M}{U}}{A}{\psi(\tensor{\loke{1}{u}{U}}{\lok{\loke{m}{1}{}}{M}}{t})}{\psi'(\tensor{\loke{1}{u}{U}}{\lok{\loke{m}{1}{}}{M}}{t})}
+\end{gather*}
+$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Kolimes.\\
+Für $\varphi \circ \phi \defshow id_{\lok{M}{U}}$ wähle $\loke{m}{u}{U} \in \lok{M}{U}$ beliebig, für dieses gilt:
+\begin{gather*}
+(\varphi \circ \phi) (\psi'(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}})) \\
+ =\varphi(\psi(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}})) \\
+  =\psi'(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}})
+\end{gather*}
+Damit haben wir $A \simeq \lok{M}{U}$ gezeigt, definiere also ab sofort $\lok{M}{U}$ als den eindeutigen Kolimes von $\mathcal{C}$.
 \end{proof}
 \end{document}

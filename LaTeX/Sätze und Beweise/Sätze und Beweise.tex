@@ -119,7 +119,7 @@ A' &                                    & A \arrow[ll, "\exists ! \varphi "', da
 Bevor der Kolimes weiter charakterisiert wird, zeigen wir zunächst, dass er durch die obige Definition eindeutig bestimmt ist.
 \begin{lemma}
 Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor, so git:\\ 
-Im Falle der Existenz sind $\colimes \mathcal{F}$ und der dazugehörige Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ bis auf Isomorphie eindeutig bestimmt.
+Im Falle der Existenz sind $\colimes \mathcal{F}$ und der dazugehörige Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
 \end{lemma}
 \begin{proof}
 Seien $A_1 \in \mathcal{A}, (\functionfront{\psi_1}{\mathcal{F}}{A_1}) $ und $A_2 \in \mathcal{A} , (\functionfront{\psi_2}{\mathcal{F}}{A_2}) $ beide gleich $\colimes \mathcal{F}$.\\
@@ -141,6 +141,7 @@ Wende nun die Universelle Eigenschaft von $\psi_1$ auf $\psi_1$ selbst an und er
 A_1 &                                    & A_1 \arrow[ll, "\exists ! id_{A_1} = \varphi_2 \circ \varphi_1"', dashed]
 \end{tikzcd}
 \end{center}
+Somit existiert genau eine Isomorphie $\functionfront{\varphi_1}{A_1}{A_2}$.
 \end{proof}
 
 Im folgenden beschäftigen wir uns mit dem Fall des $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$, bei welchem $\mathcal{B}$ eine Unterkategorie von $\mathcal{A}$ ist. Zur Vereinfachung unterschlagen dabei die triviale Existenz des Funktors $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$. Wir werden also im folgenden von dem Diagramm $\mathcal{B}$ und dem entsprechenden Kolimes $\colimes \mathcal{B}$, sowie dem Morphismus $\functionfront{\phi}{\mathcal{B}}{A} $ sprechen.\\ 
@@ -304,7 +305,7 @@ Sei $\functionfront{\psi}{\mathcal{B}}{A}$ der Kolimes von $\mathcal{B}$. Zeige 
 \end{gather*}
 $\psi'$ ist ein Morphismus, da für beliebige $t,t' \in U$ und $s \in S$ gilt:
 $$\loke{s}{t^n}{U} = \loke{st'^n}{t^nt'^n}{U}$$
-Durch die Universelle Eigenschaft des Kolimes, erhalten wir den Homomorphismus $\functionfront{\varphi}{A}{\lok{S}{U}}$.
+Durch die Universelle Eigenschaft des Kolimes erhalten wir den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{S}{U}}$.
 \begin{center}
 \begin{tikzcd}
             & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
@@ -316,7 +317,7 @@ Zunächst können wir jedes Element $(s,u)_{mod\sim_{U}} \in \lok{S}{U}$ als $\p
 \comment{\label{wobei u = t}}
 Weiter gilt für alle $s_1,s_2 \in S , \, t_1,t_2 \in U$: 
 \begin{align*}
-\psi'_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi'_{\lok{S}{t}}(\loke{s_2}{t_2}{t})\\
+\textit{Sei }\psi'_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi'_{\lok{S}{t}}(\loke{s_2}{t_2}{t})\\
 \Rightarrow  \exists u \in U: (s_1t_1 - s_2t_2) \cdot u = 0\\
 \Rightarrow  \loke{s_1u}{t_1u}{tu} = \loke{s_2u}{t_2u}{tu}\\
 \Rightarrow  \psi_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi_{\lok{S}{t}}(\loke{s_2}{t_2}{t})
@@ -332,17 +333,79 @@ $\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft 
 A &                                                    & A \arrow[ll, "\exists ! id_A = \phi \circ \varphi"', dashed]
 \end{tikzcd}
 \end{center}
-Für $\varphi \circ \phi = id_{\lok{S}{U}}$ wähle beliebige $s \in S , t \in U$, für diese gilt:
+Für $\varphi \circ \phi \defshow id_{\lok{S}{U}}$ wähle beliebige $s \in S , t \in U$, für diese gilt:
 \begin{gather*}
-(\varphi \circ \phi)(\psi(\loke{s}{t}{t})) =
- \varphi (\psi'(\loke{s}{t}{t}) =
-  \psi(\loke{s}{t}{t})
+(\varphi \circ \phi)(\psi'(\loke{s}{t}{t})) =
+ \varphi (\psi(\loke{s}{t}{t}) =
+  \psi'(\loke{s}{t}{t})
 \end{gather*}
 Damit haben wir gezeigt, dass $\varphi,\phi$ Isomorphismen sind und somit $A \simeq \lok{S}{U}$ gilt.\\
 Da der Kolimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}$ als den eindeutigen Kolimes von $\mathcal{B}$.
  \end{proof}
-\ \\
 
+
+\begin{korrolar}\comment{\label{Lokalisierung von Moduln als Kolimes}}
+Sei M ein S-Modul, wobei eine R-Algebra ist. Sei weiter $U \subseteq S$ multiplikativ abgeschlossen. Dann gilt:
+\begin{gather*}
+\lok{M}{U} = \colimes \mathcal{C}
+\end{gather*}
+Wobei $\mathcal{C}$ aus den Objekten $\lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \vert t \in U \rbrace$ und folgenden Morphismen besteht:
+\begin{gather*}
+\tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \longrightarrow
+\tensor{\lok{S}{U}}{\lok{S}{(tt')}}{\lok{M}{(tt')}} ,\\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} \longmapsto
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{t'^nm}{t^nt'^n}{t}} 
+\end{gather*}
+\end{korrolar}
+\textit{Auch wenn sich \cref{Lokalisierung von Algebren als Kolimes} sich hier nicht direkt anwenden lässt, so können wir doch im Beweis gleich vorgehen.}
+\begin{proof}
+Schließe zunächst den trivialen Fall $0 \in U$ aus.\\
+Sei $\functionfront{\psi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu folgenden Morphismus \comment{\label{das phi ein Mophismus ist überlasse ich dem Leser}}:
+\begin{gather*}
+\functionfront{\psi}{\mathcal{C}}{\lok{M}{U}} \\
+\comment{
+\function{\psi_{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}} \\
+}
+\function{\psi_{t}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}}
+\end{gather*}
+Um die Wohldefiniertheit von $\phi$ zu zeigen seien $s,s' \in S ; \, t,u,u' \in U ; \, n,n' \in \mathbb{N}$ und $m,m' \in M$ beliebig. Somit gilt:
+\begin{gather*}
+\textit{Sei }\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} = \tensor{\loke{s'}{u'}{U}}{\lok{S}{t}}{\loke{m'}{t^{n'}}{t}} \\
+\Rightarrow \tensor{\loke{s}{ut^n}{U}}{\lok{S}{t}}{\loke{m}{1}{t}} = \tensor{\loke{s'}{u't^{n'}}{U}}{\lok{S}{t}}{\loke{m'}{1}{t}} \\
+\textit{da M ein S-Modul ist und für beliebige $v,v' \in S$ gilt } (\loke{v}{1}{t} = \loke{v'}{1}{t} \Rightarrow v = v') { ,folgt:}\\
+\comment{\label{Es ist nich ganz klar, dass das so schon folgt}}
+\exists k,k' \in S \textit{ mit } km = k'm' \textit{ und } \loke{s}{ut^nk}{U} = \loke{s'}{u't^{n'}k'}{U} \\
+\Rightarrow \loke{sm}{ut^n}{U} = \loke{skm}{ut^nk}{U} = \loke{s'k'm'}{u't^{n'}k'}{U} =\loke{s'm'}{u't^{n'}}{U} 
+\end{gather*}
+Durch die Universelle Eigenschaft des Kolimes erhalten wir den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{M}{U}}$.
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{C} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+\lok{M}{U} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\functionfront{\phi}{\lok{M}{U}}{A}$ benötigen wir kleinere Vorüberlegungen.\\
+Zunächst können wir jedes Element $\loke{m}{u} \in \lok{M}{U}$ als $\nolinebreak{\psi(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}}})$schreiben.
+Wobei mit $\psi$ gemeint ist, dass wir ein beliebiges $t \in U$ wählen und dann $\psi_t$ betrachten. Diese Verallgemeinerung ist möglich, da für beliebige $t,t',u \in U$ und $m \in M$ gilt:
+\begin{gather*}
+\psi_t({\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}}}) =
+\loke{m}{u}{U} = 
+\psi_{t'}({\tensor{\loke{1}{u}{U}}{\lok{M}{t'}}{\loke{m}{1}{t'}}})
+\end{gather*}
+Definiere nun mit diesem Wissen folgenden Homomorphismus:
+\begin{gather*}
+\function{\phi}{\lok{M}{U}}{A}{\psi(\tensor{\loke{1}{u}{U}}{\lok{\loke{m}{1}{}}{M}}{t})}{\psi'(\tensor{\loke{1}{u}{U}}{\lok{\loke{m}{1}{}}{M}}{t})}
+\end{gather*}
+$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Kolimes.\\
+Für $\varphi \circ \phi \defshow id_{\lok{M}{U}}$ wähle $\loke{m}{u}{U} \in \lok{M}{U}$ beliebig, für dieses gilt:
+\begin{gather*}
+(\varphi \circ \phi) (\psi'(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}})) \\
+ =\varphi(\psi(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}})) \\
+  =\psi'(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{}})
+\end{gather*}
+Damit haben wir $A \simeq \lok{M}{U}$ gezeigt, definiere also ab sofort $\lok{M}{U}$ als den eindeutigen Kolimes von $\mathcal{C}$.
+\end{proof}
+\ \\
 
 Wie schon angekündigt, bringen wir nun dieses Kapitel zu einem Ende, indem wir die gerade kennen gelernte Theorie mit dem Kähler-Differenzial in Verbindung setzen.\\
 Folgende Proposition zeigt uns, dass Differenzkokerne und Koprodukte unter der Bildung des Kähler-Differenzial`s erhalten bleiben.\\
