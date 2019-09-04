@@ -1,4 +1,4 @@
 \begin{tikzcd}
-S_i \arrow[rd, "k"'] \arrow[r, "d_{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, "a"] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
-                                          & \divR{T}{R}                                                    &                     
+  & \mathcal{C} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+\lok{M}{U} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
 \end{tikzcd}

@@ -357,7 +357,7 @@ Wobei $\mathcal{C}$ aus den Objekten $\lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\l
 \tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{t'^nm}{t^nt'^n}{t}} 
 \end{gather*}
 \end{korrolar}
-\textit{Auch wenn sich \cref{Lokalisierung von Algebren als Kolimes} sich hier nicht direkt anwenden lässt, so können wir doch im Beweis gleich vorgehen.}
+\textit{Auch wenn sich \cref{Lokalisierung von Algebren als Kolimes} hier nicht direkt anwenden lässt, so können wir doch im Beweis gleich vorgehen.}
 \begin{proof}
 Schließe zunächst den trivialen Fall $0 \in U$ aus.\\
 Sei $\functionfront{\psi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu folgenden Morphismus \comment{\label{das phi ein Mophismus ist überlasse ich dem Leser}}:
@@ -368,16 +368,17 @@ Sei $\functionfront{\psi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige 
 }
 \function{\psi_{t}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}}
 \end{gather*}
-Um die Wohldefiniertheit von $\phi$ zu zeigen seien $s,s' \in S ; \, t,u,u' \in U ; \, n,n' \in \mathbb{N}$ und $m,m' \in M$ beliebig. Somit gilt:
-\begin{gather*}
-\textit{Sei }\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} = \tensor{\loke{s'}{u'}{U}}{\lok{S}{t}}{\loke{m'}{t^{n'}}{t}} \\
-\Rightarrow \tensor{\loke{s}{ut^n}{U}}{\lok{S}{t}}{\loke{m}{1}{t}} = \tensor{\loke{s'}{u't^{n'}}{U}}{\lok{S}{t}}{\loke{m'}{1}{t}} \\
-\textit{da M ein S-Modul ist und für beliebige $v,v' \in S$ gilt } (\loke{v}{1}{t} = \loke{v'}{1}{t} \Rightarrow v = v') { ,folgt:}\\
-\comment{\label{Es ist nich ganz klar, dass das so schon folgt}}
-\exists k,k' \in S \textit{ mit } km = k'm' \textit{ und } \loke{s}{ut^nk}{U} = \loke{s'}{u't^{n'}k'}{U} \\
-\Rightarrow \loke{sm}{ut^n}{U} = \loke{skm}{ut^nk}{U} = \loke{s'k'm'}{u't^{n'}k'}{U} =\loke{s'm'}{u't^{n'}}{U} 
-\end{gather*}
-Durch die Universelle Eigenschaft des Kolimes erhalten wir den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{M}{U}}$.
+
+Die Wohldefiniertheit von $\psi'_t$ für ein beliebiges $t \in U$ folgt direkt aus der Universellen Eigenschaft des Tensorprodukt`s. Denn für die bilineare Abbildung
+ $\function{f}{\lok{S}{U} \oplus \lok{M}{t}}{\lok{M}{t}}{(\loke{s}{u}{U}, \loke{m}{t^n}{t})}{\loke{sm}{ut^n}{U}}$  gilt:
+\begin{center}
+\begin{tikzcd}
+\lok{S}{U} \oplus \lok{M}{t} \arrow[r, "g"] \arrow[rd, "f"'] & \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \arrow[d, "\exists ! \psi'_t", dashed] \\
+                                      & \lok{M}{U}                               
+\end{tikzcd}
+\end{center} 
+ 
+Durch die Universelle Eigenschaft des Kolimes erhalten wir nun den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{M}{U}}$.
 \begin{center}
 \begin{tikzcd}
   & \mathcal{C} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
