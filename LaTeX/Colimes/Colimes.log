@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  4 SEP 2019 13:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  6 SEP 2019 16:10
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -582,46 +582,46 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Warning: Reference `Lokalisierung von Algebren als Kolimes' on page 1 und
-efined on input line 60.
+efined on input line 56.
 
 
-Overfull \hbox (42.07451pt too wide) detected at line 70
-[]
+Overfull \hbox (2.12862pt too wide) in paragraph at lines 60--61
+[]\OT1/cmr/m/n/10 Verwende die Exi-stenz der Iso-mor-phis-men $[]$ und
  []
 
 
-Overfull \hbox (11.04388pt too wide) in paragraph at lines 72--74
-[]$
+Overfull \hbox (9.73145pt too wide) in paragraph at lines 60--61
+[]$\OT1/cmr/m/n/10 . Wei-ter gilt nach PRO-PO-SI-TI-ON16.6 $
+[] \OMS/cmsy/m/n/10 '
  []
 
 
-Overfull \hbox (83.10045pt too wide) in paragraph at lines 88--91
-\OT1/cmr/m/n/10 Zun[]achst k[]onnen wir je-des Ele-ment $(\OML/cmm/m/it/10 m; u
-\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 U[]\OT1/
-cmr/m/n/10 ]$ als $[])$schreiben.
- []
-
-
-Overfull \hbox (5.48242pt too wide) detected at line 95
-[]
+Overfull \hbox (22.0604pt too wide) in paragraph at lines 66--69
+\OT1/cmr/m/n/10 Zeige, dass sich je-des Ele-ment aus $(\OML/cmm/m/it/10 S\OT1/c
+mr/m/n/10 [\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
+[] \OT1/cmr/m/n/10 
+[] \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 S\OT1/cmr/m/n/10 [\OML/
+cmm/m/it/10 t[]\OT1/cmr/m/n/10 ])\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t
+d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) +
  []
 
 [1
 
-{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 (Colimes.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16129 strings out of 492895
- 330930 string characters out of 3133483
- 396309 words of memory out of 3000000
- 19749 multiletter control sequences out of 15000+200000
- 5993 words of font info for 24 fonts, out of 3000000 for 9000
+ 15983 strings out of 492895
+ 327264 string characters out of 3133483
+ 390309 words of memory out of 3000000
+ 19602 multiletter control sequences out of 15000+200000
+ 6691 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,14n,84p,471b,1049s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,12n,84p,471b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTe
@@ -632,9 +632,9 @@ fonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Colimes.pdf (2 pages, 126347 bytes).
+Output written on Colimes.pdf (1 page, 121973 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
+ 53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

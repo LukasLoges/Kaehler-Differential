@@ -44,5 +44,51 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
-
+\begin{theorem}\comment{\label{Lokalisierung des Kähler-Differenzials}}
+Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
+Dann gilt:
+\begin{gather*}
+\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}} \\
+\text{Wobei } d_{\lok{S}{U}}(\loke{1}{u}{U}) \longmapsto -\tensor{\loke{1}{u^2}{U}}{S}{d_S(u)}
+\end{gather*}
+\end{theorem}
+\begin{proof}
+Wir wollen THEOREM16.8 \comment{\label{THEOREM16.8}} auf $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ aus \cref{Lokalisierung von Algebren als Kolimes} anwenden.\\
+Sei zunächst $t \in U$ beliebig. Zeige $\divR{\lok{S}{t}}{R} \simeq Tensor{\lok{S}{t}}{S}{\divR{S}{R}}$:
+\begin{itemize}
+\item[]
+Verwende die Existenz der Isomorphismen $\functionfront{\alpha}{\lok{S}{t}}{S[x]/(tx -1)}$ und $\functionfront{\beta}{S[x]/(tx -1)}{\lok{S}{t}}$. Weiter gilt nach PROPOSITION16.6 \comment{\label{PROPOSITION16.6}}$\divR{S[x]}{R} \simeq \Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x]d_{S[x]}(x)$. Somit folgt:
+\begin{gather*}
+\divR{\lok{S}{t}}{R} \\
+ \simeq (\Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x] dx) / ((tx - 1) \cdot d_{S[x]}(tx - 1)) \\
+  \simeq (\Tensor{S[x]/(tx -1)}{S}{\divR{S}{R}} \oplus (S[x]/(tx - 1)) dx) / (td_{S[x]}(x) + xd_{S[x]}(t)) \\
+   \simeq (\Tensor{\lok{S}{t}}{S}{\divR{S}{R}} \oplus (\lok{S}{t}) d_{S[x]}(x) / (td_{S[x]}(x) + xd_{S[x]}(t))
+\end{gather*}
+Zeige, dass sich jedes Element aus $(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}} \oplus (\lok{S}{t}) d_{S[x]}(x) / (td_{S[x]}(x) + xd_{S[x]}(t))$ eindeutig durch ein Element aus $\Tensor{\lok{S}{t}}{S}{\divR{S}{R}} \oplus 0 $ darstellen lässt.\\
+Sei dazu $[(\loke{s}{t^n}{t}d_{S}(s'') , \loke{s'}{t^{n'}}{t}d_{S[x]}(x) )]$ ein beliebiger Erzeuger von $(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}} \oplus (\lok{S}{t}) dx) / (td_{S[x]}(x) + xd_{S[x]}(t))$. Somit gilt:
+\begin{gather*}
+\beta(x) = \loke{1}{t}{t} \textit{ und } sd_{S}(x) + xd_{S}(t) = 0 \\
+ \Rightarrow d_{S}(x) = -\loke{1}{t^2}{t} \\
+  \Rightarrow [(\loke{s}{t^n}{t}d_{S}(s'') , \loke{s'}{t^{n'}}{t}d_{S[x]}(x) )] \\
+   = [( \loke{s}{t^n}{t}d_{S}(s'') - \loke{s'}{t^{n' +2}}{t} d_{s}(t), 0 )]
+\end{gather*}
+Damit habe wir ein Repräsentantensystem \comment{für $\Tensor{\lok{S}{t}}{S}{\divR{S}{R}} \oplus (\lok{S}{t}) d_{S[x]}x) / (td_{S[x]}(x) + xd_{S[x]}(t))$} gefunden und es folgt:
+\begin{gather*} 
+\divR{\lok{S}{t}}{R} \comment{\simeq \Tensor{S[x]/(tx -1)}{S}{\divR{S}{R}}} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}}
+\end{gather*}
+\end{itemize}
+\comment{
+Zeige nun den Allgemeinen Fall $\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}}$:
+\begin{itemize}
+\item[]
+Wähle wie schon erwähnt $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ wie in \cref{Lokalisierung von Algebren als Kolimes}, sodass $\colimes \mathcal{B} = \lok{S}{U}$ gilt.\\
+Mit THEOREM16.8 \comment{\label{THEOREM16.8}} folgt somit:
+\begin{gather*}
+\divR{\lok{S}{U}}{T} = \colimes \mathcal{F}, für:\\
+\function{\mathcal{F}}{\mathcal{B}}{(\lok{S}{U}-Module)}{\lok{S}{t}}{\tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}}}
+(\functiofront{\varphi}{S}{S'}) \longmapsto (\fuctionfront{\tensor{1}{S}{D\varphi}}{}{})
+\end{gather*}
+\end{itemize}
+}
+\end{proof}
 \end{document}
