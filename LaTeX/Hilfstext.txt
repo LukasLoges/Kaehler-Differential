@@ -1,4 +1,16 @@
+a = \lok{S}{t}
+b = \lok{S}{tt'}
+
+A = \Tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}}
+B = \Tensor{\lok{S}{U}}{\lok{S}{t}}{(\Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})}
+C = \Tensor{\lok{S}{U}}{\lok{S}{t}}{(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}})}
+D = \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}}
+E = \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{(\Tensor{\lok{S}{tt'}}{S}{\divR{S}{R}})}
+
+
+
 \begin{tikzcd}
-\lok{S}{U} \oplus \lok{M}{t} \arrow[r, "g"] \arrow[rd, "f"'] & \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \arrow[d, "\exists ! \psi_t", dashed] \\
-                                      & \lok{M}{U}                               
+\frac{s}{t} \arrow[rr, "\varphi", maps to] \arrow[d, "d_{\lok{S}{t}}", maps to]                                                         &  & \frac{s}{tt'} \arrow[d, "d_{\lok{S}{tt'}}", maps to]                                                    \\
+\frac{1}{t}d_{\lok{S}{t}}(s) + sd_{\lok{S}{t}}(\frac{1}{t}) \arrow[rr, "\tensor{1}{S}{D\varphi}", maps to] \arrow[d, "\gamma_t", maps to] &  & \frac{t'}{tt'}d_{\lok{S}{tt'}}(s) + sd_{\lok{S}{tt'}}(\frac{t'}{tt'}) \arrow[d, "\gamma_{tt'}", maps to] \\
+\frac{1}{t}d_{S}(s) - \frac{s}{t^2}d_{S}(t) \arrow[rr, "\phi", maps to]                                                                &  & \frac{t'}{tt'}d_{S}(s) - \frac{st'}{(tt')^2}d_{S}(tt')                                                
 \end{tikzcd}

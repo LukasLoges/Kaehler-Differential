@@ -1,0 +1,59 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usetikzlibrary{babel}
+\usepackage{cleveref}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+
+\newcounter{Aussage}[chapter]
+
+\newtheorem{satz}[Aussage]{Satz}
+\newtheorem{theorem}[Aussage]{Theorem}
+\newtheorem{prop}[Aussage]{Proposition}
+\newtheorem{korrolar}[Aussage]{Korrolar}
+\newtheorem{lemma}[Aussage]{Lemma}
+\newtheorem{bem}[Aussage]{Bemerkung}
+\newtheorem{definition}[Aussage]{Definition}
+
+\newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
+\newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
+\newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\tensor}[3]{#1 \otimes #3}
+\newcommand{\lok}[2]{#1 [#2^{-1}]}
+\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}
+
+\newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
+\newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand*{\defshow}{\stackrel{!}{=}}
+\newcommand{\kernel}[1]{kern(#1)}
+\newcommand{\immage}[1]{im(#1)}
+
+\begin{document}
+\begin{center}
+\begin{tikzcd}
+\lok{S}{t} \arrow[rr, "\phi"] \arrow[dd, "\mathcal{F}"]                 &  & \lok{S}{tt'} \arrow[d, "\mathcal{F}"]  \\
+                                                              &  & \Tensor{\lok{S}{U}}{\lok{S}{t}}{(\Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})} \arrow[d, "f"]                 \\
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}} \arrow[d, "\gamma_t"] \arrow[rru, "\tensor{1}{S}{D\varphi}"] &  & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}} \arrow[d, "\gamma_{tt'}"] \\
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}})} \arrow[rr, "\phi"]                                          &  & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{(\Tensor{\lok{S}{tt'}}{S}{\divR{S}{R}})}     \\
+\ \\
+\frac{s}{t} \arrow[rr, "\varphi", maps to] \arrow[d, "d_{\lok{S}{t}}", maps to]                                                         &  & \frac{s}{tt'} \arrow[d, "d_{\lok{S}{tt'}}", maps to]                                                    \\
+\frac{1}{t}d_{\lok{S}{t}}(s) + sd_{\lok{S}{t}}(\frac{1}{t}) \arrow[rr, "f \circ (\tensor{1}{S}{D\varphi})", maps to] \arrow[d, "\gamma_t", maps to] &  & \frac{t'}{tt'}d_{\lok{S}{tt'}}(s) + sd_{\lok{S}{tt'}}(\frac{t'}{tt'}) \arrow[d, "\gamma_{tt'}", maps to] \\
+\frac{1}{t}d_{S}(s) - \frac{s}{t^2}d_{S}(t) \arrow[rr, "\phi", maps to]                                                                &  & \frac{t'}{tt'}d_{S}(s) - \frac{st'}{(tt')^2}d_{S}(tt') \textbf{(3)}                                                
+\end{tikzcd}
+\end{center}
+\end{document}
