@@ -32,28 +32,35 @@
 \newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
 \newcommand{\tensor}[3]{#1 \otimes #3}
 \newcommand{\lok}[2]{#1 [#2^{-1}]}
-\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}
+\newcommand{\loke}[3]{(\frac{#1}{#2})_{_#3}}
+\comment{\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}}
 
 \newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
 \newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
 \newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
                      \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
                      =}
+                     
+                     
+\newcommand*{\defeqr}{= \mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}}
+
+
 \newcommand*{\defshow}{\stackrel{!}{=}}
 \newcommand{\kernel}[1]{kern(#1)}
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
+\begin{itemize}
+\item[]
 \begin{center}
 \begin{tikzcd}
-\lok{S}{t} \arrow[r, "\varphi"] \arrow[dd, "\mathcal{F}"] & \lok{S}{tt'} \arrow[d, "\mathcal{F}"]  \\
-                                                 & \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})} \arrow[d, "g"]            \\
-\tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}} \arrow[ru, "\tensor{1}{\lok{S}{t}}{D\varphi}"] \arrow[d, "\delta_t"]         & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}} \arrow[d, "\delta_{tt'}"] \\
-\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}} \arrow[r, "\phi"]                              & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}                          \\
-\ \\
-\frac{s}{t} \arrow[rr, "\varphi", maps to] \arrow[d, "d_{\lok{S}{t}}", maps to]                                                         &  & \frac{s}{tt'} \arrow[d, "d_{\lok{S}{tt'}}", maps to]                                                    \\
-\frac{1}{t}d_{\lok{S}{t}}(s) + sd_{\lok{S}{t}}(\frac{1}{t}) \arrow[rr, "f \circ (\tensor{1}{S}{D\varphi})", maps to] \arrow[d, "\gamma_t", maps to] &  & \frac{t'}{tt'}d_{\lok{S}{tt'}}(s) + sd_{\lok{S}{tt'}}(\frac{t'}{tt'}) \arrow[d, "\gamma_{tt'}", maps to] \\
-\frac{1}{t}d_{S}(s) - \frac{s}{t^2}d_{S}(t) \arrow[rr, "\phi", maps to]                                                                &  & \frac{t'}{tt'}d_{S}(s) - \frac{st'}{(tt')^2}d_{S}(tt') \textbf{(3)}                                                
+\divR{\lok{S}{t}}{R} \arrow[d, "D\alpha"] & d_{\lok{S}{t}}(\loke{s}{t}{t}) \arrow[d, "D\alpha", maps to] \\
+\divR{S[x]}{R}/d_{S[x]}(tx - 1) \arrow[d, "\gamma"]  & {[d_{S[x]}(sx)] = [xd_{S[x]}(s) + sd_{S[x]}(x)]} \arrow[d, "\gamma", maps to]  \\
+(\Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x] d_{S[x]}x) / ((tx - 1) d_{S[x]}(tx - 1)) \arrow[d, "\beta"]   & {[\tensor{x}{S}{d_{S}(s)} , s d_{S[x]}(x)]} \arrow[d, "\beta", maps to]   \\
+(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}) \oplus \lok{S}{t} d_{S[x]}(x) / d_{S[x]}(tx - 1) \arrow[d, "f"]       & {[\tensor{\loke{1}{t}{t}}{S}{d_{S}(s)} , s d_{S[x]}(x)]} \arrow[d, "f", maps to]       \\
+\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}                      & ( \tensor{\loke{1}{t}{t}}{S}{d_{S}(s)} ) - ( \tensor{\loke{s}{t^2}{t}}{S}{d_{S}(t)} )                              
 \end{tikzcd}
 \end{center}
+\end{itemize}
 \end{document}

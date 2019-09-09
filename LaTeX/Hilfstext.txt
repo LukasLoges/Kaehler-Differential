@@ -1,16 +1,15 @@
-a = \lok{S}{t}
-b = \lok{S}{tt'}
-
-A = \Tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}}
-B = \Tensor{\lok{S}{U}}{\lok{S}{t}}{(\Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})}
-C = \Tensor{\lok{S}{U}}{\lok{S}{t}}{(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}})}
-D = \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}}
-E = \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{(\Tensor{\lok{S}{tt'}}{S}{\divR{S}{R}})}
-
+A = \lok{S}{t}
+B = \tensor{\lok{S}{U}}{\lok{S}{t}}{divR{\lok{S}{t}}{R}}
+C = \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}}
+D = \lok{S}{tt'}
+E = \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})}
+F = \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}}
+G = \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}
 
 
 \begin{tikzcd}
-\frac{s}{t} \arrow[rr, "\varphi", maps to] \arrow[d, "d_{\lok{S}{t}}", maps to]                                                         &  & \frac{s}{tt'} \arrow[d, "d_{\lok{S}{tt'}}", maps to]                                                    \\
-\frac{1}{t}d_{\lok{S}{t}}(s) + sd_{\lok{S}{t}}(\frac{1}{t}) \arrow[rr, "\tensor{1}{S}{D\varphi}", maps to] \arrow[d, "\gamma_t", maps to] &  & \frac{t'}{tt'}d_{\lok{S}{tt'}}(s) + sd_{\lok{S}{tt'}}(\frac{t'}{tt'}) \arrow[d, "\gamma_{tt'}", maps to] \\
-\frac{1}{t}d_{S}(s) - \frac{s}{t^2}d_{S}(t) \arrow[rr, "\phi", maps to]                                                                &  & \frac{t'}{tt'}d_{S}(s) - \frac{st'}{(tt')^2}d_{S}(tt')                                                
+\lok{S}{t} \arrow[r, "\varphi"] \arrow[dd, "\mathcal{F}"] & \lok{S}{tt'} \arrow[d, "\mathcal{F}"]  \\
+                                                 & \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})} \arrow[d, "g"]            \\
+\tensor{\lok{S}{U}}{\lok{S}{t}}{divR{\lok{S}{t}}{R}} \arrow[ru, "\tensor{1}{\lok{S}{t}}{D\varphi}"] \arrow[d, "\delta_t"]         & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}} \arrow[d, "\delta_{tt'}"] \\
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}} \arrow[r, "\phi"]                              & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}                          
 \end{tikzcd}

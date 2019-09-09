@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  9 SEP 2019 14:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  9 SEP 2019 17:21
 entering extended mode
-**"./Sätze und Beweise.tex"
-("Sätze und Beweise.tex"
+**./Test2.tex
+(Test2.tex
 LaTeX2e <2018-12-01>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\report.cls"
 Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
@@ -493,23 +493,23 @@ Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `amsthm' support loaded on input line 3026.
 )
 \c@Aussage=\count127
+ (Test2.aux)
+\openout1 = `Test2.aux'.
 
-("Sätze und Beweise.aux")
-\openout1 = `"Sätze und Beweise.aux"'.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
- ABD: EveryShipout initializing macros
+ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count128
@@ -570,207 +570,43 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-Kapitel 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-
-{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Kapitel 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
-
-Overfull \hbox (78.08551pt too wide) in paragraph at lines 97--99
-[]\OT1/cmr/m/it/10 Ein $[]$ $[]$ ist ei-ne Men-ge von Funk-tio-nen $[]$,
+Overfull \hbox (96.59402pt too wide) in paragraph at lines 63--64
+ [] 
  []
 
-[3
+[1
 
-] [4]
-
-LaTeX Warning: Reference `DifferenzkokernUndCoproduktDef' on page 1 undefined o
-n input line 175.
-
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 177.
-[5]
-Overfull \hbox (25.93779pt too wide) in paragraph at lines 219--225
-\OT1/cmr/m/n/10 Es sind der Mor-phis-mus $[]$ und die bi-li-nea-re Ab-bil-dung 
-$[]$
- []
-
-
-Overfull \hbox (64.2643pt too wide) in paragraph at lines 219--225
-\OT1/cmr/m/n/10 Konstruiere den Mor-phis-mus $[]$ durch $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--225
-
- []
-
-
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 219--225
-\OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
--de zwei R-Algebra-Homomorphismen: 
- []
-
-[6]
-Overfull \hbox (20.97945pt too wide) in paragraph at lines 261--262
-[]\OT1/cmr/m/n/10 Um im wei-te-ren auch Ko-pro-duk-te bzw. Dif-fe-ren-zen-ko-ke
-r-ne des K[]ahlerdifferenzials
- []
-
-
-Overfull \hbox (7.80167pt too wide) in paragraph at lines 266--267
-[]\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
-nt-spricht
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
-
- []
-
-
-Overfull \hbox (65.70027pt too wide) in paragraph at lines 279--284
-\OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
-i-stiert ge-nau ein $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 279--284
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--299
-
- []
-
-
-Overfull \hbox (1.02167pt too wide) in paragraph at lines 315--319
-\OT1/cmr/m/n/10 Zun[]achst k[]onnen wir je-des Ele-ment $(\OML/cmm/m/it/10 s; u
-\OT1/cmr/m/n/10 )[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 S\OT1/cmr/m/n/10 [\OML/
-cmm/m/it/10 U[]\OT1/cmr/m/n/10 ]$ als $\OML/cmm/m/it/10  []\OT1/cmr/m/n/10 ((\O
-ML/cmm/m/it/10 s; t\OT1/cmr/m/n/10 )[])$
- []
-
-[8]
-Overfull \hbox (8.7656pt too wide) in paragraph at lines 324--326
-\OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
-[]$
- []
-
-
-Overfull \hbox (42.07451pt too wide) detected at line 370
-[]
- []
-
-
-Overfull \hbox (11.04388pt too wide) in paragraph at lines 372--374
-[]$
- []
-
-[9]
-Overfull \hbox (83.10045pt too wide) in paragraph at lines 388--391
-\OT1/cmr/m/n/10 Zun[]achst k[]onnen wir je-des Ele-ment $(\OML/cmm/m/it/10 m; u
-\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 U[]\OT1/
-cmr/m/n/10 ]$ als $[])$schreiben.
- []
-
-
-Overfull \hbox (5.48242pt too wide) detected at line 395
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
-
- []
-
-
-Overfull \hbox (6.95387pt too wide) in paragraph at lines 425--427
-[]\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S[]; S[]$ \OT1/cmr/m/it/10 R-Algebre
-n und $[]$ R-Algebra-Homomorphismen.
- []
-
-
-Overfull \hbox (15.95953pt too wide) detected at line 434
-[]
- []
-
-
-Overfull \hbox (4.93825pt too wide) in paragraph at lines 438--441
-\OT1/cmr/m/n/10 Definiere das Dif-fe-ren-zi-al $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--463
-
- []
-
-[11] [12]
-Kapitel 3.
-
-LaTeX Warning: Reference `Lokalisierung als Kolimes' on page 1 undefined on inp
-ut line 475.
-
-[13
-
-] ("Sätze und Beweise.aux")
-
-LaTeX Warning: There were undefined references.
-
- ) 
+{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (Test2.aux) 
+) 
 Here is how much of TeX's memory you used:
- 16905 strings out of 492895
- 350029 string characters out of 3133483
- 401309 words of memory out of 3000000
- 20517 multiletter control sequences out of 15000+200000
- 8264 words of font info for 31 fonts, out of 3000000 for 9000
+ 16154 strings out of 492895
+ 331575 string characters out of 3133483
+ 391309 words of memory out of 3000000
+ 19776 multiletter control sequences out of 15000+200000
+ 5339 words of font info for 22 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,18n,84p,556b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on "Sätze und Beweise.pdf" (13 pages, 246228 bytes).
+ 61i,14n,84p,469b,1050s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+sy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Test2.pdf (1 page, 77502 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
+ 45 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

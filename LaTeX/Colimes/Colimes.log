@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  6 SEP 2019 19:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  9 SEP 2019 18:57
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -496,18 +496,18 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
  (Colimes.aux)
 \openout1 = `Colimes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
 
 ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
@@ -570,58 +570,71 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+LaTeX Font Info:    Try loading font information for U+msb on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Warning: Reference `Lokalisierung von Algebren als Kolimes' on page 1 und
-efined on input line 56.
+efined on input line 69.
 
 
-Overfull \hbox (2.12862pt too wide) in paragraph at lines 60--61
-[]\OT1/cmr/m/n/10 Verwende die Exi-stenz der Iso-mor-phis-men $[]$ und
- []
-
-
-Overfull \hbox (9.73145pt too wide) in paragraph at lines 60--61
-[]$\OT1/cmr/m/n/10 . Wei-ter gilt nach PRO-PO-SI-TI-ON16.6 $
-[] \OMS/cmsy/m/n/10 '
- []
-
-
-Overfull \hbox (22.0604pt too wide) in paragraph at lines 66--69
-\OT1/cmr/m/n/10 Zeige, dass sich je-des Ele-ment aus $(\OML/cmm/m/it/10 S\OT1/c
-mr/m/n/10 [\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
+Overfull \hbox (2.78242pt too wide) in paragraph at lines 73--75
+\OT1/cmr/m/n/10 Iso-mor-phie aus PRO-PO-SI-TI-ON16.6  $
+[] \OMS/cmsy/m/n/10 ' \OML/cmm/m/it/10 S\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1
+/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
 [] \OT1/cmr/m/n/10 
-[] \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 S\OT1/cmr/m/n/10 [\OML/
-cmm/m/it/10 t[]\OT1/cmr/m/n/10 ])\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/
-m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t
-d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) +
+[] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 S\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1
+/cmr/m/n/10 ]\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/
+n/10 )$. 
+ []
+
+
+Overfull \hbox (105.92044pt too wide) in paragraph at lines 88--89
+ [] 
  []
 
 [1
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(Colimes.aux)
+
+LaTeX Warning: Reference `Lokalisierung von Algebren als Kolimes' on page 1 und
+efined on input line 108.
+
+
+Overfull \hbox (30.17001pt too wide) detected at line 115
+[]
+ []
+
+
+Overfull \hbox (143.24957pt too wide) in paragraph at lines 134--135
+ [] 
+ []
+
+[2]
+
+LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
+ined on input line 143.
+
+[3] (Colimes.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15983 strings out of 492895
- 327264 string characters out of 3133483
- 390309 words of memory out of 3000000
- 19602 multiletter control sequences out of 15000+200000
- 6691 words of font info for 26 fonts, out of 3000000 for 9000
+ 16317 strings out of 492895
+ 335501 string characters out of 3133483
+ 404309 words of memory out of 3000000
+ 19934 multiletter control sequences out of 15000+200000
+ 7310 words of font info for 28 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,12n,84p,471b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,16n,84p,471b,1102s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTe
@@ -631,10 +644,11 @@ public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Colimes.pdf (1 page, 121973 bytes).
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Colimes.pdf (3 pages, 144605 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
