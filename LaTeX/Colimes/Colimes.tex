@@ -75,7 +75,7 @@ Es ist leicht nachzurechnen, dass es sich bei $\varphi$ um folgende Funktion han
 \end{gather*}
 \end{proof}
 
-\begin{korrolar}\comment{\label{Differenzial von Polynomalgebren}}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 1}
 Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
 \begin{gather*}
 \divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle 
@@ -93,5 +93,25 @@ Da $R[x_i]$ die aus dem Element $x_i$ erzeugte Algebra über $R$ ist, folgt \tex
 \simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle 
 \end{gather*}
 Für die letzte Isomorphie nutze, dass wegen $R[x_i] \subseteq S$ zum Einen $\divf{R[x_i]}$ als Einschränkung von $\divf{S}$ gesehen werden kann und zum Anderen $\Tensor{S}{R[x_i]}{R[x_i]} \simeq S$ gilt.
+\end{proof}
+
+\begin{korrolar} \comment{\label{Differenzial von Polynomalgebren 2}}
+Sei E eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{R}(x_i) \rangle
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \textbf{Kählerdifferenzial des Kolimes von R-Algebren}\comment{\cref{Kählerdifferenzial des Kolimes von R-Algebren}} an:
+\begin{gather*}
+T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
+\Rightarrow T \simeq \Tensor{(\Tensor{T}{S}{\divR{S}{R}})}{T}{(\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})}
+\end{gather*}
+Zuletzt nutze den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
+\begin{gather*}
+\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}}\\
+\simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i \in \lbrace 1,...,n \rbrace} R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
+\simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{R}(x_i) \rangle
+\end{gather*}
 \end{proof}
 \end{document}

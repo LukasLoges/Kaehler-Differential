@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  12 SEP 2019 16:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  13 SEP 2019 15:52
 entering extended mode
 **"./Sätze und Beweise.tex"
 ("Sätze und Beweise.tex"
@@ -606,160 +606,167 @@ n input line 189.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 191.
 [5]
-Overfull \hbox (25.93779pt too wide) in paragraph at lines 233--239
+Overfull \hbox (25.93779pt too wide) in paragraph at lines 232--238
 \OT1/cmr/m/n/10 Es sind der Mor-phis-mus $[]$ und die bi-li-nea-re Ab-bil-dung 
 $[]$
  []
 
 
-Overfull \hbox (64.2643pt too wide) in paragraph at lines 233--239
+Overfull \hbox (64.2643pt too wide) in paragraph at lines 232--238
 \OT1/cmr/m/n/10 Konstruiere den Mor-phis-mus $[]$ durch $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--239
+Underfull \hbox (badness 10000) in paragraph at lines 232--238
 
  []
 
 
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 233--239
+Overfull \hbox (49.22292pt too wide) in paragraph at lines 232--238
 \OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
 -de zwei R-Algebra-Homomorphismen: 
  []
 
-[6]
-Overfull \hbox (20.97945pt too wide) in paragraph at lines 275--276
+[6] [7]
+Overfull \hbox (20.97945pt too wide) in paragraph at lines 301--302
 []\OT1/cmr/m/n/10 Um im wei-te-ren auch Ko-pro-duk-te bzw. Dif-fe-ren-zen-ko-ke
 r-ne des K[]ahlerdifferenzials
  []
 
 
-Overfull \hbox (7.80167pt too wide) in paragraph at lines 280--281
+Overfull \hbox (7.80167pt too wide) in paragraph at lines 306--307
 []\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
 nt-spricht
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Underfull \hbox (badness 10000) in paragraph at lines 312--313
 
  []
 
 
-Overfull \hbox (65.70027pt too wide) in paragraph at lines 293--298
+Overfull \hbox (65.70027pt too wide) in paragraph at lines 319--324
 \OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
 i-stiert ge-nau ein $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--298
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 300--304
+Underfull \hbox (badness 10000) in paragraph at lines 319--324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--313
+Underfull \hbox (badness 10000) in paragraph at lines 326--330
 
  []
 
 [8]
-Overfull \hbox (8.7656pt too wide) in paragraph at lines 338--340
+Underfull \hbox (badness 10000) in paragraph at lines 335--339
+
+ []
+
+
+Overfull \hbox (8.7656pt too wide) in paragraph at lines 364--366
 \OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
 []$
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 423--424
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
 
  []
 
 
-Overfull \hbox (6.95387pt too wide) in paragraph at lines 439--441
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
+
+ []
+
+
+Overfull \hbox (6.95387pt too wide) in paragraph at lines 465--467
 []\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S[]; S[]$ \OT1/cmr/m/it/10 R-Algebre
 n und $[]$ R-Algebra-Homomorphismen.
  []
 
-
-Overfull \hbox (15.95953pt too wide) detected at line 448
+[11]
+Overfull \hbox (15.95953pt too wide) detected at line 474
 []
  []
 
 
-Overfull \hbox (4.93825pt too wide) in paragraph at lines 452--455
+Overfull \hbox (4.93825pt too wide) in paragraph at lines 478--481
 \OT1/cmr/m/n/10 Definiere das Dif-fe-ren-zi-al $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--477
+Underfull \hbox (badness 10000) in paragraph at lines 499--503
 
- []
-
-[11]
-Overfull \hbox (15.41837pt too wide) in paragraph at lines 488--489
-[]\OT1/cmr/m/n/10 Wir ha-ben nun ge-zeigt, dass der Ko-li-mes un-ter Bil-dung d
-es K[]ahler-Differenzial`s.
- []
-
-
-Overfull \hbox (105.92044pt too wide) in paragraph at lines 517--518
- [] 
  []
 
 [12]
-Overfull \hbox (65.66058pt too wide) detected at line 522
-[]
- []
-
-
-Overfull \hbox (3.98581pt too wide) detected at line 529
-[]
- []
-
-
-Overfull \hbox (5.70627pt too wide) detected at line 535
-[]
- []
-
-
-Overfull \hbox (30.17001pt too wide) detected at line 547
-[]
+Overfull \hbox (20.89163pt too wide) in paragraph at lines 549--551
+\OT1/cmr/m/n/10 Zuletzt nut-ze den so-eben ge-zeig-ten kor-ro-lar 13 an und nut
+-ze schlie-lich $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; :::;
+ x[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
  []
 
 [13]
+Overfull \hbox (12.64058pt too wide) in paragraph at lines 559--560
+[]\OT1/cmr/m/n/10 Wir ha-ben nun ge-zeigt, dass der Ko-li-mes un-ter Bil-dung d
+es K[]ahler-Differenzial`s
+ []
+
+
+Overfull \hbox (105.92044pt too wide) in paragraph at lines 588--589
+ [] 
+ []
+
+[14]
+Overfull \hbox (65.66058pt too wide) detected at line 593
+[]
+ []
+
+
+Overfull \hbox (3.98581pt too wide) detected at line 600
+[]
+ []
+
+
+Overfull \hbox (5.70627pt too wide) detected at line 606
+[]
+ []
+
+
+Overfull \hbox (30.17001pt too wide) detected at line 618
+[]
+ []
+
+[15]
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 554.
+ined on input line 625.
 
 
-Overfull \hbox (13.29659pt too wide) in paragraph at lines 553--555
+Overfull \hbox (13.29659pt too wide) in paragraph at lines 624--626
 \OT1/cmr/m/n/10 Als letz-ten Schritt wol-len wir [] an-wen-den. Nut-ze da-zu $[
 ]$
  []
 
 
-Overfull \hbox (115.74835pt too wide) in paragraph at lines 565--566
+Overfull \hbox (115.74835pt too wide) in paragraph at lines 636--637
  [] 
  []
 
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 584.
+ined on input line 655.
 
-[14] [15]
+[16] [17]
 Kapitel 3.
 
 LaTeX Warning: Reference `Lokalisierung als Kolimes' on page 1 undefined on inp
-ut line 595.
+ut line 666.
 
-[16
+[18
 
 ] ("Sätze und Beweise.aux")
 
@@ -767,10 +774,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17162 strings out of 492895
- 356587 string characters out of 3133483
+ 17205 strings out of 492895
+ 357825 string characters out of 3133483
  404309 words of memory out of 3000000
- 20772 multiletter control sequences out of 15000+200000
+ 20815 multiletter control sequences out of 15000+200000
  8883 words of font info for 33 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,18n,84p,556b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -790,9 +797,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX
 /type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on "Sätze und Beweise.pdf" (16 pages, 266526 bytes).
+Output written on "Sätze und Beweise.pdf" (18 pages, 275585 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
+ 131 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
