@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  13 SEP 2019 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  26 SEP 2019 15:56
 entering extended mode
 **"./Sätze und Beweise.tex"
 ("Sätze und Beweise.tex"
@@ -497,18 +497,18 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
 ("Sätze und Beweise.aux")
 \openout1 = `"Sätze und Beweise.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
  ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -571,11 +571,11 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 Kapitel 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -584,15 +584,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 Kapitel 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 101.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 102.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 101.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 102.
 
-Overfull \hbox (78.08551pt too wide) in paragraph at lines 102--104
+Overfull \hbox (78.08551pt too wide) in paragraph at lines 103--105
 []\OT1/cmr/m/it/10 Ein $[]$ $[]$ ist ei-ne Men-ge von Funk-tio-nen $[]$,
  []
 
@@ -601,170 +601,170 @@ Overfull \hbox (78.08551pt too wide) in paragraph at lines 102--104
 ] [4]
 
 LaTeX Warning: Reference `DifferenzkokernUndCoproduktDef' on page 1 undefined o
-n input line 189.
+n input line 190.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 191.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 192.
 [5]
-Overfull \hbox (25.93779pt too wide) in paragraph at lines 232--238
+Overfull \hbox (25.93779pt too wide) in paragraph at lines 233--239
 \OT1/cmr/m/n/10 Es sind der Mor-phis-mus $[]$ und die bi-li-nea-re Ab-bil-dung 
 $[]$
  []
 
 
-Overfull \hbox (64.2643pt too wide) in paragraph at lines 232--238
+Overfull \hbox (64.2643pt too wide) in paragraph at lines 233--239
 \OT1/cmr/m/n/10 Konstruiere den Mor-phis-mus $[]$ durch $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--238
+Underfull \hbox (badness 10000) in paragraph at lines 233--239
 
  []
 
 
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 232--238
+Overfull \hbox (49.22292pt too wide) in paragraph at lines 233--239
 \OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
 -de zwei R-Algebra-Homomorphismen: 
  []
 
 [6] [7]
-Overfull \hbox (20.97945pt too wide) in paragraph at lines 301--302
+Overfull \hbox (20.97945pt too wide) in paragraph at lines 302--303
 []\OT1/cmr/m/n/10 Um im wei-te-ren auch Ko-pro-duk-te bzw. Dif-fe-ren-zen-ko-ke
 r-ne des K[]ahlerdifferenzials
  []
 
 
-Overfull \hbox (7.80167pt too wide) in paragraph at lines 306--307
+Overfull \hbox (7.80167pt too wide) in paragraph at lines 307--308
 []\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
 nt-spricht
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--313
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
 
 
-Overfull \hbox (65.70027pt too wide) in paragraph at lines 319--324
+Overfull \hbox (65.70027pt too wide) in paragraph at lines 320--325
 \OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
 i-stiert ge-nau ein $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--324
+Underfull \hbox (badness 10000) in paragraph at lines 320--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--330
+Underfull \hbox (badness 10000) in paragraph at lines 327--331
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 335--339
+Underfull \hbox (badness 10000) in paragraph at lines 336--340
 
  []
 
 
-Overfull \hbox (8.7656pt too wide) in paragraph at lines 364--366
+Overfull \hbox (8.7656pt too wide) in paragraph at lines 365--367
 \OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
 []$
  []
 
 [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
 
 
-Overfull \hbox (6.95387pt too wide) in paragraph at lines 465--467
+Overfull \hbox (6.95387pt too wide) in paragraph at lines 466--468
 []\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S[]; S[]$ \OT1/cmr/m/it/10 R-Algebre
 n und $[]$ R-Algebra-Homomorphismen.
  []
 
 [11]
-Overfull \hbox (15.95953pt too wide) detected at line 474
+Overfull \hbox (15.95953pt too wide) detected at line 475
 []
  []
 
 
-Overfull \hbox (4.93825pt too wide) in paragraph at lines 478--481
+Overfull \hbox (4.93825pt too wide) in paragraph at lines 479--482
 \OT1/cmr/m/n/10 Definiere das Dif-fe-ren-zi-al $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 499--503
+Underfull \hbox (badness 10000) in paragraph at lines 500--504
 
  []
 
 [12]
-Overfull \hbox (20.89163pt too wide) in paragraph at lines 549--551
+Overfull \hbox (20.89163pt too wide) in paragraph at lines 550--552
 \OT1/cmr/m/n/10 Zuletzt nut-ze den so-eben ge-zeig-ten kor-ro-lar 13 an und nut
 -ze schlie-lich $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; :::;
  x[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
  []
 
 [13]
-Overfull \hbox (12.64058pt too wide) in paragraph at lines 559--560
+Overfull \hbox (12.64058pt too wide) in paragraph at lines 560--561
 []\OT1/cmr/m/n/10 Wir ha-ben nun ge-zeigt, dass der Ko-li-mes un-ter Bil-dung d
 es K[]ahler-Differenzial`s
  []
 
 
-Overfull \hbox (105.92044pt too wide) in paragraph at lines 588--589
+Overfull \hbox (105.92044pt too wide) in paragraph at lines 589--590
  [] 
  []
 
 [14]
-Overfull \hbox (65.66058pt too wide) detected at line 593
+Overfull \hbox (65.66058pt too wide) detected at line 594
 []
  []
 
 
-Overfull \hbox (3.98581pt too wide) detected at line 600
+Overfull \hbox (3.98581pt too wide) detected at line 601
 []
  []
 
 
-Overfull \hbox (5.70627pt too wide) detected at line 606
+Overfull \hbox (5.70627pt too wide) detected at line 607
 []
  []
 
 
-Overfull \hbox (30.17001pt too wide) detected at line 618
+Overfull \hbox (30.17001pt too wide) detected at line 619
 []
  []
 
 [15]
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 625.
+ined on input line 626.
 
 
-Overfull \hbox (13.29659pt too wide) in paragraph at lines 624--626
+Overfull \hbox (13.29659pt too wide) in paragraph at lines 625--627
 \OT1/cmr/m/n/10 Als letz-ten Schritt wol-len wir [] an-wen-den. Nut-ze da-zu $[
 ]$
  []
 
 
-Overfull \hbox (115.74835pt too wide) in paragraph at lines 636--637
+Overfull \hbox (115.74835pt too wide) in paragraph at lines 637--638
  [] 
  []
 
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 655.
+ined on input line 656.
 
 [16] [17]
 Kapitel 3.
 
 LaTeX Warning: Reference `Lokalisierung als Kolimes' on page 1 undefined on inp
-ut line 666.
+ut line 667.
 
 [18
 
@@ -774,10 +774,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17205 strings out of 492895
- 357825 string characters out of 3133483
+ 17218 strings out of 492895
+ 358038 string characters out of 3133483
  404309 words of memory out of 3000000
- 20815 multiletter control sequences out of 15000+200000
+ 20828 multiletter control sequences out of 15000+200000
  8883 words of font info for 33 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,18n,84p,556b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
