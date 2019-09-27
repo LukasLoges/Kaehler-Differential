@@ -51,6 +51,15 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
+\begin{bsp}\label{Ableitung ist Ableitung}
+Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
+Teste dies an $f(x)=ax^2 + bx +c$:
+\begin{gather*}
+d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x) 
+\end{gather*}
+\end{bsp}
+
+
 \begin{bsp}
 Sei $k$ ein Körper und $K = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
 Dann ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{K}{k}$.
@@ -62,10 +71,40 @@ Sehe $K = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung. Somit gil
 \end{gather*}
 Somit ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ ein Erzeugenden-System von $\divR{K}{k}$.
 \end{proof}
+
+
 \begin{lemma}
-Sei $R \longrightarrow S \subset T$ ein Ringhomomorphismus und $S \subset T$ eine seperable und algebraische Körpererweiterung. Dann gilt:
+Sei $R \longrightarrow S \subset T$ ein Ringhomomorphismus und $S \subset T$ eine seperabel und algebraische Körpererweiterung. Dann gilt:
 \begin{gather*}
-\divR{T}{R} = \tensor{}
+\divR{T}{R} = \Tensor{T}{S}{\divR{S}{R}}
 \end{gather*}
 \end{lemma}
+\begin{proof}
+Wähle $\alpha \in T$ mit $S[\alpha] = T$ und sei f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{S[x]}{S[x]/(f) \simeq T}$ \textit{[vlg. \cref{prop16.3}]}:
+\begin{center}
+\begin{tikzcd}
+(f)/(f^2) \arrow[r, "\tensor{1}{S[x]}{\divf{S[x]}}"] & \Tensor{T}{S[x]}{\divR{S[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Wende nun 16.6 auf $\divR{S[x]}{R}$ an und tensoriere mit $T$, somit gilt:
+\begin{gather*}
+\Tensor{T}{S[x]}{\divR{S[x]}{R}} \simeq \Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle
+\end{gather*}
+Zusammen mit der Conormalen Sequenz bedeutet dies
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle)/(\divf{S[x]}(f))
+\end{gather*}
+Wenn wir $\functionfront{\divf{S[x]}}{(f)}{\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle}$ genauer betrachten sehen wir: \textit{[betrachte dazu \cref{Ableitung ist Ableitung} ]}:
+\begin{gather*}
+\divf{S[x]}((f)) = J \oplus (f'(\alpha)\divf{S[x]}) = J \oplus T\langle\rangle
+\text{wobei $J \subseteq \Tensor{T}{S}{\divR{S}{R}}$ ein Ideal ist.}
+\end{gather*}
+Für die letzte Gleichheit nutze, dass $T \supset S$ seperabel und somit $f(\alpha) \neq 0$ ist und nach obiger Wahl $K = S[\alpha]$ gilt.\\
+Damit erhalten wir nun:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}})/J \\
+\Rightarrow \Tensor{T}{S}{\divR{S}{R}} \hookrightarrow \divR{T}{R} \textit{ ist surjektiv.}
+\end{gather*}
+Somit muss J = 0 gelten und es folgt $\Tensor{T}{S}{\divR{S}{R}} \simeq \divR{T}{R}$.
+\end{proof}
 \end{document}
