@@ -51,6 +51,14 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
+\begin{prop}\comment{\label{prof 16.2}}
+Seien $R \longrightarrow S \longrightarrow T$ Ringhomomorphismen. Dann existiert folgende rechts-exakte Sequenz von T-Modulen.
+\begin{center}
+\end{center}
+
+\end{prop}
+
+
 \begin{bsp}\label{Ableitung ist Ableitung}
 Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
 Teste dies an $f(x)=ax^2 + bx +c$:
@@ -80,7 +88,7 @@ Sei $R \longrightarrow S \subset T$ ein Ringhomomorphismus und $S \subset T$ ein
 \end{gather*}
 \end{lemma}
 \begin{proof}
-Wähle $\alpha \in T$ mit $S[\alpha] = T$ und sei f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{S[x]}{S[x]/(f) \simeq T}$ \textit{[vlg. \cref{prop16.3}]}:
+Wähle $\alpha \in T$ mit $S[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{S[x]}{S[x]/(f) \simeq T}$ aus \cref{prop16.3}:
 \begin{center}
 \begin{tikzcd}
 (f)/(f^2) \arrow[r, "\tensor{1}{S[x]}{\divf{S[x]}}"] & \Tensor{T}{S[x]}{\divR{S[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
@@ -88,18 +96,18 @@ Wähle $\alpha \in T$ mit $S[\alpha] = T$ und sei f(x) das Minimalpolynom von $\
 \end{center}
 Wende nun 16.6 auf $\divR{S[x]}{R}$ an und tensoriere mit $T$, somit gilt:
 \begin{gather*}
-\Tensor{T}{S[x]}{\divR{S[x]}{R}} \simeq \Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle
+\Tensor{T}{S[x]}{\divR{S[x]}{R}} \simeq \Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x]}(x) \rangle
 \end{gather*}
-Zusammen mit der Conormalen Sequenz bedeutet dies
+Zusammen mit der conormalen Sequenz bedeutet dies:
 \begin{gather*}
-\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle)/(\divf{S[x]}(f))
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x]}(x) \rangle)/(\divf{S[x]}(f))
 \end{gather*}
-Wenn wir $\functionfront{\divf{S[x]}}{(f)}{\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle}$ genauer betrachten sehen wir: \textit{[betrachte dazu \cref{Ableitung ist Ableitung} ]}:
+Wenn wir $\functionfront{\divf{S[x]}}{(f)}{\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle}$ wie in \cref{Ableitung ist Ableitung} betrachten , sehen wir:
 \begin{gather*}
-\divf{S[x]}((f)) = J \oplus (f'(\alpha)\divf{S[x]}) = J \oplus T\langle\rangle
-\text{wobei $J \subseteq \Tensor{T}{S}{\divR{S}{R}}$ ein Ideal ist.}
+\divf{S[x]}((f)) = J \oplus (f'(\alpha)\divf{S[x]}) = J \oplus T\langle \divf{S[x]}(x) \rangle \\
+\text{,wobei $J \subseteq \Tensor{T}{S}{\divR{S}{R}}$ ein Ideal ist.}
 \end{gather*}
-Für die letzte Gleichheit nutze, dass $T \supset S$ seperabel und somit $f(\alpha) \neq 0$ ist und nach obiger Wahl $K = S[\alpha]$ gilt.\\
+Für die letzte Gleichheit nutze, dass $T \supset S$ seperabel und somit $f'(\alpha) \neq 0$ ist und nach obiger Wahl $T = S[\alpha]$ gilt.\\
 Damit erhalten wir nun:
 \begin{gather*}
 \divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}})/J \\
