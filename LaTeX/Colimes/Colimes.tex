@@ -67,21 +67,26 @@ d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x)
 \end{gather*}
 \end{bsp}
 
+\begin{definition}
+Sei $K \supset k$ eine Körpererweiterung. Dann nennen wir eine Teilmenge $\lbrace b_i \rbrace_{i \in \Lambda} \subseteq T$ eine \underline{Differenzialbasis} von $K$ über $k$, falls $\lbrace \divf{K}(b_i)\rbrace_{i \in \Lambda} \subseteq T$ eine Vektorraumbasis von $\divR{T}{R}$ über $T$ ist.
+\end{definition}
 
 \begin{bsp}
 Sei $k$ ein Körper und $K = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
 Dann ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{K}{k}$.
 \end{bsp}
 \begin{proof}
-Sehe $K = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung. Somit gilt nach LOKALISIERUNG und POLYNOMRING:
+Sehe $K = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung. Nach LOKALISIERUNG und POLYNOMRING gilt:
 \begin{gather*}
-\divR{K}{k} \simeq \tensor{K}{k[x_1,\dots,x_n]}{\divR{k[x_1,\dots,x_n]}{k}} \simeq \tensor{K}{k[x_1,\dots,x_n]}{\oplus_{i \in \lbrace 1,\dots,n \rbrace} k[x_1,\dots,x_n]\langle \divf{k[x_1,\dots x_n]}(x_i) \rangle} \simeq K\langle \divf{k[x_1,\dots x_n]}(x_i) \rangle
+\divR{K}{k} \simeq \tensor{K}{k[x_1,\dots,x_n]}{\divR{k[x_1,\dots,x_n]}{k}} \\
+\simeq \tensor{K}{k[x_1,\dots,x_n]}{\oplus_{i \in \lbrace 1,\dots,n \rbrace} k[x_1,\dots,x_n]\langle \divf{k[x_1,\dots x_n]}(x_i) \rangle} \\
+\simeq K\langle \divf{k[x_1,\dots x_n]}(x_i) \rangle
 \end{gather*}
-Somit ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ ein Erzeugenden-System von $\divR{K}{k}$.
+Damit ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ ein Erzeugenden-System von $\divR{K}{k}$.
 \end{proof}
 
 
-\begin{lemma}
+\begin{lemma}\label{Aufbaulemma}
 Sei $R \longrightarrow S \subset T$ ein Ringhomomorphismus und $S \subset T$ eine seperabel und algebraische Körpererweiterung. Dann gilt:
 \begin{gather*}
 \divR{T}{R} = \Tensor{T}{S}{\divR{S}{R}}
@@ -114,5 +119,23 @@ Damit erhalten wir nun:
 \Rightarrow \Tensor{T}{S}{\divR{S}{R}} \hookrightarrow \divR{T}{R} \textit{ ist surjektiv.}
 \end{gather*}
 Somit muss J = 0 gelten und es folgt $\Tensor{T}{S}{\divR{S}{R}} \simeq \divR{T}{R}$.
+\end{proof}
+
+
+\begin{theorem}\comment{\label{Differenzial-Körperbasis}}
+Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda}$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
+\begin{itemize}
+\item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transcendencbasis von T über k.
+\item[\textit{2.}] char(k) = p und $B$ ist eine p-Basis von T über k.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+\ \\
+\itemize
+\item[\underline{\textbf{1.}"$\Rightarrow$":}] Sei B eine Transcendencbasis von T über k.\\
+Somit ist die Körpererweiterung $K \supset k(B)$ algebraisch und seperabel. Mit \cref{Aufbaulemma} folgt:
+\begin{gather*}
+\divR{T}{k} = \Tensor{T}{S}{\divR{S}{k}}
+\end{gather*}
 \end{proof}
 \end{document}
