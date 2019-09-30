@@ -125,17 +125,45 @@ Somit muss J = 0 gelten und es folgt $\Tensor{T}{S}{\divR{S}{R}} \simeq \divR{T}
 \begin{theorem}\comment{\label{Differenzial-Körperbasis}}
 Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda}$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
 \begin{itemize}
-\item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transcendencbasis von T über k.
+\item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transzendenzbasis von T über k.
 \item[\textit{2.}] char(k) = p und $B$ ist eine p-Basis von T über k.
 \end{itemize}
 \end{theorem}
 \begin{proof}
 \ \\
-\itemize
-\item[\underline{\textbf{1.}"$\Rightarrow$":}] Sei B eine Transcendencbasis von T über k.\\
-Somit ist die Körpererweiterung $K \supset k(B)$ algebraisch und seperabel. Mit \cref{Aufbaulemma} folgt:
+\begin{itemize}
+\item[\underline{\textbf{1.}"$\Rightarrow$":}] Sei B eine Transzendenzbasis von T über k.\\
+Somit ist die Körpererweiterung $K \supset S \defeq k(B)$ algebraisch und seperabel. Mit \cref{Aufbaulemma} folgt:
 \begin{gather*}
 \divR{T}{k} = \Tensor{T}{S}{\divR{S}{k}}
 \end{gather*}
+Betrachte $S$ als Lokalisierung von $K[B]$ und wende \textbf{Lokalisierung des Kähler-Differenzials} \comment{\cref{Lokalisierung des Kähler-Differenzials}} auf $\divR{S}{k}$ an, somit gilt:
+\begin{gather*}
+\divR{S}{k} = \Tensor{S}{k[B]}{\divR{k[B]}{k}}
+\end{gather*}
+In \textbf{Differenzial von Polynomalgebren 1} \comment{\label{dies brauche ich allerdings für unendliche Mengen Lambda}\cref{Differenzial von Polynomalgebren 1}} haben wir gesehen, dass $\divR{k[B]}{k}$ ein freis Modul über $k[B]$ mit $\lbrace b_i \rbrace_{i \in \Lambda}$ als Basis ist. Dies liefert uns letztendlich die gewünschte Darstellung
+\begin{gather*}
+\divR{T}{k} = \bigoplus_{i \in \Lambda \rbrace} T \langle \divf{T}(x_i) \rangle .
+\end{gather*}
+\item[\underline{\textbf{1.}"$\Leftarrow$":}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+Zeige zunächst, dass T algebraisch über S ist.\\
+Betrachte dazu die COTANGENT SEQUENZ \comment{\label{*Prop 16.2}} von $K \hookrightarrow S \hookrightarrow T$.
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S}{\divR{S}{k}} \arrow[r, ""] & \divR{T}{k} \arrow[r, ""] & \divR{T}{S} \arrow[r, ""] & 0
+\end{tikzcd}
+\end{center}
+Diese besagt $\divR{T}{S} = \divR{T}{k} / \immage{\Tensor{T}{S}{\divR{S}{k}} \longrightarrow \divR{T}{k}}$.
+\begin{gather*}
+\text{Nach Vorraussetzung gilt } \divR{T}{k} = T \langle \divf{T}(B) \rangle. \\
+\Rightarrow \immage{\Tensor{T}{S}{\divR{S}{k}} \longrightarrow \divR{T}{k}} = T\langle \divf{S}(B) \rangle \simeq \divR{T}{k}
+\end{gather*}
+Zusammen zeigt und dies, dass $\divR{T}{S} = 0$ gilt.\\
+Da, wie wir in "$\Rightarrow$" gezeigt haben, jede Transzendenzbasis $B'$ von $T$ über $S$ auch eine Differenzialbasis $\divR{T}{S} = 0$ ist, gilt für diese $B' = \emptyset$. Da dies sonst der existens von Transzendenzbasen \textit{[vlg. PROPOSITION ] \comment{\label{*Transzendenzbasis existiert immer}}} widersprechen würde, muss somit $T$ algebraisch über $S$ sein.\\
+\ \\
+Zeige noch, dass $B$ auch algebraisch unabhängig über $S$ ist.\\
+Sei dazu $\tau$ die minimale Teilmenge von $\Lambda$, für welche $T$ noch algebraisch über $k(\lbrace b_i \rbrace_{i \in \tau})$ ist. Für diese ist $\lbrace b_i \rbrace_{i \in \tau}$ algebraisch unabhängig über K.\\
+Damit ist $\lbrace b_i \rbrace_{i \in \tau}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Also muss schon $\tau = \Lambda$ gegolten haben und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\end{itemize}
 \end{proof}
 \end{document}
