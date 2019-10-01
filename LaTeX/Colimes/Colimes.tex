@@ -51,32 +51,33 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
-\begin{prop}\comment{\label{prof 16.2}}
-Seien $R \longrightarrow S \longrightarrow T$ Ringhomomorphismen. Dann existiert folgende rechts-exakte Sequenz von T-Modulen.
-\begin{center}
-\end{center}
 
-\end{prop}
-
-
-\begin{bsp}\label{Ableitung ist Ableitung}
+\textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung]}
+\begin{bsp}\comment{\label{Differenzial ist Ableitung}}
 Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
 Teste dies an $f(x)=ax^2 + bx +c$:
 \begin{gather*}
 d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x) 
 \end{gather*}
+\comment{lässt sich induktiv für Monome leicht zeigen}
 \end{bsp}
 
-\begin{definition}
+
+\ \\
+\textbf{Definition der Differenzialbasis} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
+\begin{definition}\comment{\label{Definition der Differenzialbasis}}
 Sei $K \supset k$ eine Körpererweiterung. Dann nennen wir eine Teilmenge $\lbrace b_i \rbrace_{i \in \Lambda} \subseteq T$ eine \underline{Differenzialbasis} von $K$ über $k$, falls $\lbrace \divf{K}(b_i)\rbrace_{i \in \Lambda} \subseteq T$ eine Vektorraumbasis von $\divR{T}{R}$ über $T$ ist.
 \end{definition}
 
-\begin{bsp}
+
+\ \\
+\textbf{Differentialbasis des Quotientenkoerpers von Polynomalgebren} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
+\begin{bsp}\comment{\label{Differentialbasis des Quotientenkoerpers von Polynomalgebren}}
 Sei $k$ ein Körper und $K = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
 Dann ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{K}{k}$.
 \end{bsp}
 \begin{proof}
-Sehe $K = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung. Nach LOKALISIERUNG und POLYNOMRING gilt:
+Sehe $K = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung. Nach LOKALISIERUNG und POLYNOMRINGEN gilt:
 \begin{gather*}
 \divR{K}{k} \simeq \tensor{K}{k[x_1,\dots,x_n]}{\divR{k[x_1,\dots,x_n]}{k}} \\
 \simeq \tensor{K}{k[x_1,\dots,x_n]}{\oplus_{i \in \lbrace 1,\dots,n \rbrace} k[x_1,\dots,x_n]\langle \divf{k[x_1,\dots x_n]}(x_i) \rangle} \\
@@ -86,14 +87,16 @@ Damit ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ ein Erzeugende
 \end{proof}
 
 
-\begin{lemma}\label{Aufbaulemma}
+\ \\
+\textbf{Aufbaulemma Koerperdifferenzial} \textit{[vlg. Lemma 16.15 \ModulsOfDifferenzials]}
+\begin{lemma}\label{Aufbaulemma Koerperdifferenzial}
 Sei $R \longrightarrow S \subset T$ ein Ringhomomorphismus und $S \subset T$ eine seperabel und algebraische Körpererweiterung. Dann gilt:
 \begin{gather*}
 \divR{T}{R} = \Tensor{T}{S}{\divR{S}{R}}
 \end{gather*}
 \end{lemma}
 \begin{proof}
-Wähle $\alpha \in T$ mit $S[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{S[x]}{S[x]/(f) \simeq T}$ aus \cref{prop16.3}:
+Wähle $\alpha \in T$ mit $S[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{S[x]}{S[x]/(f) \simeq T}$ aus \comment{\cref{prop16.3}} \textbf{Proposition 16.3}:
 \begin{center}
 \begin{tikzcd}
 (f)/(f^2) \arrow[r, "\tensor{1}{S[x]}{\divf{S[x]}}"] & \Tensor{T}{S[x]}{\divR{S[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
@@ -107,7 +110,7 @@ Zusammen mit der conormalen Sequenz bedeutet dies:
 \begin{gather*}
 \divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x]}(x) \rangle)/(\divf{S[x]}(f))
 \end{gather*}
-Wenn wir $\functionfront{\divf{S[x]}}{(f)}{\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle}$ wie in \cref{Ableitung ist Ableitung} betrachten , sehen wir:
+Wenn wir $\functionfront{\divf{S[x]}}{(f)}{\Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x](x)} \rangle}$ wie in \cref{Differenzial ist Ableitung} betrachten , sehen wir:
 \begin{gather*}
 \divf{S[x]}((f)) = J \oplus (f'(\alpha)\divf{S[x]}) = J \oplus T\langle \divf{S[x]}(x) \rangle \\
 \text{,wobei $J \subseteq \Tensor{T}{S}{\divR{S}{R}}$ ein Ideal ist.}
@@ -122,7 +125,9 @@ Somit muss J = 0 gelten und es folgt $\Tensor{T}{S}{\divR{S}{R}} \simeq \divR{T}
 \end{proof}
 
 
-\begin{theorem}\comment{\label{Differenzial-Körperbasis}}
+\ \\
+\textbf{Differenzialbasis eines Koerpers} \textit{[vlg. Theorem 16.4 \ModulsOfDifferenzials]}
+\begin{theorem}\comment{\label{Differenzialbasis eines Koerpers}}
 Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda}$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
 \begin{itemize}
 \item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transzendenzbasis von T über k.
@@ -132,8 +137,8 @@ Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace 
 \begin{proof}
 \ \\
 \begin{itemize}
-\item[\underline{\textbf{1.}"$\Rightarrow$":}] Sei B eine Transzendenzbasis von T über k.\\
-Somit ist die Körpererweiterung $K \supset S \defeq k(B)$ algebraisch und seperabel. Mit \cref{Aufbaulemma} folgt:
+\item[\underline{\textbf{1.}"$\Leftarrow$":}] Sei B eine Transzendenzbasis von T über k.\\
+Somit ist die Körpererweiterung $K \supset S \defeq k(B)$ algebraisch und seperabel. Mit \cref{Aufbaulemma Koerperdifferenzial} folgt:
 \begin{gather*}
 \divR{T}{k} = \Tensor{T}{S}{\divR{S}{k}}
 \end{gather*}
@@ -145,7 +150,7 @@ In \textbf{Differenzial von Polynomalgebren 1} \comment{\label{dies brauche ich 
 \begin{gather*}
 \divR{T}{k} = \bigoplus_{i \in \Lambda \rbrace} T \langle \divf{T}(x_i) \rangle .
 \end{gather*}
-\item[\underline{\textbf{1.}"$\Leftarrow$":}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+\item[\underline{\textbf{1.}"$\Rightarrow$":}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
 Zeige zunächst, dass T algebraisch über S ist.\\
 Betrachte dazu die COTANGENT SEQUENZ \comment{\label{*Prop 16.2}} von $K \hookrightarrow S \hookrightarrow T$.
 \begin{center}
@@ -159,11 +164,20 @@ Diese besagt $\divR{T}{S} = \divR{T}{k} / \immage{\Tensor{T}{S}{\divR{S}{k}} \lo
 \Rightarrow \immage{\Tensor{T}{S}{\divR{S}{k}} \longrightarrow \divR{T}{k}} = T\langle \divf{S}(B) \rangle \simeq \divR{T}{k}
 \end{gather*}
 Zusammen zeigt und dies, dass $\divR{T}{S} = 0$ gilt.\\
-Da, wie wir in "$\Rightarrow$" gezeigt haben, jede Transzendenzbasis $B'$ von $T$ über $S$ auch eine Differenzialbasis $\divR{T}{S} = 0$ ist, gilt für diese $B' = \emptyset$. Da dies sonst der existens von Transzendenzbasen \textit{[vlg. PROPOSITION ] \comment{\label{*Transzendenzbasis existiert immer}}} widersprechen würde, muss somit $T$ algebraisch über $S$ sein.\\
+Da, wie wir in "$\Leftarrow_{1.}$" gezeigt haben, jede Transzendenzbasis $B'$ von $T$ über $S$ auch eine Differenzialbasis $\divR{T}{S} = 0$ ist, gilt für diese $B' = \emptyset$. Da dies sonst der existens von Transzendenzbasen \textit{[vlg. PROPOSITION]} \comment{\label{*Transzendenzbasis existiert immer}} widersprechen würde, muss somit $T$ algebraisch über $S$ sein.\\
 \ \\
 Zeige noch, dass $B$ auch algebraisch unabhängig über $S$ ist.\\
 Sei dazu $\tau$ die minimale Teilmenge von $\Lambda$, für welche $T$ noch algebraisch über $k(\lbrace b_i \rbrace_{i \in \tau})$ ist. Für diese ist $\lbrace b_i \rbrace_{i \in \tau}$ algebraisch unabhängig über K.\\
 Damit ist $\lbrace b_i \rbrace_{i \in \tau}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Also muss schon $\tau = \Lambda$ gegolten haben und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\item[\underline{\textbf{1.}"$\Leftarrow$":}] Sei B eine p-Basis von T über k.\\
+Somit wird nach PROPOSITION \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}} $T$ von $B$ als Algebra über $(k * K^p)$ und $\divR{T}{(k * K^p)}$ von $\divf{T}(B)$ als Vektorraum über $T$ 
+\textit{[vlg. PROPOSITION]} \comment{\label{*Differenzial vererbt Erzeugendensystem}} erzeugt. Zeige also $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$:\\
+Betrachte dazu die COTANGENT SEQUENZ \comment{\label{*Prop 16.2}} von $K \hookrightarrow (k * K^p) \hookrightarrow T$.
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{(k * K^p)}{\divR{(k * K^p)}{k}} \arrow[r, ""] & \divR{T}{k} \arrow[r, ""] & \divR{T}{(k * K^p)} \arrow[r, ""] & 0
+\end{tikzcd}
+\end{center}
 \end{itemize}
 \end{proof}
 \end{document}

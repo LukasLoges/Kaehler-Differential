@@ -14,7 +14,7 @@
 \newcommand{\comment}[1]{}
 \renewcommand{\baselinestretch}{1.1}
 
-\newcommand{\ModulsOfDifferenzials}{David Eisenbud 1994}
+\newcommand{\ModulsOfDifferenzials}{Kommutativ Algebra with a view Torwards Algebraic Geometrie [David Eisenbud 1994]}
 
 \newcounter{Aussage}[chapter]
 
@@ -52,21 +52,17 @@
 
 \begin{document}
 \chapter{Grundlegende Sätze}
-
-\textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung]}
-\begin{bsp}\comment{\label{Differenzial ist Ableitung}}
+\begin{bsp}
 Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
 Teste dies an $f(x)=ax^2 + bx +c$:
 \begin{gather*}
 d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x) 
 \end{gather*}
-\comment{lässt sich induktiv für Monome leicht zeigen}
 \end{bsp}
 
 
-\ \\
-\textbf{Konormale Sequenz} \textit{[vlg. Proposition 16.3 \ModulsOfDifferenzials]}
-\begin{satz} \label{Konormale Sequenz}
+\textit{Proposition 16.3 aus \ModulsOfDifferenzials}
+\begin{satz} \label{prop16.3}
 \raggedright
 Sei $\functionfront{\pi}{S}{T}$ ein R-Algebrenephimorphismus mit Kern($\pi$):= I \\
 Dann ist folgende Sequenz rechtsexakt: \\
@@ -80,6 +76,7 @@ mit: $\function{f}{I/I^2}{{\Tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}
 \textsc{\leftskip2.3em} $\function{g}{\Tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{\divf{S}(c)}}{b \cdot (\divf{S} \circ \pi)(c)}$
 \end{spacing}
 \end{satz}
+
 \begin{proof} \ \\
 \underline{$f$ ist wohldefiniert:} Seien $a,b\in I^2$. Zeige $f(a \cdot b)=0$ :
 $$ f(a \cdot b) =
@@ -105,12 +102,11 @@ Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $\divf{S}$ und $\divf{T}$ erzeugt
 \end{align*}
 \end{proof}
 
-
 \chapter{Kolimes}
+In diesem Kapitel werden wir das Konzept des Kolimes als Konstrukt der Kathegorientheorie kennen lernen. Am Ende des Kapitels werden wir sehen, dass der Kolimes von R-Algebren mit der Bildung des Kähler-Differenzials harmoniert. Dies wird es uns im folgenden vereinfachen, bestimmte Eigenschaften des Kähler-Differenzials nachzuweisen.\\
 \section{Einführung in den Kolimes}
-
-\textbf{Definition des Kolimes} \textit{[vgl. Anhang A6 \ModulsOfDifferenzials]}
-\begin{definition}\comment{\label{Definition des Kolimes}}
+\textit{Vgl. Anhang A6 aus \ModulsOfDifferenzials .}
+\begin{definition}
 Sei $\mathcal{A}$ eine Kategorie und $C \in \mathcal{A}$ ein Objekt
 \begin{itemize}
 \item Ein \underline{Diagramm} über $\mathcal{A}$ ist eine Kategorie $\mathcal{B}$ zusammen mit einem Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$.
@@ -137,9 +133,8 @@ A' &                                    & A \arrow[ll, "\exists ! \varphi "', da
 \end{definition}
 
 
-\ \\
-\textbf{Eindeutigkeit des Kolimes} \textit{[vgl. A6 \ModulsOfDifferenzials]}
-\begin{lemma}\comment{\label{Eindeutigkeit des Kolimes}}
+Bevor der Kolimes weiter charakterisiert wird, zeigen wir zunächst, dass er durch die obige Definition eindeutig bestimmt ist.
+\begin{lemma}
 Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor, so git:\\ 
 Im Falle der Existenz sind $\colimes \mathcal{F}$ und der dazugehörige Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
 \end{lemma}
@@ -167,17 +162,16 @@ Somit existiert genau eine Isomorphie $\functionfront{\varphi_1}{A_1}{A_2}$.
 \end{proof}
 
 
-\ \\
 Im folgenden beschäftigen wir uns mit dem Fall des $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$, bei welchem $\mathcal{B}$ eine Unterkategorie von $\mathcal{A}$ ist. Zur Vereinfachung unterschlagen dabei die triviale Existenz des Funktors $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$. Wir werden also im folgenden von dem Diagramm $\mathcal{B}$ und dem entsprechenden Kolimes $\colimes \mathcal{B}$, sowie dem Morphismus $\functionfront{\phi}{\mathcal{B}}{A} $ sprechen.\\ 
-\textbf{Vereinfachung des Kolimes} \textit{[Eigene Überlegung (Beweis fehlt noch)]}
+Dieser Fall ist vor allem so interessant, weil man den Kolimes eines beliebigen Diagramms immer darauf zurückführen kann.
 \begin{bem}\label{Vereinfachung des Kolimes}
 Seien $\mathcal{B} \nsubseteq \mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Diagramm.\\
 Dann gilt im Falle der Existenz $\colimes \mathcal{F} = \colimes \mathcal{F}(\mathcal{B})$ 
 \end{bem}
 
 
-\ \\
-\textbf{DifferenzkokernUndKoproduktDef} \textit{[vlg. A6 \ModulsOfDifferenzials]}
+Zunächst untersuchen wir bei einer gegebenen Kategorie $\mathcal{A}$ das Koprodukt einer Menge von Objekten $B_i \in \mathcal{A}$, sowie den Differenzkokern zweier Morphismen $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.
+
 \begin{definition} \label{DifferenzkokernUndKoproduktDef}
 Sei $\mathcal{A}$ eine Kategorie.
 \begin{itemize}
@@ -188,9 +182,8 @@ wobei $\mathcal{C}$ $\lbrace C_1,C_2 \rbrace$ als Objekte und $ \lbrace f,g \rbr
 \end{itemize}
 \end{definition}
 
+In der Einführung des Differenzkokern`s in \cref{DifferenzkokernUndKoproduktDef} ist deutliche zu sehen, inwiefern dieser ein Kolimes ist. Um aber mit dem Differenzkokern besser zu arbeiten wird er meist anders eingeführt. Daher betrachten auch wir ab nun eine andere, aber äquivalente Definition des Differenzkokern`s.
 
-\ \\
-\textbf{NeuDifferenzenkokerndef} \textit{[vlg. Wikipedia aber eigener Beweis]}
 \begin{lemma}\label{NeuDifferenzenkokerndef} Sei $\mathcal{A}$ eine Kategorie mit $C_1,C_2 \in Hom_{\mathcal{A}}(C_1,C_2)$, so sind folgende Formulierungen äquivalent zur Definition des Differenzkokern`s $T \defeq \colimes \mathcal{C}$
 \begin{itemize}
 \item[1.] Es existiert ein Morphismus $\functionfront{\psi}{\mathcal{C}}{T}$, mit der Eigenschaft, dass für alle Morphismen $\functionfront{\psi '}{\mathcal{C}}{T'}$ genau ein $\varphi \in Hom_{\mathcal{A}}(T,T')$ mit $\varphi \circ \psi = \psi '$ existiert.
@@ -229,9 +222,7 @@ Definiere $d' \defeq \psi '$, somit existiert durch die Eigenschaft von $d$ gena
 Wenn im weiteren Verlauf von dem Differenzkokern zweier Homomorphismen $\functionfront{f,g}{C_1}{C_2}$ gesprochen wird, meinen wir damit den Homomorphismus $\functionfront{q}{C_2}{T}$ aus \cref{NeuDifferenzenkokerndef}.
 
 
-\ \\
-\textbf{Tensorprodukt des Differenzenkokerns} \textit{[Eigene Bemerkung]}
-\begin{bem} \comment{\label{Tensorprodukt des Differenzenkokerns}}
+\begin{bem}
 Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\Tensor{T}{C_1}{M}$ definieren. 
 \begin{gather*}
 \textit{für } s_1 \in S_1 \textit{ und } \tensor{t}{S_1}{m}) \in \Tensor{T}{C_1}{M} \textit{ gilt: }\\
@@ -240,8 +231,7 @@ s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \
 \end{bem}
 
 
-\ \\
-\textbf{R-Algebra-Kolimiten} \textit{[vlg. Proposition A6.7 \ModulsOfDifferenzials]}
+Da wir es hauptsächlich mit R-Algebren zu tun haben, wollen wir natürlich auch wissen, wie sich Koprodukte und Differenzkokerne von R-Algebren verhalten. Daher betrachten wir in der folgenden Proposition genauer welche Form diese haben.
 \begin{prop} \label{R-Algebra-Kolimiten}
 in der Kategorie der R-Algebren existieren Koprodukte und Differenzkokerne, wobei:
 \begin{itemize}
@@ -292,8 +282,7 @@ Also ist $\functionfront{q}{S_2}{S_2/Q}$ der bis auf Isomorphie eindeutig bestim
 \end{proof}
 
 
-\ \\
-\textbf{Darstellung der Polynomalgebra als Tensorprodukt} \textit{[Eigene Überlegung]}
+Da wir nun auch mal die konkrete Form von Kolimten kennen, können wir uns überlegen bei welchen Algebren es sich um einen Kolimes handelt. Dabei interessiert und vor allem der Kolimes, denn viele Algebren lassen sich als Tensorprodukt von Unteralgebren darstellen. Ein klassisches Beispiel dafür ist die Polynomalgebra $R[x_1,...,x_n]$.
 \begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}
 Die Polynomalgebra $R[x_1,...,x_d]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
 \begin{gather*}
@@ -320,8 +309,7 @@ Es ist leicht nachzurechnen, dass es sich bei $\varphi$ um folgende Funktion han
 \end{proof}
 
 
-\ \\
-\textbf{R-Modul-Kolimiten} \textit{[Proposition A6.2 \ModulsOfDifferenzials]}
+Um im weiteren auch Koprodukte bzw. Differenzenkokerne des Kählerdifferenzials betrachten zu können, wollen wir wissen, wie sich diese in der Kategorie der R-Module verhalten. Daher betrachten wir in der folgenden Proposition genauer welche Form diese haben.
 \begin{prop}\label{R-Modul-Kolimiten}
 In Der Kategorie der R-Module  existieren Koprodukte und Differenzkokerne, wobei:
 \begin{itemize}
@@ -347,10 +335,9 @@ $\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\
 \end{itemize}
 \end{proof}
 Die in \cref{R-Modul-Kolimiten} gezeigten Darstellungen gelten mit kurzen Überlegungen auch für S-Module, wobei S eine R-Algebra ist.\\
-
-
 \ \\
-\textbf{Lokalisierung von Algebren als Kolimes} \textit{[vlg. Aufgabe A6.7 \ModulsOfDifferenzials]}
+Eine Anwendung des Kolimes ist die Lokalisation. Hier können wir den Kolimes nutzen, um die multiplikativ abgeschlossene Menge $U \subseteq S$ ohne Einschränkung auf den Fall $U = \lbrace t^n \vert n \in \mathbb{N}_0 \rbrace$ für ein $t \in S$ herunter zu brechen. Betrachte dazu die folgenden zwei Aussagen.\\
+\textit{Aufgabe A6.7 aus \ModulsOfDifferenzials.}
 \begin{lemma}\label{Lokalisierung von Algebren als Kolimes}
 Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
 Dann gilt:
@@ -408,8 +395,6 @@ Da der Kolimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}
  \end{proof}
 
 
-\ \\
-\textbf{Lokalisierung von Moduln als Kolimes} \textit{[Eigene Idee, wurde angeschnitten im Beweis von Proposition 16.9 \ModulsOfDifferenzials]}
 \begin{korrolar}\comment{\label{Lokalisierung von Moduln als Kolimes}}
 Sei M ein S-Modul, wobei S eine R-Algebra ist. Sei weiter $U \subseteq S$ multiplikativ abgeschlossen. Dann gilt:
 \begin{gather*}
@@ -443,6 +428,7 @@ Die Wohldefiniertheit von $\psi'_t$ für ein beliebiges $t \in U$ folgt direkt a
                                       & \lok{M}{U}                               
 \end{tikzcd}
 \end{center} 
+ 
 Durch die Universelle Eigenschaft des Kolimes erhalten wir nun den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{M}{U}}$.
 \begin{center}
 \begin{tikzcd}
@@ -471,13 +457,13 @@ Für $\varphi \circ \phi \defshow id_{\lok{M}{U}}$ wähle $\loke{m}{u}{U} \in \l
 \end{gather*}
 Damit haben wir $A \simeq \lok{M}{U}$ gezeigt, definiere also ab sofort $\lok{M}{U}$ als den eindeutigen Kolimes von $\mathcal{C}$.
 \end{proof}
-
-
+\ \\
 \section{Kähler-Differenzial von Kolimiten}
-
-\textbf{Differenzial des Kolimes von R-Algebren} \textit{[vlg. Korolar 16.7 \ModulsOfDifferenzials]}
+Wie schon angekündigt, bringen wir nun dieses Kapitel zu einem Ende, indem wir die gerade kennen gelernte Theorie mit dem Kähler-Differenzial in Verbindung setzen.\\
+Folgende Proposition zeigt uns, dass Differenzkokerne und Koprodukte unter der Bildung des Kähler-Differenzial`s erhalten bleiben.\\
+\textit{vlg.Korrolar 16.7 aus \ModulsOfDifferenzials.}
 \comment{Beide Beweise sind sehr kurz gefasst}
-\begin{prop} \label{Differenzial des Kolimes von R-Algebren}
+\begin{prop} \label{Kaehlerdifferenzial des Kolimes von R-Algebren}
 \ \\
 \begin{itemize}
 \item[\textbf{1.}]
@@ -536,8 +522,8 @@ $\Rightarrow$ die gesuchte Sequenz ist exakt.
 \end{proof}
 
 
-\ \\
-\textbf{Differenzial von Polynomalgebren 1} \textit{[vlg. Proposition 16.1 \ModulsOfDifferenzials]}
+An dieser Stelle wollen wir uns daran erinnern, dass wir in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gesehen haben, dass es sich bei der Polynomalgebra um das Koprodukt von Algebren handelt. Daher können wir nun in den folgenden zwei Korrolaren das Kähler-Differenzial von Polynomalgebren spezifizieren.
+\textit{ Vergleiche Proposition 16.1 aus \ModulsOfDifferenzials.}
 \begin{korrolar}\label{Differenzial von Polynomalgebren 1}
 Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
 \begin{gather*}
@@ -546,7 +532,7 @@ Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
 Wobei $S\langle \divf{S}(x_i)\rangle$ das von $\divf{S}(x_i)$ erzeugt Modul über S ist.
 \end{korrolar}
 \begin{proof}
-Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, können wir $S$ als $\bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]$ schreiben. In \cref{Differenzial des Kolimes von R-Algebren} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
+Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, können wir $S$ als $\bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]$ schreiben. In \cref{Kaehlerdifferenzial des Kolimes von R-Algebren} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
 \begin{gather*}
 \divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S}{R[x_i]}{\divR{R[x_i]}{R}})
 \end{gather*}
@@ -558,8 +544,8 @@ Da $R[x_i]$ die aus dem Element $x_i$ erzeugte Algebra über $R$ ist, folgt \tex
 Für die letzte Isomorphie nutze, dass wegen $R[x_i] \subseteq S$ zum Einen $\divf{R[x_i]}$ als Einschränkung von $\divf{S}$ gesehen werden kann und zum Anderen $\Tensor{S}{R[x_i]}{R[x_i]} \simeq S$ gilt.
 \end{proof}
 
-\ \\
-\textbf{Differenzial von Polynomalgebren 2} \textit{[vgl. Korrolar 16.6 \ModulsOfDifferenzials]}
+
+\textit{Vergleiche Korrolar 16.6 aus \ModulsOfDifferenzials.}
 \begin{korrolar}\label{Differenzial von Polynomalgebren 2}
 Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
 \begin{gather*}
@@ -567,7 +553,7 @@ Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. 
 \end{gather*}
 \end{korrolar}
 \begin{proof}
-Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Differenzial des Kolimes von R-Algebren} an:
+Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Kaehlerdifferenzial des Kolimes von R-Algebren} an:
 \begin{gather*}
 T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
 \Rightarrow T \simeq \Tensor{(\Tensor{T}{S}{\divR{S}{R}})}{T}{(\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})}
@@ -581,8 +567,7 @@ Zuletzt nutze den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an 
 \end{proof}
 
 
-\ \\
-\textbf{Lokalisierung des Kähler-Differenzials} \textit{[vlg. Proposition 16.9 \ModulsOfDifferenzials]}
+Wir haben nun gezeigt, dass der Kolimes unter Bildung des Kähler-Differenzial`s erhalten bleibt. Außerdem habe wir gesehen, wie man Lokalisierung als Kolimes darstellen kann. Daher können wir nun abschließend ein Theorem formulieren, welches besagt, dass auch Lokalisierung unter Bildung des Kähler-Differenzials erhalten bleibt.
 \begin{theorem}\comment{\label{Lokalisierung des Kähler-Differenzials}}
 Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
 Dann gilt:
@@ -631,6 +616,7 @@ Definiere für beliebige $t \in U$ folgenden Isomorphismus:
 f \circ \beta \circ \gamma  \circ D\alpha \defeqr \function{\delta_t}{\divR{\lok{S}{t}}{R}}{\lok{\divR{S}{R}}{t}}{\divf{\lok{S}{t}}(\loke{1}{t}{t})}{- \loke{\divf{S}(t)}{t^2}{t}}
 \end{gather*}
 \end{itemize}
+
 
 Zeige nun den Allgemeinen Fall $\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}}$:\\
 Wähle $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ wie in \cref{Lokalisierung von Algebren als Kolimes}, sodass $\colimes \mathcal{B} = \lok{S}{U}$ gilt.\\
@@ -684,7 +670,7 @@ Wobei die Form von $\mathcal{C}$ genau dem Fall aus \cref{Lokalisierung von Modu
 \functionfront{\tensor{1}{\lok{S}{t}}{\varphi}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}}}{\Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}} \\
 \tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{\divf{S}(x)}{t^n}{t}} \longmapsto \tensor{\loke{s}{u}{U}}{\lok{S}{tt'}}{\loke{t'^n\divf{S}(x)}{(tt')^n}{tt'}}
 \end{gather*}
-Somit folgt $\colimes \mathcal{C} = \lok{\divR{S}{R}}{U}$ und wir haben $\divR{\lok{S}{U}}{R} = \lok{\divR{S}{R}}{U}$ gezeigt.
+Damit folgt $\colimes \mathcal{C} = \lok{\divR{S}{R}}{U}$ und wir haben $\divR{\lok{S}{U}}{R} = \lok{\divR{S}{R}}{U}$ gezeigt.
 \end{proof}
 \chapter{Aufgaben}
 \begin{itemize}
