@@ -33,6 +33,10 @@
 \newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
 \newcommand{\divR}[2]{\Omega_{#1/#2}}
 \newcommand{\divf}[1]{d_{#1}}
+\comment{\newcommand{\divf}[2][]{d_{#1}}}
+
+\newcommand{\test}[2][faul]{Test1 #1 #2}
+
 \newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
 \newcommand{\tensor}[3]{#1 \otimes #3}
 \newcommand{\lok}[2]{#1 [#2^{-1}]}
@@ -51,6 +55,22 @@
 \newcommand{\immage}[1]{im(#1)}
 
 \begin{document}
+\textbf{Cotangent Sequenz} \textit{[Proposition 16.2 \ModulsOfDifferenzials]}
+\begin{prop}\label{Cotangent Sequenz}
+Seien $\functionfront{\alpha}{R}{S}$ und $\functionfront{\beta}{S}{T}$ zwei Ringhomomorphismen. Dann existiert folgende Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S}{\divR{S}{R}} \arrow[rrr, "\tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T} \circ \alpha)(s)"] &  &  & \divR{T}{R} \arrow[rr, "\divf{T}(t) \mapsto \divf{T}(t)"] &  & \divR{T}{S} \arrow[r]  & 0
+\end{tikzcd}
+\end{center}
+Im genauen gilt für die Differenzialräume von $T$ über $R$ und $S$:
+\begin{gather*}
+\divR{T}{S} \simeq \divR{T}{R}/\divf{T}(S).
+\end{gather*}
+$\divf{T}$ vs $\divf{T}{R}$ \\
+\test{fett}
+\end{prop}
+
 
 \textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung]}
 \begin{bsp}\comment{\label{Differenzial ist Ableitung}}
@@ -152,7 +172,7 @@ In \textbf{Differenzial von Polynomalgebren 1} \comment{\label{dies brauche ich 
 \end{gather*}
 \item[\underline{\textbf{1.}"$\Rightarrow$":}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
 Zeige zunächst, dass T algebraisch über S ist.\\
-Betrachte dazu die COTANGENT SEQUENZ \comment{\label{*Prop 16.2}} von $K \hookrightarrow S \hookrightarrow T$.
+Betrachte dazu die COTANGENT SEQUENZ (\cref{Cotangent Sequenz}) von $K \hookrightarrow S \hookrightarrow T$.
 \begin{center}
 \begin{tikzcd}
 \Tensor{T}{S}{\divR{S}{k}} \arrow[r, ""] & \divR{T}{k} \arrow[r, ""] & \divR{T}{S} \arrow[r, ""] & 0
@@ -169,15 +189,35 @@ Da, wie wir in "$\Leftarrow_{1.}$" gezeigt haben, jede Transzendenzbasis $B'$ vo
 Zeige noch, dass $B$ auch algebraisch unabhängig über $S$ ist.\\
 Sei dazu $\tau$ die minimale Teilmenge von $\Lambda$, für welche $T$ noch algebraisch über $k(\lbrace b_i \rbrace_{i \in \tau})$ ist. Für diese ist $\lbrace b_i \rbrace_{i \in \tau}$ algebraisch unabhängig über K.\\
 Damit ist $\lbrace b_i \rbrace_{i \in \tau}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Also muss schon $\tau = \Lambda$ gegolten haben und $B$ ist eine Transzendenzbasis von $T$ über $k$.
-\item[\underline{\textbf{1.}"$\Leftarrow$":}] Sei B eine p-Basis von T über k.\\
+\item[\underline{\textbf{2.}"$\Leftarrow$":}] Sei B eine p-Basis von T über k.\\
 Somit wird nach PROPOSITION \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}} $T$ von $B$ als Algebra über $(k * K^p)$ und $\divR{T}{(k * K^p)}$ von $\divf{T}(B)$ als Vektorraum über $T$ 
 \textit{[vlg. PROPOSITION]} \comment{\label{*Differenzial vererbt Erzeugendensystem}} erzeugt. Zeige also $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$:\\
-Betrachte dazu die COTANGENT SEQUENZ \comment{\label{*Prop 16.2}} von $K \hookrightarrow (k * K^p) \hookrightarrow T$.
+Die Cotangent Sequenz (\cref{Cotangent Sequenz}) von $K \hookrightarrow (k * K^p) \hookrightarrow T$ besagt:
+\begin{gather*}
+\divR{T}{(T^p * k)} \simeq \divR{T}{k}/\divf{T}(T^p * k)
+\end{gather*}
+\begin{gather*}
+\text{Für beliege } a^p \in T \text{ gilt } \divf{T}(a^p) = pa^{-1}\divf{T}(a) = 0 \text{,  da }char(T) = p.\\
+\Rightarrow \divf{T}(T^p * k) = \divf{T}(k(T^p)) = 0
+\end{gather*}
+Damit gilt wie gefordert $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$.
+
+\comment{Alternative mit kurzer exakter Sequenz:
+Betrachte dazu die Cotangent Sequenz ({\cef{Cotangent Sequenz}}) von $K \hookrightarrow (k * K^p) \hookrightarrow T$.
 \begin{center}
 \begin{tikzcd}
-\Tensor{T}{(k * K^p)}{\divR{(k * K^p)}{k}} \arrow[r, ""] & \divR{T}{k} \arrow[r, ""] & \divR{T}{(k * K^p)} \arrow[r, ""] & 0
+\Tensor{T}{(k * K^p)}{\divR{(k * K^p)}{k}} \arrow[r, "\alpha"] & \divR{T}{k} \arrow[r, "\beta"] & \divR{T}{(k * K^p)} \arrow[r, ""] & 0
 \end{tikzcd}
+\ \\
+Diese besagt $\divR{T}{(T^p * k)} \simeq \divR{T}{k}/\immage{\alpha}$.
 \end{center}
+Bei genauerer Betrachtung sehen wir $\immage{\alpha} = \divf{T}(T^p * k)$
+\begin{gather*}
+\text{Für beliege } t^p \in T^p \text{ gilt } \divf{T}(a^p) = pa^{-1}\divf{T}(a) = 0 \text{,  da }char(T) = p.\\
+\Rightarrow \divf{T}(T^p * k) = \divf{T}(k(T^p)) = 0
+\end{gather*}
+}
+
 \end{itemize}
 \end{proof}
 \end{document}
