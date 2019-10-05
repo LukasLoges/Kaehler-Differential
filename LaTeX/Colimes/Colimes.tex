@@ -53,6 +53,8 @@
 \newcommand*{\defshow}{\stackrel{!}{=}}
 \newcommand{\kernel}[1]{kern(#1)}
 \newcommand{\immage}[1]{im(#1)}
+\newcommand{\Verz}[1]{\langle #1 \rangle}
+
 
 \begin{document}
 \textbf{Cotangent Sequenz} \textit{[Proposition 16.2 \ModulsOfDifferenzials]}
@@ -60,18 +62,17 @@
 Seien $\functionfront{\alpha}{R}{S}$ und $\functionfront{\beta}{S}{T}$ zwei Ringhomomorphismen. Dann existiert folgende Exakte Sequenz:
 \begin{center}
 \begin{tikzcd}
-\Tensor{T}{S}{\divR{S}{R}} \arrow[rrr, "\tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T} \circ \alpha)(s)"] &  &  & \divR{T}{R} \arrow[rr, "\divf{T}(t) \mapsto \divf{T}(t)"] &  & \divR{T}{S} \arrow[r]  & 0
+\Tensor{T}{S}{\divR{S}{R}} \arrow[rrr, "\tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T} \circ \beta)(s)"] &  &  & \divR{T}{R} \arrow[rr, "\divf{T}(t) \mapsto \divf{T}(t)"] &  & \divR{T}{S} \arrow[r]  & 0
 \end{tikzcd}
 \end{center}
 Im genauen gilt für die Differenzialräume von $T$ über $R$ und $S$:
 \begin{gather*}
-\divR{T}{S} \simeq \divR{T}{R}/\divf{T}(S).
+\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T} \circ \beta)(S)\rangle.
 \end{gather*}
-$\divf{T}$ vs $\divf{T}{R}$ \\
-\test{fett}
 \end{prop}
 
 
+\ \\
 \textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung]}
 \begin{bsp}\comment{\label{Differenzial ist Ableitung}}
 Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
@@ -151,73 +152,65 @@ Somit muss J = 0 gelten und es folgt $\Tensor{T}{S}{\divR{S}{R}} \simeq \divR{T}
 Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda}$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
 \begin{itemize}
 \item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transzendenzbasis von T über k.
-\item[\textit{2.}] char(k) = p und $B$ ist eine p-Basis von T über k.
+\item[\textbf{2.}] char(k) = p und $B$ ist eine p-Basis von T über k.
 \end{itemize}
 \end{theorem}
 \begin{proof}
 \ \\
 \begin{itemize}
-\item[\underline{\textbf{1.}"$\Leftarrow$":}] Sei B eine Transzendenzbasis von T über k.\\
-Somit ist die Körpererweiterung $K \supset S \defeq k(B)$ algebraisch und seperabel. Mit \cref{Aufbaulemma Koerperdifferenzial} folgt:
+\item[\underline{\textbf{1.}\glqq$\Leftarrow$\grqq:}] Sei $B = \lbrace b_i \rbrace \subseteq T$ eine Transzendenzbasis von $T$ über $k$.\\
+Damit ist die Körpererweiterung $K \supset S \defeq k(B)$ algebraisch und seperabel \comment{ mit \label{*Transzendenzbasisdef}}. Mit \cref{Aufbaulemma Koerperdifferenzial} folgt:
 \begin{gather*}
 \divR{T}{k} = \Tensor{T}{S}{\divR{S}{k}}
 \end{gather*}
-Betrachte $S$ als Lokalisierung von $K[B]$ und wende \textbf{Lokalisierung des Kähler-Differenzials} \comment{\cref{Lokalisierung des Kähler-Differenzials}} auf $\divR{S}{k}$ an, somit gilt:
+Betrachte $S = \lok{K[B]}{K[B] \setminus 0}$ als Lokalisierung und wende \textbf{Lokalisierung des Kähler-Differenzials} \comment{\cref{Lokalisierung des Kähler-Differenzials}} auf $\divR{S}{k}$ an, somit gilt:
 \begin{gather*}
 \divR{S}{k} = \Tensor{S}{k[B]}{\divR{k[B]}{k}}
 \end{gather*}
-In \textbf{Differenzial von Polynomalgebren 1} \comment{\label{dies brauche ich allerdings für unendliche Mengen Lambda}\cref{Differenzial von Polynomalgebren 1}} haben wir gesehen, dass $\divR{k[B]}{k}$ ein freis Modul über $k[B]$ mit $\lbrace b_i \rbrace_{i \in \Lambda}$ als Basis ist. Dies liefert uns letztendlich die gewünschte Darstellung
+In \textbf{Differenzial von Polynomalgebren 1} \comment{\label{*Differenzial von Polynomalgebren brauche ich für unendliche Mengen Lambda}\cref{Differenzial von Polynomalgebren 1}} haben wir gesehen, dass $\divR{k[B]}{k}$ ein freis Modul über $k[B]$ mit $\lbrace b_i \rbrace_{i \in \Lambda}$ als Basis ist. Dies liefert uns letztendlich die gewünschte Darstellung
 \begin{gather*}
-\divR{T}{k} = \bigoplus_{i \in \Lambda \rbrace} T \langle \divf{T}(x_i) \rangle .
+\divR{T}{k} = \bigoplus_{\lbrace i \in \Lambda \rbrace} T \langle \divf{T}(b_i) \rangle .
 \end{gather*}
-\item[\underline{\textbf{1.}"$\Rightarrow$":}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
-Zeige zunächst, dass T algebraisch über S ist.\\
-Betrachte dazu die COTANGENT SEQUENZ (\cref{Cotangent Sequenz}) von $K \hookrightarrow S \hookrightarrow T$.
-\begin{center}
-\begin{tikzcd}
-\Tensor{T}{S}{\divR{S}{k}} \arrow[r, ""] & \divR{T}{k} \arrow[r, ""] & \divR{T}{S} \arrow[r, ""] & 0
-\end{tikzcd}
-\end{center}
-Diese besagt $\divR{T}{S} = \divR{T}{k} / \immage{\Tensor{T}{S}{\divR{S}{k}} \longrightarrow \divR{T}{k}}$.
+\item[\underline{\textbf{1.}\glqq$\Rightarrow$\grqq:}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+Zeige zunächst, dass T algebraisch über $S \defeq k(B)$ ist:
 \begin{gather*}
-\text{Nach Vorraussetzung gilt } \divR{T}{k} = T \langle \divf{T}(B) \rangle. \\
-\Rightarrow \immage{\Tensor{T}{S}{\divR{S}{k}} \longrightarrow \divR{T}{k}} = T\langle \divf{S}(B) \rangle \simeq \divR{T}{k}
+\text{Die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow S \hookrightarrow T$ besagt }\\
+\divR{T}{S} \simeq \divR{T}{k}/T \Verz{\divf{T}(S)} \text{ und nach Vorraussetzung gilt } \divR{T}{k} = T \Verz{\divf{T}(B)}.
+\\
+\Rightarrow \divR{T}{S} \simeq \divR{T}{k}/T\Verz{\divf{T}(S)} = \divR{T}{k}/T\Verz{\divf{T}(B)}=
+\divR{T}{k}/\divR{T}{k} = 0
 \end{gather*}
-Zusammen zeigt und dies, dass $\divR{T}{S} = 0$ gilt.\\
-Da, wie wir in "$\Leftarrow_{1.}$" gezeigt haben, jede Transzendenzbasis $B'$ von $T$ über $S$ auch eine Differenzialbasis $\divR{T}{S} = 0$ ist, gilt für diese $B' = \emptyset$. Da dies sonst der existens von Transzendenzbasen \textit{[vlg. PROPOSITION]} \comment{\label{*Transzendenzbasis existiert immer}} widersprechen würde, muss somit $T$ algebraisch über $S$ sein.\\
+
+Da, wie wir in \glqq$\Leftarrow_{1.}$\grqq gezeigt haben, jede Transzendenzbasis $B'$ von $T$ über $S$ auch eine Differenzialbasis von $\divR{T}{S} = 0$ ist, gilt für diese $B' = \emptyset$. Da dies sonst der Existenz von Transzendenzbasen \textit{(PROPOSITION)} \comment{\label{*Transzendenzbasis existiert immer}} widersprechen würde, muss somit $T$ algebraisch über $S$ sein.\\
 \ \\
-Zeige noch, dass $B$ auch algebraisch unabhängig über $S$ ist.\\
-Sei dazu $\tau$ die minimale Teilmenge von $\Lambda$, für welche $T$ noch algebraisch über $k(\lbrace b_i \rbrace_{i \in \tau})$ ist. Für diese ist $\lbrace b_i \rbrace_{i \in \tau}$ algebraisch unabhängig über K.\\
-Damit ist $\lbrace b_i \rbrace_{i \in \tau}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Also muss schon $\tau = \Lambda$ gegolten haben und $B$ ist eine Transzendenzbasis von $T$ über $k$.
-\item[\underline{\textbf{2.}"$\Leftarrow$":}] Sei B eine p-Basis von T über k.\\
-Somit wird nach PROPOSITION \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}} $T$ von $B$ als Algebra über $(k * K^p)$ und $\divR{T}{(k * K^p)}$ von $\divf{T}(B)$ als Vektorraum über $T$ 
-\textit{[vlg. PROPOSITION]} \comment{\label{*Differenzial vererbt Erzeugendensystem}} erzeugt. Zeige also $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$:\\
-Die Cotangent Sequenz (\cref{Cotangent Sequenz}) von $K \hookrightarrow (k * K^p) \hookrightarrow T$ besagt:
+Zeige noch, dass $B$ auch algebraisch unabhängig über $S$ ist:\\
+Sei dazu $\Gamma$ eine minimale Teilmenge von $\Lambda$, für welche $T$ noch algebraisch über $k(\lbrace b_i \rbrace_{i \in \Gamma})$ ist. Für diese ist $\lbrace b_i \rbrace_{i \in \Gamma}$ algebraisch unabhängig über K.\\
+Damit ist nach \glqq$\Leftarrow_{1.}$\grqq $\lbrace b_i \rbrace_{i \in \Gamma}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Also muss schon $\Gamma = \Lambda$ gegolten haben und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\item[\underline{\textbf{2.}\glqq$\Leftarrow$\grqq:}] Sei B eine p-Basis von T über k.\\
+Somit wird nach DEFINITION-PROPOSITION \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}} $T$ von $B$ als Algebra über $(k * K^p)$ und $\divR{T}{(k * K^p)}$ von $\divf{T}(B)$ als Vektorraum über $T$ 
+\textit{(PROPOSITION)} \comment{\label{*Differenzial vererbt Erzeugendensystem}} erzeugt. Zeige also $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$:\\
+Die Cotangent Sequenz \textit{(\cref{Cotangent Sequenz})} von $K \hookrightarrow (k * K^p) \hookrightarrow T$ besagt:
 \begin{gather*}
-\divR{T}{(T^p * k)} \simeq \divR{T}{k}/\divf{T}(T^p * k)
+\divR{T}{(T^p * k)} \simeq \divR{T}{k}/\divf{T}(T^p * k
 \end{gather*}
 \begin{gather*}
-\text{Für beliege } a^p \in T \text{ gilt } \divf{T}(a^p) = pa^{-1}\divf{T}(a) = 0 \text{,  da }char(T) = p.\\
+\text{Für beliege } t^p \in T^p \text{ gilt } \divf{T}(t^p) = pt^{p-1}\divf{T}(t) = 0 \text{,  da }char(T) = p.\\
 \Rightarrow \divf{T}(T^p * k) = \divf{T}(k(T^p)) = 0
 \end{gather*}
 Damit gilt wie gefordert $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$.
 
-\comment{Alternative mit kurzer exakter Sequenz:
-Betrachte dazu die Cotangent Sequenz ({\cef{Cotangent Sequenz}}) von $K \hookrightarrow (k * K^p) \hookrightarrow T$.
-\begin{center}
-\begin{tikzcd}
-\Tensor{T}{(k * K^p)}{\divR{(k * K^p)}{k}} \arrow[r, "\alpha"] & \divR{T}{k} \arrow[r, "\beta"] & \divR{T}{(k * K^p)} \arrow[r, ""] & 0
-\end{tikzcd}
-\ \\
-Diese besagt $\divR{T}{(T^p * k)} \simeq \divR{T}{k}/\immage{\alpha}$.
-\end{center}
-Bei genauerer Betrachtung sehen wir $\immage{\alpha} = \divf{T}(T^p * k)$
+\item[\underline{\textbf{2.}\glqq$\Rightarrow$\grqq:}] Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+Zeige zunächst, dass T algebraisch über $S \defeq k(B)$ ist:
 \begin{gather*}
-\text{Für beliege } t^p \in T^p \text{ gilt } \divf{T}(a^p) = pa^{-1}\divf{T}(a) = 0 \text{,  da }char(T) = p.\\
-\Rightarrow \divf{T}(T^p * k) = \divf{T}(k(T^p)) = 0
+\text{Die COTANGENT SEQUENZ (\cref{Cotangent Sequenz}) von $k \hookrightarrow S \hookrightarrow T$ besagt }\\
+\divR{T}{S} \simeq \divR{T}{k}/T \Verz{\divf{T}(S)} \text{ und nach Vorraussetzung gilt } \divR{T}{k} = T \langle \divf{T}(B) \rangle. \\
+\Rightarrow \divR{T}{S} \simeq \divR{T}{k}/T\Verz{\divf{T}(S)} = \divR{T}{k}/T\Verz{\divf{T}(B)}=
+\divR{T}{k}/\divR{T}{k} = 0
 \end{gather*}
-}
-
+Da, wie wir in \glqq$\Leftarrow_{2.}$\grqq gezeigt haben, jede p-Basis $B'$ von $T$ über $S$ auch eine Differenzialbasis von $\divR{T}{S} = 0$ ist, gilt für diese $B' = \emptyset$. Somit  muss schon $T = k(S)$ gelten.\\
+\ \\
+Zeige noch, dass $B$ auch minimal als Erzeugendensystem von $T$ als Algebra über $k$ ist:\\
+Sei dazu $\Gamma$ die minimale Teilmenge von $\Lambda$, für welche $T$ noch von $\lbrace b_i \rbrace_{i \in \Gamma}$ als Algebra über $k$ erzeugt wird. Dann ist $\lbrace b_i \rbrace_{i \in \Gamma}$ eine p-Basis von $T$ über $k$. Somit ist nach \glqq$\Leftarrow_{2.}$\grqq $\lbrace b_i \rbrace_{i \in \Gamma}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Es muss also schon $\Gamma = \Lambda$ gegolten haben und $B$ ist eine p-Basis von $T$ über $k$. \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}}
 \end{itemize}
 \end{proof}
 \end{document}
