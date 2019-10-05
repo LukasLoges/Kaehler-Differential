@@ -111,19 +111,19 @@ Damit ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ ein Erzeugende
 \ \\
 \textbf{Aufbaulemma Koerperdifferenzial} \textit{[vlg. Lemma 16.15 \ModulsOfDifferenzials]}
 \begin{lemma}\label{Aufbaulemma Koerperdifferenzial}
-Sei $R \longrightarrow S \subset T$ ein Ringhomomorphismus und $S \subset T$ eine seperabel und algebraische Körpererweiterung. Dann gilt:
+Sei $S \subset T$ eine seperable und algebraische Körpererweiterung und $R \longrightarrow S$ ein Ringhomomorphismus. Dann gilt:
 \begin{gather*}
 \divR{T}{R} = \Tensor{T}{S}{\divR{S}{R}}
 \end{gather*}
 \end{lemma}
 \begin{proof}
-Wähle $\alpha \in T$ mit $S[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{S[x]}{S[x]/(f) \simeq T}$ aus \comment{\cref{prop16.3}} \textbf{Proposition 16.3}:
+Wähle $\alpha \in T$ mit $S[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{S[x]}{S[x]/(f) \simeq T}$ aus \cref{Cotangent Sequenz}:
 \begin{center}
 \begin{tikzcd}
 (f)/(f^2) \arrow[r, "\tensor{1}{S[x]}{\divf{S[x]}}"] & \Tensor{T}{S[x]}{\divR{S[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
 \end{tikzcd}
 \end{center}
-Wende nun 16.6 auf $\divR{S[x]}{R}$ an und tensoriere mit $T$, somit gilt:
+Wende nun Proposition 16.6 auf $\divR{S[x]}{R}$ an und tensoriere mit $T$, somit gilt:
 \begin{gather*}
 \Tensor{T}{S[x]}{\divR{S[x]}{R}} \simeq \Tensor{T}{S}{\divR{S}{R}} \oplus T\langle \divf{S[x]}(x) \rangle
 \end{gather*}
