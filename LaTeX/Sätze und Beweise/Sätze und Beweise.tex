@@ -33,6 +33,7 @@
 \newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
 \newcommand{\divR}[2]{\Omega_{#1/#2}}
 \newcommand{\divf}[1]{d_{#1}}
+\comment{\newcommand{\divf}[2][]{d_{#1}}}
 \newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
 \newcommand{\tensor}[3]{#1 \otimes #3}
 \newcommand{\lok}[2]{#1 [#2^{-1}]}
@@ -49,19 +50,25 @@
 \newcommand*{\defshow}{\stackrel{!}{=}}
 \newcommand{\kernel}[1]{kern(#1)}
 \newcommand{\immage}[1]{im(#1)}
+\newcommand{\Verz}[1]{\langle #1 \rangle}
+
 
 \begin{document}
 \chapter{Grundlegende Sätze}
 
-\textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung]}
-\begin{bsp}\comment{\label{Differenzial ist Ableitung}}
-Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
-Teste dies an $f(x)=ax^2 + bx +c$:
+\textbf{Cotangent Sequenz} \textit{[Proposition 16.2 \ModulsOfDifferenzials (Wichtig für Körpererweiterungen)]}
+\begin{prop}\label{Cotangent Sequenz}
+Seien $\functionfront{\alpha}{R}{S}$ und $\functionfront{\beta}{S}{T}$ zwei Ringhomomorphismen. Dann existiert folgende Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S}{\divR{S}{R}} \arrow[rrr, "\tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T} \circ \beta)(s)"] &  &  & \divR{T}{R} \arrow[rr, "\divf{T}(t) \mapsto \divf{T}(t)"] &  & \divR{T}{S} \arrow[r]  & 0
+\end{tikzcd}
+\end{center}
+Im Besonderen gilt für die Differenzialräume von $T$ über $R$ und $S$:
 \begin{gather*}
-d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x) 
+\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T} \circ \beta)(S)\rangle.
 \end{gather*}
-\comment{lässt sich induktiv für Monome leicht zeigen}
-\end{bsp}
+\end{prop}
 
 
 \ \\
@@ -86,7 +93,6 @@ $$ f(a \cdot b) =
 \tensor{1}{S}{( \divf{S} \circ \pi )(a \cdot b)} =
 \tensor{1}{S}{\pi(a) \cdot (\divf{S} \circ \pi )(b) + \pi(b) \cdot ( \divf{S} \circ \pi )(a)} = 0$$
 \underline{$D\pi$ ist surjektiv:}
-
 \begin{center}
 \begin{tikzcd}
 \divR{S}{R} \arrow[r, " D\pi "]                & \divR{T}{R}                \\
@@ -104,6 +110,18 @@ Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $\divf{S}$ und $\divf{T}$ erzeugt
 \simeq \Tensor{T}{S}{\divf{T}(T)} \\
 \end{align*}
 \end{proof}
+
+
+\ \\
+\textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung (Wichtig für Körpererweiterungen)]}
+\begin{bsp}\label{Differenzial ist Ableitung}
+Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
+Teste dies an $f(x)=ax^2 + bx +c$:
+\begin{gather*}
+d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x) 
+\end{gather*}
+\comment{lässt sich induktiv für Monome leicht zeigen}
+\end{bsp}
 
 
 \chapter{Kolimes}
@@ -582,8 +600,8 @@ Zuletzt nutze den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an 
 
 
 \ \\
-\textbf{Lokalisierung des Kähler-Differenzials} \textit{[vlg. Proposition 16.9 \ModulsOfDifferenzials]}
-\begin{theorem}\comment{\label{Lokalisierung des Kähler-Differenzials}}
+\textbf{Differenzial der Lokalisierung} \textit{[vlg. Proposition 16.9 \ModulsOfDifferenzials]}
+\begin{theorem}\label{Differenzial der Lokalisierung}
 Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
 Dann gilt:
 \begin{gather*}
@@ -631,7 +649,6 @@ Definiere für beliebige $t \in U$ folgenden Isomorphismus:
 f \circ \beta \circ \gamma  \circ D\alpha \defeqr \function{\delta_t}{\divR{\lok{S}{t}}{R}}{\lok{\divR{S}{R}}{t}}{\divf{\lok{S}{t}}(\loke{1}{t}{t})}{- \loke{\divf{S}(t)}{t^2}{t}}
 \end{gather*}
 \end{itemize}
-
 Zeige nun den Allgemeinen Fall $\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}}$:\\
 Wähle $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ wie in \cref{Lokalisierung von Algebren als Kolimes}, sodass $\colimes \mathcal{B} = \lok{S}{U}$ gilt.\\
 Mit THEOREM16.8 \comment{\label{THEOREM16.8}} folgt somit:
@@ -686,6 +703,138 @@ Wobei die Form von $\mathcal{C}$ genau dem Fall aus \cref{Lokalisierung von Modu
 \end{gather*}
 Somit folgt $\colimes \mathcal{C} = \lok{\divR{S}{R}}{U}$ und wir haben $\divR{\lok{S}{U}}{R} = \lok{\divR{S}{R}}{U}$ gezeigt.
 \end{proof}
+
+
+\chapter{Körpererweiterungen}
+
+\textbf{Definition der Differenzialbasis} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
+\begin{definition}\comment{\label{Definition der Differenzialbasis}}
+Sei $L \supset k$ eine Körpererweiterung. Dann nennen wir eine Teilmenge $\lbrace b_i \rbrace_{i \in \Lambda} \subseteq L$ eine \underline{Differenzialbasis} von $L$ über $k$, falls $\lbrace \divf{K}(b_i)\rbrace_{i \in \Lambda}$ eine Vektorraumbasis von $\divR{L}{R}$ über $L$ ist.
+\end{definition}
+
+
+\ \\
+\textbf{Differentialbasis des Quotientenkoerpers von Polynomalgebren} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
+\begin{bsp}\comment{\label{Differentialbasis des Quotientenkoerpers von Polynomalgebren}}
+Sei $k$ ein Körper und $L = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
+Dann ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{L}{k}$.
+\end{bsp}
+\begin{proof}
+Betrachte $L = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung. Nach \cref{Differenzial der Lokalisierung} und \cref{Differenzial von Polynomalgebren 1} gilt:
+\begin{gather*}
+\divR{L}{k} \simeq \tensor{L}{k[x_1,\dots,x_n]}{\divR{k[x_1,\dots,x_n]}{k}} \\
+\simeq \tensor{L}{k[x_1,\dots,x_n]}{\oplus_{i \in \lbrace 1,\dots,n \rbrace} k[x_1,\dots,x_n] \Verz{\divf{k[x_1,\dots x_n]}(x_i)}} \\
+\simeq L \Verz{\divf{k[x_1,\dots x_n]}(x_i)}
+\end{gather*}
+Damit ist $\lbrace \divf{L}(x_i) \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ ein Erzeugenden-System von $\divR{L}{k}$.
+\end{proof}
+
+
+\ \\
+\textbf{Aufbaulemma Koerperdifferenzial} \textit{[vlg. Lemma 16.15 \ModulsOfDifferenzials]}
+\begin{lemma}\label{Aufbaulemma Koerperdifferenzial}
+Sei $L \subset T$ eine seperable und algebraische Körpererweiterung und $R \longrightarrow L$ ein Ringhomomorphismus. Dann gilt:
+\begin{gather*}
+\divR{T}{R} = \Tensor{T}{L}{\divR{L}{R}}
+\end{gather*}
+\end{lemma}
+\begin{proof}
+Wähle $\alpha \in T$ mit $L[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{L[x]}{L[x]/(f) \simeq T}$ aus \cref{Cotangent Sequenz}:
+\begin{center}
+\begin{tikzcd}
+(f)/(f^2) \arrow[r, "\tensor{1}{L[x]}{\divf{L[x]}}"] & \Tensor{T}{L[x]}{\divR{L[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Wende nun Proposition 16.6 auf $\divR{L[x]}{R}$ an und tensoriere mit $T$, somit gilt:
+\begin{gather*}
+\Tensor{T}{L[x]}{\divR{L[x]}{R}} \simeq \Tensor{T}{L}{\divR{L}{R}} \oplus T\langle \divf{L[x]}(x) \rangle
+\end{gather*}
+Zusammen mit der conormalen Sequenz bedeutet dies:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{L}{\divR{L}{R}} \oplus T \Verz{\divf{L[x]}(x)})/(\divf{L[x]}(f))
+\end{gather*}
+Wenn wir $\functionfront{\divf{L[x]}}{(f)}{\Tensor{T}{L}{\divR{L}{R}} \oplus T \Verz{\divf{L[x](x)}}}$ wie in \cref{Differenzial ist Ableitung} betrachten , sehen wir:
+\begin{gather*}
+\divf{L[x]}((f)) = J \oplus (f'(\alpha)\divf{L[x]}) = J \oplus T \Verz{\divf{S[x]}(x)}\\
+\text{,wobei $J \subseteq \Tensor{T}{L}{\divR{L}{R}}$ ein Ideal ist.}
+\end{gather*}
+Für die letzte Gleichheit nutze, dass $T \supset L$ seperabel und somit $f'(\alpha) \neq 0$ ist und nach obiger Wahl $T = L[\alpha]$ gilt.\\
+Damit erhalten wir nun:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{L}{\divR{L}{R}})/J \\
+\Rightarrow \Tensor{T}{L}{\divR{L}{R}} \hookrightarrow \divR{T}{R} \textit{ ist surjektiv.}
+\end{gather*}
+Somit muss J = 0 gelten und es folgt $\Tensor{T}{L}{\divR{L}{R}} \simeq \divR{T}{R}$.
+\end{proof}
+
+
+\ \\
+\textbf{Transzendenzbasis ist Differenzialbasis} \textit{[vlg. Theorem 16.4 \ModulsOfDifferenzials]}
+\begin{theorem}\comment{\label{Transzendenzbasis ist Differenzialbasis}}
+Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda} \subseteq T$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
+\begin{itemize}
+\item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\item[\textbf{2.}] char(k) = p und $B$ ist eine p-Basis von $T$ über $k$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+\ \\
+\begin{itemize}
+\item[\underline{\textbf{1.}\glqq$\Leftarrow$\grqq:}] Sei $B$ eine Transzendenzbasis von $T$ über $k$.\\
+Damit ist die Körpererweiterung $L \defeq k(B) \supset k$ algebraisch und seperabel. \comment{ mit \label{*Transzendenzbasisdef}} Mit \cref{Aufbaulemma Koerperdifferenzial} folgt:
+\begin{gather*}
+\divR{T}{k} = \Tensor{T}{L}{\divR{L}{k}}
+\end{gather*}
+Betrachte $L = \lok{k[B]}{k[B] \setminus 0}$ als Lokalisierung und wende \cref{Differenzial der Lokalisierung} auf $\divR{L}{k}$ an, somit gilt:
+\begin{gather*}
+\divR{L}{k} = \Tensor{L}{k[B]}{\divR{k[B]}{k}}
+\end{gather*}
+In \textbf{Differenzial von Polynomalgebren 1} \comment{\label{*Differenzial von Polynomalgebren brauche ich für unendliche Mengen Lambda}\cref{Differenzial von Polynomalgebren 1}} haben wir gesehen, dass $\divR{k[B]}{k}$ ein freis Modul über $k[B]$ mit $\lbrace b_i \rbrace_{i \in \Lambda}$ als Basis ist. Dies liefert uns letztendlich die gewünschte Darstellung
+\begin{gather*}
+\divR{T}{k} = \bigoplus_{\lbrace i \in \Lambda \rbrace} T \Verz{\divf{T}(b_i)}.
+\end{gather*}
+\item[\underline{\textbf{1.}\glqq$\Rightarrow$\grqq:}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+Zeige zunächst, dass T algebraisch über $L \defeq k(B)$ ist:
+\begin{gather*}
+\text{Die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ besagt }\\
+\divR{T}{L} \simeq \divR{T}{k}/T \Verz{\divf{T}(S)} \text{ und nach Vorraussetzung gilt } \divR{T}{k} = T \Verz{\divf{T}(B)}.
+\\
+\Rightarrow \divR{T}{L} \simeq \divR{T}{k}/T\Verz{\divf{T}(L)} = \divR{T}{k}/T\Verz{\divf{T}(B)}=
+\divR{T}{k}/\divR{T}{k} = 0
+\end{gather*}
+Da, wie wir in \glqq$\Leftarrow_{1.}$\grqq gezeigt haben, jede Transzendenzbasis $B'$ von $T$ über $L$ auch eine Differenzialbasis von $\divR{T}{L} = 0$ ist, gilt für diese $B' = \emptyset$. Da dies sonst der Existenz von Transzendenzbasen \textit{(PROPOSITION)} \comment{\label{*Transzendenzbasis existiert immer}} widersprechen würde, muss somit $T$ algebraisch über $L$ sein.\\
+\ \\
+Zeige noch, dass $B$ auch algebraisch unabhängig über $L$ ist:\\
+Sei dazu $\Gamma$ eine minimale Teilmenge von $\Lambda$, für welche $T$ noch algebraisch über $k(\lbrace b_i \rbrace_{i \in \Gamma})$ ist. Für diese ist $\lbrace b_i \rbrace_{i \in \Gamma}$ algebraisch unabhängig über K.\\
+Damit ist nach \glqq$\Leftarrow_{1.}$\grqq $\lbrace b_i \rbrace_{i \in \Gamma}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Also muss schon $\Gamma = \Lambda$ gegolten haben und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\item[\underline{\textbf{2.}\glqq$\Leftarrow$\grqq:}] Sei B eine p-Basis von T über k.\\
+Somit wird nach DEFINITION-PROPOSITION \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}} $T$ von $B$ als Algebra über $(k * T^p)$ und $\divR{T}{(k * T^p)}$ von $\divf{T}(B)$ als Vektorraum über $T$ 
+\textit{(PROPOSITION)} \comment{\label{*Differenzial vererbt Erzeugendensystem}} erzeugt. Zeige also $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$:\\
+Die Cotangent Sequenz \textit{(\cref{Cotangent Sequenz})} von $K \hookrightarrow (k * T^p) \hookrightarrow T$ besagt:
+\begin{gather*}
+\divR{T}{(T^p * k)} \simeq \divR{T}{k}/\divf{T}(T^p * k)
+\end{gather*}
+\begin{gather*}
+\text{Für beliege } t^p \in T^p \text{ gilt } \divf{T}(t^p) = pt^{p-1}\divf{T}(t) = 0 \text{,  da }char(T) = p.\\
+\Rightarrow \divf{T}(T^p * k) = \divf{T}(k(T^p)) = 0
+\end{gather*}
+Damit ist $\functionfront{\divf{T}}{T}{\divR{T}{k}}$ auch $(T^p *k)$-linear und es gilt $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$.
+\item[\underline{\textbf{2.}\glqq$\Rightarrow$\grqq:}] Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+Zeige zunächst, dass $T$ von $B$ als Algebra über $k$ erzeugt wird:
+\begin{gather*}
+\text{Die COTANGENT SEQUENZ (\cref{Cotangent Sequenz}) von $k \hookrightarrow L \defeq k(B) \hookrightarrow T$ besagt }\\
+\divR{T}{L} \simeq \divR{T}{k}/T \Verz{\divf{T}(L)} \text{ und nach Vorraussetzung gilt } \divR{T}{k} = T \langle \divf{T}(B) \rangle. \\
+\Rightarrow \divR{T}{L} \simeq \divR{T}{k}/T\Verz{\divf{T}(L)} = \divR{T}{k}/T\Verz{\divf{T}(B)}=
+\divR{T}{k}/\divR{T}{k} = 0
+\end{gather*}
+Da, wie wir in \glqq$\Leftarrow_{2.}$\grqq gezeigt haben, jede p-Basis $B'$ von $T$ über $L$ auch eine Differenzialbasis von $\divR{T}{L} = 0$ ist, gilt für diese $B' = \emptyset$. Somit wird $T$ schon von $B$ als Algebra über $k$ erzeugt.\\
+\ \\
+Zeige noch, dass $B$ auch minimal als Erzeugendensystem von $T$ als Algebra über $k$ ist:\\
+Sei dazu $\Gamma$ die minimale Teilmenge von $\Lambda$, für welche $T$ noch von $\lbrace b_i \rbrace_{i \in \Gamma}$ als Algebra über $k$ erzeugt wird. Dann ist $\lbrace b_i \rbrace_{i \in \Gamma}$ eine p-Basis von $T$ über $k$. Somit ist nach \glqq$\Leftarrow_{2.}$\grqq $\lbrace b_i \rbrace_{i \in \Gamma}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Es muss also schon $\Gamma = \Lambda$ gegolten haben und $B$ ist eine p-Basis von $T$ über $k$. \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}}
+\end{itemize}
+\end{proof}
+
+
 \chapter{Aufgaben}
 \begin{itemize}
 \item Aufgabe A6.7 aus \ModulsOfDifferenzials ist \cref{Lokalisierung als Kolimes}.
