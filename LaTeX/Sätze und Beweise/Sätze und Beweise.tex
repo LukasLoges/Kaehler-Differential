@@ -4,6 +4,7 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{color}
 \usepackage{tikz-cd}
 \usepackage{calc}
 \usepackage{setspace}
@@ -581,16 +582,16 @@ Für die letzte Isomorphie nutze, dass wegen $R[x_i] \subseteq S$ zum Einen $\di
 \begin{korrolar}\label{Differenzial von Polynomalgebren 2}
 Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
 \begin{gather*}
-\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{S}(x_i) \rangle
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \Verz{\divf{T}(x_i)}
 \end{gather*}
 \end{korrolar}
 \begin{proof}
 Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Differenzial des Kolimes von R-Algebren} an:
 \begin{gather*}
 T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
-\Rightarrow T \simeq \Tensor{(\Tensor{T}{S}{\divR{S}{R}})}{T}{(\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})}
+\Rightarrow \divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus (\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})
 \end{gather*}
-Zuletzt nutze den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
+Zuletzt wende den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
 \begin{gather*}
 \Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}}\\
 \simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i \in \lbrace 1,...,n \rbrace} R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
@@ -714,8 +715,8 @@ Sei $L \supset k$ eine Körpererweiterung. Dann nennen wir eine Teilmenge $\lbra
 
 
 \ \\
-\textbf{Differentialbasis des Quotientenkoerpers von Polynomalgebren} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
-\begin{bsp}\comment{\label{Differentialbasis des Quotientenkoerpers von Polynomalgebren}}
+\textbf{Differential von rationalen Funktionen 1} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
+\begin{bsp}\comment{\label{Differential von rationalen Funktionen 1}}
 Sei $k$ ein Körper und $L = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
 Dann ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{L}{k}$.
 \end{bsp}
@@ -739,7 +740,7 @@ Sei $L \subset T$ eine seperable und algebraische Körpererweiterung und $R \lon
 \end{gather*}
 \end{lemma}
 \begin{proof}
-Wähle $\alpha \in T$ mit $L[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{L[x]}{L[x]/(f) \simeq T}$ aus \cref{Cotangent Sequenz}:
+Wähle $\alpha \in T$ mit $L[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{L[x]}{L[x]/(f) \simeq T}$ aus \cref{Konormale Sequenz}:
 \begin{center}
 \begin{tikzcd}
 (f)/(f^2) \arrow[r, "\tensor{1}{L[x]}{\divf{L[x]}}"] & \Tensor{T}{L[x]}{\divR{L[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
