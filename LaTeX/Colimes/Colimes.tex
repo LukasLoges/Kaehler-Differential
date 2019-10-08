@@ -15,7 +15,7 @@
 \newcommand{\comment}[1]{}
 \renewcommand{\baselinestretch}{1.1}
 
-\newcommand{\ModulsOfDifferenzials}{Kommutativ Algebra with a view Torwards Algebraic Geometrie [David Eisenbud 1994]}
+\newcommand{\ModulsOfDifferenzials}{David Eisenbud 1994}
 
 \newcounter{Aussage}[chapter]
 
@@ -55,28 +55,29 @@
 
 
 \begin{document}
+\begin{satz}\label{Cotangent Sequenz}
+Cotangent Sequenz
+\end{satz}
+
 \begin{satz}\label{Differenzial von Polynomalgebren 2}
-Hallo Welt
+Differenzial von Polynomalgebren 2
 \end{satz}
 
 \begin{satz}\label{Differenzial der Lokalisierung}
-Hallo Welt
+Differenzial der Lokalisierung
 \end{satz}
 
 \begin{satz}\label{Differential von rationalen Funktionen 1}
-Hallo Welt
-\end{satz}
-
-\begin{satz}
-\textcolor{green}{Hallo Welt}
+Differential von rationalen Funktionen 1
 \end{satz}
 
 
-\textbf{Differential von rationalen Funktionen 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}
+\ \\
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
 \begin{korrolar}\label{Differential von rationalen Funktionen 2}
 Sei $k$ ein Körper und $L \supset k$ eine Körpererweiterung. Sei weiter $T = L(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $L$. Dann gilt:
 \begin{gather*}
-\divR{T}{k} \simeq \Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
 \end{gather*}
 \end{korrolar}
 \begin{proof}
@@ -84,45 +85,38 @@ Betrachten $T$ als Lokalisierung von $L[x_1,\dots,x_n]$ und gehen dann analog zu
 \begin{gather*}
 \divR{T}{k} \simeq \Tensor{T}{L[x_1,\dots,x_n]}{\divR{L[x_1,\dots,x_n]}{k}} \textit{ (\cref{Differenzial der Lokalisierung})} \\
 \divR{L[x_1,\dots,x_n]}{R} \simeq (\Tensor{L[x_1,\dots,x_n]}{L}{\divR{L}{R}}) \oplus_{i \in \lbrace 1,...,n \rbrace} L[x_1,\dots,x_n] \Verz{\divf{L[x_1,\dots,x_n]}(x_i)} \textit{ (\cref{Differenzial von Polynomalgebren 2})} \\
-\Rightarrow \divR{T}{k} \simeq \Tensor{T}{L}{\divR{L}{R}} \oplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\Rightarrow \divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
 \end{gather*}
 \end{proof}
 
 
 \ \\
-\textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}
-\begin{bem}
+\textcolor{blue}{\textbf{Cotangent Sequenz von Körpern 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\begin{bem} \comment{\label{Cotangent Sequenz von Körpern 1}}
+Sei $L \supset k$ und $T = L(x_1, \dots ,x_n)$ der Körper der rationalen Funktionen in $n$ Variablen über $L$. Dann ist die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Tensor{T}{L}{\divR{L}{k}} \arrow[r] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Im Genauen ist $\function{\varphi}{\Tensor{T}{L}{\divR{L}{k}}}{\divR{T}{k}}{\tensor{t}{L}{\divf{L}(l)}}{t \cdot \divf{T}(l)}$ injektiv.
 \end{bem}
 \begin{proof}
-Um $\varphi$ genauer zu betrachten, nutze die Darstellung von $\divR{T}{k}$, die wir uns in \cref{Differential von rationalen Funktionen 2} erarbeitet habe. Betrachte also $\varphi' \simeq \varphi$:\\
+Die Injektivität von $\varphi$ folgt direkt aus der isomorphen Darstellung von $\divR{T}{k}$, die wir uns in \cref{Differential von rationalen Funktionen 2} erarbeitet haben.
+\begin{gather*}
+\divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+Um sicher zu gehen definiere $\varphi' \simeq \varphi$ und durchlaufe die in \cref{Differential von rationalen Funktionen 2} genutzten Isomorphismen noch einmal Schritt für Schritt:
 \begin{center}
 $\functionfront{\varphi'}{\Tensor{T}{L}{\divR{L}{k}}}{\Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}}$
 \begin{tikzcd}
 \Tensor{T}{L}{\divR{L}{k}} \arrow[d, hook]                 &  &  & \tensor{t}{L}{\divf{L}(l)} \arrow[d, maps to] \\
 \divR{T}{k} \arrow[d, "\cref{Differenzial der Lokalisierung}", two heads, hook] &  &  & t\divf{T}(l) \arrow[d, maps to] \\
-\Tensor{T}{L[x_1,\dots ,x_n]}{\divR{L[x_1,\dots ,x_n]}{k}} \arrow[d, "\cref{Differenzial von Polynomalgebren 2}", two heads, hook] &  &  & \tensor{t}{L[x_1,\dots, x_n]}{\divf{L[x_1,\dots ,x_n]}(l)} \arrow[d, maps to] \\
-\Tensor{T}{S}{((\Tensor{S}{L}{\divR{L}{k}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} (S \Verz{\divf{S}(x_i)}})) \arrow[d, "\cref{Differenzial von Polynomalgebren 2}", two heads, hook] &  &  & \tensor{t}{S}{(\divf{L}(l),0)} \arrow[d, maps to] \\
-\Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}                                 &  &  & (\tensor{t}{L}{\divf{L}(l)},0)                   
+\Tensor{T}{S}{\divR{L[x_1,\dots ,x_n]}{k}} \arrow[d, "\cref{Differenzial von Polynomalgebren 2}", two heads, hook] &  &  & \tensor{t}{S}{\divf{S}(l)} \arrow[d, maps to] \\
+\Tensor{T}{S}{((\Tensor{S}{L}{\divR{L}{k}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} S \Verz{\divf{S}(x_i)}}) \arrow[d, "", two heads, hook] &  &  & \tensor{t}{S}{(\divf{L}(l),0)} \arrow[d, maps to] \\
+(\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}                                 &  &  & (\tensor{t}{L}{\divf{L}(l)},0)                   
 \end{tikzcd} 
 \end{center}
-$C  = \Tensor{T}{S}{((\Tensor{S}{L}{\divR{L}{k}}) \oplus_{i \in \lbrace 1,\dots,n \rbrace} (S \Verz{\divf{S}(x_i)}}))$\\
-\ \\
-$\tensor{t}{S}{(\divf{L}(l),0)}$
-\comment{
-$C  = \Tensor{T}{L[x_1, \dots,x_n]}{((\Tensor{L[x_1, \dots ,x_n]}{L}{\divR{L}{k}}) \oplus_{i \in \lbrace 1,\dots,n \rbrace} (L[x_1, \dots ,x_n] \Verz{\divf{L[x_1, \dots , x_n]}(x_i)}}))$\\
-\ \\
-$\tensor{t}{L[x_1, \dots,x_n]}{(d_{L}(l),0)}$
-
-\begin{center}
-$\functionfront{\varphi'}{\Tensor{T}{L}{\divR{L}{k}}}{\Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}}$
-\begin{tikzcd}
-\Tensor{T}{L}{\divR{L}{k}} \arrow[d, hook]                 &  &  &  & \tensor{t}{L}{\divf{L}(l)} \arrow[d, maps to] \\
-\divR{T}{k} \arrow[d, "\cref{Differenzial der Lokalisierung}", two heads, hook] &  &  &  & t\divf{T}(l) \arrow[d, maps to] \\
-\Tensor{T}{L[x_1,\dots ,x_n]}{\divR{L[x_1,\dots ,x_n]}{k}} \arrow[d, "\cref{Differenzial von Polynomalgebren 2}", two heads, hook] &  &  &  & \tensor{t}{L[x_1,\dots, x_n]}{\divf{L[x_1,\dots ,x_n]}(l)} \arrow[d, maps to] \\
-C \arrow[d, "\cref{Differenzial von Polynomalgebren 2}", two heads, hook] &  &  &  &  \arrow[d, maps to] \\
-D                                 &  &  &  & d                   
-\end{tikzcd} 
-\end{center}
-}
+Damit ist $\varphi$ eine injektive Einbettung von $\Tensor{T}{L}{\divR{L}{k}}$ in $\divR{T}{k}$.
 \end{proof}
 \end{document}
