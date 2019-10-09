@@ -73,9 +73,9 @@ Differential von rationalen Funktionen 1
 
 
 \ \\
-\textcolor{blue}{\textbf{Differential von rationalen Funktionen 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 2} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
 \begin{korrolar}\label{Differential von rationalen Funktionen 2}
-Sei $k$ ein Körper und $L \supset k$ eine Körpererweiterung. Sei weiter $T = L(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $L$. Dann gilt:
+Sei $k$ ein Körper und $L \supset k$ eine Körpererweiterung und $T = L(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $L$. Dann gilt:
 \begin{gather*}
 \divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
 \end{gather*}
@@ -93,7 +93,7 @@ Betrachten $T$ als Lokalisierung von $L[x_1,\dots,x_n]$ und gehen dann analog zu
 \ \\
 \textcolor{blue}{\textbf{Cotangent Sequenz von Körpern 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
 \begin{bem} \comment{\label{Cotangent Sequenz von Körpern 1}}
-Sei $L \supset k$ und $T = L(x_1, \dots ,x_n)$ der Körper der rationalen Funktionen in $n$ Variablen über $L$. Dann ist die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+Sei $L \supset k$ eine Körpererweiterung und $T = L(x_1, \dots ,x_n)$ der Körper der rationalen Funktionen in $n$ Variablen über $L$. Dann ist die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
 \begin{center}
 \begin{tikzcd}
 0 \arrow[r] & \Tensor{T}{L}{\divR{L}{k}} \arrow[r] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0
@@ -108,7 +108,8 @@ Die Injektivität von $\varphi$ folgt direkt aus der isomorphen Darstellung von 
 \end{gather*}
 Um sicher zu gehen definiere $\varphi' \simeq \varphi$ und durchlaufe die in \cref{Differential von rationalen Funktionen 2} genutzten Isomorphismen noch einmal Schritt für Schritt:
 \begin{center}
-$\functionfront{\varphi'}{\Tensor{T}{L}{\divR{L}{k}}}{\Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}}$
+$\functionfront{\varphi'}{\Tensor{T}{L}{\divR{L}{k}}}{\Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}}$\\
+\ \\
 \begin{tikzcd}
 \Tensor{T}{L}{\divR{L}{k}} \arrow[d, hook]                 &  &  & \tensor{t}{L}{\divf{L}(l)} \arrow[d, maps to] \\
 \divR{T}{k} \arrow[d, "\cref{Differenzial der Lokalisierung}", two heads, hook] &  &  & t\divf{T}(l) \arrow[d, maps to] \\

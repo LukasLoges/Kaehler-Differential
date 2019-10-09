@@ -708,39 +708,99 @@ Somit folgt $\colimes \mathcal{C} = \lok{\divR{S}{R}}{U}$ und wir haben $\divR{\
 
 \chapter{Körpererweiterungen}
 
-\textbf{Definition der Differenzialbasis} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
+\textcolor{blue}{\textbf{Definition der Differenzialbasis} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}}
 \begin{definition}\comment{\label{Definition der Differenzialbasis}}
 Sei $L \supset k$ eine Körpererweiterung. Dann nennen wir eine Teilmenge $\lbrace b_i \rbrace_{i \in \Lambda} \subseteq L$ eine \underline{Differenzialbasis} von $L$ über $k$, falls $\lbrace \divf{K}(b_i)\rbrace_{i \in \Lambda}$ eine Vektorraumbasis von $\divR{L}{R}$ über $L$ ist.
 \end{definition}
 
 
 \ \\
-\textbf{Differential von rationalen Funktionen 1} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}
-\begin{bsp}\comment{\label{Differential von rationalen Funktionen 1}}
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 1} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}}
+\begin{bsp}\label{Differential von rationalen Funktionen 1}
 Sei $k$ ein Körper und $L = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
-Dann ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{L}{k}$.
+Dann gilt:
+\begin{gather*}
+\divR{L}{k} \simeq L \Verz{\divf{k[x_1,\dots x_n]}(x_i)}
+\end{gather*}
+Insbesondere ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{L}{k}$.
 \end{bsp}
 \begin{proof}
-Betrachte $L = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung. Nach \cref{Differenzial der Lokalisierung} und \cref{Differenzial von Polynomalgebren 1} gilt:
+Betrachte $L = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung um \cref{Differenzial der Lokalisierung} anwenden zu können. Anschließend forme noch $\divR{k[x_1,\dots,x_n]}{k}$ mithilfe von \cref{Differenzial von Polynomalgebren 1} isomorph um:
 \begin{gather*}
 \divR{L}{k} \simeq \tensor{L}{k[x_1,\dots,x_n]}{\divR{k[x_1,\dots,x_n]}{k}} \\
 \simeq \tensor{L}{k[x_1,\dots,x_n]}{\oplus_{i \in \lbrace 1,\dots,n \rbrace} k[x_1,\dots,x_n] \Verz{\divf{k[x_1,\dots x_n]}(x_i)}} \\
 \simeq L \Verz{\divf{k[x_1,\dots x_n]}(x_i)}
 \end{gather*}
-Damit ist $\lbrace \divf{L}(x_i) \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ ein Erzeugenden-System von $\divR{L}{k}$.
+Damit ist $\lbrace \divf{L}(x_i) \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Vektorraumbasis von $\divR{L}{k}$.
 \end{proof}
 
 
 \ \\
-\textbf{Aufbaulemma Koerperdifferenzial} \textit{[vlg. Lemma 16.15 \ModulsOfDifferenzials]}
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 2} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differential von rationalen Funktionen 2}
+Sei $k$ ein Körper und $L \supset k$ eine Körpererweiterung und $T = L(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $L$. Dann gilt:
+\begin{gather*}
+\divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachten $T$ als Lokalisierung von $L[x_1,\dots,x_n]$ und gehen dann analog zu \cref{Differential von rationalen Funktionen 1} vor:
+\begin{gather*}
+\divR{T}{k} \simeq \Tensor{T}{L[x_1,\dots,x_n]}{\divR{L[x_1,\dots,x_n]}{k}} \textit{ (\cref{Differenzial der Lokalisierung})} \\
+\divR{L[x_1,\dots,x_n]}{R} \simeq (\Tensor{L[x_1,\dots,x_n]}{L}{\divR{L}{R}}) \oplus_{i \in \lbrace 1,...,n \rbrace} L[x_1,\dots,x_n] \Verz{\divf{L[x_1,\dots,x_n]}(x_i)} \textit{ (\cref{Differenzial von Polynomalgebren 2})} \\
+\Rightarrow \divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Cotangent Sequenz von Körpern 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\begin{bem} \comment{\label{Cotangent Sequenz von Körpern 1}}
+Sei $L \supset k$ eine Körpererweiterung und $T = L(x_1, \dots ,x_n)$ der Körper der rationalen Funktionen in $n$ Variablen über $L$. Dann ist die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Tensor{T}{L}{\divR{L}{k}} \arrow[r] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Im Genauen ist $\function{\varphi}{\Tensor{T}{L}{\divR{L}{k}}}{\divR{T}{k}}{\tensor{t}{L}{\divf{L}(l)}}{t \cdot \divf{T}(l)}$ injektiv.
+\end{bem}
+\begin{proof}
+Die Injektivität von $\varphi$ folgt direkt aus der isomorphen Darstellung von $\divR{T}{k}$, die wir uns in \cref{Differential von rationalen Funktionen 2} erarbeitet haben.
+\begin{gather*}
+\divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+Um sicher zu gehen definiere $\varphi' \simeq \varphi$ und durchlaufe die in \cref{Differential von rationalen Funktionen 2} genutzten Isomorphismen noch einmal Schritt für Schritt:
+\begin{center}
+$\functionfront{\varphi'}{\Tensor{T}{L}{\divR{L}{k}}}{\Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}}$\\
+\ \\
+\begin{tikzcd}
+\Tensor{T}{L}{\divR{L}{k}} \arrow[d, hook]                 &  &  & \tensor{t}{L}{\divf{L}(l)} \arrow[d, maps to] \\
+\divR{T}{k} \arrow[d, "\cref{Differenzial der Lokalisierung}", two heads, hook] &  &  & t\divf{T}(l) \arrow[d, maps to] \\
+\Tensor{T}{S}{\divR{L[x_1,\dots ,x_n]}{k}} \arrow[d, "\cref{Differenzial von Polynomalgebren 2}", two heads, hook] &  &  & \tensor{t}{S}{\divf{S}(l)} \arrow[d, maps to] \\
+\Tensor{T}{S}{((\Tensor{S}{L}{\divR{L}{k}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} S \Verz{\divf{S}(x_i)}}) \arrow[d, "", two heads, hook] &  &  & \tensor{t}{S}{(\divf{L}(l),0)} \arrow[d, maps to] \\
+(\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}                                 &  &  & (\tensor{t}{L}{\divf{L}(l)},0)                   
+\end{tikzcd} 
+\end{center}
+Damit ist $\varphi$ eine injektive Einbettung von $\Tensor{T}{L}{\divR{L}{k}}$ in $\divR{T}{k}$.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Aufbaulemma Koerperdifferenzial} \textit{[vlg. Lemma 16.15 \ModulsOfDifferenzials]}}
 \begin{lemma}\label{Aufbaulemma Koerperdifferenzial}
 Sei $L \subset T$ eine seperable und algebraische Körpererweiterung und $R \longrightarrow L$ ein Ringhomomorphismus. Dann gilt:
 \begin{gather*}
 \divR{T}{R} = \Tensor{T}{L}{\divR{L}{R}}
 \end{gather*}
+Insbesondere ist in diesem Fall die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $R \rightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Tensor{T}{L}{\divR{L}{R}} \arrow[r] & \divR{T}{R} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
 \end{lemma}
 \begin{proof}
-Wähle $\alpha \in T$ mit $L[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{L[x]}{L[x]/(f) \simeq T}$ aus \cref{Konormale Sequenz}:
+Wähle $\alpha \in T$ mit $L[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{L[x]}{L[x]/(f) \simeq T}$ \textit{(\cref{Konormale Sequenz})}:
 \begin{center}
 \begin{tikzcd}
 (f)/(f^2) \arrow[r, "\tensor{1}{L[x]}{\divf{L[x]}}"] & \Tensor{T}{L[x]}{\divR{L[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
@@ -765,12 +825,13 @@ Damit erhalten wir nun:
 \divR{T}{R} \simeq (\Tensor{T}{L}{\divR{L}{R}})/J \\
 \Rightarrow \Tensor{T}{L}{\divR{L}{R}} \hookrightarrow \divR{T}{R} \textit{ ist surjektiv.}
 \end{gather*}
-Somit muss J = 0 gelten und es folgt $\Tensor{T}{L}{\divR{L}{R}} \simeq \divR{T}{R}$.
+Somit muss J = 0 gelten und es folgt $\Tensor{T}{L}{\divR{L}{R}} \simeq \divR{T}{R}$.\\
+Damit haben wir insbesondere auch gezeigt, dass $\Tensor{T}{L}{\divR{L}{R}} \rightarrow \divR{T}{R}$ injektiv und somit die COTANGENT SEQUENZ von $R \rightarrow L \hookrightarrow T$ eine kurze exakte Sequenz ist.
 \end{proof}
 
 
 \ \\
-\textbf{Transzendenzbasis ist Differenzialbasis} \textit{[vlg. Theorem 16.4 \ModulsOfDifferenzials]}
+\textcolor{blue}{\textbf{Transzendenzbasis ist Differenzialbasis} \textit{[vlg. Theorem 16.4 \ModulsOfDifferenzials]}}
 \begin{theorem}\comment{\label{Transzendenzbasis ist Differenzialbasis}}
 Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda} \subseteq T$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
 \begin{itemize}
