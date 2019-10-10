@@ -521,11 +521,11 @@ Dann ist folgende Sequenz rechtsexakt:
 \end{prop}
 \begin{proof}\ \\
 Für \textit{\textbf{1.}} finde durch die Universelle Eigenschaft des Kähler-Differenzials Isomorphismen $ \divR{T}{R} \longleftrightarrow \bigoplus_{i \in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$.\\
-Definiere das Differenzial $\function{e}{T}{\sum_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{(\tensor{s_i}{R}{...})}{(\tensor{1}{S_i}{\divf{S_1},...)}}$ und erhalte dadurch
+Definiere das Differenzial $\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{(\tensor{s_i}{R}{...})}{(\tensor{1}{S_i}{\divf{S_1},...)}}$ und erhalte dadurch
 \begin{center}
 \begin{tikzcd}
 T \arrow[rd, "e"'] \arrow[r, "\divf{T}"] & \divR{T}{R} \arrow[d, "\exists ! \varphi", dashed] \\
-                                    & \sum_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
+                                    & \bigoplus_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
 \end{tikzcd}
 $\functionfront{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}$.
 \end{center}
@@ -537,13 +537,13 @@ S_i \arrow[rd, "k"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists 
 \end{tikzcd}
 $\functionfront{\phi_i}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}{\divR{T}{R}}$\\
 \begin{gather*}
-\function{\phi}{\sum_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(...,\tensor{t_i}{S_i}{\divf{S_i}(s_i)},...)}{\prod_{i\in \Lambda} t_i \cdot \phi_i(\divf{S_i}(s_i))}
+\function{\phi}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(...,\tensor{t_i}{S_i}{\divf{S_i}(s_i)},...)}{\prod_{i\in \Lambda} t_i \cdot \phi_i(\divf{S_i}(s_i))}
 \end{gather*}
 \end{center}
 Damit haben wir zwei zueinander inverse Funktionen $\varphi ,\phi$ gefunden.\\
 $\Rightarrow \divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$\\
 \ \\
-Für \textit{\textbf{2.}} Wende \cref{prop16.3} auf den Differenzkokern $\functionfront{q}{S_2}{S_2/Q}$ \textit{(vlg. \cref{R-Algebra-Kolimiten})} an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
+Für \textit{\textbf{2.}} Wende \cref{Konormale Sequenz} auf den Differenzkokern $\functionfront{q}{S_2}{S_2/Q}$ \textit{(vlg. \cref{R-Algebra-Kolimiten})} an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
 \begin{center}
 \begin{tikzcd}
 Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
@@ -552,7 +552,7 @@ Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}
 mit $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{\divf{S_2}(s_2)}}$.\\
 Somit gilt $\immage{f} = \Tensor{T}{S_2}{\divf{S_2}(Q)} = \immage{f'}$.\\
 $\Rightarrow$ die gesuchte Sequenz ist exakt.
-\end{proof}
+\end{proof}s
 
 
 \ \\
