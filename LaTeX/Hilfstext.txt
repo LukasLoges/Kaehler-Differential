@@ -1,13 +1,8 @@
 \begin{tikzcd}
-A \arrow[rrr, "1"] &  &  & B \arrow[rr, "2"] &  & C \arrow[rr] &  & 0
+(f(x))/(f(x)^2) \arrow[r, "1"] & \Tensor{T}{L[x]}{\divR{L[x]}{k}} \arrow[r, "2"]       & \divR{T}{k} \arrow[r] & 0           &   & (1) \\
+T\Verz{\divf{L[x]}(f(x))} \arrow[r, "1'"]              & \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)} \arrow[r, "2'"]      & \divR{T}{k} \arrow[r] & 0           &   & (2) \\
+                               & \Tensor{T}{L}{\divR{L}{k}} \arrow[r, "\varphi"] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0 & (3)
 \end{tikzcd}
 
-\begin{tikzcd}
-\Tensor{T}{S}{\divR{S}{R}} \arrow[rrr, "\tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T} \circ \alpha)(s)"] &  &  & \divR{T}{R} \arrow[rr, "\divf{T}(t) \mapsto \divf{T}(t)"] &  & \divf{T}(t) \mapsto \divf{T}(t) \arrow[rr] &  & 0
-\end{tikzcd}
 
-A: \Tensor{T}{S}{\divR{S}{R}}
-B: \divR{T}{R}
-C: \divR{T}{S}
-1: \tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T} \circ \alpha)(s)
-2: \divf{T}(t) \mapsto \divf{T}(t)
+
