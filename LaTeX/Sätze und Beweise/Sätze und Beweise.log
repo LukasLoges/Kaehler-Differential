@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  10 OCT 2019 15:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  11 OCT 2019 16:14
 entering extended mode
 **"./Sätze und Beweise.tex"
 ("Sätze und Beweise.tex"
@@ -817,21 +817,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 891--896
 [21]
 Kapitel 4.
 
-LaTeX Warning: Reference `Lokalisierung als Kolimes' on page 1 undefined on inp
-ut line 902.
+Overfull \hbox (61.2764pt too wide) in paragraph at lines 934--935
+ [] 
+ []
 
 [22
 
-] ("Sätze und Beweise.aux")
+] [23] ("Sätze und Beweise.aux")
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17556 strings out of 492895
- 367018 string characters out of 3133483
- 405342 words of memory out of 3000000
- 21160 multiletter control sequences out of 15000+200000
+ 17744 strings out of 492895
+ 371973 string characters out of 3133483
+ 405902 words of memory out of 3000000
+ 21348 multiletter control sequences out of 15000+200000
  9488 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,18n,84p,575b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -851,9 +852,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX
 /type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on "Sätze und Beweise.pdf" (22 pages, 304127 bytes).
+Output written on "Sätze und Beweise.pdf" (23 pages, 312757 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
+ 147 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
