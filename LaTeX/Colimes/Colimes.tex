@@ -94,21 +94,47 @@ Sei weiter die Körpererweiterung $T \supset L$ algebraisch und pur inseperabel.
 Existiere weiter ein $\alpha \in T$ mit $L(\alpha) = T$ und $Mipo(\alpha) = f(x) = x^p - a$.\\
 Dann gilt:
 \begin{center}
-$\varphi$ ist injektiv $\Leftrightarrow$ $\divf{T}(a) = 0$
+$\varphi$ ist injektiv $\Leftrightarrow$ $\divf{L}(a) = 0$
 \end{center}
 \end{bsp}
+
+
 \begin{proof}
 \ \\
-\begin{itemize}
-\item[\underline{\glqq $\Rightarrow$ \grqq:}]
-Betrachte die Konormale Sequenz \textit{(\cref{Konormale Sequenz})} \textbf{(1)} von $\function{\pi}{L[x]}{L{x}/(f(x)) \simeq T}{P(x)}{[P(x)]}$ und vergleiche diese mit \textbf{(3)}:
+Betrachte die Konormale Sequenz \textit{(\cref{Konormale Sequenz})} von $\function{\pi}{L[x]}{L{x}/(f(x)) \simeq T}{P(x)}{[P(x)]}$ \textbf{(1)}. Forme diese leicht um \textbf{(2)}, sodass wir sie mit der COTANGENT SEQUENZ von $k \hookrightarrow L \hookrightarrow T$ \textbf{(3)} vergleichen können:
 \begin{center}
 \begin{tikzcd}
 (f(x))/(f(x)^2) \arrow[r, "\tensor{1}{L[x]}{\divf{L[x]}}"] & \Tensor{T}{L[x]}{\divR{L[x]}{k}} \arrow[r, "D\pi"]       & \divR{T}{k} \arrow[r] & 0           &   & (1) \\
-T\Verz{\divf{L[x]}(f(x))} \arrow[r, "1'"]              & \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)} \arrow[r, "2'"]      & \divR{T}{k} \arrow[r] & 0           &   & (2) \\
+T\Verz{\divf{L[x]}(f(x))} \arrow[r, hook]              & \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)} \arrow[r, "\widetilde{D\pi}"]      & \divR{T}{k} \arrow[r] & 0           &   & (2) \\
                                & \Tensor{T}{L}{\divR{L}{k}} \arrow[r, "\varphi"] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0 & (3)
 \end{tikzcd}
 \end{center}
+Zeige zunächst, das \textbf{(2)} auch wirkliche exakt ist:
+\begin{gather*}
+(\tensor{1}{L[x]}{\divf{L[x]}})(f(x))
+ =  \Tensor{T}{L[x]}{L[x]\Verz{\divf{L[x]}(f(x))}}
+  \simeq T \Verz{\divf{L[x]}(f(x))} \\
+\Rightarrow \text{ Ersetze } \functionfront{\tensor{1}{L[x]}{\divf{L[x]}}}{(f(x))/(f(x)^2)}{\Tensor{T}{L[x]}{\divR{L[x]}{k}}}\\ \text{ durch }  T \Verz{\divf{L[x]}(f(x))} \hookrightarrow \Tensor{T}{L[x]}{\divR{L[x]}{k}}. \\
+\ \\
+\text{Weiter gilt nach \cref{Differenzial von Polynomalgebren 2} } \divR{L[x]}{k} \simeq \Tensor{L[x]}{L}{\divR{L}{k}} \oplus L[x]\Verz{\divf{L[x]}(x)},\\
+\text{also auch } \Tensor{T}{L[x]}{\divR{L[x]}{k}} \simeq \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)}.
+\end{gather*}
+\begin{itemize}
+\item[\underline{\glqq $\Rightarrow$ \grqq:}]
+Wenn wir nun unsere zwei exakten Sequenzen betrachten sehen wir, dass $\varphi$ eine Einschränkung von $D\pi$ auf einen kleineren Definitionsbereich ist. Zeige also, dass $D\pi$ injektiv ist:
+\begin{gather*}
+\text{Nach Vorraussetung gilt } \divf{T}(a) = 0 \\
+\Rightarrow d_{T}(f) = d_{T}(x^p) - d_{T}(a) =  px^{p-1}d_{T}(x) - d_{T}(a) = 0 - 0 \\
+\Rightarrow T\Verz{\divf{L[x]}(f(x))} = 0\\
+\text{Bezogen auf unser exakte Sequenz \textbf{(2)} bedeutet dies, dass $D \pi$ injektiv ist.}
+\end{gather*}
+\item[\underline{\glqq $\Leftarrow$ \grqq:}]
+\begin{gather*}
+\text{In $T$ gilt f(x) = 0} \\
+\Rightarrow 0 = \divf{T}(f(x)) = \divf{T}(x^p) - \divf{T}(a) = \divf{T}(a) \\
+\Rightarrow \varphi(\tensor{1}{L}{d_{L}(a)}) = \divf{T}(a) = 0 
+\end{gather*}
+Da $\varphi$  nach Voraussetzung injektiv ist, gilt $\tensor{1}{L[x]}{\divf{L[x]}(a)} = 0$ und somit auch $\divf{L}(a) = 0$.
 \end{itemize}
 \end{proof}
 \end{document}
