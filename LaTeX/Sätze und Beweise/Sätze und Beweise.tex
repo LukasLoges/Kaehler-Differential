@@ -974,4 +974,27 @@ k = \mathbb{F}_3, \, L = k[y]/(y^2 + 1) , \, T = L(\sqrt[3]{y}) \simeq L[x]/(x^3
 \end{gather*}
 Hierbei gilt $d_{L}(x) \neq 0$ und somit ist $\functionfront{\varphi}{\Tensor{T}{L}{\divR{L}{k}}}{\divR{L}{k}}$ nicht injektiv.
 \end{bsp}
+
+
+\ \\
+\textcolor{blue}{\textbf{seperabel generierte Koerpererweiterung mit DifR(T)(R) ist 0} \textit{[Aufgabe 16.10 \ModulsOfDifferenzials (steht im Bezug zu Korrolar 16.17)]}}
+\begin{bsp}\comment{\label{unendliche, seperabel generierte Koerpererweiterung mit DifR(T)(R) ist 0}}
+Sei $k$ ein Körper mit $char(k) = p > 0$ und sei weiter $K(x)$ der Raum der Rationalen Funktionen über k.
+\begin{gather*}
+\textit{Definiere: } L \defeq k(x^{1/{p^{\infty}}}) = \colimes \lbrace k(x^{1/{p^{n}}}) \vert n \in \mathbb{N} \rbrace
+\end{gather*}
+Dann gilt : $\divR{L}{k} = 0$\\
+\textcolor{red}{Prüfe noch, ob $L \supset k$ eine seperabel generierte Körpererweiterung \comment{\label{*Def seperabel generierte Körpererweiterung}} ist.}
+\end{bsp}
+\begin{proof}\comment{Skizzenhaft}
+Es gilt:
+\begin{gather*}
+\divf{L}(x^{1/{p^{n}}})
+= \divf{L} \left( \prod_{i \in \lbrace 1,\dots,p \rbrace} x^{1/{p^{n+1}}}\right)
+=  p \cdot \left( \prod_{i \in \lbrace 1,\dots,p-1 \rbrace} x^{1/{p^{n+1}}} \right) \cdot \divf{L}(x^{1/{p^{n+1}}})
+= 0
+\end{gather*}
+Nute noch \cref{Differenzial des Kolimes von R-Algebren} und \cref{Differential von rationalen Funktionen 1} um zu folgern, dass $\divR{L}{k}$ von \\
+$\lbrace \divf{L}(x^{1/{p^{n}}}) \vert n \in \mathbb{N} \rbrace$ erzeugt wird.
+\end{proof}
 \end{document}
