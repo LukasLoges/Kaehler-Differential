@@ -1,0 +1,4 @@
+Fragen:
+1. Differenzial oder Differential
+2. Lieber am Anfang sagen R ist ein unitärer kommutativer Ring, oder in jedem Satz extra
+3. Passt die Zitierweise?

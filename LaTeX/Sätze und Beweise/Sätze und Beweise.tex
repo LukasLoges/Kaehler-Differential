@@ -57,6 +57,49 @@
 \begin{document}
 \chapter{Grundlegende Sätze}
 
+\textcolor{blue}{\textbf{Differenzial indempotenter Elemente} \textit{[Aufgabe 16.1 \ModulsOfDifferenzials]}}
+\begin{lemma}\label{Differenzial indempotenter Elemente}
+Sei S eine R-Algebra und $\functionfront{d}{S}{M}$ ein beliebige Ableitung von S in ein $S$-Modul $M$. Sei weiter $a \in S$ ein indempotentes Element \textcolor{red}{($a^2 = a$)}.\\
+\begin{center}
+Dann gilt $d(a) = 0$. 
+\end{center}
+\end{lemma}
+\begin{proof}
+Nutze hierfür allein die Leibnizregel \textit{(DEFINITION)}: \comment{\label{*Definition Leibnizregel}}  
+\begin{gather*}
+\text{Schritt 1: } \divf{S}(a) = \divf{S}(a^2) = a\divf{S}(a) + a\divf{S}(a) \\
+\text{Schritt 2: } a\divf{S}(a) = a\divf{S}(a^2) = a^2\divf{S}(a) + a^2\divf{S}(a) = a\divf{S}(a) + a\divf{S}(a)\\
+\Rightarrow \divf{S}(a) = a\divf{S}(a) = 0
+\end{gather*}
+\end{proof}
+
+\textcolor{blue}{\textbf{Differenzial des Produktes von Algebren} \textit{[Proposition 16.10 \ModulsOfDifferenzials]}}
+\begin{prop}\label{Differenzial des Produktes von Algebren}
+Seien $S_1, \dots , S_n$ R-Algebren. Sei dazu $S \defeq \prod_{i \in \lbrace 1, \dots , n \rbrace} S_i$ die direkte Summe.
+Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}
+\end{gather*}
+\end{prop}
+\begin{proof}
+Sei für $i \in \lbrace 1, \dots ,n \rbrace$ jeweils $e_i \in S$ die Einbettung es Einselement's von $S_i$ in $S$, somit ist $\functionfront{p_i}{e_iS}{S_i}$ ein Isomorphismus.\\
+Nutze weiter, dass $e_i$ ein indempotentes Element \textcolor{red}{$({e_i}^2 = e_i)$} von $S$ ist:
+\begin{gather*}
+\text{Nach \cref{Differenzial indempotenter Elemente} gilt } \divf{S}(e_i) = 0 \\
+\Rightarrow \forall s \in s : \divf{S}(e_is)= \divf{S}({e_i}^2s) = e_i\divf{S}(e_is) + e_is\divf{S}(e_i) = e_i\divf{S}(e_is) \\
+\end{gather*}
+Mit diesem Wissen können wir einen Isomorphismus $\functionfront{\Phi}{\divR{S}{R}}{\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}}$ definieren:
+\begin{center}
+\begin{tikzcd}
+\Phi: \, \divR{S}{R} \arrow[r]          & \prod_{i \in \lbrace 1, \dots , n \rbrace} e_i\divf{S}(e_iS) \arrow[r]          & \prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R} \\
+\divf{S}(s) = \sum_{i \in \lbrace 1, \dots , n \rbrace} \divf{S}(e_is) \arrow[r, maps to] & \left( e_1\divf{S}(e_1s), \dots , e_n\divf{S}(e_ns) \right) \arrow[r, maps to] & \left( (\divf{S_1} \circ p_1) (s), \dots , (\divf{S_n} \circ p_n) (s) \right)
+\end{tikzcd}
+\end{center}
+Da der Differenzialraum $\divR{S}{R}$ bis auf eine eindeutige Isomophie eindeutig ist \textit{(PROPOSITION)},\comment{\label{*Differenzial ist eindeutig}} definiere diesen ab jetzt als $\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}$.
+\end{proof}
+
+
+\ \\
 \textcolor{blue}{\textbf{Cotangent Sequenz} \textit{[Proposition 16.2 \ModulsOfDifferenzials (Wichtig für Körpererweiterungen)]}}
 \begin{prop}\label{Cotangent Sequenz}
 Seien $\functionfront{\alpha}{R}{S}$ und $\functionfront{\beta}{S}{T}$ zwei Ringhomomorphismen. Dann existiert folgende Exakte Sequenz:
@@ -996,5 +1039,64 @@ Es gilt:
 \end{gather*}
 Nute noch \cref{Differenzial des Kolimes von R-Algebren} und \cref{Differential von rationalen Funktionen 1} um zu folgern, dass $\divR{L}{k}$ von \\
 $\lbrace \divf{L}(x^{1/{p^{n}}}) \vert n \in \mathbb{N} \rbrace$ erzeugt wird.
+\end{proof}
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial algebraischer Algebren ist Null} \textit{[Aufgabe 16.11 \ModulsOfDifferenzials]}}
+\begin{bsp}\comment{\label{Differenzial algebraischer Algebren ist Null}}
+Sei $K$ ein Körper mit $char(K) = 0$ \comment{Dies habe ich im gesamten Beweis nicht verwendet.} und $T$ eine noethersche K-Algebra. Dann gilt:
+\begin{gather*}
+\divR{T}{K} = 0 \\
+\Leftrightarrow \\
+T = \prod_{i \in \lbrace 1, \dots, n \rbrace} K(\alpha_i) \textit{ ist ein endliches Produkt algebraischer Körpererweiterungen.} 
+\end{gather*}
+\end{bsp}
+\begin{proof}
+\ \\
+\begin{itemize}
+\item[\underline{{\glqq $\Rightarrow$ \grqq :}}]
+Da $T$ noethersch ist, ist $T$ als Algebra über $K$ endlich erzeugt und es gilt:
+\begin{gather*}
+\comment{
+T = T'/I \\
+\text{Mit: } T' \defeq \left( \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i] \right) \text{ und } I \defeq \left( \prod_{i \in \lbrace 1,\dots,n \rbrace} I_i \right) \subseteq T' \text{ ist ein Ideal.} \\
+\text{Also gilt } T = \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]/I_i
+}
+T = \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]/I_i \\
+\text{Wobei } I_i \subseteq K[\alpha_i] \text{ ein Ideal ist.} (\forall i \in \lbrace 1, \dots ,n \rbrace)
+\end{gather*}
+Zur Vereinfachung definiere $T' \defeq \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]$. Betrachte nun den Differentialraum von T genauer:
+\begin{gather*}
+\divR{T}{K} = \divf{T'} \left( \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]/I_i \right)\\
+= \prod_{i \in \lbrace 1,\dots,n \rbrace} \divf{K[\alpha]}\left( K[\alpha_i]/I_i \right) \textit{ (\cref{Differenzial des Produktes von Algebren})}
+\end{gather*}
+Betrachte also jeweils für $i \in \lbrace 1,\dots,n \rbrace$ die $K$-Algebra $K[\alpha_i]/I_i$.\\ 
+Sei $I_i \neq K[\alpha_i]$, da andernfalls $K[\alpha_i]/I_i = 0$ und somit $\alpha_i$ kein Erzeuger vor T wäre. \\
+Unterscheide nun zwischen den zwei möglichen Fällen \underline{$I_i = 0$} und \underline{$I_i \neq 0$}:
+\begin{itemize}
+\item[\underline{\textbf{1.} $I_i = 0$:}] Da $\divR{T}{K} = 0$ gilt, muss  $K[\alpha_i] = 0$ gelten.\\
+$\mathbb{A}$nnhame: $\alpha_i$ ist transzendent über K.
+\begin{gather*}
+\text{Dies bedeutet } K[\alpha_i] \simeq K[x] \\
+\Rightarrow \divR{K[\alpha_i]}{K} \simeq K[x]\langle \divf{K[x]}(x) \rangle \neq 0 \textit{ (\cref{Differenzial von Polynomalgebren 1})}
+\end{gather*}
+Dies steht allerdings im Widerspruch zu $K[\alpha_i] = 0$. Folglich war unsere $\mathbb{A}$nnahme falsch und $\alpha_i$ ist algebraisch über K.\\
+Folglich ist $K[\alpha_i] = K(\alpha_i)$ \comment{Nutze hier \label{*fuer a algebraisch gilt K[a] = K(a)}} eine algebraische Körpererweiterung.
+\item[\underline{\textbf{2.} $I_i \neq 0$:}]
+Zunächst sehen wir, dass $\alpha_i$ transzendent sein muss, da sonst $K[\alpha_i] = K(\alpha_i)$ ein Körper wäre und somit $I_i = K(\alpha_i)$ gelten würde.\\
+Also ist $\alpha_i$ transzendent und es gilt:
+\begin{gather*}
+K[\alpha_i] \simeq K[x] \text{ und } I \simeq (f(x)) \text{ mit } f(x) \in K[x] \\
+\Rightarrow K[\alpha_i] \simeq K[\beta_1, \dots \beta_n] = K(\beta_1, \dots \beta_n) \text{, wobei $\beta_1, \dots \beta_n$ die Nullstellen von f sind.}
+\end{gather*}
+Somit haben wir gezeigt, dass auch in diesem Fall $K[\alpha_i]/I_i$ eine Algebraische Körpererweiterung ist. 
+\end{itemize}
+\item[\underline{{\glqq $\Leftarrow$ \grqq :}}]
+\cref{Differenzial des Produktes von Algebren} besagt, dass das direkte Produkt unter Bildung des Differenzials erhalten bleibt, also gilt in diesem Fall:
+\begin{gather*}
+\divR{T}{K} = \prod_{i \in \lbrace 1, \dots, n \rbrace} \divR{K(\alpha_i)}{K}
+\end{gather*} 
+Nach Voraussetzung sind alle Körpererweiterungen $K{\alpha_i} \supset K$ algebraisch. Wir haben schon in BSP gesehen, dass somit deren Differentiale gleich 0 sind. Folglich ist auch das direkte Produkt der einzelnen Differenziale und somit $\divR{T}{K}$ gleich 0.
+\end{itemize}
 \end{proof}
 \end{document}
