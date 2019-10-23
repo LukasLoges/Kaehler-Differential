@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  19 OCT 2019 11:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  23 OCT 2019 20:28
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -505,18 +505,18 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
  (Colimes.aux)
 \openout1 = `Colimes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -579,72 +579,103 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 66.
+LaTeX Font Info:    Try loading font information for U+msa on input line 61.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 66.
+LaTeX Font Info:    Try loading font information for U+msb on input line 61.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 63.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 
-Overfull \hbox (14.86162pt too wide) in paragraph at lines 96--98
-\OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir einen Iso-mor-phis-mus $[]$
+Overfull \hbox (17.2711pt too wide) in paragraph at lines 89--91
+\OT1/cmr/m/n/10 Wir k[]onnen oh-ne wei-te-re Ein-schr[]ankung an-neh-men, dass 
+$\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cm
+sy/m/n/10 2 \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 f\OML/cmm/m/it/
+10 b[]; [] ; n\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ]$
  []
 
 
-Overfull \hbox (101.83224pt too wide) in paragraph at lines 102--103
- [] 
+Overfull \hbox (3.06903pt too wide) detected at line 93
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
+
  []
 
 [1
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (9.78226pt too wide) detected at line 116
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 116--131
 
  []
 
 
-Overfull \hbox (64.29906pt too wide) detected at line 155
-[]
+Overfull \hbox (8.35197pt too wide) in paragraph at lines 116--131
+\OT1/cmr/m/n/10 Nehme an, dies w[]are nicht der Fall, so-mit exi-stiert ei-ne P
+o-ly-nom $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 K\OT1/cmr/m/n/
+10 [\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ]$
+ []
+
+
+Overfull \hbox (43.75067pt too wide) in paragraph at lines 116--131
+\OT1/cmr/m/n/10 Folglich sind die K[]orpererweiterungen $\OML/cmm/m/it/10 L \OM
+S/cmsy/m/n/10  \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[] \OMS/cm
+sy/m/n/10 [ \OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10  \OML/cmm/m
+/it/10 k\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 a[]; [] ; a[]; b[];
+ [] ; b[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--131
+
+ []
+
+
+Overfull \hbox (25.08823pt too wide) in paragraph at lines 116--131
+\OT1/cmr/m/n/10 Wenn wir $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 vie-le Schrit-te 
+die-ses Ver-fah-rens durchf[]uhren se-hen wir, dass $\OMS/cmsy/m/n/10 f\OML/cmm
+/m/it/10 a[]; [] ; a[]\OMS/cmsy/m/n/10 g 
  []
 
 [2] [3] (Colimes.aux) ) 
 Here is how much of TeX's memory you used:
- 16161 strings out of 492895
- 331610 string characters out of 3133483
- 393342 words of memory out of 3000000
- 19775 multiletter control sequences out of 15000+200000
+ 16032 strings out of 492895
+ 328194 string characters out of 3133483
+ 395342 words of memory out of 3000000
+ 19643 multiletter control sequences out of 15000+200000
  6691 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,14n,84p,471b,1041s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,13n,84p,517b,279s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex
 10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Colimes.pdf (3 pages, 160401 bytes).
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb>
+Output written on Colimes.pdf (3 pages, 122153 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -16,6 +16,7 @@
 \renewcommand{\baselinestretch}{1.1}
 
 \newcommand{\ModulsOfDifferenzials}{David Eisenbud 1994}
+\newcommand{\Algebra}{Christian Karpfinger, Kurt Meyberg 2009}
 
 \newcounter{Aussage}[chapter]
 
@@ -57,10 +58,76 @@
 \begin{document}
 \textcolor{blue}{\textbf{Definition Transzenddenzbasis} \textit{[vlg. Anhang A1 \ModulsOfDifferenzials]}}
 \begin{def}\comment{\label{Definition Transzenddenzbasis}}
+Sei $L \supset k$ eine Körpererweiterung. Dann definieren wir:
+\begin{itemize}
+\item[•] Eine endliche Teilmenge $\lbrace l_1, \dots ,l_n \rbrace \subseteq L$ heißt \underline{algebraisch abhängig} über $k$, falls gilt:
+\begin{gather*}
+\exists P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) = 0
+\end{gather*}
+\item[•] Eine endliche Teilmengen $\lbrace l_1, \dots ,l_n \rbrace \subseteq L$ heißt \underline{algebraisch unabhängig} über $k$, falls gilt:
+\begin{gather*}
+\forall P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) \neq 0
+\end{gather*}
+\item[•] Eine Teilmenge $B \subseteq L$ heißt \underline{transzendent} über $k$, falls jede ihrer endlichen Teilmengen $\lbrace b_1, \dots , b_n \rbrace$ algebraisch unabhängig über $k$ ist.
+\item[•] Eine Teilmenge $B \subseteq L$ ist eine \underline{Transzendenzbasis} von $L$ über $k$, falls sie transzendent über $k$ und die Körpererweiterung $L \supset k(B)$ algebraisch ist. 
+\end{itemize}
 \end{def}
 
 
 \ \\
-\begin{prop}\comment{}
+\textcolor{blue}{\textbf{Transzendenzbasis ist maximale transzendente Menge} \textit{[Lemma 22.1 \Algebra]}}
+\begin{lemma}\label{Transzendenzbasis ist maximale transzendente Menge}
+Sei $L \supset k$ ein Körpererweiterung und $B \subseteq L$ eine über $k$ transzendente Teilmenge. Dann gilt:\\
+B ist genau dann eine Transzendenzbasis von $L$ über $k$, wenn $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$ ist.
+\end{lemma}
+\begin{proof} \ \\
+\begin{itemize}
+\item[\underline{\glqq $\Rightarrow$:\grqq}] Sei B eine Transzendenzbasis über $k$. Zeige, dass für ein beliebiges Element $a \in L \setminus B$ die Menge $B \cup \lbrace a \rbrace \subseteq L$ nicht transzendent über $k$ ist:
+\begin{gather*}
+\text{Da die Körpererweiterung $L \supset k(B)$ algebraisch ist existiert }\\
+P(x) \in k(\lbrace b_1, \dots ,n \rbrace) \text{ mit } P(a) = 0.
+\end{gather*}
+Wir können ohne weitere Einschränkung annehmen, dass $P(x) \in k[\lbrace b_1, \dots ,n \rbrace]$ gilt, denn falls dies nicht der Fall sein sollte, wähle $m \in \mathbb{N}$ groß genug, sodass $P(x) \cdot \left( {\prod_i}^n b_i \right)^m \in k[\lbrace b_1, \dots ,n \rbrace]$ gilt.
+\begin{gather*}
+\text{Wähle nun } P'(x_1, \dots , x_n , x) \in  k[x_1, \dots , x_n , x] \text{ mit } P(b_1, \dots , b_n, x) = P(x)
+\end{gather*}
+Für dieses gilt $P'(b_1, \dots , b_n , a) = 0$. Somit ist $\lbrace b_1, \dots, b_n \rbrace$ nicht algebraisch unabhängig und insbesondere $B \cup \lbrace a \rbrace$ nicht transzendent.
+\item[\underline{\glqq $\Leftarrow$:\grqq}] Sei $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$. Zeige für ein beliebiges Element $a \in L \setminus k(B)$, dass dieses algebraisch über $k(B)$ ist:\\
+\ \\
+Nach Voraussetzung existiert eine endliche Teilmenge von $B \cup \lbrace a \rbrace$, welche algebraisch abhängig über $k$ ist. Da $B$ transzendent über $k$ ist, muss diese $a$ enthalten. Somit gilt:
+\begin{gather*}
+\exists \lbrace b_1, \dots, b_n \rbrace \subseteq B : \lbrace b_1, \dots, b_n ,a \rbrace \textit{ ist algebraisch abhängig über k}\\
+\Rightarrow \exists P(x_1, \dots, x_{n+1}) \in k[x] : P(b_1, \dots , b_n , a) = 0 \\
+\Rightarrow \text{Für } P'(x) \defeq P(b_1, \dots , b_n , x) \in k(B)[x] \text{ gilt } P'(a) = 0
+\end{gather*}
+Es existiert also ein Polynom $P'(x) \defeq P(b_1, \dots , b_n , x) \in k(B)[x]$ mit $P'(a) = 0$ gefunden. Somit ist $a$ algebraisch über $k(B)$.
+\end{itemize}
+\end{proof}
+\ \\
+\textcolor{blue}{\textbf{Transzendenzbasen sind immer gleich lang} \textit{[Theorem A1.1 \ModulsOfDifferenzials]}}
+\begin{prop}\comment{\label{Transzendenzbasen sind immer gleich lang}}
+Sei $L \supset k$ eine Körpererweiterung. Seinen weiter $A$, $B$ zwei Transzendenzbasen von $L$ über $k$. Dann gilt:
+\begin{gather*}
+\vert A \vert = \vert B \vert
+\end{gather*}
+Wir nennen $\vert B \vert$ den \underline{Transzendenzgrad} von $L$ über $k$.
 \end{prop}
+\begin{proof}
+Sei ohne Einschränkung $A = \lbrace a_1, \dots , a_m \rbrace$ und $B = \lbrace b_1, \dots , b_n \rbrace$ mit $min(m,n) = n < \infty$.\\
+Wir wollen in $n$ Schritten die Elemente aus $B$ durch Elemente aus $A$ ersetzten und damit zeigen, dass $A = \lbrace a_1, \dots , a_n \rbrace$ ein Transzendenzbasis von $L$ über $k$ ist:\\
+\ \\
+Für den $i$-ten Schritt betrachte $A_k \defeq \lbrace a_1, \dots , a_{i-1} \rbrace$ und $B_i \defeq \lbrace b_i, \dots , b_n \rbrace$. Wobei $A_i \cup B_i$ eine Transzendenzbasis von $L$ über $k$ ist.\\
+Betrachte $a_i \in A$. Nach \cref{Transzendenzbasis ist maximale transzendente Menge} ist $A_i \cup \lbrace a_i \rbrace \cup B_i$ nicht transzendent und somit algebraisch abhängig.\\
+Folglich existiert eine Polynom $P \comment{(x_1, \dots , x_{i-1}, x ,x_i, \dots x_n)} \in K[x_1, \dots , x_{i-1}, x ,x_i, \dots x_n] $ mit\\
+$P(a_1, \dots , a_{i-1}, a_i ,b_i, \dots b_n) = 0$.\\
+Da $\lbrace a_1, \dots , a_i \rbrace \subseteq A$ algebraisch unabhäing über $k$ ist kommt nach evenueller umnummerierung $b_i \in B_i$ echt in $P(a_1, \dots , a_{i-1}, a_i ,b_i, \dots b_n)$ vor.\\
+Wenn wir $P$ als Polynom mit Koeffizienen aus $k[a_1, \dots , a_{i-1}, a_i ,b_{i+1}, \dots b_n]$ betrachten, in das wir $b_k$ einsetzen, bedeutet dies, dass $b_k$ algebraisch über $A_{i+1} \cup B_{i+1}$ ist.\\
+Folglich sind die Körpererweiterungen $L\supset k(A_i \cup \lbrace a_i \rbrace \cup B_i) \supset k(A_{i+1} \cup B_{i+1})$ und $L\supset k(A_{i+1} \cup B_{i+1})$ algebraisch.\\
+Zeige also noch, dass $A_{i+1} \cup B_{i+1}$ transzendent über $k$ ist:\\
+Nehme an, dies wäre nicht der Fall. Somit existiert eine Polynom $P \in K[x_1, \dots ,x_n]$ mit $P(a_1, \dots , a_i, b_{i+1}, \dots , b_n) = 0$. Da $\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace \subseteq A_i \uplus B_i$ algebraisch unabhängig über $k$ ist, muss $a_{k+1}$ echt in $P(a_1, \dots , a_i, b_{i+1}, \dots , b_n)$ vorkommen. Wie oben können wir daraus folgern, dass $a_{i+1}$ algebraisch über $k(\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace)$ ist.\\
+Folglich sind die Körpererweiterungen $L\supset k(A_{i+1} \cup B_{i+1}) \supset k(\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace)$ und $L\supset k(\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace)$ algebraisch. Dies steht allerdings im Widerspruch dazu, dass $A_i \cup B_i = \lbrace a_1, \dots , a_{i-1}, b_{i}, \dots , b_n \rbrace$ eine Transzendenzbasis von $L$ über $k$ ist. Damit ist $A_{i+1} \cup B_{i+1}$ eine Transzendenzbasis von $L$ über $k$ ist.\\
+\ \\
+Wenn wir $n$ viele Schritte dieses Verfahrens durchführen sehen wir, dass $\lbrace a_1, \dots , a_n \rbrace \subseteq A$ eine Transzendenbasis von $L$ über $k$ ist. Da Nach \cref{Transzendenzbasis ist maximale transzendente Menge} muss somit $\lbrace a_1, \dots , a_n \rbrace = A$ und $m = n$ gelten.
+
+\end{proof}
 \end{document}
