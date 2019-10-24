@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  23 OCT 2019 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  24 OCT 2019 15:23
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -622,58 +622,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--98
 [1
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 116--131
+Underfull \hbox (badness 10000) in paragraph at lines 116--121
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 133--139
 
  []
 
 
-Overfull \hbox (8.35197pt too wide) in paragraph at lines 116--131
-\OT1/cmr/m/n/10 Nehme an, dies w[]are nicht der Fall, so-mit exi-stiert ei-ne P
-o-ly-nom $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 K\OT1/cmr/m/n/
-10 [\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ]$
- []
-
-
-Overfull \hbox (43.75067pt too wide) in paragraph at lines 116--131
-\OT1/cmr/m/n/10 Folglich sind die K[]orpererweiterungen $\OML/cmm/m/it/10 L \OM
-S/cmsy/m/n/10  \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[] \OMS/cm
-sy/m/n/10 [ \OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10  \OML/cmm/m
-/it/10 k\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 a[]; [] ; a[]; b[];
- [] ; b[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--131
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 
-Overfull \hbox (25.08823pt too wide) in paragraph at lines 116--131
-\OT1/cmr/m/n/10 Wenn wir $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 vie-le Schrit-te 
-die-ses Ver-fah-rens durchf[]uhren se-hen wir, dass $\OMS/cmsy/m/n/10 f\OML/cmm
-/m/it/10 a[]; [] ; a[]\OMS/cmsy/m/n/10 g 
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
+
  []
 
-[2] [3] (Colimes.aux) ) 
+[3] (Colimes.aux) ) 
 Here is how much of TeX's memory you used:
  16032 strings out of 492895
  328194 string characters out of 3133483
- 395342 words of memory out of 3000000
+ 394342 words of memory out of 3000000
  19643 multiletter control sequences out of 15000+200000
  6691 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,13n,84p,517b,279s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb>
-Output written on Colimes.pdf (3 pages, 122153 bytes).
+ 61i,13n,84p,534b,279s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb>
+Output written on Colimes.pdf (3 pages, 123860 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

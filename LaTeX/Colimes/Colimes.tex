@@ -113,21 +113,39 @@ Sei $L \supset k$ eine Körpererweiterung. Seinen weiter $A$, $B$ zwei Transzend
 Wir nennen $\vert B \vert$ den \underline{Transzendenzgrad} von $L$ über $k$.
 \end{prop}
 \begin{proof}
-Sei ohne Einschränkung $A = \lbrace a_1, \dots , a_m \rbrace$ und $B = \lbrace b_1, \dots , b_n \rbrace$ mit $min(m,n) = n < \infty$.\\
-Wir wollen in $n$ Schritten die Elemente aus $B$ durch Elemente aus $A$ ersetzten und damit zeigen, dass $A = \lbrace a_1, \dots , a_n \rbrace$ ein Transzendenzbasis von $L$ über $k$ ist:\\
+Im Fall von $\vert A \vert = \vert B \vert = \infty$ sind wir schon fertig, sei also ohne Einschränkung $A = \lbrace a_1, \dots , a_m \rbrace$ und $B = \lbrace b_1, \dots , b_n \rbrace$ mit $min(m,n) = n < \infty$.\\
+Wir wollen zunächst in $n$ Schritten die Elemente aus $B$ durch Elemente aus $A$ ersetzten und damit zeigen, dass $\lbrace a_1, \dots , a_n \rbrace$ eine Transzendenzbasis von $L$ über $k$ ist:\\
 \ \\
-Für den $i$-ten Schritt betrachte $A_k \defeq \lbrace a_1, \dots , a_{i-1} \rbrace$ und $B_i \defeq \lbrace b_i, \dots , b_n \rbrace$. Wobei $A_i \cup B_i$ eine Transzendenzbasis von $L$ über $k$ ist.\\
-Betrachte $a_i \in A$. Nach \cref{Transzendenzbasis ist maximale transzendente Menge} ist $A_i \cup \lbrace a_i \rbrace \cup B_i$ nicht transzendent und somit algebraisch abhängig.\\
-Folglich existiert eine Polynom $P \comment{(x_1, \dots , x_{i-1}, x ,x_i, \dots x_n)} \in K[x_1, \dots , x_{i-1}, x ,x_i, \dots x_n] $ mit\\
-$P(a_1, \dots , a_{i-1}, a_i ,b_i, \dots b_n) = 0$.\\
-Da $\lbrace a_1, \dots , a_i \rbrace \subseteq A$ algebraisch unabhäing über $k$ ist kommt nach evenueller umnummerierung $b_i \in B_i$ echt in $P(a_1, \dots , a_{i-1}, a_i ,b_i, \dots b_n)$ vor.\\
-Wenn wir $P$ als Polynom mit Koeffizienen aus $k[a_1, \dots , a_{i-1}, a_i ,b_{i+1}, \dots b_n]$ betrachten, in das wir $b_k$ einsetzen, bedeutet dies, dass $b_k$ algebraisch über $A_{i+1} \cup B_{i+1}$ ist.\\
-Folglich sind die Körpererweiterungen $L\supset k(A_i \cup \lbrace a_i \rbrace \cup B_i) \supset k(A_{i+1} \cup B_{i+1})$ und $L\supset k(A_{i+1} \cup B_{i+1})$ algebraisch.\\
-Zeige also noch, dass $A_{i+1} \cup B_{i+1}$ transzendent über $k$ ist:\\
-Nehme an, dies wäre nicht der Fall. Somit existiert eine Polynom $P \in K[x_1, \dots ,x_n]$ mit $P(a_1, \dots , a_i, b_{i+1}, \dots , b_n) = 0$. Da $\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace \subseteq A_i \uplus B_i$ algebraisch unabhängig über $k$ ist, muss $a_{k+1}$ echt in $P(a_1, \dots , a_i, b_{i+1}, \dots , b_n)$ vorkommen. Wie oben können wir daraus folgern, dass $a_{i+1}$ algebraisch über $k(\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace)$ ist.\\
-Folglich sind die Körpererweiterungen $L\supset k(A_{i+1} \cup B_{i+1}) \supset k(\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace)$ und $L\supset k(\lbrace a_1, \dots , a_{i-1}, b_{i+1}, \dots , b_n \rbrace)$ algebraisch. Dies steht allerdings im Widerspruch dazu, dass $A_i \cup B_i = \lbrace a_1, \dots , a_{i-1}, b_{i}, \dots , b_n \rbrace$ eine Transzendenzbasis von $L$ über $k$ ist. Damit ist $A_{i+1} \cup B_{i+1}$ eine Transzendenzbasis von $L$ über $k$ ist.\\
+Für den $i$-ten Schritt definiere $A_i \defeq \lbrace a_1,\dots,a_{i-1} \rbrace \subseteq A$, $B_i \defeq \lbrace b_i,\dots,b_n \rbrace \subseteq B$ und gehe davon aus, dass $A_i \cup B_i$ eine Transzendenzbasis ist:\\
+Nach \cref{Transzendenzbasis ist maximale transzendente Menge} ist $\lbrace a_i \rbrace \cup A_{i} \cup B_{i} = A_{i+1} \cup B_{i}$ nicht transzendent und somit algebraisch abhängig.
+\begin{gather*}
+\text{Also existiert } P \in k[x,x_1,\dots,x_n] \text{ mit } P(a_i,a_1,\dots,a_{i-1},b_i,\dots,b_n) = 0. \\
+\text{Definiere } P'(x) \defeq P(a_i,a_1,\dots,a_{i-1},x,b_{i+1},\dots,b_n) \in k(A_{i+1} \cup B_{i+1})[x].\\
+\text{Dieses erfüllt } P'(b_i) = 0.
+\end{gather*}
+Da $A_i \subseteq A$ algebraisch unabhängig ist, gilt $P(a_1,\dots,a_{i-1},x_i,\dots,x_n) \neq 0$. Nummeriere also gegebenenfalls $B$ vor der Bildung von $P'(x)$ so um, dass auch $P'(x) \neq 0$ gilt.\\
+Die Existenz eines solchen $P'(x)$ zeigt uns, dass die Körpererweiterungen \\$L \subset k(A_{i+1} \cup B_i) = k(A_{i+1} \cup B_{i+1})(\lbrace b_i \rbrace) \subset k(A_{i+1} \cup B_{i+1})$ algebraisch sind und legt nahe, dass $A_{i+1} \cup B_{i+1}$ wieder eine Transzendenzbasis ist.\\
+Um dies zu zeigen nehme zunächst an $A_{i+1} \cup B_{i+1}$ wäre algebraisch abhängig.
+\begin{gather*}
+\text{Also existiert } Q \in k[x_1, \dots ,x_n] \text{ mit } Q(a_1, \dots ,a_i,b_{i+1},\dots,b_n) = 0. \\
+\text{Definiere } Q'(x) \defeq Q(a_1,\dots,a_{i-1},x,b_{i+1},b_n) \in k(a_1,\dots,a_{i-1},b_{i+1},b_n)[x]. \\
+\text{Dieses erfüllt } Q'(a_i) = 0.
+\end{gather*}
+Da $(A_{i+1} \cup B_{i+1}) \setminus \lbrace a_i \rbrace \subseteq A_i \cup B_i$ algebraisch unabhängig ist gilt $Q'(x) \neq 0$.\\
+Die Existenz eines solchen $Q'(x)$ zeigt uns, dass die Körpererweiterung \\$L \subset k(A_{i+1} \cup B_{i+1}) \subset k((A_{i+1} \cup B_{i+1})\setminus\lbrace a_i \rbrace) = k((A_i \cup B_i)\setminus\lbrace b_i \rbrace)$ algebraisch ist. Damit ist $(A_i\cup B_i)\setminus\lbrace b_i \rbrace$ eine Transzendenzbasis, was nach \cref{Transzendenzbasis ist maximale transzendente Menge} im Widerspruch dazu steht, dass $A_i \cup B_i$ eine Transzendenzbasis ist.\\
+Folglich ist $A_{i+1} \cup B_{i+1}$ transzendent und somit eine Transzendenzbasis von $L$ über $k$.\ \\
 \ \\
-Wenn wir $n$ viele Schritte dieses Verfahrens durchführen sehen wir, dass $\lbrace a_1, \dots , a_n \rbrace \subseteq A$ eine Transzendenbasis von $L$ über $k$ ist. Da Nach \cref{Transzendenzbasis ist maximale transzendente Menge} muss somit $\lbrace a_1, \dots , a_n \rbrace = A$ und $m = n$ gelten.
-
+Dieses Verfahren zeigt uns, dass $\lbrace a_1, \dots , a_n \rbrace \subseteq A$ eine Transzendenbasis von $L$ über $k$ ist. Nach \cref{Transzendenzbasis ist maximale transzendente Menge} muss somit $A = \lbrace a_1, \dots , a_n \rbrace$ und $m = n$ gelten.
 \end{proof}
+\ \\
+\begin{bem}
+Für jede Körpererweiterung $L \subseteq k$ existiert eine Transzendenzbasis $B \subseteq L$ von $L$ über k.
+\end{bem}
+
+
+\ \\
+\textcolor{blue}{\textbf{De} \textit{[]}}
+\begin{definition}\label{Definition Seperabel}
+
+\end{definition}
 \end{document}
