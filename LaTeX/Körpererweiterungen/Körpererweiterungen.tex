@@ -1,0 +1,185 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{tikz-cd}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usetikzlibrary{babel}
+\usepackage{cleveref}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+\newcommand{\ModulsOfDifferenzials}{David Eisenbud 1994}
+\newcommand{\Algebra}{Christian Karpfinger, Kurt Meyberg 2009}
+
+\newcounter{Aussage}[chapter]
+
+\newtheorem{satz}[Aussage]{Satz}
+\newtheorem{theorem}[Aussage]{Theorem}
+\newtheorem{prop}[Aussage]{Proposition}
+\newtheorem{korrolar}[Aussage]{Korrolar}
+\newtheorem{lemma}[Aussage]{Lemma}
+\newtheorem{bem}[Aussage]{Bemerkung}
+\newtheorem{definition}[Aussage]{Definition}
+\newtheorem{bsp}[Aussage]{Beispiel}
+
+\newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
+\newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
+\newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
+\newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\divf}[1]{d_{#1}}
+\comment{\newcommand{\divf}[2][]{d_{#1}}}
+\newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\tensor}[3]{#1 \otimes #3}
+\newcommand{\lok}[2]{#1 [#2^{-1}]}
+\newcommand{\loke}[3]{(\frac{#1}{#2})_{_{#3}}}
+\comment{\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}}
+
+\newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand*{\defeqr}{= \mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}}
+
+\newcommand*{\defshow}{\stackrel{!}{=}}
+\newcommand{\kernel}[1]{kern(#1)}
+\newcommand{\immage}[1]{im(#1)}
+\newcommand{\Verz}[1]{\langle #1 \rangle}
+
+\begin{document}
+\chapter{Körpererweiterungen}
+\section{Einführung in die Körpererweiterungen}
+\textcolor{blue}{\textbf{Definition Transzenddenzbasis} \textit{[vlg. Anhang A1 \ModulsOfDifferenzials]}}
+\begin{def}\comment{\label{Definition Transzenddenzbasis}}
+Sei $L \supset k$ eine Körpererweiterung. Dann definieren wir:
+\begin{itemize}
+\item[•] Eine endliche Teilmenge $\lbrace l_1, \dots ,l_n \rbrace \subseteq L$ heißt \underline{algebraisch abhängig} über $k$, falls gilt:
+\begin{gather*}
+\exists P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) = 0
+\end{gather*}
+\item[•] Eine endliche Teilmengen $\lbrace l_1, \dots ,l_n \rbrace \subseteq L$ heißt \underline{algebraisch unabhängig} über $k$, falls gilt:
+\begin{gather*}
+\forall P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) \neq 0
+\end{gather*}
+\item[•] Eine Teilmenge $B \subseteq L$ heißt \underline{transzendent} über $k$, falls jede ihrer endlichen Teilmengen $\lbrace b_1, \dots , b_n \rbrace$ algebraisch unabhängig über $k$ ist.
+\item[•] Eine Teilmenge $B \subseteq L$ ist eine \underline{Transzendenzbasis} von $L$ über $k$, falls sie transzendent über $k$ und die Körpererweiterung $L \supset k(B)$ algebraisch ist. 
+\end{itemize}
+\end{def}
+
+
+\ \\
+\textcolor{blue}{\textbf{Transzendenzbasis ist maximale transzendente Menge} \textit{[Lemma 22.1 \Algebra]}}
+\begin{lemma}\label{Transzendenzbasis ist maximale transzendente Menge}
+Sei $L \supset k$ ein Körpererweiterung und $B \subseteq L$ eine über $k$ transzendente Teilmenge. Dann gilt:\\
+B ist genau dann eine Transzendenzbasis von $L$ über $k$, wenn $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$ ist.
+\end{lemma}
+
+
+\ \\
+\begin{bem}
+Für jede Körpererweiterung $L \subseteq k$ existiert eine Transzendenzbasis $B \subseteq L$ von $L$ über k.
+\end{bem}
+
+
+\ \\
+\textcolor{blue}{\textbf{De} \textit{[]}}
+\textcolor{red}{
+\begin{itemize}
+\item[\underline{\textbf{Erinnerung:}}] Eine Algebraische Körpererweiterung $L \supset k$ heißt \underline{seperabel}, falls für alle $\alpha \in L$ das Minimalpolynom $f(x) \in k[x]$ von $\alpha$ über $L[x]$ in Linearfaktoren zerfällt.
+\end{itemize}
+}
+\begin{definition}\label{Definition Seperabel}
+Sei $L \supset k$ eine Körpererweiterung. Dann definieren wir:
+\begin{itemize}
+\item $L$ ist \underline{seperabel generiert} über $k$, falls eine Transzendenzbasis $B$ von $L$ über $k$ existiert, sodass $L/k(B)$ eine seperable Körpererweiterung ist.
+\item $k$ ist \underline{seperabel} über $k$, falls jeder über $k$ endlich genierte Teilkörper von $L$ über $k$ seperabel generiert ist.
+\end{itemize}
+\end{definition}
+
+
+\ \\
+\begin{definition}
+Sei $k$ ein Körper mit charakteristik p und sei weiter $L/k$ eine Körpererweiterung. Dann definieren wir:
+\begin{itemize}
+\item Eine endliche Teilmenge $B \subseteq L$ heißt p-Basis von $L$ über $k$, falls $W \defeq \lbrace \prod_{b \in B} b^i \vert i < p \rbrace$ eine Vektorraumbasis von K über $k * K^p$ bildet.
+\end{itemize}
+\end{definition}
+
+\section{Differential von Körpererweiterungen}
+
+\textcolor{blue}{\textbf{Definition der Differenzialbasis} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}}
+\begin{definition}\comment{\label{Definition der Differenzialbasis}}
+Sei $L \supset k$ eine Körpererweiterung. Dann nennen wir eine Teilmenge $\lbrace b_i \rbrace_{i \in \Lambda} \subseteq L$ eine \underline{Differenzialbasis} von $L$ über $k$, falls $\lbrace \divf{K}(b_i)\rbrace_{i \in \Lambda}$ eine Vektorraumbasis von $\divR{L}{R}$ über $L$ ist.
+\end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 1} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}}
+\begin{bsp}\label{Differential von rationalen Funktionen 1}
+Sei $k$ ein Körper und $L = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
+Dann gilt:
+\begin{gather*}
+\divR{L}{k} \simeq L \Verz{\divf{k[x_1,\dots x_n]}(x_i)}
+\end{gather*}
+Insbesondere ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{L}{k}$.
+\end{bsp}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 2} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differential von rationalen Funktionen 2}
+Sei $k$ ein Körper und $L \supset k$ eine Körpererweiterung und $T = L(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $L$. Dann gilt:
+\begin{gather*}
+\divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{korrolar}
+
+
+\ \\
+\textcolor{blue}{\textbf{Cotangent Sequenz von Koerpern 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\begin{bem}\label{Cotangent Sequenz von Koerpern 1}
+Sei $L \supset k$ eine Körpererweiterung und $T = L(x_1, \dots ,x_n)$ der Körper der rationalen Funktionen in $n$ Variablen über $L$. Dann ist die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Tensor{T}{L}{\divR{L}{k}} \arrow[r] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Im Genauen ist $\function{\varphi}{\Tensor{T}{L}{\divR{L}{k}}}{\divR{T}{k}}{\tensor{t}{L}{\divf{L}(l)}}{t \cdot \divf{T}(l)}$ injektiv.
+\end{bem}
+
+
+\ \\
+\textcolor{blue}{\textbf{Aufbaulemma Koerperdifferenzial} \textit{[vlg. Lemma 16.15 \ModulsOfDifferenzials]}}
+\begin{lemma}\label{Aufbaulemma Koerperdifferenzial}
+Sei $L \subset T$ eine seperable und algebraische Körpererweiterung und $R \longrightarrow L$ ein Ringhomomorphismus. Dann gilt:
+\begin{gather*}
+\divR{T}{R} = \Tensor{T}{L}{\divR{L}{R}}
+\end{gather*}
+Insbesondere ist in diesem Fall die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $R \rightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Tensor{T}{L}{\divR{L}{R}} \arrow[r] & \divR{T}{R} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+\end{lemma}
+
+
+\ \\
+\textcolor{blue}{\textbf{Transzendenzbasis ist Differenzialbasis} \textit{[vlg. Theorem 16.4 \ModulsOfDifferenzials]}}
+\begin{theorem}\comment{\label{Transzendenzbasis ist Differenzialbasis}}
+Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda} \subseteq T$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
+\begin{itemize}
+\item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\item[\textbf{2.}] char(k) = p und $B$ ist eine p-Basis von $T$ über $k$.
+\end{itemize}
+\end{theorem}
+
+\end{document}
