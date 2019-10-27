@@ -62,56 +62,52 @@
 \begin{def}\label{Definition Transzenddenzbasis}
 Sei $L/k$ eine Körpererweiterung. Dann definieren wir:
 \begin{itemize}
-\item[•] Eine endliche Teilmenge $\lbrace l_1, \dots ,l_n \rbrace \subseteq L$ heißt \underline{algebraisch abhängig} über $k$, falls gilt:
-\begin{gather*}
-\exists P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) = 0
-\end{gather*}
 \item[•] Eine endliche Teilmengen $\lbrace l_1, \dots ,l_n \rbrace \subseteq L$ heißt \underline{algebraisch unabhängig} über $k$, falls gilt:
 \begin{gather*}
 \forall P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) \neq 0
 \end{gather*}
 \item[•] Eine Teilmenge $B \subseteq L$ heißt \underline{transzendent} über $k$, falls jede ihrer endlichen Teilmengen $\lbrace b_1, \dots , b_n \rbrace$ algebraisch unabhängig über $k$ ist.
 \item[•] Eine Teilmenge $B \subseteq L$ ist eine \underline{Transzendenzbasis} von $L/k$, falls sie transzendent über $k$ und die Körpererweiterung $L/k(B)$ algebraisch ist.
-\item[•] Falls eine Transzendenzbasis von $B$ von $L/k$ existiert, sodass $k(b) = L$ gilt, so ist $L/k$ eine pur Transzendente Körpererweiterung.
+\item[•] Falls eine Transzendenzbasis von $B$ von $L/k$ existiert, sodass $k(b) = L$ gilt, so ist $L/k$ eine \underline{pur transzendente Körpererweiterung}.
 \end{itemize}
 \end{def}
 
 
 \ \\
 \textcolor{blue}{\textbf{pur transzendente Erweiterung} \textit{[Eigene Überlegung]}}
-\begin{korrolar}\label{pur transzendente Erweiterung}
-Sei $L/k$ eine pur Transzendente Körpererweiterung mit Transzendenzbasis $B$. Dann gilt:
+\begin{bem}\label{pur transzendente Erweiterung}
+Sei $L/k$ eine pur transzendente Körpererweiterung mit Transzendenzbasis $B$. Dann gilt:
 \begin{gather*}
 L \simeq k(\lbrace x_i \rbrace_{i \in B})
 \end{gather*}
 Insbesondere ist $\lbrace x_i \rbrace_{i \in B}$ eine Transzendenzbasis der Körpererweiterung der rationalen Funktionen $k(\lbrace x_i \rbrace_{i \in B})$ über $k$.
-\end{korrolar}
+\end{bem}
 
 
 \ \\
 \textcolor{blue}{\textbf{Transzendenzbasis ist maximale transzendente Menge} \textit{[Lemma 22.1 \Algebra]}}
 \begin{lemma}\label{Transzendenzbasis ist maximale transzendente Menge}
-Sei $L \supset k$ ein Körpererweiterung und $B \subseteq L$ eine über $k$ transzendente Teilmenge. Dann gilt:\\
-B ist genau dann eine Transzendenzbasis von $L$ über $k$, wenn $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$ ist.
+Sei $L / k$ ein Körpererweiterung und $B \subseteq L$ eine über $k$ transzendente Teilmenge. Dann gilt:\\
+B ist genau dann eine Transzendenzbasis von $L/k$, wenn $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$ ist.
 \end{lemma}
 \begin{proof} \ \\
 \begin{itemize}
 \item[\underline{\glqq $\Rightarrow$:\grqq}] Sei B eine Transzendenzbasis über $k$. Zeige, dass für ein beliebiges Element $a \in L \setminus B$ die Menge $B \cup \lbrace a \rbrace \subseteq L$ nicht transzendent über $k$ ist:
 \begin{gather*}
-\text{Da die Körpererweiterung $L \supset k(B)$ algebraisch ist existiert }\\
-P(x) \in k(\lbrace b_1, \dots ,n \rbrace) \text{ mit } P(a) = 0.
+\text{Da die Körpererweiterung $L / k(B)$ algebraisch ist existiert } 0 \neq P(x) \in k(B)[x] \text{ mit } P(a) = 0.
 \end{gather*}
-Wir können ohne weitere Einschränkung annehmen, dass $P(x) \in k[\lbrace b_1, \dots ,n \rbrace]$ gilt, denn falls dies nicht der Fall sein sollte, wähle $m \in \mathbb{N}$ groß genug, sodass $P(x) \cdot \left( {\prod_i}^n b_i \right)^m \in k[\lbrace b_1, \dots ,n \rbrace]$ gilt.
+Aus der Definition von $k(B)$ geht hervor, dass $\lbrace b_1, \dots b_n \rbrace \subseteq B$ existiert, mit $P(x) \in k(\lbrace b_1, \dots b_n \rbrace)[x]$.\\ 
+Wir können ohne weitere Einschränkung annehmen, dass $P(x) \in k[\lbrace b_1, \dots ,b_n \rbrace][x]$ gilt, denn falls dies nicht der Fall sein sollte, wähle $m \in \mathbb{N}$ groß genug, sodass $\left( P(x) \cdot \left( \prod_i^n b_i \right)^m \right) \in k[\lbrace b_1, \dots ,b_n \rbrace]$ gilt.
 \begin{gather*}
-\text{Wähle nun } P'(x_1, \dots , x_n , x) \in  k[x_1, \dots , x_n , x] \text{ mit } P(b_1, \dots , b_n, x) = P(x)
+\text{Wähle nun } P'(x_1, \dots , x_n , x) \in  k[x_1, \dots , x_n , x] \text{ mit } P'(b_1, \dots , b_n, x) = P(x).\\
+\text{Dies erfüllt } P'(b_1, \dots , b_n, a) = 0.
 \end{gather*}
-Für dieses gilt $P'(b_1, \dots , b_n , a) = 0$. Somit ist $\lbrace b_1, \dots, b_n \rbrace$ nicht algebraisch unabhängig und insbesondere $B \cup \lbrace a \rbrace$ nicht transzendent.
+Folglich ist $B \cup \lbrace b_1,\dots,b_n, a \rbrace$ algebraisch abhängig und insbesondere $B \cup \lbrace a \rbrace$ nicht transzendent über k.
 \item[\underline{\glqq $\Leftarrow$:\grqq}] Sei $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$. Zeige für ein beliebiges Element $a \in L \setminus k(B)$, dass dieses algebraisch über $k(B)$ ist:\\
 \ \\
-Nach Voraussetzung existiert eine endliche Teilmenge von $B \cup \lbrace a \rbrace$, welche algebraisch abhängig über $k$ ist. Da $B$ transzendent über $k$ ist, muss diese $a$ enthalten. Somit gilt:
+Nach Voraussetzung existiert eine endliche Teilmenge $\lbrace b_1, \dots, b_n, a \rbrace \subseteq B \cup \lbrace a \rbrace$, welche algebraisch abhängig über $k$ ist.
 \begin{gather*}
-\exists \lbrace b_1, \dots, b_n \rbrace \subseteq B : \lbrace b_1, \dots, b_n ,a \rbrace \textit{ ist algebraisch abhängig über k}\\
-\Rightarrow \exists P(x_1, \dots, x_{n+1}) \in k[x] : P(b_1, \dots , b_n , a) = 0 \\
+\text{Also existiert } P(x_1, \dots, x_{n+1}) \in k[x_1,\dots ,x_{n+1}] \text{ mit } P(b_1, \dots , b_n , a) = 0. \\
 \Rightarrow \text{Für } P'(x) \defeq P(b_1, \dots , b_n , x) \in k(B)[x] \text{ gilt } P'(a) = 0
 \end{gather*}
 Es existiert also ein Polynom $P'(x) \defeq P(b_1, \dots , b_n , x) \in k(B)[x]$ mit $P'(a) = 0$ gefunden. Somit ist $a$ algebraisch über $k(B)$.
