@@ -66,9 +66,9 @@ Sei $L/k$ eine Körpererweiterung. Dann definieren wir:
 \begin{gather*}
 \forall P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) \neq 0
 \end{gather*}
-\item[•] Eine Teilmenge $B \subseteq L$ heißt \underline{transzendent} über $k$, falls jede ihrer endlichen Teilmengen $\lbrace b_1, \dots , b_n \rbrace$ algebraisch unabhängig über $k$ ist.
+\item[•] Eine Teilmenge $B \subseteq L$ heißt \underline{transzendent} über $k$, falls jede ihrer endlichen Teilmengen $\lbrace b_1, \dots , b_n \rbrace \subseteq B$ algebraisch unabhängig über $k$ ist.
 \item[•] Eine Teilmenge $B \subseteq L$ ist eine \underline{Transzendenzbasis} von $L/k$, falls sie transzendent über $k$ und die Körpererweiterung $L/k(B)$ algebraisch ist.
-\item[•] Falls eine Transzendenzbasis von $B$ von $L/k$ existiert, sodass $k(b) = L$ gilt, so ist $L/k$ eine \underline{pur transzendente Körpererweiterung}.
+\item[•] Falls eine Transzendenzbasis von $B$ von $L/k$ existiert, sodass $k(B) = L$ gilt, so ist $L/k$ eine \underline{pur transzendente Körpererweiterung}.
 \end{itemize}
 \end{def}
 
@@ -113,6 +113,21 @@ Nach Voraussetzung existiert eine endliche Teilmenge $\lbrace b_1, \dots, b_n, a
 Es existiert also ein Polynom $P'(x) \defeq P(b_1, \dots , b_n , x) \in k(B)[x]$ mit $P'(a) = 0$ gefunden. Somit ist $a$ algebraisch über $k(B)$.
 \end{itemize}
 \end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{} \textit{[\Algebra}]}
+\begin{korrolar}\label{Existenz von Transzendenzbasen}
+Jede Körpererweiterung $L \subseteq k$ besitzt eine Transzendenzbasis $B \subseteq L$.
+\end{korrolar}
+\begin{proof}
+Verwende hierzu das Lemma von Zorn:\\
+\cref{Transzendenzbasis ist maximale transzendente Menge} besagt, dass die Transzendenzbasen von $L/k$ gerade maximales Elemente der Menge aller über $k$ transzendenten Elemente aus $L$ sind.\\
+\textcolor{red}{Das Lemma von Zorn besagt, dass jede partiell geordenete Menge, in der jede Kette eine obere Schranke besitzt ist ein Maximales Element besitzt \textit{[vlg. Kapitel A2.3 \Algebra]}.}\\
+Sei also \lbraceB_1
+\end{proof}
+
+
 \ \\
 \textcolor{blue}{\textbf{Transzendenzbasen sind immer gleich lang} \textit{[Theorem A1.1 \ModulsOfDifferenzials]}}
 \begin{prop}\comment{\label{Transzendenzbasen sind immer gleich lang}}
@@ -150,12 +165,6 @@ Dieses Verfahren zeigt uns, dass $\lbrace a_1, \dots , a_n \rbrace \subseteq A$ 
 
 
 \ \\
-\begin{korrolar}\label{Existenz von Transzendenzbasen}
-Jede Körpererweiterung $L \subseteq k$ besitzt eine Transzendenzbasis $B \subseteq L$.
-\end{korrolar}
-
-
-\ \\
 \begin{korrolar}\label{Transzendent ist pur transzendent plus algebraisch 1}
 Für jede Körpererweiterung $L/k$ existiert ein Zwischenkörper $K \subseteq L$, sodass $K/k$ eine pur transzendente und $L/K$ eine algebraische Körpererweiterung ist.
 \end{korrolar}
@@ -164,6 +173,20 @@ Nach \cref{Existenz von Transzendenzbasen} existiert eine Transzendenzbasis $B$ 
 Wähle also $K \defeq k(B)$
 \end{proof}
 
+
+\ \\
+\begin{bsp}\comment{\label{Unterschiedliche Transzendenzbasen bsp}}
+Sei dazu $L = k(y)$ der Körper der rationalen Funktionen über $k$. Betrachte zwei unterschiedliche Transzendenzbasen von $L/k$:
+\begin{itemize}
+\item[\textbf{1.}] $B = \lbrace y \rbrace$ ist eine Transzendenzbasis von $L/k$ mit $\deg(L/k(B)) = 1$.
+\item[\textbf{2.}] Für $n \in \mathbb{N}$ ist $B'= \lbrace y^n\rbrace$ eine Transzendenzbasis von $L/k$ mit $\deg(L/k(B)) = n$.
+\begin{gather*}
+f(x) = x^n - y^n \in k(y^n)[x] \text{ ist Minnimalpolynom von $x$ über $k(y^n)$.} \\
+\Rightarrow k(y)/k(y^n) \text{ ist eine algebraische Körpererweiterung vom Grad $n$}
+\end{gather*}
+\end{itemize}
+Dies zeigt, dass die Form des Körpers $k(B)$ und insbesondere der Grad der Körpererweiterung $L/k(B)$ sehr von der Wahl der Transzendenzbasis B abhängt.
+\end{bsp}
 
 \ \\
 \textcolor{red}{
