@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  25 OCT 2019 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  29 OCT 2019 11:23
 entering extended mode
 **./Körpererweiterungen.tex
 (Körpererweiterungen.tex
@@ -503,7 +503,7 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
 )
 \c@Aussage=\count127
 
-No file Körpererweiterungen.aux.
+(Körpererweiterungen.aux)
 \openout1 = `Körpererweiterungen.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
@@ -518,6 +518,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
+
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count128
@@ -631,13 +632,10 @@ LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 16234 strings out of 492895
- 333322 string characters out of 3133483
+ 16236 strings out of 492895
+ 333449 string characters out of 3133483
  394342 words of memory out of 3000000
  19843 multiletter control sequences out of 15000+200000
  8219 words of font info for 31 fonts, out of 3000000 for 9000
