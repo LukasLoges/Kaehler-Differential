@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  29 OCT 2019 17:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  30 OCT 2019 16:11
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -580,181 +580,110 @@ G,.JBIG2,.JB2,.eps]
 )
 ABD: EveryShipout initializing macros
 Kapitel 1.
-
-Overfull \hbox (45.21457pt too wide) in paragraph at lines 60--60
-[]\OT1/cmr/bx/n/14.4 Einf[]uhrung in tran-szen-den-te K[]orpererweiterungen 
- []
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 61--65
 
- []
+LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
+n input line 79.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 69.
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 69.
- [1
+
+LaTeX Warning: Reference `Differenzial von Polynomalgebren 1' on page 1 undefin
+ed on input line 79.
+
+[1
 
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
-LaTeX Warning: Reference `Definition Transzenddenzbasis' on page 1 undefined on
- input line 101.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--102
-
- []
-
-
-Overfull \hbox (37.52086pt too wide) in paragraph at lines 97--102
-\OT1/cmr/m/n/10 und $\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; [
-] x[]\OT1/cmr/m/n/10 ]$ iso-morph zu-ein-an-der sind. Au-er-dem ist die tri-vi
-a-le K[]orpererweiterung
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-[2]
-Overfull \hbox (32.27458pt too wide) in paragraph at lines 116--119
-\OT1/cmr/m/n/10 Wir k[]onnen oh-ne wei-te-re Ein-schr[]ankung an-neh-men, dass 
-$\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cm
-sy/m/n/10 2 \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 f\OML/cmm/m/it/
-10 b[]; [] ; b[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ][\OML/cmm/m/it/10 x\OT1/cmr/
-m/n/10 ]$
- []
-
-
-Overfull \hbox (8.65237pt too wide) detected at line 122
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 125--128
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 178--183
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 195--201
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
-
- []
-
-
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 263.
-
-
-LaTeX Warning: Reference `Differenzial von Polynomalgebren 1' on page 1 undefin
-ed on input line 263.
-
-[6]
-
-LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 287.
+n input line 103.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 2' on page 1 undefin
-ed on input line 287.
+ed on input line 103.
 
 
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 287.
+n input line 103.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 2' on page 1 undefin
-ed on input line 287.
+ed on input line 103.
 
 
-Overfull \hbox (29.84221pt too wide) detected at line 287
+Overfull \hbox (29.84221pt too wide) detected at line 103
 []
  []
 
 
 LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-294.
+110.
 
 
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 317.
+n input line 133.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 2' on page 1 undefin
-ed on input line 317.
+ed on input line 133.
 
-[7]
-Overfull \hbox (2.0708pt too wide) in paragraph at lines 323--325
+[2]
+Overfull \hbox (2.0708pt too wide) in paragraph at lines 139--141
 []\OT1/cmr/bx/n/10 Aufbaulemma Koer-per-dif-fe-ren-zi-al \OT1/cmr/m/it/10 [vlg.
  Lem-ma 16.15 Da-vid Ei-sen-bud 1994][] 
  []
 
 
 LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-330.
+146.
 
 
 LaTeX Warning: Reference `Konormale Sequenz' on page 1 undefined on input line 
-338.
+154.
 
 
 LaTeX Warning: Reference `Differenzial ist Ableitung' on page 1 undefined on in
-put line 352.
+put line 168.
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 378--379
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
 
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 385.
+n input line 201.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 1' on page 1 undefin
-ed on input line 389.
+ed on input line 205.
 
 
 LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-401.
+217.
 
 
 LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-401.
+217.
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 401--407
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 217--223
 
  []
 
 
 LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-410.
+226.
 
 
-Overfull \hbox (4.43042pt too wide) in paragraph at lines 417--419
+Overfull \hbox (4.43042pt too wide) in paragraph at lines 233--235
 \OT1/cmr/m/n/10 Damit ist $[]$ auch $(\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10  \
 OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )$-linear und es gilt $
 [] \OMS/cmsy/m/n/10 ' \OT1/cmr/m/n/10 
@@ -763,27 +692,27 @@ OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )$-linear und es gilt $
 
 
 LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-426.
+242.
 
 
 LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-426.
+242.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--431
+Underfull \hbox (badness 10000) in paragraph at lines 242--247
 
  []
 
-[10] [11] (Colimes.aux)
+[5] [6] (Colimes.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16433 strings out of 492895
- 338381 string characters out of 3133483
+ 16403 strings out of 492895
+ 337584 string characters out of 3133483
  401342 words of memory out of 3000000
- 20038 multiletter control sequences out of 15000+200000
+ 20011 multiletter control sequences out of 15000+200000
  9187 words of font info for 34 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,15n,84p,562b,1070s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -799,13 +728,10 @@ ts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/symbols/msbm7.pfb>
-Output written on Colimes.pdf (11 pages, 235456 bytes).
+onts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Colimes.pdf (6 pages, 190752 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
