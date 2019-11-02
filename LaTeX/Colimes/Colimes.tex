@@ -56,6 +56,73 @@
 
 
 \begin{document}
+\textcolor{blue}{\textbf{Cotangent Sequenz}}
+\begin{prop}\label{Cotangent Sequenz} \textbf{(Relativ Cotangent Sequenz)} \textit{[vgl. Proposition 16.2 \ModulsOfDifferenzials]}\\
+Seien $\functionfront{\alpha}{R}{S}$ und $\functionfront{\beta}{S}{T}$ zwei Ringhomomorphismen. Dann existiert folgende exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S}{\divR{S}{R}} \arrow[rrrr, "\tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T_R} \circ \beta)(s)"] &  &  &  & \divR{T}{R} \arrow[rrr, "\divf{T_R}(t) \mapsto \divf{T_S}(t)"] &  &  & \divR{T}{S} \arrow[r]  & 0
+\end{tikzcd}
+\end{center}
+Im Besonderen gilt für die Differenzialräume von $T$ über $R$ und $S$:
+\begin{gather*}
+\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle
+\end{gather*}
+\end{prop}
+\begin{proof}
+Durch $st \defeq \beta (S) \cdot t$ und $rt \defeq (\beta \circ \alpha) (r) \cdot t$ können wir $T$ als $S$- bzw. $R$-Algebra betrachten.\\
+Zeige zunächst, dass $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ surjektiv ist:
+\begin{itemize}
+\item[]
+$\divf{T_S}$ ist $R$ - Linear, da $R$ durch $(\beta \circ \alpha)$ auf $T$ wirkt, es lässt sich also die universelle Eigenschaft von $\divf{T_R}$ auf $\divf{T_S}$ anwenden:
+\begin{center}
+\begin{tikzcd}
+T \arrow[r, "\divf{T_R}"] \arrow[rd, "\divf{T_S}"'] & \divR{T}{R} \arrow[d, "\exists ! g", dashed] \\
+                                  & \divR{T}{S}                                  
+\end{tikzcd}
+\end{center}
+Dies zeigt, dass $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ surjektiv ist.
+\end{itemize}
+Zeige nun, dass $\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle$ gilt:
+\begin{itemize}
+\item[] Definiere zunächst folgende $T$-lineare Ableitung:
+\begin{gather*}
+\function{e}{T}{\divR{T}{R} / T \langle (\divf{T_R} \circ \beta)(S) \rangle }{t}{[\divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}}
+\end{gather*}
+Wir sehen, dass $e$ auch $S$-linear ist:
+\begin{gather*}
+\text{Seien dazu } s \in S \text{ und } t \in T \text{ beliebig, somit gilt:}\\
+e(st) = [\divf{T_R}(st)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}\\
+=[\beta(s) \divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle} + [t \divf{T}(\beta(s))]_{T \langle (\divf{T} \circ \beta)(S) \rangle}\\
+= [\beta(s) \divf{T}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle} + 0 = se(t)
+\end{gather*}
+Dies bedeutet, dass wir die universelle Eigenschaft von $\divf{T_S}$ anwenden können:
+\begin{center}
+\begin{tikzcd}
+T \arrow[r, "\divf{T_S}"] \arrow[rd, "e"'] & \divR{T}{S} \arrow[d, "\exists ! \varphi", dashed] \\
+                                  & \divR{T}{R}/T \divR{S}{R}                                  
+\end{tikzcd}
+\end{center}
+Dadurch erhalten wir $\functionfront{\varphi}{\divR{T}{S}}{\divR{T}{R}/T \divR{S}{R}}$.\\
+Für die Umkehrfunktion $\phi$ nutze $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ von Beginn des Beweises:
+\begin{gather*}
+\text{Für alle } s \in S \text{ gilt } \divf{T_S}(s) = 0.\\
+\text{ Somit gilt } T \langle (\divf{T_R} \circ \beta)(S) \rangle \subseteq \kernel{g}.\\
+\text{Also ist die Umkehrfunktion $\phi$ von $\varphi$ wohldefiniert: }\\
+ \function{\phi}{\divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle}{\divR{T}{S}}{[\divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}}{\divf{T_S}(t)}.
+\end{gather*}
+Damit gilt $\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle$.\\
+Auf unsere Sequenz bezogen bedeutet dies:
+\begin{gather*}
+\text{Es gilt } \immage{\divR{T}{R} \rightarrow \divR{T}{S}} \simeq \divR{T}{R} / \immage{\Tensor{T}{S}{\divR{S}{R}} \rightarrow \divR{T}{R}}.\\
+\text{Somit gilt auch } \immage{ \Tensor{T}{S}{\divR{S}{R}} \rightarrow \divR{T}{R} } = \kernel{ \divR{T}{R} \rightarrow \divR{T}{S} }. 
+\end{gather*}
+Damit haben wir gezeigt, dass die \textbf{Relative Cotangent Sequenz} exakt ist.
+\end{itemize}
+\end{proof}
+
+
+
 \chapter{Körpererweiterungen}
 \section{Differential von Körpererweiterungen}
 

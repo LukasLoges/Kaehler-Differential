@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  30 OCT 2019 16:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  2 NOV 2019 15:45
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -579,111 +579,93 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 ABD: EveryShipout initializing macros
-Kapitel 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 64.
+LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 64.
+LaTeX Font Info:    Try loading font information for U+msb on input line 61.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+) [1
+
+{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Kapitel 1.
 
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 79.
+n input line 146.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 1' on page 1 undefin
-ed on input line 79.
+ed on input line 146.
 
-[1
+[3
 
-
-{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+]
 
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 103.
+n input line 170.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 2' on page 1 undefin
-ed on input line 103.
+ed on input line 170.
 
 
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 103.
+n input line 170.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 2' on page 1 undefin
-ed on input line 103.
+ed on input line 170.
 
 
-Overfull \hbox (29.84221pt too wide) detected at line 103
+Overfull \hbox (29.84221pt too wide) detected at line 170
 []
  []
 
 
-LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-110.
-
-
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 133.
+n input line 200.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 2' on page 1 undefin
-ed on input line 133.
+ed on input line 200.
 
-[2]
-Overfull \hbox (2.0708pt too wide) in paragraph at lines 139--141
+[4]
+Overfull \hbox (2.0708pt too wide) in paragraph at lines 206--208
 []\OT1/cmr/bx/n/10 Aufbaulemma Koer-per-dif-fe-ren-zi-al \OT1/cmr/m/it/10 [vlg.
  Lem-ma 16.15 Da-vid Ei-sen-bud 1994][] 
  []
 
 
-LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-146.
-
-
 LaTeX Warning: Reference `Konormale Sequenz' on page 1 undefined on input line 
-154.
+221.
 
 
 LaTeX Warning: Reference `Differenzial ist Ableitung' on page 1 undefined on in
-put line 168.
+put line 235.
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
 
  []
 
 
 LaTeX Warning: Reference `Differenzial der Lokalisierung' on page 1 undefined o
-n input line 201.
+n input line 268.
 
 
 LaTeX Warning: Reference `Differenzial von Polynomalgebren 1' on page 1 undefin
-ed on input line 205.
+ed on input line 272.
 
-
-LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-217.
-
-
-LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-217.
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 217--223
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 284--290
 
  []
 
 
-LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-226.
-
-
-Overfull \hbox (4.43042pt too wide) in paragraph at lines 233--235
+Overfull \hbox (4.43042pt too wide) in paragraph at lines 300--302
 \OT1/cmr/m/n/10 Damit ist $[]$ auch $(\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10  \
 OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )$-linear und es gilt $
 [] \OMS/cmsy/m/n/10 ' \OT1/cmr/m/n/10 
@@ -691,31 +673,28 @@ OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )$-linear und es gilt $
  []
 
 
-LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-242.
+Overfull \hbox (30.917pt too wide) detected at line 309
+[]
+ []
 
 
-LaTeX Warning: Reference `Cotangent Sequenz' on page 1 undefined on input line 
-242.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--247
+Underfull \hbox (badness 10000) in paragraph at lines 309--314
 
  []
 
-[5] [6] (Colimes.aux)
+[7] [8] (Colimes.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16403 strings out of 492895
- 337584 string characters out of 3133483
+ 16537 strings out of 492895
+ 340824 string characters out of 3133483
  401342 words of memory out of 3000000
- 20011 multiletter control sequences out of 15000+200000
+ 20145 multiletter control sequences out of 15000+200000
  9187 words of font info for 34 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,15n,84p,562b,1070s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,15n,84p,562b,1106s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTe
@@ -729,9 +708,9 @@ ts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Colimes.pdf (6 pages, 190752 bytes).
+Output written on Colimes.pdf (8 pages, 207081 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
