@@ -75,7 +75,7 @@ Sei S ein Ring und M ein S-Modul
 \ \\
 \textcolor{blue}{\textbf{Differenzial indempotenter Elemente}}
 \begin{lemma}\label{Differenzial indempotenter Elemente} \textit{[Aufgabe 16.1 \ModulsOfDifferenzials]} \\
-Sei S ein Ring, $M$ ein $S$-Modul und $\functionfront{d}{S}{M}$ eine Ableitung. Sei weiter $a \in S$ ein indempotentes Element \textcolor{red}{($a^2 = a$)}.
+Sei S ein Ring, $M$ ein $S$-Modul und $\functionfront{d}{S}{M}$ eine Ableitung. Sei weiter $a \in S$ ein indempotentes Element ($a^2 = a$).
 \begin{center}
 Dann gilt $d(a) = 0$. 
 \end{center}
@@ -94,8 +94,43 @@ Nutze hierfür allein die Leibnizregel \textit{(cref{Definition Leibnizregel})}
 \ \\
 \begin{definition}
 Sei $S$ eine $R$-Algebra.\\
-Das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Ableitung$\functionfront{\divf{S}}{S}{\divR{S}{R}}$ sind durch die folgende Universelle Eigenschaft definiert
+Das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Ableitung $\functionfront{\divf{S}}{S}{\divR{S}{R}}$ mit $\immage{\divf{S}} = \divR{S}{R}$ sind durch die folgende universelle Eigenschaft definiert:
+
+\begin{center}
+Für alle R-linearen Ableitungen $\functionfront{e}{S}{M}$ von S in ein $S$-Modul $M$ existiert genau ein $S$-Modulhomomorphismus $\functionfront{e'}{\divR{S}{R}}{M}$, sodass folgendes Diagramm kommutiert:\\
+\begin{tikzcd}
+S \arrow[r, "\divf{S}"] \arrow[rd, "e"'] & \divR{S}{R} \arrow[d, "\exists ! e'", dashed] \\
+                                  & M                                  
+\end{tikzcd}
+\end{center}
 \end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{Eindeutigkeit des Kaehler-Differentials}}
+\begin{lemma}\label{Eindeutigkeit des Kaehler-Differentials}(Das Kähler-Differentials ist eindeutig)\\
+Sei S eine $R$-Algebra.\\
+Dann ist das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Ableitung $\divf{S}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
+\end{lemma}
+\begin{proof}
+Seien $\functionfront{\divf{S}}{S}{\divR{S}{R}} und \functionfront{\divf{S}'}{S}{\divR{S}{R}'}$ beide eine universelle $R$-lineare Ableitung.\\
+Durch die universelle Eigenschaft der universellen Ableitung erhalten wir eindeutig bestimmte Funktionen
+$\functionfront{\varphi}{\divR{S}{R}}{\divR{S}{R}'}$ und $\functionfront{\varphi'}{\divR{S}{R}'}{\divR{S}{R}}$, für welche die folgenden Diagramme kommutieren:
+\begin{center}
+\begin{tikzcd}
+S \arrow[r, "\divf{S}"] \arrow[rd, "\divf{S}'"'] & \divR{S}{R} \arrow[d, "\exists !\varphi", dashed] &  & S \arrow[r, "\divf{S}'"] \arrow[rd, "\divf{S}"'] & \divR{S}{R}' \arrow[d, "\exists ! \varphi'", dashed] \\
+                                   & \divR{S}{R}'                                      &  &                                    & \divR{S}{R}                                     
+\end{tikzcd}
+\end{center}
+Wende nun die Universelle Eingenschaft von $\divf{S}$ auf $\divf{S}$ selbst an und erhalte $id_{\divR{S}{R}} = \varphi' \circ \varphi$. 
+\begin{center}
+\begin{tikzcd}
+S \arrow[r, "\divf{S}"] \arrow[rd, "\divf{S}"'] & \divR{S}{R} \arrow[d, "\exists ! id_{\divR{S}{R}} = \varphi' \circ \varphi", dashed] \\
+                                   & \divR{S}{R}                                                              
+\end{tikzcd}
+\end{center}
+Analog erhalte auch $id_{\divR{S}{R}'} = \varphi \circ \varphi'$. Damit existiert genau ein Isomorphismus $\functionfront{\varphi' \circ \varphi}{\divR{R}{S}}{\divR{R}{S}'}$ mit $\divf{S}' = \divf{S} \circ (\varphi' \circ \varphi)$.
+\end{proof}
 
 
 \ \\
@@ -105,7 +140,7 @@ Seien $S$, $S'$ zwei $R$-Algebren. Sei weiter $\functionfront{f}{S}{S'}$ ein $R$
 \begin{center}
 $f$ + $\delta$ ist ein $R$-Algebrenhomomorphismus\\
 $\Leftrightarrow$\\
-$\delta$ ist eine $R$-linear und es gilt $\forall s_1,s_2 \in S :\, \delta(s_1 \cdot s_2) = f(s_1)\delta(s_2) + f(s_2)\delta(s_1)$.
+$\delta$ ist eine $R$-linear und $\forall s_1,s_2 \in S :\, \delta(s_1 \cdot s_2) = f(s_1)\delta(s_2) + f(s_2)\delta(s_1)$.
 \end{center}
 \end{lemma}
 \begin{proof} \ \\
@@ -124,11 +159,188 @@ Wähle nun also $s_1,s_2 \in S$ beliebig, somit gilt:
 \begin{gather*}
 (f + \delta)(s_1) \cdot (f + \delta)(s_2) \\
 = f(s_1)f(s_2) + f(s_1)\delta(s_2) + f(s_2)\delta(s_1) + \delta(s_1)\delta(s_2)\\
-= f(s_1 \cdot s_2) + \delta(s_1 \cdot s_2)
+= f(s_1 \cdot s_2) + \delta(s_1 \cdot s_2) \\
 = (f + \delta)(s_1 \cdot s_2)
 \end{gather*}
 Damit haben wir gezeigt, dass $f + \delta$ ein $R$-Algebrenhomomorphismus ist.
 \end{itemize}
 \end{proof}
 
+
+\ \\
+\textcolor{blue}{\textbf{Kontruktion Kaehler-Differential}}
+\begin{theorem} (Konstruktion des Kähler-Differentials\comment{\label{Kontruktion Kaehler-Differential}}\textit{[Theorem 16.21 \ModulsOfDifferenzials]} \\
+Sei $S$ ein $R$-Algebra.\\
+Betrachte die Multiplikationsabbildung $\function{\mu}{\Tensor{S}{R}{S}}{S}{\tensor{s_1}{R}{s_2}}{s_1 \cdot s_2}$ mit $I \defeq \kernel{\mu}$.\\
+Definiere durch $S \oplus (\Tensor{S}{R}{S}) \longrightarrow \Tensor{S}{R}{S} ,(s,\tensor{s_1}{R}{s_2}) \longmapsto \tensor{ss_1}{R}{s_2}$ eine $S$-Modulstruktur auf $\Tensor{S}{R}{S}$.
+\begin{center}
+Dann ist durch $\function{e}{S}{I/I^2}{s}{[\tensor{s}{R}{1} - \tensor{1}{R}{s}]}$ die universelle $R$-lineare Ableitung auf $S$ definiert.
+\end{center}
+\end{theorem}
+\begin{proof}
+Zeige zunächst, dass $e$ eine Abbildung ist. Betrachte dazu:
+\begin{gather*}
+\function{f_1}{S}{\Tensor{S}{R}{S}}{s}{\tensor{s}{R}{1}} , \function{f_2}{S}{\Tensor{S}{R}{S}}{s}{\tensor{1}{R}{s}} \\
+\textit{Damit ist die Wirkung von $S$ auf $\Tensor{S}{R}{S}$ durch }\\ S \oplus (\Tensor{S}{R}{S}) \longrightarrow \Tensor{S}{R}{S} ,(s,\tensor{s_1}{R}{s_2}) \longmapsto f_1(s)(\tensor{s_1}{R}{s_2}) \textit{ gegeben.}
+\end{gather*}
+Setze nun in der Notation von \cref{Propositon 11 delta} $f = f_1$ und $\delta = e$.\\
+Damit ist $f + \delta = f_1 + \delta = f_2$ ein $R$-Algebrenhomomorphismus und es folgt aus \cref{Propositon 11 delta} und unserer Definition der Wirkung von $S$ auf $\Tensor{S}{R}{S}$, dass $e$ eine $R$-lineare Ableitung ist.\\
+Durch die Universelle Eigenschaft von $\divf{S}$ existiert also genau ein $R$-Algebrenhomomorphismus $\functionfront{e'}{\divR{S}}{I/I^2}$ mit $e = \divf{S} \circ e'$.\\
+Betrachte nun folgende Umkehrabbildung $\phi$ zu $e'$:
+\begin{gather*}
+\function{\phi}{I/I^2}{\divR{S}{R}}{[\tensor{s_1}{R}{s_2}]}{s_1\divf{S}(s_2)}
+\end{gather*}
+Um zu prüfen, dass $\phi$ die Umkehrabbildung von $e$ ist, wähle $s,s_1,s_2 \in S$ beliebig, somit gilt:
+\begin{gather*}
+(\phi \circ e')(\divf{S}(s)) = (\phi \circ e)(s) = \phi([\tensor{s}{R}{1} - \tensor{1}{R}{s}]) = s\divf{S}(1) + 1\divf{S}(b) = \divf{S}(b) \\
+(e' \circ \phi)([\tensor{s_1}{R}{s_2}]) = e'(s_1\divf{s_2}) = s_1 e(s_2) = [s_1\tensor{1}{R}{s_2} - s_1\tensor{s_2}{R}{1}] =
+[\tensor{s_1}{R}{s_2} - \tensor{s_1s_2}{R}{1}] = [\tensor{s_1}{R}{s_2}]
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial des Produktes von Algebren} \textit{[Proposition 16.10 \ModulsOfDifferenzials]}}
+\begin{prop}\label{Differenzial des Produktes von Algebren}
+Seien $S_1, \dots , S_n$ R-Algebren. Sei dazu $S \defeq \prod_{i \in \lbrace 1, \dots , n \rbrace} S_i$ deren direktes Produkt.
+Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}
+\end{gather*}
+\end{prop}
+\begin{proof}
+Sei für $i \in \lbrace 1, \dots ,n \rbrace$ jeweils $e_i \in S$ die Einbettung es Einselement's von $S_i$ in $S$, somit ist $\functionfront{p_i}{e_iS}{S_i}$ ein Isomorphismus.\\
+Nutze weiter, dass $e_i$ jeweils ein indempotentes Element von $({e_i}^2 = e_i)$ von $S$ ist:
+\begin{gather*}
+\text{Nach \cref{Differenzial indempotenter Elemente} gilt } \divf{S}(e_i) = 0 \\
+\Rightarrow \forall s \in s : \divf{S}(e_is)= \divf{S}({e_i}^2s) = e_i\divf{S}(e_is) + e_is\divf{S}(e_i) = e_i\divf{S}(e_is) \\
+\end{gather*}
+Mit diesem Wissen können wir einen Isomorphismus $\functionfront{\Phi}{\divR{S}{R}}{\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}}$ definieren:
+\begin{center}
+\begin{tikzcd}
+\divR{S}{R} \arrow[d] & \divf{S}(s) = \sum_{i \in \lbrace 1, \dots , n \rbrace} \divf{S}(e_is) \arrow[d, maps to] \\
+\prod_{i \in \lbrace 1, \dots , n \rbrace} e_i\divf{S}(e_iS) \arrow[d] & \left( e_1\divf{S}(e_1s), \dots , e_n\divf{S}(e_ns) \right) \arrow[d,, maps to] \\
+\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}                & \left( (\divf{S_1} \circ p_1) (s), \dots , (\divf{S_n} \circ p_n) (s) \right)                         
+\end{tikzcd}
+\end{center}
+Da der Differenzialraum $\divR{S}{R}$ bis auf eine eindeutige Isomophie eindeutig ist \textit{(\cref{Eindeutigkeit des Kaehler-Differentials})}, definiere diesen ab jetzt als $\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}$.
+\end{proof}
+
+\ \\
+\textcolor{blue}{\textbf{Cotangent Sequenz}}
+\begin{prop}\label{Cotangent Sequenz} \textbf{(Relativ Cotangent Sequenz)} \textit{[vgl. Proposition 16.2 \ModulsOfDifferenzials]}\\
+Seien $\functionfront{\alpha}{R}{S}$ und $\functionfront{\beta}{S}{T}$ zwei Ringhomomorphismen. Dann existiert folgende exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S}{\divR{S}{R}} \arrow[rrrr, "\tensor{t}{S}{\divf{S}(s)} \mapsto t(\divf{T_R} \circ \beta)(s)"] &  &  &  & \divR{T}{R} \arrow[rrr, "\divf{T_R}(t) \mapsto \divf{T_S}(t)"] &  &  & \divR{T}{S} \arrow[r]  & 0
+\end{tikzcd}
+\end{center}
+Im Besonderen gilt für die Differenzialräume von $T$ über $R$ und $S$:
+\begin{gather*}
+\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle
+\end{gather*}
+\end{prop}
+\begin{proof}
+Durch $st \defeq \beta (S) \cdot t$ und $rt \defeq (\beta \circ \alpha) (r) \cdot t$ können wir $T$ als $S$- bzw. $R$-Algebra betrachten.\\
+Zeige zunächst, dass $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ surjektiv ist:
+\begin{itemize}
+\item[]
+$\divf{T_S}$ ist $R$ - Linear, da $R$ durch $(\beta \circ \alpha)$ auf $T$ wirkt, es lässt sich also die universelle Eigenschaft von $\divf{T_R}$ auf $\divf{T_S}$ anwenden:
+\begin{center}
+\begin{tikzcd}
+T \arrow[r, "\divf{T_R}"] \arrow[rd, "\divf{T_S}"'] & \divR{T}{R} \arrow[d, "\exists ! g", dashed] \\
+                                  & \divR{T}{S}                                  
+\end{tikzcd}
+\end{center}
+Dies zeigt, dass $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ surjektiv ist.
+\end{itemize}
+Zeige nun, dass $\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle$ gilt:
+\begin{itemize}
+\item[] Definiere zunächst folgende $T$-lineare Ableitung:
+\begin{gather*}
+\function{e}{T}{\divR{T}{R} / T \langle (\divf{T_R} \circ \beta)(S) \rangle }{t}{[\divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}}
+\end{gather*}
+Wir sehen, dass $e$ auch $S$-linear ist:
+\begin{gather*}
+\text{Seien dazu } s \in S \text{ und } t \in T \text{ beliebig, somit gilt:}\\
+e(st) = [\divf{T_R}(st)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}\\
+=[\beta(s) \divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle} + [t \divf{T}(\beta(s))]_{T \langle (\divf{T} \circ \beta)(S) \rangle}\\
+= [\beta(s) \divf{T}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle} + 0 = se(t)
+\end{gather*}
+Dies bedeutet, dass wir die universelle Eigenschaft von $\divf{T_S}$ anwenden können:
+\begin{center}
+\begin{tikzcd}
+T \arrow[r, "\divf{T_S}"] \arrow[rd, "e"'] & \divR{T}{S} \arrow[d, "\exists ! \varphi", dashed] \\
+                                  & \divR{T}{R}/T \divR{S}{R}                                  
+\end{tikzcd}
+\end{center}
+Dadurch erhalten wir $\functionfront{\varphi}{\divR{T}{S}}{\divR{T}{R}/T \divR{S}{R}}$.\\
+Für die Umkehrfunktion $\phi$ nutze $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ von Beginn des Beweises:
+\begin{gather*}
+\text{Für alle } s \in S \text{ gilt } \divf{T_S}(s) = 0.\\
+\text{ Somit gilt } T \langle (\divf{T_R} \circ \beta)(S) \rangle \subseteq \kernel{g}.\\
+\text{Also ist die Umkehrfunktion $\phi$ von $\varphi$ wohldefiniert: }\\
+ \function{\phi}{\divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle}{\divR{T}{S}}{[\divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}}{\divf{T_S}(t)}.
+\end{gather*}
+Damit gilt $\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle$.\\
+Auf unsere Sequenz bezogen bedeutet dies:
+\begin{gather*}
+\text{Es gilt } \immage{\divR{T}{R} \rightarrow \divR{T}{S}} \simeq \divR{T}{R} / \immage{\Tensor{T}{S}{\divR{S}{R}} \rightarrow \divR{T}{R}}.\\
+\text{Somit gilt auch } \immage{ \Tensor{T}{S}{\divR{S}{R}} \rightarrow \divR{T}{R} } = \kernel{ \divR{T}{R} \rightarrow \divR{T}{S} }. 
+\end{gather*}
+Damit haben wir gezeigt, dass die \textbf{Relative Cotangent Sequenz} exakt ist.
+\end{itemize}
+\end{proof}
+
+\ \\
+\textcolor{blue}{\textbf{Konormale Sequenz} \textit{[vlg. Proposition 16.3 \ModulsOfDifferenzials]}}
+\begin{satz} \label{Konormale Sequenz}
+\raggedright
+Sei $\functionfront{\pi}{S}{T}$ ein R-Algebrenephimorphismus mit Kern($\pi$):= I \\
+Dann ist folgende Sequenz rechtsexakt: \\
+\begin{center}
+\begin{tikzcd}
+I/I^2 \arrow[r, "f"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+\begin{spacing}{1.5}
+mit: $\function{f}{I/I^2}{{\Tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}{\divf{S}(a)}}$\\
+\textsc{\leftskip2.3em} $\function{g}{\Tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{\divf{S}(c)}}{b \cdot (\divf{S} \circ \pi)(c)}$
+\end{spacing}
+\end{satz}
+\begin{proof} \ \\
+\underline{$f$ ist wohldefiniert:} Seien $a,b\in I^2$. Zeige $f(a \cdot b)=0$ :
+$$ f(a \cdot b) =
+\tensor{1}{S}{( \divf{S} \circ \pi )(a \cdot b)} =
+\tensor{1}{S}{\pi(a) \cdot (\divf{S} \circ \pi )(b) + \pi(b) \cdot ( \divf{S} \circ \pi )(a)} = 0$$
+\underline{$D\pi$ ist surjektiv:}
+\begin{center}
+\begin{tikzcd}
+\divR{S}{R} \arrow[r, " D\pi "]                & \divR{T}{R}                \\
+S \arrow[r, " \pi "] \arrow[u, " \divf{S} "] & T \arrow[u, " \divf{T} "]
+\end{tikzcd}
+\end{center}
+Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $\divf{S}$ und $\divf{T}$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\Tensor{1}{S}{D\pi}$ surjektiv.\\
+\underline{$\immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus  der Isomorphie $(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R}$:
+\begin{align*}
+(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \\
+= (\Tensor{T}{S}{\divR{S}{R}})/(\Tensor{T}{S}{\divf{S}(I)}) \\
+= \Tensor{T}{S}{(\divR{S}{R}/\divf{S}(I))} \\ 
+= \Tensor{T}{S}{(\divf{S}(S)/ \divf{S}(I))} \\
+\simeq \Tensor{T}{S}{\divf{S}(S/I)} \\
+\simeq \Tensor{T}{S}{\divf{T}(T)} \\
+\end{align*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung (Wichtig für Körpererweiterungen)]}}
+\begin{bsp}\label{Differenzial ist Ableitung}
+Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
+Teste dies an $f(x)=ax^2 + bx +c$:
+\begin{gather*}
+d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x) 
+\end{gather*}
+\comment{lässt sich induktiv für Monome leicht zeigen}
+\end{bsp}
 \end{document}

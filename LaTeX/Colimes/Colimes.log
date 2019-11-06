@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  5 NOV 2019 20:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  6 NOV 2019 23:00
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -599,46 +599,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
+[1
 
-Overfull \hbox (20.93974pt too wide) in paragraph at lines 103--105
+{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (10.6593pt too wide) in paragraph at lines 116--119
+[]\OT1/cmr/m/n/10 Seien $[]\OML/cmm/m/it/10 und[]$ \OT1/cmr/m/n/10 bei-de ei-ne
+ uni-ver-sel-le $\OML/cmm/m/it/10 R$\OT1/cmr/m/n/10 -lineare
+ []
+
+
+Overfull \hbox (20.93974pt too wide) in paragraph at lines 138--140
 \OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10
  S[]$ \OT1/cmr/m/it/10 zwei $\OML/cmm/m/it/10 R$\OT1/cmr/m/it/10 -Algebren. Sei
  wei-ter $[]$ ein $\OML/cmm/m/it/10 R$\OT1/cmr/m/it/10 -Algebrenhomomorphismus
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
-[1
 
-{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (21.2913pt too wide) detected at line 120
+Overfull \hbox (21.2913pt too wide) detected at line 155
 []
  []
 
-[2] (Colimes.aux) ) 
+[2]
+Overfull \hbox (58.30763pt too wide) in paragraph at lines 185--190
+\OT1/cmr/m/n/10 Durch die Uni-ver-sel-le Ei-gen-schaft von $\OML/cmm/m/it/10 d[
+]$ \OT1/cmr/m/n/10 exi-stiert al-so ge-nau ein $\OML/cmm/m/it/10 R$\OT1/cmr/m/n
+/10 -Algebrenhomomorphismus
+ []
+
+[3]
+Overfull \hbox (73.74582pt too wide) detected at line 198
+[]
+ []
+
+
+Overfull \hbox (14.86162pt too wide) in paragraph at lines 217--219
+\OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir einen Iso-mor-phis-mus $[]$
+ []
+
+[4] [5] [6]
+Overfull \hbox (21.35179pt too wide) in paragraph at lines 336--338
+[]\OT1/cmr/bx/n/10 Differenzial ist Ab-lei-tung \OT1/cmr/m/it/10 [Ei-ge-ne []Ub
+erlegung (Wich-tig f[]ur K[]orpererweiterungen)][] 
+ []
+
+
+Overfull \hbox (35.81644pt too wide) in paragraph at lines 339--341
+[]\OT1/cmr/bx/n/10 Beispiel 10. []\OT1/cmr/m/it/10 Sei $\OML/cmm/m/it/10 k$ \OT
+1/cmr/m/it/10 ein K[]orper, so-mit ent-spricht $[]$
+ []
+
+[7] (Colimes.aux) ) 
 Here is how much of TeX's memory you used:
- 16022 strings out of 492895
- 328026 string characters out of 3133483
- 391342 words of memory out of 3000000
- 19635 multiletter control sequences out of 15000+200000
- 7768 words of font info for 29 fonts, out of 3000000 for 9000
+ 16540 strings out of 492895
+ 340754 string characters out of 3133483
+ 400342 words of memory out of 3000000
+ 20152 multiletter control sequences out of 15000+200000
+ 8069 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,10n,84p,471b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,14n,84p,471b,1104s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmti10.pfb>
-Output written on Colimes.pdf (2 pages, 110332 bytes).
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb>
+Output written on Colimes.pdf (7 pages, 199319 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
