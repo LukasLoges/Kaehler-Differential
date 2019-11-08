@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  7 NOV 2019 19:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  8 NOV 2019 21:05
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -607,85 +607,104 @@ Overfull \hbox (23.29346pt too wide) in paragraph at lines 66--68
 
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-
-LaTeX Warning: Reference `DifferenzkokernUndCoproduktDef' on page 1 undefined o
-n input line 153.
+Overfull \hbox (17.27147pt too wide) in paragraph at lines 136--137
+\OT1/cmr/m/it/10 wo-bei $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 B[]\OMS/cmsy/m/n/10
+ g[]$ \OT1/cmr/m/it/10 die Ob-jek-te und die Iden-tit[]atsabbildungen $\OMS/cms
+y/m/n/10 f[]g[]$
+ []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
+
+Overfull \hbox (48.50034pt too wide) in paragraph at lines 154--155
+[]$\OML/cmm/m/it/10 C[] []\OT1/cmr/m/n/10 = [][]$ ist das Ko-pro-dukt al-ler Ob
+-jek-te von $\OMS/cmsy/m/n/10 B$\OT1/cmr/m/n/10 . Sei $[]$
+ []
+
 [3]
-Overfull \hbox (25.93779pt too wide) in paragraph at lines 199--205
+
+LaTeX Warning: Reference `DifferenzkokernUndCoproduktDef' on page 1 undefined o
+n input line 193.
+
+[4]
+Overfull \hbox (25.93779pt too wide) in paragraph at lines 239--245
 \OT1/cmr/m/n/10 Es sind der Mor-phis-mus $[]$ und die bi-li-nea-re Ab-bil-dung 
 $[]$
  []
 
 
-Overfull \hbox (64.2643pt too wide) in paragraph at lines 199--205
+Overfull \hbox (64.2643pt too wide) in paragraph at lines 239--245
 \OT1/cmr/m/n/10 Konstruiere den Mor-phis-mus $[]$ durch $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 239--245
 
  []
 
 
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 199--205
+Overfull \hbox (49.22292pt too wide) in paragraph at lines 239--245
 \OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
 -de zwei R-Algebra-Homomorphismen: 
  []
 
-[4] [5]
-Overfull \hbox (7.80167pt too wide) in paragraph at lines 275--276
+[5] [6]
+Overfull \hbox (7.80167pt too wide) in paragraph at lines 315--316
 []\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
 nt-spricht
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
 
  []
 
 
-Overfull \hbox (65.70027pt too wide) in paragraph at lines 288--293
+Overfull \hbox (65.70027pt too wide) in paragraph at lines 328--333
 \OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
 i-stiert ge-nau ein $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--293
+Underfull \hbox (badness 10000) in paragraph at lines 328--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Overfull \hbox (3.27838pt too wide) in paragraph at lines 335--336
+[]\OT1/cmr/m/n/10 Die in pro-po-si-ti-on 10 ge-zeig-ten Dar-stel-lun-gen gel-te
+n mit kur-z-en []Uberlegungen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 345--349
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--309
-
- []
-
-[6]
-Overfull \hbox (8.7656pt too wide) in paragraph at lines 334--336
+Overfull \hbox (8.7656pt too wide) in paragraph at lines 374--376
 \OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
 []$
  []
 
-[7] [8] [9] (Colimes.aux)
+[8] [9] [10] (Colimes.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16718 strings out of 492895
- 344967 string characters out of 3133483
- 402342 words of memory out of 3000000
- 20325 multiletter control sequences out of 15000+200000
+ 16757 strings out of 492895
+ 345994 string characters out of 3133483
+ 399342 words of memory out of 3000000
+ 20364 multiletter control sequences out of 15000+200000
  8568 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,18n,84p,543b,1131s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,18n,84p,537b,1138s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
@@ -700,11 +719,10 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on Colimes.pdf (9 pages, 236715 bytes).
+ublic/amsfonts/cm/cmti7.pfb>
+Output written on Colimes.pdf (10 pages, 242399 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

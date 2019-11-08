@@ -58,8 +58,8 @@
 \begin{document}
 \chapter{Kolimes}
 \section{Einführung in den Kolimes}
-\textcolor{blue}{\textbf{Definition des Kolimes} \textit{[vgl. Anhang A6 \ModulsOfDifferenzials]}}
-\begin{definition}\comment{\label{Definition des Kolimes}}\textit{[vgl. Anhang A6 \ModulsOfDifferenzials]}
+\textcolor{blue}{\textbf{Definition des Kolimes}}
+\begin{definition}\label{Definition des Kolimes} \textit{[vgl. Anhang A6 \ModulsOfDifferenzials]}
 Sei $\mathcal{A}$ eine Kategorie.
 \begin{itemize}
 \item Ein \underline{Diagramm} über $\mathcal{A}$ ist eine Kategorie $\mathcal{B}$ zusammen mit einem Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$.
@@ -72,7 +72,7 @@ $\nolinebreak{\lbrace \psi_B \in Hom(F(B),A) \vert B \in \mathcal{B} \rbrace}$, 
 \mathcal{F}(B_2) \arrow[rru, "\psi_{B_2}"']                 &  &  
 \end{tikzcd}
 \end{center}
-\item Der \underline{Kolimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$, welche folgende universelle Eingenschaft erfüllen:
+\item Der \underline{Kolimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Paar aus einem Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$, welche folgende universelle Eingenschaft erfüllen:
 \begin{center}
 Für Objekte $A' \in \mathcal{A}$ und alle Morphismen $\functionfront{\psi '}{\mathcal{F}}{A'}$ existiert genau eine Funktion $\varphi \in Hom(A,A')$, sodass folgendes Diagramm kommutiert:
 \begin{tikzcd}
@@ -87,13 +87,11 @@ A' &                                    & A \arrow[ll, "\exists ! \varphi "', da
 \ \\
 \textcolor{blue}{\textbf{Eindeutigkeit des Kolimes} \textit{[vgl. A6 \ModulsOfDifferenzials]}}
 \begin{lemma}\comment{\label{Eindeutigkeit des Kolimes}}
-Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor. Dann sind im Falle der Existenz $\colimes \mathcal{F}$ und der dazugehörige Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
+Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor. Dann ist im Falle der Existenz $\colimes \mathcal{F}$ eindeutig bestimmt.
 \end{lemma}
 \begin{proof}
 Seien $A_1 \in \mathcal{A}, (\functionfront{\psi_1}{\mathcal{F}}{A_1}) $ und $A_2 \in \mathcal{A} , (\functionfront{\psi_2}{\mathcal{F}}{A_2}) $ beide gleich $\colimes \mathcal{F}$.\\
 Erhalte durch die universelle Eigenschaft des Kolimes die eindeutig bestimmten Funktionen $\varphi_1 \in Hom_{\mathcal{A}}(A_1,A_2)$ und $\varphi_2 \in Hom_{\mathcal{A}}(A_2,A_1)$, für welche die folgende Diagramme kommutieren:
-
-\comment{$\functionfront{\varphi_1}{\mathcal{A}_1}{\mathcal{A}_2}$ und $\functionfront{\varphi_2}{\mathcal{A}_2}{\mathcal{A}_1}$}
 \begin{center}
 \begin{tikzcd}
   & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_2"'] &                            &  &   & \mathcal{F} \arrow[rd, "\psi_2"] \arrow[ld, "\psi_1"'] &                            \\
@@ -114,25 +112,67 @@ Somit existiert genau eine Isomorphie $\functionfront{\varphi_1}{A_1}{A_2}$.
 
 
 \ \\
-Im folgenden beschäftigen wir uns mit dem Fall des $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$, bei welchem $\mathcal{B}$ eine Unterkategorie von $\mathcal{A}$ ist. Zur Vereinfachung unterschlagen dabei die triviale Existenz des Funktors $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$. Wir werden also im folgenden von dem Diagramm $\mathcal{B}$ und dem entsprechenden Kolimes $\colimes \mathcal{B}$, sowie dem Morphismus $\functionfront{\phi}{\mathcal{B}}{A} $ sprechen.\\ 
-\textcolor{blue}{\textbf{Vereinfachung des Kolimes} \textit{[Eigene Überlegung (Beweis fehlt noch)]}}
-\begin{bem}\label{Vereinfachung des Kolimes}
-Seien $\mathcal{B} \nsubseteq \mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Diagramm.\\
-Dann gilt im Falle der Existenz $\colimes \mathcal{F} = \colimes \mathcal{F}(\mathcal{B})$ 
-\end{bem}
+\textcolor{blue}{\textbf{Vereinfachung des Kolimes}}
+\begin{korrolar}\label{Vereinfachung des Kolimes} \textit{[Eigene Überlegung ]}\\
+Sei $\mathcal{A}$ eine Kategorie und $(\mathcal{B}, \functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}})$ ein Diagramm. Betrachte die Unterkategorie $\mathcal{F}(B) \subseteq \mathcal{A}$ zusammen mit dem Inklusionsfunktor $\mathcal{F}(B)\hookrightarrow \mathcal{A}$ ebenfalls als Diagramm. Dann gilt:
+\begin{center}
+$\colimes \mathcal{F}$ existiert genau dann, wenn $\colimes (\mathcal{F}(\mathcal{B}) \hookrightarrow \mathcal{A})$ existiert.\\
+Mit $\colimes \mathcal{F} = \colimes (\mathcal{F}(\mathcal{B}) \hookrightarrow \mathcal{A})$.
+\end{center}
+\end{korrolar}
+\begin{proof}
+Dies folgt direkt aus unserer Definition von Morphismen:\\
+In \cref{Definition des Kolimes} haben wir einen Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ als eine Menge von Funktionen $\mathcal{\psi_B} \in Hom_{\mathcal{A}}(\mathcal{F}(B),A)$ definiert. Dies zeigt, dass es keinen Unterschied macht, ob wir von Morphismen $\functionfront{\psi}{\mathcal{F}}{A}$ oder von Morphismen $\functionfront{\psi}{(\mathcal{F}(B)\hookrightarrow \mathcal{A})}{A}$ reden.\\
+Wenn wir nun die universelle Eigenschaft des Kolimes genauer betrachten, sehen wir, dass diese sich nur auf Morphismen $\mathcal{F} \longrightarrow A$ bzw. $(\mathcal{F}(\mathcal{B}) \hookrightarrow \mathcal{A}) \longrightarrow A$ und auf die Kategorie $\mathcal{A}$ bezieht. Es macht also keinen Unterschied, ob wir vom Kolimes des Diagramms $(\mathcal{B}, \functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}})$ oder vom Kolimes des Diagramms $(\mathcal{F}(B),\mathcal{F}(B)\hookrightarrow \mathcal{A})$ sprechen.
+\end{proof}
+Es genügt also im Fall von Kolimtenn Diagramme $(\mathcal{B},\mathcal{B}\hookrightarrow\mathcal{A})$ mit $\mathcal{B} \subseteq \mathcal{A}$ zu betrachten. Zur Vereinfachung schreibe für $\mathcal{B} \subseteq \mathcal{A}$ in Zukunft $\colimes \mathcal{B}$ anstatt von $\colimes (\mathcal{B} \hookrightarrow \mathcal{A})$.
 
 
 \ \\
-\textcolor{blue}{\textbf{DifferenzkokernUndKoproduktDef} \textit{[vlg. A6 \ModulsOfDifferenzials]}}
-\begin{definition} \label{DifferenzkokernUndKoproduktDef}
+\textcolor{blue}{\textbf{DifferenzkokernUndKoproduktDef}}
+\begin{definition}\label{DifferenzkokernUndKoproduktDef} \textit{[vlg. A6 \ModulsOfDifferenzials]}\\
 Sei $\mathcal{A}$ eine Kategorie.
 \begin{itemize}
-\item Das Koprodukt von $ \lbrace B_i \rbrace \subseteq \mathcal{A}$ wird durch $\prod_i \lbrace B_i \rbrace := \colimes\mathcal{B}$ definiert, 
-wobei $\mathcal{B}$ $\lbrace B_i \rbrace$ als Objekte und die Identitätsabbildungen $\functionfront{id_{B_i}}{B_i}{B_i}$ als Morphismen enthält.
-\item Der Differenzkokern (oder auch Coequilizer) von $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ wird durch $\colimes \mathcal{C}$ definiert,
-wobei $\mathcal{C}$ $\lbrace C_1,C_2 \rbrace$ als Objekte und $ \lbrace f,g \rbrace \defeq Hom_{\mathcal{C}}(C_1,C_2)$ als Morphismen enthält.
+\item Das Koprodukt von $ \lbrace B_i \rbrace_{i \in \Lambda} \subseteq \mathcal{A}$ wird durch $\coprod_{i \in \Lambda} \lbrace B_i \rbrace := \colimes\mathcal{B}$ definiert, wobei $\lbrace B_i \rbrace_{i \in \Lambda}$ die Objekte und die Identitätsabbildungen $\lbrace \functionfront{id_{B_i}}{B_i}{B_i} \rbrace_{i \in \Lambda}$ die einzigen Morphismen von $\mathcal{B}$ sind.
+\item Der Differenzkokern von $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ wird durch $\colimes \mathcal{C}$ definiert,
+wobei $\lbrace C_1,C_2 \rbrace$ die Objekte und $ \lbrace f,g \rbrace$ zusammen mit den Identitätsabbildungen die Morphismen von $\mathcal{C}$ sind.
 \end{itemize}
 \end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{Kolimes durch Koprodukt und Differenzkokern}}
+\begin{theorem}\label{Kolimes durch Koprodukt und Differenzkokern} \textit{[Proposition A6.1 \ModulsOfDifferenzials]}\\
+Sei $\mathcal{A}$ eine Kategorie, in der Koprodukte beliebiger Mengen von Objekten und Differenzkokerne von je zwei Morphismen existieren. Dann existiert für jedes Diagramm $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ dessen Kolimes $\colimes \mathcal{F}$.
+\end{theorem}
+\begin{proof}
+In \cref{Vereinfachung des Kolimes} haben wir gesehen, dass es genügt den Fall $\mathcal{B} \subseteq \mathcal{A}$ zu betrachten. Konstruiere also für eine beliebige Unterkategorie $\mathcal{B} \subseteq \mathcal{A}$ deren Kolimes $\colimes(\mathcal{F})$:\\
+Bezeichne für jeden Morphismus $\gamma \in Morph_{\mathcal{C}}$ dessen Definitionsbreich mit $B_{\gamma} \in \mathcal{B}$. Definiere nun:
+\begin{itemize}
+\item $C_1 \defeq \coprod_{\gamma \in Morph_{\mathcal{B}}} B_{\gamma}$ ist das Koprodukt aller Objekte von $\mathcal{B}$, in dem jedes Objekt so oft vorkommt, wie es Definitionsbereich eines $\gamma \in Morph_{\mathcal{B}}$ ist.\\
+Sei $\functionfront{\psi^1}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_1}$ der dazugehörige Morphismus.
+\item $C_2 \defeq \coprod_{B \in Obj_\mathcal{B}}$ ist das Koprodukt aller Objekte von $\mathcal{B}$. Sei $\functionfront{\psi^2}{\lbrace B \vert B \in Obj_\mathcal{B} \rbrace}{C_2}$ der dazugehörige Morphismus.
+\end{itemize}
+Konstruiere nun $f,g \in Hom_{\mathcal{B}}{C_1,C_2}$ so, dass der Differenzkokern von $f$ und $g$ gleich dem Kolimes von $\mathcal{B}$ ist:
+\begin{center}
+Für $f$ betrachte den Morphismus $\functionfront{\Phi}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\Phi_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})} \circ \gamma$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wende die universelle Eigenschaft von $C_1 = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$ an:\\
+\ \\
+\begin{tikzcd}
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\psi^1"'] &                                        \\
+C_2 &                                                                                                                      & C_1 \arrow[ll, "\exists ! f"', dashed]
+\end{tikzcd}
+\ \\
+Wähle $f \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\Phi = \psi^1 \circ f$ gilt.\\
+\ \\
+Für $g$ betrachte den Morphismus $\functionfront{\Phi'}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\Phi'_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})}$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wähle analog zu $f$ mithilfe der universellen Eigenschaft des Kolimes $g \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\Phi' = \psi^1 \circ g$ gilt.
+\end{center}
+Sei $C \in Obj_{\mathcal{B}}$ zusammen mit dem Morphismus $\zeta$ der Differenzkokern von $f$,$g$.\\
+Zeige Abschließend, dass $(C, \functionfront{\psi}{\mathcal{B}}{\zeta \circ \psi^2}$ Der Kolimes von $\mathcal{B})$ ist:\\
+\end{proof}
 
 
 \ \\
