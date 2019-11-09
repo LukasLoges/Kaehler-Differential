@@ -177,47 +177,74 @@ Sei $\functionfront{\psi^1}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{
 \end{itemize}
 Konstruiere nun $f,g \in Hom_{\mathcal{B}}{C_1,C_2}$ so, dass der Differenzkokern von $f$ und $g$ gleich dem Kolimes von $\mathcal{B}$ ist:
 \begin{center}
-Für $f$ betrachte den Morphismus $\functionfront{\Phi}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
-mit $\Phi_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})} \circ \gamma$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
-Wende die universelle Eigenschaft von $C_1 = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$ an:\\
+Für $g$ betrachte den Morphismus $\functionfront{\zeta}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})}$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wende die universelle Eigenschaft von $(C_1,\psi^1) = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$ an:\\
 \ \\
 \begin{tikzcd}
-    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\Phi"'] &                                        \\
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta"'] &                                        \\
 C_2 &                                                                                                                      & C_1 \arrow[ll, "\exists ! f"', dashed]
 \end{tikzcd}
 \ \\
-Wähle $f \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\Phi = \psi^1 \circ f$ gilt.\\
+Wähle $f \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\zeta = \psi^1 \circ f$ gilt.\\
 \ \\
-Für $g$ betrachte den Morphismus $\functionfront{\Phi'}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
-mit $\Phi'_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})}$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
-Wähle analog zu $f$ mithilfe der universellen Eigenschaft des Kolimes $g \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\Phi' = \psi^1 \circ g$ gilt.
+Für $g$ betrachte den Morphismus $\functionfront{\zeta'}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta'_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})} \circ \gamma$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wende die universelle Eigenschaft von $C_1 = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$ an:\\
+\ \\
+\begin{tikzcd}
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta"'] &                                        \\
+C_2 &                                                                                                                      & C_1 \arrow[ll, "\exists ! g"', dashed]
+\end{tikzcd}
+\ \\
+Wähle $g \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\zeta' = \psi^1 \circ g$ gilt.
 \end{center}
-Sei $C \in Obj_{\mathcal{B}}$ zusammen mit $q \in Hom_{\mathcal{A}}(C_2,C)$ der Differenzkokern von $f$,$g$.\\
+Sei nun also $C \in Obj_{\mathcal{B}}$ zusammen mit $q \in Hom_{\mathcal{A}}(C_2,C)$ der Differenzkokern von $f$,$g$.\\
 Zeige Abschließend, dass $(C, \functionfront{\psi}{\mathcal{B}}{q \circ \psi^2}$ Der Kolimes von $\mathcal{B})$ ist:\\
 Um zu sehen, dass $\psi$ ein Morphismus ist, wähle $B_1,B_2 \in Obj_{\mathcal{B}}$ beliebig und betrachte folgendes kommutatives Diagramm:
 \begin{center}
 \begin{tikzcd}
-B_1 \arrow[rd, "\psi^1_{B_1}"] \arrow[rr, "\psi^2_{B_1} = \Phi'_{B_2}"] \arrow[dd, "\gamma"'] \arrow[rrdd, "\Phi_{B_2}"', bend right] &                                      & C_2 \arrow[rd, "q"]  &   \\
-                                                                                                                        & C_1 \arrow[ru, "g"'] \arrow[rd, "f"] &                      & C \\
+B_1 \arrow[rd, "\psi^1_{B_1}"] \arrow[rr, "\psi^2_{B_1} = \zeta_{B_1}"] \arrow[dd, "\gamma"'] \arrow[rrdd, "\zeta'_{B_2}"', bend right] &                                      & C_2 \arrow[rd, "q"]  &   \\
+                                                                                                                        & C_1 \arrow[ru, "f"'] \arrow[rd, "g"] &                      & C \\
 B_2 \arrow[rr, "\psi^2_{B_2}"']                                                                                         &                                      & C_2 \arrow[ru, "q"'] &  
 \end{tikzcd}
 \end{center}
-JOJO
+Zeige nun, dass $(C,\psi)$ die Universelle Eigenschaft des Kolimes besitzt:\\
+Nutze dazu zunächst, dass $(C_2,\psi^2)$ der Kolimes von $\lbrace B \vert B \in Obj_{\mathcal{B}} \rbrace \subseteq \mathcal{B}$ ist und somit dessen universelle Eigenschaft besitzt:
+\begin{itemize}
+\item[]
+Da $\psi'$ ein Morphismus von $\mathcal{B}$ nach $C'$ ist, ist $\psi'$ insbesondere auch ein Morphismus von $\lbrace B \vert B \in Obj_{\mathcal{B}} \rbrace$ nach $C$. Somit existiert genau ein $q' \in Hom_{\mathcal{B}}(C_2,C')$ mit $\psi^2 \circ q' = \psi'$:
 \begin{center}
 \begin{tikzcd}
-   &  & \mathcal{B} \arrow[rd, "\psi^2"] \arrow[lldd, "\psi'"'] \arrow[rrdd, "\psi", bend left=49] &                                                                &                                               \\
-   &  &                                                                                            & C_2 \arrow[rd, "q"] \arrow[llld, "\exists ! \varphi"', dashed] &                                               \\
-C' &  &                                                                                            &                                                                & C \arrow[llll, "\exists ! \varphi'"', dashed]
-\end{tikzcd}
-\ \\
-\ \\
-\ \\
-\begin{tikzcd}
-   &  & \mathcal{B} \arrow[lldd, "\psi'"'] \arrow[rrdd, "\psi"] \arrow[d, "\psi^2"] &  &                                               \\
-   &  & C_2 \arrow[rrd, "q"] \arrow[lld, "\exists ! \varphi"', dashed]              &  &                                               \\
-C' &  &                                                                             &  & C \arrow[llll, "\exists ! \varphi'"', dashed]
+   & \lbrace B \vert B \in Obj_{\mathcal{B}} \rbrace \arrow[rd, "\psi^2"] \arrow[ld, "\psi'"'] &                                         \\
+C' &                                                                                           & C_2 \arrow[ll, "\exists ! q'"', dashed]
 \end{tikzcd}
 \end{center}
+\end{itemize} 
+Um die universelle Eigenschaft von $q$ nutzen zu können zeige nun, dass $q' \circ f = q' \circ g$ gilt. Sei dazu $c \in C_1$ beliebig und wähle $\gamma \in Morph_{\mathcal{B}}$ und $b \in B_{\gamma}$ mit $\psi^1_{B_{\gamma}}(b) = c$, dann gilt:
+\begin{gather*}
+(q' \circ f)(c)
+= (q' \circ f \circ \psi^1_{B_{\gamma}})(b)
+= (q' \circ \zeta_{B_{\gamma}})(b)
+= (q' \circ \psi^2_{B_{\gamma}})(b)
+= \psi'_{B_{\gamma}}(b) \\
+(q' \circ g)(c)
+= (q' \circ g \circ \psi^1_{B_{\gamma}})(b)
+= (q' \circ \zeta'_{B_{\gamma}})(b)
+= (q' \circ \psi^2_{\gamma({B_{\gamma}})} \circ \gamma)(b)
+= (\psi'_{\gamma(B_{\gamma})} \circ \gamma)(b)
+= \psi'_{B_{\gamma}}(b) \\
+\end{gather*}
+Folglich können wir die universelle Eigenschaft von $q$ auf $q'$ anwenden und erhalten ein eindeutiges $\varphi \in Hom(C,C')$ mit $q' = q \circ \varphi$. Dieses erfüllt somit auch:
+\begin{center}
+$\psi \circ \varphi = \psi^2 \circ q \circ \varphi = \psi^2 \circ q' = \psi'$\\
+\begin{tikzcd}
+   &  & \mathcal{B} \arrow[rd, "\psi^2"] \arrow[lldd, "\psi'"'] \arrow[rrdd, "\psi", bend left=49] &                                                                &                                               \\
+   &  &                                                                                            & C_2 \arrow[rd, "q"] \arrow[llld, "\exists ! q'"', dashed] &                                               \\
+C' &  &                                                                                            &                                                                & C \arrow[llll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Damit haben wir gezeigt, dass $\colimes \mathcal{B} = (C,\psi)$ existiert.
 \end{proof}
 
 
