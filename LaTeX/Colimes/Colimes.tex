@@ -176,43 +176,25 @@ Zeige Abschließend, dass $(C, \functionfront{\psi}{\mathcal{B}}{\zeta \circ \ps
 
 
 \ \\
-\textcolor{blue}{\textbf{NeuDifferenzenkokerndef} \textit{[vlg. Wikipedia aber eigener Beweis]}}
-\begin{lemma}\label{NeuDifferenzenkokerndef} Sei $\mathcal{A}$ eine Kategorie mit $C_1,C_2 \in Hom_{\mathcal{A}}(C_1,C_2)$, so sind folgende Formulierungen äquivalent zur Definition des Differenzkokern`s $T \defeq \colimes \mathcal{C}$
-\begin{itemize}
-\item[1.] Es existiert ein Morphismus $\functionfront{\psi}{\mathcal{C}}{T}$, mit der Eigenschaft, dass für alle Morphismen $\functionfront{\psi '}{\mathcal{C}}{T'}$ genau ein $\varphi \in Hom_{\mathcal{A}}(T,T')$ mit $\varphi \circ \psi = \psi '$ existiert.
-\item[2.] Es existiert ein $q \in Hom_{\mathcal{A}}(C_2,T)$ mit $q \circ f = q \circ g$ und der Eigenschaft, dass für alle Morphismen $q' \in Hom_{\mathcal{A}}(C_2,Z)$ mit $q' \circ f = q' \circ g$ genau ein $\varphi \in Hom_{\mathcal{A}}(T,T')$ mit $\varphi \circ q = q'$ existiert.
+\textcolor{blue}{\textbf{NeuDifferenzenkokerndef}}
+\begin{bem}\label{NeuDifferenzenkokerndef} \textit{[Wikipedia]}\\
+Sei $\mathcal{A}$ eine Kategorie. Sei weiter $C_1,C_2 \in Obj_{\mathcal{A}}$ und $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.\\
+Im Falle der Existenz ist der Differnenzenkokern von $f,g$ nach \cref{DifferenzkokernUndKoproduktDef} durch ein Objekt $C \in Obj_{\mathcal{A}}$ und einen Morphismus $\psi = \lbrace \psi_{C_1}, \psi_{C_2}\rbrace$ gegeben, wobei gilt:
+\begin{gather*}
+\psi_{C_2} = f \circ \psi_1 = g \circ \psi_2
+\end{gather*}
+Wir sehen, dass $\psi$ eindeutig durch $q \defeq \psi_2 \in Hom_{\mathcal{A}}(C_1,C_2)$ gegeben ist. Der Differnzenkokern ist also eindeutig durch $(C \in obj_\mathcal{A},q \in Hom_{\mathcal{A}}(C_1,C_2))$ gegeben, wobei $q$ folgenden Eigenschaften besitzt:
 \begin{center}
+Es gilt $f \circ q = g \circ g$ und\\
+für alle $C \in Obj_{A}$ und $q' \in Hom_{\mathcal{A}}$ mit $f \circ q' = g \circ q'$ existiert genau ein $\varphi \in Hom_{\mathcal{A}}$, mit $q \circ \varphi = q'$:\\
+\ \\
 \begin{tikzcd}
-C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & T \arrow[d, "\exists !\varphi", dashed] \\
-                                 &                                     & T'                                     
+C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & C \arrow[d, "\exists !\varphi", dashed] \\
+                                 &                                     & C'                                     
 \end{tikzcd}
 \end{center}
-\end{itemize}
-\end{lemma}
-\begin{proof}
-\textit{1.} ist offensichtlich eine Ausformulierung der Einführung des Kolimes aus \cref{DifferenzkokernUndCoproduktDef}, zeige also im folgenden noch die Äquivalenz von \textit{1.} und \textit{2.}
-\begin{itemize}
-\item \underline{1 $\Rightarrow$ 2:}
-\begin{itemize}
-\item[] Da $\functionfront{\psi}{\mathcal{C}}{T}$ ein Morphismus ist, gilt für $\lbrace f,g \rbrace = Hom_{\mathcal{C}}(C_1,C_2)$:\\ $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_1} \circ \psi_{C_2}$, setze also 
- $q  \defeq \psi_{C_2}$.
-\item[] Sei nun $q' \in Hom_{\mathcal{A}}(C_2,T)$ mit der Eigenschaft $q' \circ f = q' \circ g$ gegeben:\\
- Definiere den Morphismus $\functionfront{\psi '}{\mathcal{C}}{T}$ als $\lbrace \psi_1 = q' \circ f , \psi_2 = q' \rbrace$,  somit folgt direkt aus der Universellen Eigenschaft von $\psi$, dass genau ein $\varphi \in Hom_{A}(C_2,T)$ existiert, mit $ \varphi \circ q = q '$.
-\end{itemize}
-\item \underline{2 $\Rightarrow$ 1:}
-\begin{itemize}
-\item[] Definiere $\functionfront{\psi }{\mathcal{C}}{T}$ als $\lbrace \psi_1 = q \circ f , \psi_2 = q \rbrace$.
-Durch die Eigenschaft von $q$ gilt $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_2} \circ g$.
-\item[] Sei nun $\functionfront{\psi '}{\mathcal{C}}{\mathcal{A}}$ ein beliebiger Morphismus.\\
-Definiere $d' \defeq \psi '$, somit existiert durch die Eigenschaft von $d$ genau ein $\varphi \in Hom_{\mathcal{A}}(C_2,T)$ mit $\varphi \circ q = q'$.
-\begin{gather*}
-\Rightarrow \varphi \circ \psi_2 = \psi '_2 \\
-\textit{und }\varphi \circ \psi_1 = \varphi \circ \psi_2 \circ f = \varphi \circ \psi '_2 \circ f = \varphi \circ \psi '_1
-\end{gather*}
-\end{itemize}
-\end{itemize}
-\end{proof}
-Wenn im weiteren Verlauf von dem Differenzkokern zweier Homomorphismen $\functionfront{f,g}{C_1}{C_2}$ gesprochen wird, meinen wir damit den Homomorphismus $\functionfront{q}{C_2}{T}$ aus \cref{NeuDifferenzenkokerndef}.
+Wenn wir fortan vom Differenzkokern sprechen meinen wir damit das Paar $(C,q)$.
+\end{bem}
 
 
 \ \\

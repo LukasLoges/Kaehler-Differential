@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  9 NOV 2019 14:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  9 NOV 2019 14:05
 entering extended mode
-**./Colimes.tex
-(Colimes.tex
+**./NeuDifferenzenkokerndef.tex
+(NeuDifferenzenkokerndef.tex
 LaTeX2e <2018-12-01>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\report.cls"
 Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
@@ -502,8 +502,9 @@ Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `amsthm' support loaded on input line 3026.
 )
 \c@Aussage=\count127
- (Colimes.aux)
-\openout1 = `Colimes.aux'.
+
+(NeuDifferenzenkokerndef.aux)
+\openout1 = `NeuDifferenzenkokerndef.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
@@ -579,141 +580,61 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 ABD: EveryShipout initializing macros
-Kapitel 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+LaTeX Font Info:    Try loading font information for U+msb on input line 67.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
-
-Overfull \hbox (23.29346pt too wide) in paragraph at lines 66--68
-[]$\OT1/cmr/m/it/10 , wo-bei f[]ur al-le $\OML/cmm/m/it/10 B[]; B[] \OMS/cmsy/m
-/n/10 2 B$ \OT1/cmr/m/it/10 und $\OML/cmm/m/it/10 ' \OMS/cmsy/m/n/10 2 \OML/cmm
-/m/it/10 Hom\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B[]; B[]\OT1/cmr/m/n/10 )$
  []
 
 [1
 
+{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
-{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Overfull \hbox (17.27147pt too wide) in paragraph at lines 136--137
-\OT1/cmr/m/it/10 wo-bei $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 B[]\OMS/cmsy/m/n/10
- g[]$ \OT1/cmr/m/it/10 die Ob-jek-te und die Iden-tit[]atsabbildungen $\OMS/cms
-y/m/n/10 f[]g[]$
- []
+LaTeX Warning: Reference `DifferenzkokernUndCoproduktDef' on page 1 undefined o
+n input line 129.
 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 131.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 131.
+ [2] [3]
+(NeuDifferenzenkokerndef.aux)
 
-Overfull \hbox (48.50034pt too wide) in paragraph at lines 154--155
-[]$\OML/cmm/m/it/10 C[] []\OT1/cmr/m/n/10 = [][]$ ist das Ko-pro-dukt al-ler Ob
--jek-te von $\OMS/cmsy/m/n/10 B$\OT1/cmr/m/n/10 . Sei $[]$
- []
+LaTeX Warning: There were undefined references.
 
-[3] [4]
-Overfull \hbox (25.93779pt too wide) in paragraph at lines 221--227
-\OT1/cmr/m/n/10 Es sind der Mor-phis-mus $[]$ und die bi-li-nea-re Ab-bil-dung 
-$[]$
- []
-
-
-Overfull \hbox (64.2643pt too wide) in paragraph at lines 221--227
-\OT1/cmr/m/n/10 Konstruiere den Mor-phis-mus $[]$ durch $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 221--227
-
- []
-
-
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 221--227
-\OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
--de zwei R-Algebra-Homomorphismen: 
- []
-
-[5]
-Overfull \hbox (7.80167pt too wide) in paragraph at lines 297--298
-[]\OT1/cmr/m/it/10 der Dif-fe-ren-zen-ko-kern zwei-er Ho-mo-mor-phis-men $[]$ e
-nt-spricht
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
-
- []
-
-[6]
-Overfull \hbox (65.70027pt too wide) in paragraph at lines 310--315
-\OT1/cmr/m/n/10 F[]ur ein be-lie-bi-ges $\OML/cmm/m/it/10 i$ \OT1/cmr/m/n/10 ex
-i-stiert ge-nau ein $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--315
-
- []
-
-
-Overfull \hbox (3.27838pt too wide) in paragraph at lines 317--318
-[]\OT1/cmr/m/n/10 Die in pro-po-si-ti-on 10 ge-zeig-ten Dar-stel-lun-gen gel-te
-n mit kur-z-en []Uberlegungen
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 327--331
-
- []
-
-[7]
-Overfull \hbox (8.7656pt too wide) in paragraph at lines 356--358
-\OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
-[]$
- []
-
-[8] [9] [10] (Colimes.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 16755 strings out of 492895
- 345938 string characters out of 3133483
- 402342 words of memory out of 3000000
- 20362 multiletter control sequences out of 15000+200000
- 8568 words of font info for 32 fonts, out of 3000000 for 9000
+ 16245 strings out of 492895
+ 333682 string characters out of 3133483
+ 396342 words of memory out of 3000000
+ 19856 multiletter control sequences out of 15000+200000
+ 6691 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,18n,84p,537b,1138s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Pr
+ 61i,14n,84p,487b,1135s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb>
-Output written on Colimes.pdf (10 pages, 239859 bytes).
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb>
+Output written on NeuDifferenzenkokerndef.pdf (3 pages, 133840 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
+ 59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
