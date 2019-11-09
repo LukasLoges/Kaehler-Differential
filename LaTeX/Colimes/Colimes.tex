@@ -141,6 +141,28 @@ wobei $\lbrace C_1,C_2 \rbrace$ die Objekte und $ \lbrace f,g \rbrace$ zusammen 
 
 
 \ \\
+\textcolor{blue}{\textbf{NeuDifferenzenkokerndef}}
+\begin{bem}\label{NeuDifferenzenkokerndef} \textit{[Wikipedia]}\\
+Sei $\mathcal{A}$ eine Kategorie. Sei weiter $C_1,C_2 \in Obj_{\mathcal{A}}$ und $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.\\
+Im Falle der Existenz ist der Differnenzenkokern von $f,g$ nach \cref{DifferenzkokernUndKoproduktDef} durch ein Objekt $C \in Obj_{\mathcal{A}}$ und einen Morphismus $\psi = \lbrace \psi_{C_1}, \psi_{C_2}\rbrace$ gegeben, wobei gilt:
+\begin{gather*}
+\psi_{C_2} = f \circ \psi_1 = g \circ \psi_2
+\end{gather*}
+Wir sehen, dass $\psi$ eindeutig durch $q \defeq \psi_2 \in Hom_{\mathcal{A}}(C_1,C_2)$ gegeben ist. Der Differnzenkokern ist also eindeutig durch $(C \in obj_\mathcal{A},q \in Hom_{\mathcal{A}}(C_1,C_2))$ gegeben, wobei $q$ folgenden Eigenschaften besitzt:
+\begin{center}
+Es gilt $f \circ q = g \circ g$ und\\
+für alle $C \in Obj_{A}$ und $q' \in Hom_{\mathcal{A}}$ mit $f \circ q' = g \circ q'$ existiert genau ein $\varphi \in Hom_{\mathcal{A}}$, mit $q \circ \varphi = q'$:\\
+\ \\
+\begin{tikzcd}
+C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & C \arrow[d, "\exists !\varphi", dashed] \\
+                                 &                                     & C'                                     
+\end{tikzcd}
+\end{center}
+\end{bem}
+Wenn wir fortan vom Differenzkokern sprechen meinen wir damit das Paar $(C,q)$.
+
+
+\ \\
 \textcolor{blue}{\textbf{Kolimes durch Koprodukt und Differenzkokern}}
 \begin{theorem}\label{Kolimes durch Koprodukt und Differenzkokern} \textit{[Proposition A6.1 \ModulsOfDifferenzials]}\\
 Sei $\mathcal{A}$ eine Kategorie, in der Koprodukte beliebiger Mengen von Objekten und Differenzkokerne von je zwei Morphismen existieren. Dann existiert für jedes Diagramm $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ dessen Kolimes $\colimes \mathcal{F}$.
@@ -160,7 +182,7 @@ mit $\Phi_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})} \circ \gamma$ für $B_{\gam
 Wende die universelle Eigenschaft von $C_1 = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$ an:\\
 \ \\
 \begin{tikzcd}
-    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\psi^1"'] &                                        \\
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\Phi"'] &                                        \\
 C_2 &                                                                                                                      & C_1 \arrow[ll, "\exists ! f"', dashed]
 \end{tikzcd}
 \ \\
@@ -170,31 +192,33 @@ Für $g$ betrachte den Morphismus $\functionfront{\Phi'}{\lbrace B_{\gamma} \ver
 mit $\Phi'_{B_{\gamma}} = \psi^2_{\gamma(B_{\gamma})}$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
 Wähle analog zu $f$ mithilfe der universellen Eigenschaft des Kolimes $g \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\Phi' = \psi^1 \circ g$ gilt.
 \end{center}
-Sei $C \in Obj_{\mathcal{B}}$ zusammen mit dem Morphismus $\zeta$ der Differenzkokern von $f$,$g$.\\
-Zeige Abschließend, dass $(C, \functionfront{\psi}{\mathcal{B}}{\zeta \circ \psi^2}$ Der Kolimes von $\mathcal{B})$ ist:\\
-\end{proof}
-
-
-\ \\
-\textcolor{blue}{\textbf{NeuDifferenzenkokerndef}}
-\begin{bem}\label{NeuDifferenzenkokerndef} \textit{[Wikipedia]}\\
-Sei $\mathcal{A}$ eine Kategorie. Sei weiter $C_1,C_2 \in Obj_{\mathcal{A}}$ und $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.\\
-Im Falle der Existenz ist der Differnenzenkokern von $f,g$ nach \cref{DifferenzkokernUndKoproduktDef} durch ein Objekt $C \in Obj_{\mathcal{A}}$ und einen Morphismus $\psi = \lbrace \psi_{C_1}, \psi_{C_2}\rbrace$ gegeben, wobei gilt:
-\begin{gather*}
-\psi_{C_2} = f \circ \psi_1 = g \circ \psi_2
-\end{gather*}
-Wir sehen, dass $\psi$ eindeutig durch $q \defeq \psi_2 \in Hom_{\mathcal{A}}(C_1,C_2)$ gegeben ist. Der Differnzenkokern ist also eindeutig durch $(C \in obj_\mathcal{A},q \in Hom_{\mathcal{A}}(C_1,C_2))$ gegeben, wobei $q$ folgenden Eigenschaften besitzt:
+Sei $C \in Obj_{\mathcal{B}}$ zusammen mit $q \in Hom_{\mathcal{A}}(C_2,C)$ der Differenzkokern von $f$,$g$.\\
+Zeige Abschließend, dass $(C, \functionfront{\psi}{\mathcal{B}}{q \circ \psi^2}$ Der Kolimes von $\mathcal{B})$ ist:\\
+Um zu sehen, dass $\psi$ ein Morphismus ist, wähle $B_1,B_2 \in Obj_{\mathcal{B}}$ beliebig und betrachte folgendes kommutatives Diagramm:
 \begin{center}
-Es gilt $f \circ q = g \circ g$ und\\
-für alle $C \in Obj_{A}$ und $q' \in Hom_{\mathcal{A}}$ mit $f \circ q' = g \circ q'$ existiert genau ein $\varphi \in Hom_{\mathcal{A}}$, mit $q \circ \varphi = q'$:\\
-\ \\
 \begin{tikzcd}
-C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & C \arrow[d, "\exists !\varphi", dashed] \\
-                                 &                                     & C'                                     
+B_1 \arrow[rd, "\psi^1_{B_1}"] \arrow[rr, "\psi^2_{B_1} = \Phi'_{B_2}"] \arrow[dd, "\gamma"'] \arrow[rrdd, "\Phi_{B_2}"', bend right] &                                      & C_2 \arrow[rd, "q"]  &   \\
+                                                                                                                        & C_1 \arrow[ru, "g"'] \arrow[rd, "f"] &                      & C \\
+B_2 \arrow[rr, "\psi^2_{B_2}"']                                                                                         &                                      & C_2 \arrow[ru, "q"'] &  
 \end{tikzcd}
 \end{center}
-Wenn wir fortan vom Differenzkokern sprechen meinen wir damit das Paar $(C,q)$.
-\end{bem}
+JOJO
+\begin{center}
+\begin{tikzcd}
+   &  & \mathcal{B} \arrow[rd, "\psi^2"] \arrow[lldd, "\psi'"'] \arrow[rrdd, "\psi", bend left=49] &                                                                &                                               \\
+   &  &                                                                                            & C_2 \arrow[rd, "q"] \arrow[llld, "\exists ! \varphi"', dashed] &                                               \\
+C' &  &                                                                                            &                                                                & C \arrow[llll, "\exists ! \varphi'"', dashed]
+\end{tikzcd}
+\ \\
+\ \\
+\ \\
+\begin{tikzcd}
+   &  & \mathcal{B} \arrow[lldd, "\psi'"'] \arrow[rrdd, "\psi"] \arrow[d, "\psi^2"] &  &                                               \\
+   &  & C_2 \arrow[rrd, "q"] \arrow[lld, "\exists ! \varphi"', dashed]              &  &                                               \\
+C' &  &                                                                             &  & C \arrow[llll, "\exists ! \varphi'"', dashed]
+\end{tikzcd}
+\end{center}
+\end{proof}
 
 
 \ \\
