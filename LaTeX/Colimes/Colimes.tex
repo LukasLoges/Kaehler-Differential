@@ -257,9 +257,70 @@ s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \
 
 
 \ \\
+\textcolor{blue}{\textbf{R-Algebra-Kolimiten}}
+\begin{prop} \label{R-Algebra-Kolimiten} \textit{[vlg. Proposition A6.7 \ModulsOfDifferenzials]}\\
+In der Kategorie der R-Algebren existieren Kolimiten beliebiger Diagramme, wobei:
+\begin{itemize}
+\item[\textbf{1.}] Das Koprodukt einer endlichen Familie von $R-Algebren$ $\lbrace S_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} S_i$. 
+\item[\textbf{2.}] Der Differenzkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{S_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in S_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
+\end{itemize}
+\end{prop}
+\begin{proof} \ \\
+\underline{Zu \textit{\textbf{1.}}:} Sei $\mathcal{B}$ die Unterkategorie der R-Algebren, welche $\lbrace S_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Seien weiter:
+\begin{itemize}
+\item[]$\functionfront{\psi}{\mathcal{B}}{\coprod_{i \in \Lambda} S_i}$ der Morphismus des Koprodukts und
+\item[]$\functionfront{g}{\oplus_{i \in \Lambda} S_i}{\otimes_{i \in \Lambda} S_i}$ die multilineare Abbildung des Tensorprodukts.
+\end{itemize}
+Konstruiere daraus einen Morphismus $\psi'$ und eine multilineare Abbildung $g'$:
+\begin{gather*}
+\functionfront{\psi'}{\mathcal{B}}{\otimes_i S_i} \text{, mit } \function{\psi'_{S_i}}{S_i}{\otimes_{i \in \Lambda} S_i}{s_i}{g(1,..,1,s_i,1,..,1)} \text{ für } i \in \Lambda\\
+\function{g'}{\oplus_i S_i}{\coprod_{i \in \Lambda} S_1}{s}{\prod_{i \in \lbrace i \in \Lambda \vert s_i \neq 0 \rbrace} \psi_i(s_i)}
+\end{gather*}
+\ \\
+Somit liefern uns die universellen Eigenschaften folgende zwei R-Algebra-Homomorphismen:
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            &   & \bigoplus_i S_i \arrow[ld, "g'"'] \arrow[rd, "g"] &                                         \\
+\bigotimes_{i \in \Lambda} S_i &                                           & \coprod_{i \in \Lambda} S_1 \arrow[ll, "\exists ! \varphi"', dashed] & \coprod_{i \in \Lambda} S_i &                                     & \bigotimes_{i \in \Lambda} S_i \arrow[ll, "\exists ! \phi"', dashed]
+\end{tikzcd}
+\ \\
+\ \\
+$\functionfront{\varphi}{\colimes \mathcal{B}}{\bigotimes_{i \in \Lambda} S_i} \hspace{9 em} \functionfront{\phi}{\bigotimes_{i \in \Lambda} S_i}{\colimes \mathcal{B}}$
+\end{center}
+Die universellen Eigenschaften liefern uns nun, dass $\varphi$ und $\phi$ zueinander Inverse sind.
+\begin{center}
+\begin{tikzcd}
+         & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i S_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
+\colimes \mathcal{B} &                                                    & \coprod_{i \in \Lambda} S_i \arrow[ll, "\exists ! id_{\colimes \mathcal{B}} = \phi \circ \varphi "', dashed] &  & \bigotimes_{i \in \Lambda} S_i &                                                  & \bigotimes_i S_i \arrow[ll, "\exists ! id_{\bigotimes_i S_i} = \varphi \circ \phi "', dashed]
+\end{tikzcd}
+\end{center}
+Damit haben wir Isomorphismen zwischen $\colimes \mathcal{B}$ und $\bigotimes_i S_i$ gefunden.\\
+Da das Koprodukt von $\lbrace S_i \rbrace_{i \in \Lambda}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt ist, definiere dies ab jetzt als $\bigotimes_{i \in \Lambda} S_i$.\\
+\ \\
+\underline{Zu \textit{\textbf{2.}}:} Zeige, dass $(S_2/Q,\functionfront{q}{S_2}{S_2/Q})$ die in \cref{NeuDifferenzenkokerndef} eingeführten Eigenschaften des Differenzkokern`s  besitzt.
+\begin{gather*}
+q \circ f = q \circ g \text{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace.
+\end{gather*}
+Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(S_2,T')$ mit $q' \circ f = q' \circ$ gegeben.\\
+Somit gilt $q' \circ (f - g) = 0$, wodurch $Q$ ein Untermodul von $Q' \defeq \kernel{q'}$ ist.\\ Mit dem Isomorphiesatz für R-Algebren erhalten wir:
+\begin{gather*}
+ \nolinebreak{S_2/Q' \simeq (S_2/Q)/(Q'/Q)}.
+\end{gather*}
+Somit ist $\function{q'}{S_2}{(S_2/Q)/(Q'/Q)}{y}{[y]'}$ eine isomorphe Darstellung von $\functionfront{q'}{S_2}{T'}$.
+\begin{gather*}
+\Rightarrow \exists ! \function{\varphi}{S_2/Q}{(S_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
+\end{gather*}
+Also ist $\functionfront{q}{S_2}{S_2/Q}$ der bis auf Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.
+\end{proof}
+
+
+
+
+\comment{
+\ \\
 \textcolor{blue}{\textbf{R-Algebra-Kolimiten} \textit{[vlg. Proposition A6.7 \ModulsOfDifferenzials]}}
 \begin{prop} \label{R-Algebra-Kolimiten}
-in der Kategorie der R-Algebren existieren Koprodukte und Differenzkokerne, wobei:
+in der Kategorie der R-Algebren existieren Kolimiten beliebiger Diagramme, wobei:
 \begin{itemize}
 \item[\textbf{1.}] Das Koprodukt einer endlichen Familie von $R-Algebren$ $\lbrace S_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} S_i$. 
 \item[\textbf{2.}] Der Differenzkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{S_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in S_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
@@ -267,7 +328,7 @@ in der Kategorie der R-Algebren existieren Koprodukte und Differenzkokerne, wobe
 \end{prop}
 \begin{proof}
 Zu \textit{\textbf{1.}}:\\
-Sei $\mathcal{B}$ die Unterkategorie der R-Algebren, welche $\lbrace S_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Wir wollen die universellen Eigenschaften des Tensorproduktes und des Kähler-Differenzials nutzen, um einen Isomorphismus zwischen $\colimes \mathcal{F}$ und $\bigotimes_{i \in \Lambda} B_i$ zu finden.\\ 
+Sei $\mathcal{B}$ die Unterkategorie der R-Algebren, welche $\lbrace S_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Wir wollen die universellen Eigenschaften des Kolimes und des Tensorproduktes nutzen, um einen Isomorphismus zwischen $\colimes \mathcal{F}$ und $\bigotimes_{i \in \Lambda} B_i$ zu finden.\\ 
 Es sind der Morphismus $\functionfront{\psi}{\mathcal{B}}{\colimes \mathcal{B}}$ und die bilineare Abbildung $\functionfront{g}{\oplus_i S_i}{\otimes_i S_i}$ gegeben.\\
 Konstruiere den Morphismus $\functionfront{\psi'}{\mathcal{B}}{\otimes_i S_i}$ durch $\function{\psi'_i}{S_i}{\otimes_i S_i}{s_i}{g(1,..,1,s_i,1,..,1)}$ für $i \in \lambda$ und die bilineare Abbildung $\function{f}{\oplus_i S_i}{\colimes \mathcal{B}}{s}{\prod_i \psi_i(s_i)}$.\\
 \ \\
@@ -306,6 +367,8 @@ Somit ist $\function{q'}{S_2}{(S_2/Q)/(Q'/Q)}{y}{[y]'}$ eine isomorphe Darstellu
 \end{gather*}
 Also ist $\functionfront{q}{S_2}{S_2/Q}$ der bis auf Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.
 \end{proof}
+}
+
 
 
 \ \\
