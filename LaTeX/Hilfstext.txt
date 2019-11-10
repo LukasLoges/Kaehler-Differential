@@ -1,8 +1,39 @@
 \begin{tikzcd}
-(f(x))/(f(x)^2) \arrow[r, "1"] & \Tensor{T}{L[x]}{\divR{L[x]}{k}} \arrow[r, "2"]       & \divR{T}{k} \arrow[r] & 0           &   & (1) \\
-T\Verz{\divf{L[x]}(f(x))} \arrow[r, "1'"]              & \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)} \arrow[r, "2'"]      & \divR{T}{k} \arrow[r] & 0           &   & (2) \\
-                               & \Tensor{T}{L}{\divR{L}{k}} \arrow[r, "\varphi"] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0 & (3)
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta"'] &                                        &  &     & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta'"'] &                                        \\
+C_2 &                                                                                                          & C_1 \arrow[ll, "\exists ! f"', dashed] &  & C_2 &                                                                                                           & C_1 \arrow[ll, "\exists ! g"', dashed]
 \end{tikzcd}
 
-
-
+\begin{center}
+Für $f$ betrachte den Morphismus $\functionfront{\zeta}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})}$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wende die universelle Eigenschaft von $(C_1,\psi^1) = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$ an:\\
+\comment{
+\ \\
+\begin{tikzcd}
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta"'] &                                        \\
+C_2 &                                                                                                                      & C_1 \arrow[ll, "\exists ! f"', dashed]
+\end{tikzcd}
+\ \\
+}
+Wähle $f \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\zeta = f \circ \psi^1$ gilt.\\
+\ \\
+Für $g$ betrachte den Morphismus $\functionfront{\zeta'}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta'_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})} \circ \gamma$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wende die universelle Eigenschaft von $(C_1,\phi^1) = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$ an:\\
+\comment{
+\ \\
+\begin{tikzcd}
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta'"'] &                                        \\
+C_2 &                                                                                                                      & C_1 \arrow[ll, "\exists ! g"', dashed]
+\end{tikzcd}
+\ \\
+}
+Wähle $g \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, für die $\zeta' = \psi^1 \circ g$ gilt.
+\end{center}
+\begin{center}
+\begin{tikzcd}
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta"'] &                                        &     & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta'"'] &                                       \\
+C_2 &                                                                                                          & C_1 \arrow[ll, "\exists ! f"', dashed] & C_2 &                                                                                                           & C_1 \arrow[ll, "\exists! g"', dashed] \\
+    & \zeta_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})}                                                                                                  &                                        &     & \zeta'_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})} \circ \gamma                                                                                                   &                                      
+\end{tikzcd}
+\end{center}
