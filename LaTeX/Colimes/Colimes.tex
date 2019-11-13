@@ -86,7 +86,7 @@ A' &                                    & A \arrow[ll, "\exists ! \varphi "', da
 
 \ \\
 \textcolor{blue}{\textbf{Eindeutigkeit des Kolimes} \textit{[vgl. A6 \ModulsOfDifferenzials]}}
-\begin{lemma}\comment{\label{Eindeutigkeit des Kolimes}}
+\begin{lemma}\label{Eindeutigkeit des Kolimes}
 Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor. Dann ist im Falle der Existenz $\colimes \mathcal{F}$ eindeutig bestimmt.
 \end{lemma}
 \begin{proof}
@@ -246,6 +246,69 @@ Dieses $\varphi \in Hom(C,C')$ erfüllt auch $\psi \circ \varphi = \psi^2 \circ 
 
 
 \ \\
+\begin{bem}\label{Unendliche Indexmengen}(Unendliche Indexmengen)\\
+Wir wollen uns hier nochmal kurz in Erinnerung rufen, was es bedeutet, wenn wir eine unendlich große Indexmenge $\Lambda$ vor uns haben:
+\begin{itemize}
+\item[1.] Sei $\mathcal{A}$ eine Kategorie und $\lbrace B_i \rbrace_{i \in \Lambda} \subseteq Obj_{\mathcal{A}}$, dann gilt:
+\begin{gather*}
+\bigoplus_{i \in \Lambda} B_i 
+= \bigcup_{\lbrace i_1, \dots, i_n \rbrace \subseteq \Lambda} \bigoplus_{k = 1}^{n} B_{i_k} 
+= \left\lbrace (b_{i_1}, \dots , b_{i_n}) \vert n \in \mathbb{N} \wedge \lbrace i_1, \dots ,i_n \rbrace \subseteq \Lambda \right\rbrace
+\end{gather*}
+\item[2.] Sei $\lbrace M_i \rbrace_{i \in \Lambda}$ eine Menge von $R$-Moduln (oder $R$-Algebren), dann gilt:
+\begin{gather*}
+\bigotimes_{i \in \Lambda} M_i 
+= \bigcup_{\lbrace i_1, \dots, i_n \rbrace \subseteq \Lambda} \bigotimes_{k = 1}^{n} M_{i_k} 
+= \left\lbrace (m_{i_1} \otimes \dots \otimes m_{i_n}) \vert n \in \mathbb{N} \wedge \lbrace i_1, \dots ,i_n \rbrace \subseteq \Lambda \right\rbrace
+\end{gather*}
+\item[3.] Für den Polynomring über $R$ in unendlich vielen Variablen $\lbrace x_i \rbrace_{i \in \Lambda}$ gilt:
+\begin{gather*}
+P[\lbrace x_i \rbrace_{i \in \Lambda}] 
+= \bigcup_{\lbrace i_1, \dots, i_n \rbrace \subseteq \Lambda} P[x_{i_1} , \dots , x_{i_n}] 
+= \left\lbrace P(x_{i_1}, \dots , x_{i_n}) \vert n \in \mathbb{N} \wedge \lbrace i_1, \dots ,i_n \rbrace \subseteq \Lambda \right\rbrace
+\end{gather*}
+\end{itemize}
+Dies zeigt, dass sich diesen drei Fällen eine unendliche Indexmenge $\Lambda$ immer auf endliche Indexmengen $\lbrace 1, \dots , n\rbrace$ zurückführen lässt.
+\end{bem}
+
+
+\ \\
+\textcolor{blue}{\textbf{Darstellung der Polynomalgebra als Tensorprodukt}}
+\begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}\textit{[Eigene Überlegung]}\\
+Die Polynomalgebra $R[\lbrace x_i \rbrace_{i \in \Lambda}]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
+\begin{gather*}
+R[\lbrace x_i \rbrace_{i \in  \Lambda}] = \bigotimes_{i \in \Lambda} R[x_i]
+\end{gather*}
+\end{bem}
+\begin{proof}
+Im Falle einer endlichen Indexmenge $\Lambda$ wollen wir induktiv vorgehen. Seien für den Induktionsschritt $S_x \defeq R[x_1, \dots x_n]$ und $S_y \defeq R[y_1, \dots , y_m]$ zwei Polynomalgebren über R, zeige:
+\begin{gather*}
+S_{xy} \defeq R[x_1, \dots , x_n, y_1 , \dots , y_m] \simeq \Tensor{S_x}{R}{S_y}
+\end{gather*}
+Dazu betrachten wir folgende bilineare Funktion:
+\begin{gather*}
+\function{g'}{S_x \oplus S_y}{S}{(P,Q)}{P \cdot Q}
+\end{gather*}
+Erhalte nun eine Funktion $\functionfront{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}$ aus der universellen Eigenschaft des Tensorproduktes:
+\begin{center}
+\begin{tikzcd}
+S_x \oplus S_y \arrow[r, "g"] \arrow[rd, "g'"'] & \Tensor{S_x}{R}{S_y} \arrow[d, "\exists ! \varphi", dashed] \\
+                                                & S_{xy}                                       
+\end{tikzcd}
+\ \\
+$\function{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}{\tensor{P}{R}{Q}}{P \cdot Q}$
+\end{center}
+Der Homomorphismus $\varphi$ ist surjektiv und bildet die Erzeuger $\lbrace \tensor{x_i}{R}{1} \rbrace \cup \lbrace \tensor{1}{R}{y_j} \rbrace$ von $\Tensor{S_x}{R}{S_y}$ eindeutig auf die Erzeuger $\lbrace x_i \rbrace \cup \lbrace y_j \rbrace$ von $S_{xy}$ ab. Folglich ist $\varphi$ ein Isomorphismus.\\
+Indunktiv erhalten wir daraus für den Fall $\vert \Lambda \vert < \infty$ folgenden Isomorphismus:
+\begin{gather*}
+\function{\Phi}{\bigotimes_{i \in \Lambda} R[x_i]}{R[\lbrace x_i \rbrace_{i \in \Lambda} ]}{(P_1(x_1), \dots P_n(x_n))}{\prod_{i=1}^{n} P_i(x_i)}
+\end{gather*}
+Dies ist auch im Fall $\Lambda = \infty$ ein Isomorphismus, da wir auch in diesem Fall nur Tensorprodukte endlich vieler Polynome bzw. Polynome in endlich vielen Variablen betrachten \textit{(siehe \cref{Unendliche Indexmengen})}.\\
+Da das Tensorprodukt $\bigotimes_{i \in \Lambda} R[x_i]$ bis auf eine Eindeutige Isomorphie eindeutig bestimmt ist, definiere dies ab jetzt als $R[\lbrace x_i \rbrace_{i \in \Lambda}]$.
+\end{proof}
+
+
+\comment{
 \textcolor{blue}{\textbf{Tensorprodukt des Differenzenkokerns} \textit{[Eigene Bemerkung]}}
 \begin{bem} \comment{\label{Tensorprodukt des Differenzenkokerns}}
 Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\Tensor{T}{C_1}{M}$ definieren. 
@@ -254,27 +317,29 @@ Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können 
 s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \tensor{((q \circ g)) \cdot (s_1)t}{S_1}{m}
 \end{gather*}
 \end{bem}
+}
 
 
 \ \\
 \textcolor{blue}{\textbf{R-Algebra-Kolimiten}}
 \begin{prop} \label{R-Algebra-Kolimiten} \textit{[vlg. Proposition A6.7 \ModulsOfDifferenzials]}\\
-In der Kategorie der R-Algebren existieren Kolimiten beliebiger Diagramme, wobei:
+In der Kategorie der R-Algebren existieren Kolimiten beliebiger Diagramme, wobei gilt:
 \begin{itemize}
 \item[\textbf{1.}] Das Koprodukt einer Familie von $R-Algebren$ $\lbrace S_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} S_i$. 
-\item[\textbf{2.}] Der Differenzkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{S_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in S_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
+\item[\textbf{2.}] Der Differenzkokern zweier R-Algebrenhomomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{S_2/Q}{y}{[y]}$,\\
+wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in S_1 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
 \end{itemize}
 \end{prop}
 \begin{proof} \ \\
 \underline{Zu \textit{\textbf{1.}}:} Sei $\mathcal{B} = \lbrace S_i \rbrace_{i \in \Lambda}$ die Unterkategorie der R-Algebren, welche $\lbrace S_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Somit gilt nach \cref{DifferenzkokernUndKoproduktDef} $\coprod_{i \in \Lambda} S_i = \colimes \mathcal{B}$. Seien weiter:
 \begin{itemize}
 \item[]$\functionfront{\psi}{\mathcal{B}}{\coprod_{i \in \Lambda} S_i}$ der Morphismus des Koprodukts und
-\item[]$\functionfront{g}{\oplus_{i \in \Lambda} S_i}{\otimes_{i \in \Lambda} S_i}$ die multilineare Abbildung des Tensorprodukts.
+\item[]$\functionfront{g}{\bigoplus_{i \in \Lambda} S_i}{\bigotimes_{i \in \Lambda} S_i}$ die multilineare Abbildung des Tensorprodukts.
 \end{itemize}
 Konstruiere daraus einen Morphismus $\psi'$ und eine multilineare Abbildung $g'$:
 \begin{gather*}
-\functionfront{\psi'}{\mathcal{B}}{\otimes_{i \in \Lambda} S_i} \text{, mit } \function{\psi'_{S_i}}{S_i}{\otimes_{i \in \Lambda} S_i}{s_i}{g(1,..,1,s_i,1,..,1)} \text{ für } i \in \Lambda\\
-\function{g'}{\oplus_{i \in \Lambda} S_i}{\coprod_{i \in \Lambda} S_1}{s}{\prod_{i \in \lbrace i \in \Lambda \vert s_i \neq 0 \rbrace} \psi_i(s_i)}
+\functionfront{\psi'}{\mathcal{B}}{\bigotimes_{i \in \Lambda} S_i} \text{, mit } \function{\psi'_{S_i}}{S_i}{\bigotimes_{i \in \Lambda} S_i}{s_i}{g(1,..,1,s_i,1,..,1)} \text{ für } i \in \Lambda\\
+\function{g'}{\bigoplus_{i \in \Lambda} S_i}{\coprod_{i \in \Lambda} S_1}{s}{\prod_{i \in \lbrace i \in \Lambda \vert s_i \neq 0 \rbrace} \psi_i(s_i)}
 \end{gather*}
 \ \\
 Somit liefern uns die universellen Eigenschaften folgende zwei R-Algebra-Homomorphismen:
@@ -295,13 +360,13 @@ Wende nun die Universelle Eigenschaft von $\psi$ auf $\psi$ selbst an und erhalt
 \end{tikzcd}
 \end{center}
 Damit haben wir Isomorphismen zwischen $\coprod_{i \in \Lambda} S_i$ und $\bigotimes_i S_i$ gefunden.\\
-Da das Koprodukt $\coprod_{i \in \Lambda} S_i = \colimes \mathcal{B}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt ist \textit{\cref{Eindeutigkeit des Kolimes}}, definiere dies ab jetzt als $\bigotimes_{i \in \Lambda} S_i$.\\
+Da das Koprodukt $\coprod_{i \in \Lambda} S_i = \colimes \mathcal{B}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt ist \textit{(\cref{Eindeutigkeit des Kolimes})}, definiere dies ab jetzt als $\bigotimes_{i \in \Lambda} S_i$.\\
 \ \\
 \underline{Zu \textit{\textbf{2.}}:} Zeige, dass $\functionfront{q}{S_2}{S_2/Q}$ die in \cref{NeuDifferenzenkokerndef} eingeführten Eigenschaften des Differenzkokern`s  besitzt:
 \begin{gather*}
 q \circ f = q \circ g \text{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace.
 \end{gather*}
-Sei nun ein R-Algabrahomomorphismus $\functionfront{q'}{S_2}{T'}$ mit $q' \circ f = q' \circ$ gegeben.\\
+Sei nun ein R-Algabrahomomorphismus $\functionfront{q'}{S_2}{T'}$ mit $q' \circ f = q' \circ g$ gegeben.\\
 Somit gilt $q' \circ (f - g) = 0$, wodurch $Q$ ein Untermodul von $Q' \defeq \kernel{q'}$ ist.\\ Mit dem Isomorphiesatz für R-Algebren erhalten wir:
 \begin{gather*}
  \nolinebreak{S_2/Q' \simeq (S_2/Q)/(Q'/Q)}.
@@ -310,65 +375,50 @@ Somit ist $\function{q'}{S_2}{(S_2/Q)/(Q'/Q)}{y}{[y]'}$ eine isomorphe Darstellu
 \begin{gather*}
 \Rightarrow \exists ! \function{\varphi}{S_2/Q}{(S_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
 \end{gather*}
-Also ist $S_2/Q$ zusammen mit $\functionfront{q}{S_2}{S_2/Q}$ der bis auf eine eindeutige Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.
+Also ist $S_2/Q$ zusammen mit $\functionfront{q}{S_2}{S_2/Q}$ der bis auf eine eindeutige Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.\\
+Damit haben wir gezeigt, dass Koprodukte beliebiger Mengen von R-Algebren und Differenzkokerne von je zwei R-Algebrenhomomorphismus existieren. Nach \cref{Kolimes durch Koprodukt und Differenzkokern} existieren somit in der Kategorie der R-Algebren Kolimiten beliebiger Diagramme.
 \end{proof}
 
 
 \ \\
-\textcolor{blue}{\textbf{Darstellung der Polynomalgebra als Tensorprodukt} \textit{[Eigene Überlegung]}}
-\begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}
-Die Polynomalgebra $R[x_1,...,x_d]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
-\begin{gather*}
-R[x_1,...,x_n] = \bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]
-\end{gather*}
-Genauer gilt für zwei Polynomalgebren $A = R[x_1,...,x_{n_A}], \, B = R[y_1,...,y_{n_B}]$ über R:
-\begin{gather*}
-\Tensor{A}{R}{B}  = R[x_1,...,x_{n_A},y_1,...,y_{n_B}]
-\end{gather*}
-\end{bem}
-Skizziere den Beweis.
-\begin{proof}
-Zeige, dass für $\function{g}{A \oplus B}{R[x_1,...,x_{n_A},y_1,...,y_{n_B}]}{(a,b)}{a \cdot b}$ die Universelle Eigenschaft des Tensorproduktes gilt:
-\begin{center}
-\begin{tikzcd}
-A \oplus B \arrow[r, "g"] \arrow[rd, "f"] & {R[x_1,...,x_{n_A},y_1,...,y_{n_B}]} \arrow[d, "\exists ! \varphi", dashed] \\
-                                          & M                                                                  
-\end{tikzcd}
-\end{center}
-Es ist leicht nachzurechnen, dass es sich bei $\varphi$ um folgende Funktion handeln muss:
-\begin{gather*}
-\function{\varphi}{R[x_1,...,x_{n_A},y_1,...,y_{n_B}]}{M}{(x_i \cdot y_j)}{f(x_i,1) \cdot f(1,y_i)}
-\end{gather*}
-\end{proof}
-
-
-\ \\
-\textcolor{blue}{\textbf{R-Modul-Kolimiten} \textit{[Proposition A6.2 \ModulsOfDifferenzials]}}
-\begin{prop}\label{R-Modul-Kolimiten}
-In Der Kategorie der R-Module  existieren Koprodukte und Differenzkokerne, wobei:
+\textcolor{blue}{\textbf{R-Modul-Kolimiten}}
+\begin{prop}\label{R-Modul-Kolimiten} \textit{[Proposition A6.2 \ModulsOfDifferenzials]}\\
+In der Kategorie der R-Moduln existieren Kolimiten beliebiger Diagramme, wobei gilt:
 \begin{itemize}
-\item[\textbf{1.}] das Koprodukt $\colimes \mathcal{B}$ von R-Modulen $M_i \in (R-Module)$entspricht der direkten Summe $\sum_i M_i$.
-\item[\textbf{2.}] der Differenzenkokern zweier Homomorphismen $\functionfront{f,g}{M_1}{M_2}$ entspricht dem Kokern $M_2/\immage{f-g}$ der Differenzenabbildung.
+\item[\textbf{1.}] Das Koprodukt einer Familie von $R-Moduln$ $\lbrace M_i \rbrace_{i \in \Lambda}$ entspricht deren direkter Summe $\bigoplus_{i \in \Lambda} M_i$.
+\item[\textbf{2.}] Der Differenzenkokern zweier R-Modulhomomorphismen $\functionfront{f,g}{M_1}{M_2}$ entspricht dem Homomorphismus $\function{q}{M_2}{M_2/Q}{y}{[y]}$,\\
+wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in M_1 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
 \end{itemize}
 \end{prop}
-\begin{proof}
-\begin{itemize}
-
-für \textit{\textbf{1.}} Sei $\functionfront{\phi}{\lbrace M_i \rbrace}{\mathcal{B}}$ ein beliebiger Morphismus. Zeige: \\
+\begin{proof} \ \\
+\underline{Zu \textit{\textbf{1.}}:}
+Sei $\mathcal{B} = \lbrace M_i \rbrace_{i \in \Lambda}$ die Unterkategorie der R-Moduln, welche $\lbrace M_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Betrachte als Morphismus $\psi$ die jeweilige Einbettung von $M_i$ in $\bigoplus_{i \in \Lambda} M_i$:
+\begin{gather*}
+\functionfront{\psi}{\mathcal{B}}{\bigoplus_{i \in \Lambda} M_i} \text{ mit } \function{\psi_{M_i}}{M_i}{\bigoplus_{i \in \Lambda} M_i}{m_i}{(0, ...\cdots ,0,m_i,0, \cdots ,0)} \text{ für } i \in \Lambda
+\end{gather*}
+Somit lässt sich jedes $(m_1, \cdots m_n) \in \bigoplus_{i \in \Lambda} M_i$ \textit{(im Fall von $\vert \lambda \vert = \infty$ siehe \cref{Unendliche Indexmengen})} eindeutig durch die Elemente $m_i \in M_i$ (für $i \in \lbrace i , \cdots , n \rbrace$) darstellen:
+\begin{gather*}
+(m_1, \cdots ,m_n) = \sum_{i = 1}^n \psi_{M_i}(m_i)
+\end{gather*}
+Damit erfüllt $\psi$ die universelle Eigenschaft von $\colimes \mathcal{B}$, denn sei $\functionfront{\psi'}{\mathcal{B}}{M'}$ ein bieliebiger Morphismus, so existiert genau ein R-Modulhomomorphismus:
 \begin{center}
+$\function{\varphi}{\bigoplus_{i \in \Lambda} M_i }{M'}{(m_1, \cdots , m_n)}{\sum_{i = 1}^n \psi'_{M_i}(m_i)}$
 \begin{tikzcd}
-  & \mathcal{B} \arrow[rd, "\psi_i"] \arrow[ld, "\psi_i"'] &                                            \\
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
 M' &                                              & \bigoplus_i M_i \arrow[ll, "\exists ! \varphi"', dashed]
 \end{tikzcd}\\
 \end{center}
-Für ein beliebiges $i$ existiert genau ein $\function{\varphi_i}{M_i \oplus 0}{M'}{(0,...,0,m_i,0,...,0}{\psi_i '(m_i)}$
- mit $\psi_i ' = \psi_i \circ \varphi_i$\\
+\comment{
+Für ein beliebiges $i$ existiert genau ein $\function{\varphi_i}{M_i \oplus 0}{M'}{(0,...,0,m_i,0,...,0}{\psi_i '(m_i)}$ mit $\psi_i ' = \psi_i \circ \varphi_i$\\
 $\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\sum_i \psi_i(m_i)}$\\
+}
+Also ist $\oplus_{i \in \Lambda} M_i$ zusammen mit den Einbettungen $\infunctionfront{\psi_{M_i}}{M_i}{\bigoplus_{i \in \Lambda} M_i}$ das bis auf eine eindeutige Isomorphie eindeutig bestimmte Koprodukt von $\lbrace M_i \rbrace_{i \in \Lambda}$.
 \ \\
 \textit{\textbf{2.}} ist Analog zu \cref{R-Algebra-Kolimiten}
-\end{itemize}
+\ \\
+Damit haben wir gezeigt, dass Koprodukte beliebiger Mengen von R-Moduln und Differenzkokerne von je zwei R-Modulhomomorphismen existieren. Nach \cref{Kolimes durch Koprodukt und Differenzkokern} existieren somit in der Kategorie der R-Moduln Kolimiten beliebiger Diagramme.
 \end{proof}
-Die in \cref{R-Modul-Kolimiten} gezeigten Darstellungen gelten mit kurzen Überlegungen auch für S-Module, wobei S eine R-Algebra ist.\\
+
 
 \section{Darstellung von Lokalisierung als Kolimes}
 \ \\
@@ -426,8 +476,7 @@ Für $\varphi \circ \phi \defshow id_{\lok{S}{U}}$ wähle beliebige $s \in S , t
   \psi'(\loke{s}{t}{t})
 \end{gather*}
 Damit haben wir gezeigt, dass $\varphi,\phi$ Isomorphismen sind und somit $A \simeq \lok{S}{U}$ gilt.\\
-Da der Kolimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}$ als den eindeutigen Kolimes von $\mathcal{B}$.
- \end{proof}
+Da der Kolimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}$ als den eindeutigen Kolimes von $\mathcal{B}$.\end{proof}
 
 
 \ \\
