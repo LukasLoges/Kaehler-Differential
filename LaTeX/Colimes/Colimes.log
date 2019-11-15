@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  14 NOV 2019 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  15 NOV 2019 17:43
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -578,255 +578,146 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-ABD: EveryShipout initializing macros
+ABD: EveryShipout initializing macros [1
+
+{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Kapitel 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 77.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+LaTeX Font Info:    Try loading font information for U+msb on input line 77.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
-
-Overfull \hbox (23.29346pt too wide) in paragraph at lines 66--68
-[]$\OT1/cmr/m/it/10 , wo-bei f[]ur al-le $\OML/cmm/m/it/10 B[]; B[] \OMS/cmsy/m
-/n/10 2 B$ \OT1/cmr/m/it/10 und $\OML/cmm/m/it/10 ' \OMS/cmsy/m/n/10 2 \OML/cmm
-/m/it/10 Hom\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B[]; B[]\OT1/cmr/m/n/10 )$
- []
-
-[1
-
-
-{C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Overfull \hbox (17.27147pt too wide) in paragraph at lines 136--137
-\OT1/cmr/m/it/10 wo-bei $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 B[]\OMS/cmsy/m/n/10
- g[]$ \OT1/cmr/m/it/10 die Ob-jek-te und die Iden-tit[]atsabbildungen $\OMS/cms
-y/m/n/10 f[]g[]$
- []
-
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
-[3]
-Overfull \hbox (34.43112pt too wide) in paragraph at lines 195--196
- [] 
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
-
- []
-
-
-Overfull \hbox (14.14809pt too wide) detected at line 263
-[]
- []
-
-
-Overfull \hbox (47.0323pt too wide) detected at line 269
-[]
- []
-
-[5] [6]
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 343--346
-\OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
--de zwei R-Algebra-Homomorphismen: 
- []
-
-
-Overfull \hbox (2.64807pt too wide) in paragraph at lines 350--351
- [] 
- []
-
-
-Overfull \hbox (14.63pt too wide) in paragraph at lines 360--361
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--366
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 377--381
-
- []
-
-
-Overfull \hbox (30.77968pt too wide) detected at line 399
-[]
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 416--421
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 432--435
-
- []
-
-
-Overfull \hbox (18.02611pt too wide) in paragraph at lines 449--460
-\OT1/cmr/m/n/10 F[]ur die Um-kehr-ab-bil-dung $[]$ ben[]otigen wir klei-ne-re V
-or[]uberlegungen: 
- []
-
-
-Overfull \hbox (37.78824pt too wide) detected at line 462
-[]
- []
-
-[9]
-Overfull \hbox (7.72906pt too wide) in paragraph at lines 462--464
-\OT1/cmr/m/n/10 abh[]angig von der Wahl von ei-nes Re-pr[]asentanten ist. Sei-e
-n da-zu $\OML/cmm/m/it/10 s[]; s[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 S;  t[];
- t[] \OMS/cmsy/m/n/10 2
- []
-
-
-Overfull \hbox (8.49823pt too wide) in paragraph at lines 469--471
-\OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
-[]$
- []
-
-[10]
-Overfull \hbox (22.10945pt too wide) in paragraph at lines 523--534
-\OT1/cmr/m/n/10 F[]ur die Um-kehr-ab-bil-dung $[]$ ben[]otigen wir klei-ne-re V
-or[]uberlegungen: 
- []
-
-
-Overfull \hbox (15.78548pt too wide) detected at line 536
-[]
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
-
- []
-
-
-Overfull \hbox (6.95387pt too wide) in paragraph at lines 574--576
+Overfull \hbox (6.95387pt too wide) in paragraph at lines 83--85
 []\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S[]; S[]$ \OT1/cmr/m/it/10 R-Algebre
 n und $[]$ R-Algebra-Homomorphismen.
  []
 
 
-Overfull \hbox (15.95953pt too wide) detected at line 583
+Overfull \hbox (15.95953pt too wide) detected at line 92
+[]
+ []
+
+[2
+
+]
+Overfull \hbox (11.24179pt too wide) detected at line 136
 []
  []
 
 
-Overfull \hbox (5.4938pt too wide) in paragraph at lines 587--590
-\OT1/cmr/m/n/10 Definiere das Dif-fe-ren-zi-al $[]$
- []
-
-[12]
-
-LaTeX Warning: Reference `Konormale Sequenz' on page 1 undefined on input line 
-611.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 608--612
+Underfull \hbox (badness 10000) in paragraph at lines 136--141
 
  []
 
-[13]
-Overfull \hbox (24.22496pt too wide) in paragraph at lines 659--661
-\OT1/cmr/m/n/10 Zuletzt wen-de den so-eben ge-zeig-ten kor-ro-lar 14 an und nut
--ze schlie-lich $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; :::;
- x[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
+[3]
+
+LaTeX Warning: Reference `Darstellung der Polynomalgebra als Tensorprodukt' on 
+page 1 undefined on input line 193.
+
+
+Overfull \hbox (19.22495pt too wide) in paragraph at lines 219--221
+\OT1/cmr/m/n/10 Zuletzt wen-de den so-eben ge-zeig-ten kor-ro-lar 2 an und nut-
+ze schlie-lich $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; :::; 
+x[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
  []
 
-[14]
-Overfull \hbox (105.92044pt too wide) in paragraph at lines 699--700
+[4]
+
+LaTeX Warning: Reference `Lokalisierung von Algebren als Kolimes' on page 1 und
+efined on input line 240.
+
+
+Overfull \hbox (105.92044pt too wide) in paragraph at lines 259--260
  [] 
  []
 
 
-Overfull \hbox (65.66058pt too wide) detected at line 704
+Overfull \hbox (65.66058pt too wide) detected at line 264
 []
  []
 
 
-Overfull \hbox (3.98581pt too wide) detected at line 711
+Overfull \hbox (3.98581pt too wide) detected at line 271
+[]
+ []
+
+[5]
+Overfull \hbox (5.70627pt too wide) detected at line 277
 []
  []
 
 
-Overfull \hbox (5.70627pt too wide) detected at line 717
+LaTeX Warning: Reference `Lokalisierung von Algebren als Kolimes' on page 1 und
+efined on input line 280.
+
+
+Overfull \hbox (30.17001pt too wide) detected at line 287
 []
  []
 
-
-Overfull \hbox (30.17001pt too wide) detected at line 727
-[]
- []
-
-[15]
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 734.
+ined on input line 294.
 
 
-Overfull \hbox (13.29659pt too wide) in paragraph at lines 733--735
+Overfull \hbox (13.29659pt too wide) in paragraph at lines 293--295
 \OT1/cmr/m/n/10 Als letz-ten Schritt wol-len wir [] an-wen-den. Nut-ze da-zu $[
 ]$
  []
 
 
-Overfull \hbox (115.74835pt too wide) in paragraph at lines 745--746
+Overfull \hbox (115.74835pt too wide) in paragraph at lines 305--306
  [] 
  []
 
-[16]
+[6]
+
+LaTeX Warning: Reference `Vereinfachung des Kolimes' on page 1 undefined on inp
+ut line 323.
+
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 764.
+ined on input line 324.
 
-[17] (Colimes.aux)
+[7] [8] (Colimes.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17297 strings out of 492895
- 359920 string characters out of 3133483
- 405342 words of memory out of 3000000
- 20902 multiletter control sequences out of 15000+200000
+ 16508 strings out of 492895
+ 340105 string characters out of 3133483
+ 404342 words of memory out of 3000000
+ 20116 multiletter control sequences out of 15000+200000
  9187 words of font info for 34 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,16n,84p,537b,1138s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,16n,84p,471b,1132s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on Colimes.pdf (17 pages, 289565 bytes).
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmti7.pfb>
+Output written on Colimes.pdf (8 pages, 212127 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 92 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

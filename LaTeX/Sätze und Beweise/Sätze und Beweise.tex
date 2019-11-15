@@ -58,7 +58,7 @@
 \begin{document}
 \chapter{Einführung des Kähler-Differentials}
 
-\textcolor{blue}{Definition Leibnizregel}
+\textcolor{blue}{\textbf{Definition Leibnizregel}}
 \begin{definition}\label{Definition Leibnizregel} \textit{[Kapitel 16 \ModulsOfDifferenzials]}\\
 Sei S ein Ring und M ein S-Modul
 \begin{itemize}
@@ -94,7 +94,8 @@ Nutze hierfür allein die Leibnizregel \textit{(cref{Definition Leibnizregel})}
 
 
 \ \\
-\begin{definition}
+\textcolor{blue}{\textbf{Definition Kaehler-Differenzial}}
+\begin{definition}\label{Definition Kaehler-Differenzial} \textit{Kapitel 16 \ModulsOfDifferenzials}\\
 Sei $S$ eine $R$-Algebra.\\
 Das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Ableitung $\functionfront{\divf{S}}{S}{\divR{S}{R}}$ mit $\immage{\divf{S}} = \divR{S}{R}$ sind durch die folgende universelle Eigenschaft definiert:
 
@@ -110,7 +111,7 @@ S \arrow[r, "\divf{S}"] \arrow[rd, "e"'] & \divR{S}{R} \arrow[d, "\exists ! e'",
 
 \ \\
 \textcolor{blue}{\textbf{Eindeutigkeit des Kaehler-Differentials}}
-\begin{lemma}\label{Eindeutigkeit des Kaehler-Differentials}(Das Kähler-Differentials ist eindeutig)\\
+\begin{lemma}\label{Eindeutigkeit des Kaehler-Differentials}(Das Kähler-Differentials ist eindeutig) \textit{[Eigene Überlegung]}\\
 Sei S eine $R$-Algebra.\\
 Dann ist das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Ableitung $\divf{S}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
 \end{lemma}
@@ -136,8 +137,8 @@ Analog erhalte auch $id_{\divR{S}{R}'} = \varphi \circ \varphi'$. Damit existier
 
 
 \ \\
-\textcolor{blue}{\textbf{Differenzial ist Ableitung} \textit{[Eigene Überlegung]}}
-\begin{prop}\label{Differenzial ist Ableitung}
+\textcolor{blue}{\textbf{Differenzial ist Ableitung}}
+\begin{prop}\label{Differenzial ist Ableitung}\textit{[Eigene Überlegung]}\\
 Sei $R$ ein Körper, somit entspricht die universellen Ableitung des Polynomrings $R[x]$ der analytischen Ableitung von Polynomfunktionen:
 \begin{gather*}
 \function{\divf{R[x]}}{R[x]}{\divR{R[x]}{k}}{P(x)}{P'(x)\divf{R[x]}(x)}
@@ -234,7 +235,7 @@ Dann gilt:
 \end{gather*}
 \end{prop}
 \begin{proof}
-Sei für $i \in \lbrace 1, \dots ,n \rbrace$ jeweils $e_i \in S$ die Einbettung es Einselement's von $S_i$ in $S$, somit ist $\functionfront{p_i}{e_iS}{S_i}$ ein Isomorphismus.\\
+Sei für $i \in \lbrace 1, \dots ,n \rbrace$ jeweils $e_i \in S$ die Einbettung des Einselement's von $S_i$ in $S$, somit ist $\functionfront{p_i}{e_iS}{S_i}$ ein Isomorphismus.\\
 Nutze weiter, dass $e_i$ jeweils ein indempotentes Element von $({e_i}^2 = e_i)$ von $S$ ist:
 \begin{gather*}
 \text{Nach \cref{Differenzial indempotenter Elemente} gilt } \divf{S}(e_i) = 0 \\
