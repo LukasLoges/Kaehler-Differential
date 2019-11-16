@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  16 NOV 2019 18:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  16 NOV 2019 16:50
 entering extended mode
-**"./Sätze und Beweise.tex"
-("Sätze und Beweise.tex"
+**"./Final countdown.tex"
+("Final countdown.tex"
 LaTeX2e <2018-12-01>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\report.cls"
 Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
@@ -503,8 +503,8 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
 )
 \c@Aussage=\count127
 
-("Sätze und Beweise.aux")
-\openout1 = `"Sätze und Beweise.aux"'.
+("Final countdown.aux")
+\openout1 = `"Final countdown.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
@@ -581,461 +581,113 @@ G,.JBIG2,.JB2,.eps]
 )
 ABD: EveryShipout initializing macros
 Kapitel 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+LaTeX Font Info:    Try loading font information for U+msa on input line 62.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+LaTeX Font Info:    Try loading font information for U+msb on input line 62.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (3.45018pt too wide) in paragraph at lines 65--66
-[]\OT1/cmr/m/it/10 Ein Ho-mo-mo-prphis-mus abel-scher Grup-pen $[]$ ist ei-ne $
-[]$,
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+
  []
 
 
-Overfull \hbox (11.5619pt too wide) in paragraph at lines 69--70
-[]\OT1/cmr/m/it/10 Sei S ei-ne R-Algebra, dann nen-nen wir ei-ne $[]$ $[]$ $[]$
-,
- []
+LaTeX Warning: Reference `Differenzial des Kolimes von R-Algebren' on page 1 un
+defined on input line 80.
+
+
+LaTeX Warning: Reference `Differenzial von Polynomalgebren 1' on page 1 undefin
+ed on input line 85.
 
 [1
 
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (10.6593pt too wide) in paragraph at lines 137--140
-[]\OT1/cmr/m/n/10 Seien $[]\OML/cmm/m/it/10 und[]$ \OT1/cmr/m/n/10 bei-de ei-ne
- uni-ver-sel-le $\OML/cmm/m/it/10 R$\OT1/cmr/m/n/10 -lineare
+
+LaTeX Warning: Reference `R-Algebra-Kolimiten' on page 1 undefined on input lin
+e 97.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--126
+
+ []
+
+
+Overfull \hbox (80.92041pt too wide) in paragraph at lines 139--140
+ [] 
  []
 
 [2]
-Overfull \hbox (3.13689pt too wide) in paragraph at lines 172--174
-[]$\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ax[]\OT1/cmr/m/n/10 ) 
-= \OML/cmm/m/it/10 ax[]d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) 
-+ \OML/cmm/m/it/10 xd[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ax[]\OT1/cmr/m/n/10 ) 
-= \OML/cmm/m/it/10 ax[]d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) 
-+ \OML/cmm/m/it/10 x \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 nax[]
-d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ))$ 
+Overfull \hbox (40.66055pt too wide) detected at line 144
+[]
  []
 
 
-Overfull \hbox (20.93974pt too wide) in paragraph at lines 181--183
-\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10
- S[]$ \OT1/cmr/m/it/10 zwei $\OML/cmm/m/it/10 R$\OT1/cmr/m/it/10 -Algebren. Sei
- wei-ter $[]$ ein $\OML/cmm/m/it/10 R$\OT1/cmr/m/it/10 -Algebrenhomomorphismus
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
-
+Overfull \hbox (30.17001pt too wide) detected at line 168
+[]
  []
 
 [3]
-Overfull \hbox (21.2913pt too wide) detected at line 198
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--221
-
- []
-
-[4]
-Overfull \hbox (73.74582pt too wide) detected at line 242
-[]
- []
-
-
-Overfull \hbox (14.86162pt too wide) in paragraph at lines 261--263
-\OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir einen Iso-mor-phis-mus $[]$
- []
-
-[5] [6]
-Overfull \hbox (9.59314pt too wide) detected at line 390
-[]
- []
-
-[7] [8]
-Kapitel 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 400.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 400.
-
-Overfull \hbox (23.29346pt too wide) in paragraph at lines 401--403
-[]$\OT1/cmr/m/it/10 , wo-bei f[]ur al-le $\OML/cmm/m/it/10 B[]; B[] \OMS/cmsy/m
-/n/10 2 B$ \OT1/cmr/m/it/10 und $\OML/cmm/m/it/10 ' \OMS/cmsy/m/n/10 2 \OML/cmm
-/m/it/10 Hom\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B[]; B[]\OT1/cmr/m/n/10 )$
- []
-
-[9
-
-] [10]
-Overfull \hbox (17.27147pt too wide) in paragraph at lines 471--472
-\OT1/cmr/m/it/10 wo-bei $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 B[]\OMS/cmsy/m/n/10
- g[]$ \OT1/cmr/m/it/10 die Ob-jek-te und die Iden-tit[]atsabbildungen $\OMS/cms
-y/m/n/10 f[]g[]$
- []
-
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 509.
-[11]
-Overfull \hbox (34.43112pt too wide) in paragraph at lines 530--531
- [] 
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 583--584
-
- []
-
-
-Overfull \hbox (14.14809pt too wide) detected at line 598
-[]
- []
-
-
-Overfull \hbox (47.0323pt too wide) detected at line 604
-[]
- []
-
-[13] [14]
-Overfull \hbox (49.22292pt too wide) in paragraph at lines 678--681
-\OT1/cmr/m/n/10 Somit lie-fern uns die uni-ver-sel-len Ei-gen-schaf-ten fol-gen
--de zwei R-Algebra-Homomorphismen: 
- []
-
-
-Overfull \hbox (2.64807pt too wide) in paragraph at lines 685--686
- [] 
- []
-
-
-Overfull \hbox (14.63pt too wide) in paragraph at lines 695--696
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--701
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 712--716
-
- []
-
-
-Overfull \hbox (30.77968pt too wide) detected at line 734
-[]
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 751--756
-
- []
-
-
-Overfull \hbox (18.02611pt too wide) in paragraph at lines 784--795
-\OT1/cmr/m/n/10 F[]ur die Um-kehr-ab-bil-dung $[]$ ben[]otigen wir klei-ne-re V
-or[]uberlegungen: 
- []
-
-
-Overfull \hbox (37.78824pt too wide) detected at line 797
-[]
- []
-
-[17]
-Overfull \hbox (7.72906pt too wide) in paragraph at lines 797--799
-\OT1/cmr/m/n/10 abh[]angig von der Wahl von ei-nes Re-pr[]asentanten ist. Sei-e
-n da-zu $\OML/cmm/m/it/10 s[]; s[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 S;  t[];
- t[] \OMS/cmsy/m/n/10 2
- []
-
-
-Overfull \hbox (8.49823pt too wide) in paragraph at lines 804--806
-\OT1/cmr/m/n/10 Mit die-sem Wis-sen k[]onnen wir den R-Algebra-Homomorphismus $
-[]$
- []
-
-[18]
-Overfull \hbox (22.10945pt too wide) in paragraph at lines 858--869
-\OT1/cmr/m/n/10 F[]ur die Um-kehr-ab-bil-dung $[]$ ben[]otigen wir klei-ne-re V
-or[]uberlegungen: 
- []
-
-
-Overfull \hbox (15.78548pt too wide) detected at line 871
-[]
- []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 901--902
-
- []
-
-
-Overfull \hbox (6.95387pt too wide) in paragraph at lines 910--912
-[]\OT1/cmr/m/it/10 Seien $\OML/cmm/m/it/10 S[]; S[]$ \OT1/cmr/m/it/10 R-Algebre
-n und $[]$ R-Algebra-Homomorphismen.
- []
-
-
-Overfull \hbox (15.95953pt too wide) detected at line 919
-[]
- []
-
-
-Overfull \hbox (5.4938pt too wide) in paragraph at lines 923--926
-\OT1/cmr/m/n/10 Definiere das Dif-fe-ren-zi-al $[]$
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 944--948
-
- []
-
-[21]
-Overfull \hbox (24.22496pt too wide) in paragraph at lines 995--997
-\OT1/cmr/m/n/10 Zuletzt wen-de den so-eben ge-zeig-ten kor-ro-lar 14 an und nut
--ze schlie-lich $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; :::;
- x[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
- []
-
-[22]
-Overfull \hbox (105.92044pt too wide) in paragraph at lines 1035--1036
- [] 
- []
-
-
-Overfull \hbox (65.66058pt too wide) detected at line 1040
-[]
- []
-
-
-Overfull \hbox (3.98581pt too wide) detected at line 1047
-[]
- []
-
-
-Overfull \hbox (5.70627pt too wide) detected at line 1053
-[]
- []
-
-
-Overfull \hbox (30.17001pt too wide) detected at line 1063
-[]
- []
-
-[23]
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 1070.
+ined on input line 175.
 
 
-Overfull \hbox (13.29659pt too wide) in paragraph at lines 1069--1071
+Overfull \hbox (13.29659pt too wide) in paragraph at lines 174--176
 \OT1/cmr/m/n/10 Als letz-ten Schritt wol-len wir [] an-wen-den. Nut-ze da-zu $[
 ]$
  []
 
 
-Overfull \hbox (115.74835pt too wide) in paragraph at lines 1081--1082
+Overfull \hbox (115.74835pt too wide) in paragraph at lines 186--187
  [] 
  []
 
-[24]
+
+LaTeX Warning: Reference `Vereinfachung des Kolimes' on page 1 undefined on inp
+ut line 204.
+
 
 LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 1100.
+ined on input line 205.
 
-[25]
-Kapitel 3.
-
-Overfull \hbox (45.21457pt too wide) in paragraph at lines 1113--1113
-[]\OT1/cmr/bx/n/14.4 Einf[]uhrung in tran-szen-den-te K[]orpererweiterungen 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1118
-
- []
-
-[26
-
-]
-
-LaTeX Warning: Reference `Definition Transzenddenzbasis' on page 1 undefined on
- input line 1154.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1150--1155
-
- []
-
-
-Overfull \hbox (37.52086pt too wide) in paragraph at lines 1150--1155
-\OT1/cmr/m/n/10 und $\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; [
-] x[]\OT1/cmr/m/n/10 ]$ iso-morph zu-ein-an-der sind. Au-er-dem ist die tri-vi
-a-le K[]orpererweiterung
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
-
- []
-
-[27]
-Overfull \hbox (32.27458pt too wide) in paragraph at lines 1169--1172
-\OT1/cmr/m/n/10 Wir k[]onnen oh-ne wei-te-re Ein-schr[]ankung an-neh-men, dass 
-$\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cm
-sy/m/n/10 2 \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 f\OML/cmm/m/it/
-10 b[]; [] ; b[]\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 ][\OML/cmm/m/it/10 x\OT1/cmr/
-m/n/10 ]$
- []
-
-
-Overfull \hbox (8.65237pt too wide) detected at line 1175
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1178--1181
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1231--1236
-
- []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1248--1254
-
- []
-
-
-Overfull \hbox (9.41628pt too wide) in paragraph at lines 1275--1275
-[]\OT1/cmr/bx/n/14.4 K[]ahler-Differenzial von K[]orpererweiterungen 
- []
-
-[30]
-Overfull \hbox (67.40858pt too wide) detected at line 1319
-[]
- []
-
-[31]
-Overfull \hbox (2.0708pt too wide) in paragraph at lines 1355--1357
-[]\OT1/cmr/bx/n/10 Aufbaulemma Koer-per-dif-fe-ren-zi-al \OT1/cmr/m/it/10 [vlg.
- Lem-ma 16.15 Da-vid Ei-sen-bud 1994][] 
- []
-
-[32]
-
-LaTeX Warning: Reference `Differenzial ist Ableitung' on page 1 undefined on in
-put line 1384.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1410--1411
-
- []
-
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 1433--1439
-
- []
-
-
-Overfull \hbox (4.43042pt too wide) in paragraph at lines 1449--1451
-\OT1/cmr/m/n/10 Damit ist $[]$ auch $(\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10  \
-OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )$-linear und es gilt $
-[] \OMS/cmsy/m/n/10 ' \OT1/cmr/m/n/10 
-[]$. 
- []
-
-[34]
-Overfull \hbox (3.94469pt too wide) detected at line 1458
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1458--1463
-
- []
-
-[35]
-Kapitel 4.
-
-Overfull \hbox (3.35258pt too wide) in paragraph at lines 1495--1496
-\OT1/cmr/m/n/10 mor-phis-mus $[]$, so-wie die da-zu-geh[]orige Ko-nor-ma-le Se-
-quenz \OT1/cmr/m/it/10 (satz 11)\OT1/cmr/m/n/10 .
- []
-
-
-Overfull \hbox (61.2764pt too wide) in paragraph at lines 1501--1502
- [] 
- []
-
-[36
-
-] [37]
-Overfull \hbox (10.55742pt too wide) detected at line 1563
-[]
- []
-
-
-Overfull \hbox (9.78226pt too wide) detected at line 1577
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1580--1581
-
- []
-
-[38]
-Overfull \hbox (64.29906pt too wide) detected at line 1616
-[]
- []
-
-[39] ("Sätze und Beweise.aux")
+[4] [5] ("Final countdown.aux")
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 18183 strings out of 492895
- 383541 string characters out of 3133483
- 413868 words of memory out of 3000000
- 21788 multiletter control sequences out of 15000+200000
- 9905 words of font info for 36 fonts, out of 3000000 for 9000
+ 16354 strings out of 492895
+ 336457 string characters out of 3133483
+ 404342 words of memory out of 3000000
+ 19964 multiletter control sequences out of 15000+200000
+ 8223 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,16n,84p,575b,1137s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,16n,84p,481b,1049s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/symbols/msbm7.pfb>
-Output written on "Sätze und Beweise.pdf" (39 pages, 388529 bytes).
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmti7.pfb>
+Output written on "Final countdown.pdf" (5 pages, 188395 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

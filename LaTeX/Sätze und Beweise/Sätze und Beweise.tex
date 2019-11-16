@@ -62,11 +62,11 @@
 \begin{definition}\label{Definition Leibnizregel} \textit{[Kapitel 16 \ModulsOfDifferenzials]}\\
 Sei S ein Ring und M ein S-Modul
 \begin{itemize}
-\item[]Ein Homomoprphismus abelscher Gruppen $\functionfront{d}{S}{M}$ ist eine \underline{Ableitung}, falls gilt:
+\item[]Ein Homomoprphismus abelscher Gruppen $\functionfront{d}{S}{M}$ ist eine \underline{Derivation}, falls gilt:
 \begin{gather*}
 \forall s_1,s_2 \in S :\, d(s_1 \cdot s_2) = s_1d(s_2) + s_2d(s_1) \textbf{ (Leibnitzregel)}
 \end{gather*}
-\item[]Sei S eine R-Algebra, dann nennen wir eine \underline{Ableitung} $\functionfront{d}{S}{M}$ \underline{$R$-linear}, falls sie zusätzlich ein R-Modulhomomorphismus ist, also falls gilt:
+\item[]Sei S eine R-Algebra, dann nennen wir eine \underline{Derivation} $\functionfront{d}{S}{M}$ \underline{$R$-linear}, falls sie zusätzlich ein R-Modulhomomorphismus ist, also falls gilt:
 \begin{gather*}
 \forall r_1,r_2 \in R \, \forall s_1,s_2 \in S : \, d(r_1 s_1 + r_2 s_2) = r_1 d(s_1) + r_2 d(s_2)
 \end{gather*}
@@ -75,9 +75,28 @@ Sei S ein Ring und M ein S-Modul
 
 
 \ \\
+\textcolor{blue}{\textbf{Summe von Derivationen}}
+\begin{lemma}\label{Summe von Derivationen} \textit{[Eigene Überlegung]} \\
+Seien $S$ eine $R$-Algebra und $M$ ein $S$-Modul. Seien weiter $\functionfront{d,d'}{S}{M}$ zwei Derivationen. 
+Dann ist auch $\functionfront{d,d'}{S}{M}$ eine Derivation.
+\end{lemma}
+\begin{proof}
+Zeige also, dass $d+d'$ die Leibnizregel erfüllt \textit{(siehe \cref{Definition Leibnizregel})}. Seien dazu $s_1,s_2 \in S$ beliebig, somit gilt:
+\begin{gather*}
+(d+d')(s_1s_2) 
+= d(s_1s_2) + d'(s_1s_2) \\
+= s_1d(s_2) + s_2d(s_1) + s_1d'(s_2) + s_2d'(s_1) \\
+= s_1 \left( d(s_2) + d'(s_2) \right) + s_2 \left( d(s_1) + d'(s_1) \right) \\
+= s_1(d+d')(s_2) + s_2(d+d')(s_1)
+\end{gather*}
+Damit erfüllt $\functionfront{d+d'}{S}{M}$ die Leibnizregel und ist eine Derivation.
+\end{proof}
+
+
+\ \\
 \textcolor{blue}{\textbf{Differenzial indempotenter Elemente}}
 \begin{lemma}\label{Differenzial indempotenter Elemente} \textit{[Aufgabe 16.1 \ModulsOfDifferenzials]} \\
-Sei S ein Ring, $M$ ein $S$-Modul und $\functionfront{d}{S}{M}$ eine Ableitung. Sei weiter $a \in S$ ein indempotentes Element ($a^2 = a$).
+Sei S ein Ring und $M$ ein $S$-Modul und $\functionfront{d}{S}{M}$ eine Derivation. Sei weiter $a \in S$ ein indempotentes Element ($a^2 = a$).
 \begin{center}
 Dann gilt $d(a) = 0$. 
 \end{center}
@@ -97,10 +116,9 @@ Nutze hierfür allein die Leibnizregel \textit{(cref{Definition Leibnizregel})}
 \textcolor{blue}{\textbf{Definition Kaehler-Differenzial}}
 \begin{definition}\label{Definition Kaehler-Differenzial} \textit{Kapitel 16 \ModulsOfDifferenzials}\\
 Sei $S$ eine $R$-Algebra.\\
-Das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Ableitung $\functionfront{\divf{S}}{S}{\divR{S}{R}}$ mit $\immage{\divf{S}} = \divR{S}{R}$ sind durch die folgende universelle Eigenschaft definiert:
-
+Das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Derivation $\functionfront{\divf{S}}{S}{\divR{S}{R}}$ mit $\immage{\divf{S}} = \divR{S}{R}$ sind durch die folgende universelle Eigenschaft definiert:
 \begin{center}
-Für alle R-linearen Ableitungen $\functionfront{e}{S}{M}$ von S in ein $S$-Modul $M$ existiert genau ein $S$-Modulhomomorphismus $\functionfront{e'}{\divR{S}{R}}{M}$, sodass folgendes Diagramm kommutiert:\\
+Für alle R-linearen Derivationen $\functionfront{e}{S}{M}$ von S in ein $S$-Modul $M$ existiert genau ein $S$-Modulhomomorphismus $\functionfront{e'}{\divR{S}{R}}{M}$, sodass folgendes Diagramm kommutiert:\\
 \begin{tikzcd}
 S \arrow[r, "\divf{S}"] \arrow[rd, "e"'] & \divR{S}{R} \arrow[d, "\exists ! e'", dashed] \\
                                   & M                                  
@@ -113,10 +131,10 @@ S \arrow[r, "\divf{S}"] \arrow[rd, "e"'] & \divR{S}{R} \arrow[d, "\exists ! e'",
 \textcolor{blue}{\textbf{Eindeutigkeit des Kaehler-Differentials}}
 \begin{lemma}\label{Eindeutigkeit des Kaehler-Differentials}(Das Kähler-Differentials ist eindeutig) \textit{[Eigene Überlegung]}\\
 Sei S eine $R$-Algebra.\\
-Dann ist das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Ableitung $\divf{S}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
+Dann ist das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Derivation $\divf{S}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
 \end{lemma}
 \begin{proof}
-Seien $\functionfront{\divf{S}}{S}{\divR{S}{R}} und \functionfront{\divf{S}'}{S}{\divR{S}{R}'}$ beide eine universelle $R$-lineare Ableitung.\\
+Seien $\functionfront{\divf{S}}{S}{\divR{S}{R}} und \functionfront{\divf{S}'}{S}{\divR{S}{R}'}$ beide eine universelle $R$-lineare Derivation.\\
 Durch die universelle Eigenschaft der universellen Ableitung erhalten wir eindeutig bestimmte Funktionen
 $\functionfront{\varphi}{\divR{S}{R}}{\divR{S}{R}'}$ und $\functionfront{\varphi'}{\divR{S}{R}'}{\divR{S}{R}}$, für welche die folgenden Diagramme kommutieren:
 \begin{center}
@@ -138,12 +156,12 @@ Analog erhalte auch $id_{\divR{S}{R}'} = \varphi \circ \varphi'$. Damit existier
 
 \ \\
 \textcolor{blue}{\textbf{Differenzial ist Ableitung}}
-\begin{prop}\label{Differenzial ist Ableitung}\textit{[Eigene Überlegung]}\\
-Sei $R$ ein Körper, somit entspricht die universellen Ableitung des Polynomrings $R[x]$ der analytischen Ableitung von Polynomfunktionen:
+\begin{korrolar}\label{Derivation ist Ableitung}\textit{[Eigene Überlegung]}\\
+Sei $R$ ein Körper, somit entspricht die universellen Derivation des Polynomrings $R[x]$ der analytischen Ableitung von Polynomfunktionen. Für $P(x) \in R[x]$ gilt also:
 \begin{gather*}
-\function{\divf{R[x]}}{R[x]}{\divR{R[x]}{k}}{P(x)}{P'(x)\divf{R[x]}(x)}
+\divf{R[x]}(P(x)) = P'(x)\divf{R[x]}(x)
 \end{gather*}
-\end{prop}
+\end{korrolar}
 \begin{proof}
 Da $\divf{R[x]}$ $R$-linear ist, genügt es die Behauptung für Monome $P(x) \in k[x]$ zu zeigen, führe dazu eine Induktion über den Grad $n$ von $P(x) = ax^n$:
 \begin{spacing}{1.5}
@@ -201,17 +219,17 @@ S \oplus (\Tensor{S}{R}{S}) \longrightarrow \Tensor{S}{R}{S} ,(s,\tensor{s_1}{R}
 \end{gather*}
 Betrachte $\function{\mu}{\Tensor{S}{R}{S}}{S}{\tensor{s_1}{R}{s_2}}{s_1 \cdot s_2}$ mit $I \defeq \kernel{\mu}$.\\
 \begin{center}
-Dann ist durch $\function{e}{S}{I/I^2}{s}{[\tensor{s}{R}{1} - \tensor{1}{R}{s}]}$ die universelle $R$-lineare Ableitung auf $S$ definiert.
+Dann ist durch $\function{e}{S}{I/I^2}{s}{[\tensor{s}{R}{1} - \tensor{1}{R}{s}]}$ die universelle $R$-lineare Derivation auf $S$ definiert.
 \end{center}
 \end{theorem}
 \begin{proof}
-Zeige zunächst, dass $e$ eine $R$-linare Ableitung ist. Betrachte dazu:
+Zeige zunächst, dass $e$ eine $R$-linare Derivation ist. Betrachte dazu:
 \begin{gather*}
 \function{f_1}{S}{\Tensor{S}{R}{S}}{s}{\tensor{s}{R}{1}} , \function{f_2}{S}{\Tensor{S}{R}{S}}{s}{\tensor{1}{R}{s}} \\
 \textit{Damit ist die Wirkung von $S$ auf $\Tensor{S}{R}{S}$ durch }\\ S \oplus (\Tensor{S}{R}{S}) \longrightarrow \Tensor{S}{R}{S} ,(s,\tensor{s_1}{R}{s_2}) \longmapsto f_1(s)(\tensor{s_1}{R}{s_2}) \textit{ gegeben.}
 \end{gather*}
 Setze nun in der Notation von \cref{Propositon 11 delta} $f = f_1$ und $\delta = e$.\\
-Damit ist $f + \delta = f_1 + \delta = f_2$ ein $R$-Algebrenhomomorphismus und es folgt aus \cref{Propositon 11 delta} und unserer Definition der Wirkung von $S$ auf $\Tensor{S}{R}{S}$, dass $e$ eine $R$-lineare Ableitung ist. Durch die Universelle Eigenschaft von $\divf{S}$ existiert also genau ein $R$-Algebrenhomomorphismus $\functionfront{e'}{\divR{S}{R}}{I/I^2}$ mit $e = \divf{S} \circ e'$.\\
+Damit ist $f + \delta = f_1 + \delta = f_2$ ein $R$-Algebra-Homomorphismus und es folgt aus \cref{Propositon 11 delta} und unserer Definition der Wirkung von $S$ auf $\Tensor{S}{R}{S}$, dass $e$ eine $R$-lineare Derivation ist. Durch die Universelle Eigenschaft von $\divf{S}$ existiert also genau ein $R$-Algebrenhomomorphismus $\functionfront{e'}{\divR{S}{R}}{I/I^2}$ mit $e = \divf{S} \circ e'$.\\
 Betrachte nun folgende Umkehrabbildung $\phi$ zu $e'$:
 \begin{gather*}
 \function{\phi}{I/I^2}{\divR{S}{R}}{[\tensor{s_1}{R}{s_2}]}{s_1\divf{S}(s_2)}
@@ -286,7 +304,7 @@ Dies zeigt, dass $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_
 \end{itemize}
 Zeige nun, dass $\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle$ gilt:
 \begin{itemize}
-\item[] Definiere zunächst folgende $S$-lineare Ableitung:
+\item[] Definiere zunächst folgende $S$-lineare Derivation:
 \begin{gather*}
 \function{e}{T}{\divR{T}{R} / T \langle (\divf{T_R} \circ \beta)(S) \rangle }{t}{[\divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}}
 \end{gather*}
@@ -748,7 +766,7 @@ Dann gilt:
  S[U^{-1}] = \colimes \mathcal{B}
 \end{gather*}
 Wobei $\mathcal{B}$ aus den Objekten $\lbrace \lok{S}{t} \vert t \in U \rbrace$ und den Morphismen\\
-$\lok{S}{t} \longrightarrow \lok{S}{tt'}, \loke{s}{t^n}{t} \longmapsto \loke{st'^n}{(tt')^n}{(tt')}$ (für $t,t' \in U$) besteht.\\
+$\lok{S}{t} \longrightarrow \lok{S}{tt'}, \loke{s}{t^n}{t} \longmapsto \loke{st'^n}{(tt')^n}{(tt')}$ (für $t,t' \in U$) besteht.
 \end{prop}
 \begin{proof}
 Sei $\functionfront{\psi}{\mathcal{B}}{T}$ der Kolimes von $\mathcal{B}$. Zeige $\lok{S}{U} \simeq T$, definiere dazu:

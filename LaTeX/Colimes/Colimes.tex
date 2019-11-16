@@ -56,6 +56,18 @@
 
 
 \begin{document}
+\begin{definition}\label{Definition Leibnizregel}
+Definition Leibnizregel
+\end{definition}
+
+\begin{lemma}\label{Summe von Derivationen}
+Summe von Derivationen
+\end{lemma}
+
+\begin{bem}\label{Derivation ist Ableitung}
+Derivation ist Ableitung
+\end{bem}
+
 \begin{bem}\label{Unendliche Indexmengen}
 Unendliche Indexmengen
 \end{bem}
@@ -68,40 +80,32 @@ R-Algebra-Kolimiten
 Konormale Sequenz
 \end{satz}
 
+\begin{bem}\label{NeuDifferenzenkokerndef}
+NeuDifferenzenkokerndef
+\end{bem}
+
 \chapter{Kolimes}
 \section{Kähler-Differenzial von Kolimiten}
-\textcolor{blue}{\textbf{Differenzial des Kolimes von R-Algebren}}
-\begin{prop} \label{Differenzial des Kolimes von R-Algebren} \textit{[vlg. Korolar 16.7 \ModulsOfDifferenzials]}\\
-\begin{itemize}
-\item[\textbf{1.}]
-Seien $\lbrace S_i \rbrace_{i \in \Lambda}$ R-Algebren und $T = \bigotimes_{i \in \Lambda} S_i$ deren.\\
+\textcolor{blue}{\textbf{Differenzial des Koproduktes}}
+\begin{prop} \label{Differenzial des Koproduktes} \textit{[vlg. Korolar 16.5 \ModulsOfDifferenzials]}\\
+Seien $\lbrace S_i \rbrace_{i \in \Lambda}$ R-Algebren und $T = \bigotimes_{i \in \Lambda} S_i$ deren Koprodukt.\\
 Dann gilt:
 \begin{gather*}
-\divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )
+\divR{T}{R} = \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )\\
+\text{mit: }\function{\divf{T}}{R}{\divR{T}{R}}{\left(\otimes_{i = 1}^n s_i\right)}{\left(\tensor{\left(\otimes_{i = 2}^n s_i\right)}{S_1}{\divf{S_1}(s_1)},\dots,\tensor{\otimes_{i = 1}^{n - 1}\left( s_i \right)}{S_n}{\divf{S_n}}(s_n)\right)}
 \end{gather*}
-\item[\textbf{2.}]
-Seien $S_1,S_2$ R-Algebren und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzkokern von $\varphi$,$\varphi '$.
-Dann ist folgende Sequenz rechtsexakt:
-\begin{center}
-\begin{tikzcd}
-\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "f"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
-\end{tikzcd}
-\begin{gather*}
-\textit{mit: } \function{f}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{\divf{S_1}(x_1)}}{\tensor{t}{S_2}{\divf{S_2}(\varphi(x_1) - \varphi(x_2))}}\\
-\function{g}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{\divf{S_2}(x_2)}}{(\divf{T}\circ q)(x_2)}
-\end{gather*}
-\end{center}
-\end{itemize}
 \end{prop}
-\begin{proof}\ \\
-\underline{Zu \textit{\textbf{1.}}:}
-Zeige, dass $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$ gilt.\\
-Für $i \in \Lambda$ lässt sich  $T$ als $\Tensor{\left(\bigotimes_{j \in \Lambda \setminus \lbrace i \rbrace} S_i \right)}{R}{S_i}$ betrachten, nutze dies um folgende $R$-lineare Differentiale zu definieren:
+\begin{proof} Zeige, dass $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$ gilt.\\
+Für $i \in \Lambda$ lässt sich  $T$ als $\Tensor{\left(\bigotimes_{j \in \Lambda \setminus \lbrace i \rbrace} S_i \right)}{R}{S_i}$ betrachten, nutze dies um folgende $R$-lineare Derivationen zu definieren:
 \begin{gather*}
-\function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)}} \\
-\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{\sum_{i = 1}^n {\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)}}} 
+\comment{
+\function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{(0,\dots,0,\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)},0,\dots,0)} \\
+\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{\sum_{i = 1}^n e_i(\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i})}
+}
+\function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{(0,\dots,0,\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)},0,\dots,0)} \\
+\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{t}{\sum_{i = 1}^n e_i(t)}
 \end{gather*}
-Da $\divf{S_i}$ ein Differnetial ist, ist $e'$ und somit nach BEM\comment{\label{*Summe von Differentialen ist wieder Differential}} und \cref{Unendliche Indexmengen} auch $e$ ein Differential. Mithilfe der universellen Eigenschaft von $\divf{T}$ erhalten wir einen eindeutigen Homomorphismus $\varphi$ mit $\varphi \circ \divf{T} = e$:
+Da $\divf{S_i}$ eine Derivation ist, ist $e'$ und somit nach \cref{Summe von Derivationen} und \cref{Unendliche Indexmengen} auch $e$ eine Derivation. Mithilfe der universellen Eigenschaft von $\divf{T}$ erhalten wir einen eindeutigen Homomorphismus $\varphi$ mit $\varphi \circ \divf{T} = e$:
 \comment{
 \begin{center}
 \begin{tikzcd}
@@ -111,7 +115,7 @@ T \arrow[rd, "e"'] \arrow[r, "\divf{T}"] & \divR{T}{R} \arrow[d, "\exists ! \var
 \end{center}
 }
 \begin{gather*}
-\function{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda}(\Tensor{T}{S_i}{\divR{S_i}{R}})}{\divf{T}(s_1 \otimes \dots \otimes s_n)}{\sum_{i = 1}^n {\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)}}}\\
+\function{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda}(\Tensor{T}{S_i}{\divR{S_i}{R}})}{\divf{T}(s_1 \otimes \dots \otimes s_n)}{\sum_{i = 1}^n e_i(\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i})}\\
 \functionback{\varphi}{\divf{T}(1 \otimes s_i \otimes 1)}{(0,\tensor{1}{S_i}{d_{S_i}(s_i)},0)}
 \end{gather*}
 Suche nun eine Umkehrfunktion $\phi$ zu $\varphi$. Definiere dazu für $i \in \Lambda$ folgendes R-lineares Differential:
@@ -129,57 +133,22 @@ S_i \arrow[rd, "h_i"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exist
                                           & \divR{T}{R}                                                    &                     
 \end{tikzcd}
 \end{center}
-Somit ist die Summe $\phi \defeq \sum_{i \in \Lambda} \phi_i$ die Umkehrfunktion von $\varphi$:
+Zuletzt bilden wir die Summe $\phi \defeq \sum_{i \in \Lambda} \phi_i$ und erhalten damit eine Umkehrfunktion von $\varphi$:
 \begin{gather*}
 \function{\phi}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(\tensor{t_i}{S_1}{\divf{S_1}(s_1)},\dots,\tensor{t_n}{S_n}{\divf{S_n}(s_n)})}{\sum_{i = 1}^n t_i \cdot h_i(s_i)}\\
 \functionback{\phi}{(0,\tensor{1}{S_i}{d_{S_i}(s_i)},0)}{\divf{T}(1 \otimes s_i \otimes 1)}
 \end{gather*}
 Somit gilt $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$.\\
-Definiere also ab jetzt $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}$ als das Differential von $T$ über $R$.\\
-\ \\
-\underline{Zu \textit{\textbf{2.}:}} Betrachte die Conormale Sequenz \textit{(\cref{Konormale Sequenz})} des Differenzkokerns \textit{(\cref{R-Algebra-Kolimiten})} $\functionfront{q}{S_2}{S_2/Q}$:
-\begin{center}
-\begin{tikzcd}
-Q/Q^2 \arrow[r, "\tensor{1}{S_2}{\divf{S_2}}"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "Dq"] & \divR{T}{R} \arrow[r] & 0
-\end{tikzcd}
-\end{center}
-\comment{
-\end{center}
-Sei $\functionfront{\pi}{S}{T}$ ein R-Algebrenephimorphismus mit Kern($\pi$):= I \\
-Dann ist folgende Sequenz rechtsexakt: \\
-\begin{center}
-\begin{tikzcd}
-I/I^2 \arrow[r, "\tensor{1}{S}{\divf{S}}"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
-\end{tikzcd}
-\ \\
-\begin{spacing}{1.5}
-mit: $\function{\tensor{1}{S}{\divf{S}}}{I/I^2}{{\Tensor{T}{S}{\divR{S}{R}}}}{[s]}{\tensor{1}{S}{\divf{S}(s)}}$\\
-$\function{D\pi}{\Tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{t}{S}{\divf{S}(s)}}{t \cdot (\divf{S} \circ \pi)(s)}$
-\end{spacing}
-\end{center}
-}
-
-
-mit $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{\divf{S_2}(s_2)}}$.\\
-Somit gilt $\immage{f} = \Tensor{T}{S_2}{\divf{S_2}(Q)} = \immage{f'}$.\\
-$\Rightarrow$ die gesuchte Sequenz ist exakt.
+Definiere also ab jetzt $\bigoplus_{i\in \Lambda} (\Tensor{T}{S_i}{\divR{S_i}{R}})$ als des Differentialraum von $T$ über $R$. Damit gilt $\divf{T} = e$.\\
 \end{proof}
 
-
-\comment{
-Für \textit{\textbf{2.}} Wende \cref{Konormale Sequenz} auf den Differenzkokern $\functionfront{q}{S_2}{S_2/Q}$ \textit{(vlg. \cref{R-Algebra-Kolimiten})} an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
-\begin{center}
-\begin{tikzcd}
-Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
-\end{tikzcd}
-\end{center}
-mit $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{\divf{S_2}(s_2)}}$.\\
-Somit gilt $\immage{f} = \Tensor{T}{S_2}{\divf{S_2}(Q)} = \immage{f'}$.\\
-$\Rightarrow$ die gesuchte Sequenz ist exakt.
-\end{proof}
-}
-
-
+\begin{lemma}\label{Mehrdimmensionales Algebraisches Differentieren}
+Sei $R(\lbrace x_i \rbrace_{i \in \Lambda})$ ein Polynomring über R. Bezeichne mit $\delta_{x_i}$ die Abeitung in Richtung$ x_i$, wie wir sie aus der Analysis für Polynomfunktionen über $\mathbb{R}^n$ kennen:
+\begin{gather*}
+\function{\delta_{x_i}}{R(\lbrace x_i \rbrace_{i \in \Lambda})}{R(\lbrace x_i \rbrace_{i \in \Lambda})}{\sum_j \left( a_j x_i^{n_j}\prod_{k \neq i} x_k^{n_k}\right)}{\sum_{j,n_j > 1} \left( a_j n_jx_i^{n_j - 1}\prod_{k \neq i} x_k^{n_k}\right)}
+\end{gather*}
+Wenn wir nun $R(\lbrace x_i \rbrace_{i \in \Lambda})$ als Polynomring über $R(\lbrace x_i \rbrace_{i \in \Lambda \setminus\lbrace i \rbrace})$
+\end{lemma}
 \ \\
 \textcolor{blue}{\textbf{Differenzial von Polynomalgebren 1} \textit{[vlg. Proposition 16.1 \ModulsOfDifferenzials]}}
 \begin{korrolar}\label{Differenzial von Polynomalgebren 1}
@@ -190,7 +159,7 @@ Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
 Wobei $S\langle \divf{S}(x_i)\rangle$ das von $\divf{S}(x_i)$ erzeugt Modul über S ist.
 \end{korrolar}
 \begin{proof}
-Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, können wir $S$ als $\bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]$ schreiben. In \cref{Differenzial des Kolimes von R-Algebren} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
+Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, können wir $S$ als $\bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]$ schreiben. In \cref{Differenzial des Koproduktes} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
 \begin{gather*}
 \divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S}{R[x_i]}{\divR{R[x_i]}{R}})
 \end{gather*}
@@ -224,6 +193,153 @@ Zuletzt wende den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an 
 \simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{R}(x_i) \rangle
 \end{gather*}
 \end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differential des Differenzkokerns}}
+\begin{prop}\label{Differential des Differenzkokerns} \textit{[Korrolar 16.7 \ModulsOfDifferenzials]}\\
+Sein $S_1,S_2$ R-Algebren und $\functionfront{f,g}{S_1}{S_2}$ zwei R-Algebren-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ für $T \defeq S_2/Q$ der Differenzkokern von $f,g$ \textit{(siehe \cref{NeuDifferenzenkokerndef})}. Betrachte dazu folgende T-Modulhomomorphismen:
+\begin{gather*}
+\function{Df}{\Tensor{S_2}{S_1}{\divR{S_1}{R}}}{\divR{S_2}{R}}{\tensor{s_2}{S_1}{\divf{S_1}(s_1)}}{s_2 \cdot (\divf{S_1} \circ f)(s_1)} \\
+\function{Dg}{\Tensor{S_2}{S_1}{\divR{S_1}{R}}}{\divR{S_2}{R}}{\tensor{s_2}{S_1}{\divf{S_1}(s_1)}}{s_2 \cdot (\divf{S_1} \circ g)(s_1)}
+\end{gather*}
+Dann ist $\functionfront{Dq}{\Tensor{T}{R}{\divR{S_2}{R}}}{\divR{T}{R}}$ der Differenzkokern von $Df,Dg$.
+\end{prop}
+\begin{proof}
+Betrachte die Conormale Sequenz \textit{(\cref{Konormale Sequenz})} des Differenzkokerns \textit{(\cref{R-Algebra-Kolimiten})} $\functionfront{q}{S_2}{S_2/Q}$:
+\begin{center}
+\begin{tikzcd}
+Q/Q^2 \arrow[r, "\tensor{1}{S_2}{\divf{S_2}}"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "Dq"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Betrachte nun $DQ \defeq \immage{Df - Dg}$. Für dieses gilt:
+\begin{gather*}
+DQ = \immage{Df - Dg} = \Tensor{T}{S_2}{(\divf{S_2} \circ (f - g))(S_1)} = \Tensor{T}{S_2}{\divf{S_2}(Q)}
+\end{gather*}
+Somit ist auch folgende Sequenz exakt:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[rr, "Df - Dg"] & & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "Dq"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Somit gilt $\divR{T}{R} \simeq \tensor{T}{S_2}{\divR{S_2}{R}} / DQ$ und $\functionfront{Dq}{\Tensor{T}{R}{\divR{S_2}{R}}}{\divR{T}{R}}$ ist der Differenzkokern von $Df,Dg$.
+\end{proof}
+
+
+\ \\
+\ \\
+\begin{theorem}\label{Kolimes durch Koprodukt und Differenzkokern} \textit{[Proposition A6.1 \ModulsOfDifferenzials]}\\
+Sei $\mathcal{A}$ eine Kategorie, in der Koprodukte beliebiger Mengen von Objekten und Differenzkokerne von je zwei Morphismen existieren. Dann existiert für jedes Diagramm $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ dessen Kolimes $\colimes \mathcal{F}$.
+\end{theorem}
+\begin{proof}
+\comment{
+In \cref{Vereinfachung des Kolimes} haben wir gesehen, dass es genügt den Fall $\mathcal{B} \subseteq \mathcal{A}$ zu betrachten. Konstruiere also für eine beliebige Unterkategorie $\mathcal{B} \subseteq \mathcal{A}$ deren Kolimes $\colimes\mathcal{B}$:\\
+Bezeichne für jeden Morphismus $\gamma \in Morph_{\mathcal{C}}$ dessen Definitionsbreich mit $B_{\gamma} \in \mathcal{B}$. Weiter, wenn wir einen Morphismus $\psi$ gegeben haben und $\psi_{\gamma(B_{\gamma})}$ betrachten, ist damit $\psi_{B}$ gemeint, wobei $B$ die Zielmenge von $\gamma$ ist. Definiere nun:
+\begin{itemize}
+\item $C_1 \defeq \coprod_{\gamma \in Morph_{\mathcal{B}}} B_{\gamma}$ ist das Koprodukt aller Objekte von $\mathcal{B}$, in dem jedes Objekt so oft vorkommt, wie es Definitionsbereich eines $\gamma \in Morph_{\mathcal{B}}$ ist.\\
+Sei $\functionfront{\psi^1}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_1}$ der dazugehörige Morphismus.
+\item $C_2 \defeq \coprod_{B \in Obj_\mathcal{B}}$ ist das Koprodukt aller Objekte von $\mathcal{B}$.\\
+Sei $\functionfront{\psi^2}{\lbrace B \vert B \in Obj_\mathcal{B} \rbrace}{C_2}$ der dazugehörige Morphismus.
+\end{itemize}
+Konstruiere nun $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ so, dass der Differenzkokern von $f$ und $g$ dem Kolimes von $\mathcal{B}$ entspricht. Nutze dazu die universelle Eigenschaft von $(C_1,\psi^1) = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$:
+\begin{itemize}
+\item[]
+Für $f$ betrachte den Morphismus $\functionfront{\zeta}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})}$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wähle $f \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, mit $\zeta = f \circ \psi^1$.
+\item[]
+Für $g$ betrachte den Morphismus $\functionfront{\zeta'}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta'_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})} \circ \gamma$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wähle $g \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, mit $\zeta' = g \circ \psi^1$.
+\end{itemize}
+\begin{center}
+\begin{tikzcd}
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta"'] &                                        &     & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta'"'] &                                       \\
+C_2 &                                                                                                          & C_1 \arrow[ll, "\exists ! f"', dashed] & C_2 &                                                                                                           & C_1 \arrow[ll, "\exists! g"', dashed] \\
+    & \zeta_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})}                                                                                                  &                                        &     & \zeta'_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})} \circ \gamma                                                                                                   &                                      
+\end{tikzcd}
+\end{center}
+Sei $C \in Obj_{\mathcal{B}}$ zusammen mit $q \in Hom_{\mathcal{A}}(C_2,C)$ der Differenzkokern von $f$,$g$.\\
+Betrachte abschließend $\functionfront{\psi}{\mathcal{B}}{C}$, mit $\psi_{B} = q \circ \psi^2_B$ für $B \in Obj_{\mathcal{B}}$.\\
+Um zu sehen, dass $\psi$ ein Morphismus ist, wähle $B_1,B_2 \in Obj_{\mathcal{B}}$ beliebig und betrachte folgendes kommutatives Diagramm:
+\begin{center}
+\begin{tikzcd}
+B_1 \arrow[rd, "\psi^1_{B_1}"] \arrow[rr, "\psi^2_{B_1} = \zeta_{B_1}"] \arrow[dd, "\gamma"'] \arrow[rrdd, "\zeta'_{B_2}"', bend right] &                                      & C_2 \arrow[rd, "q"]  &   \\
+                                                                                                                        & C_1 \arrow[ru, "f"'] \arrow[rd, "g"] &                      & C \\
+B_2 \arrow[rr, "\psi^2_{B_2}"']                                                                                         &                                      & C_2 \arrow[ru, "q"'] &  
+\end{tikzcd}
+\end{center}
+Zeige nun, dass $(C,\psi)$ die Universelle Eigenschaft des Kolimes besitzt.
+Nutze dazu nacheinander die universellen Eigenschaften von $(C_2,\psi^2)$ und $(q,C)$:
+\begin{itemize}
+\item[]
+Da $\psi'$ ein Morphismus von $\mathcal{B}$ nach $C'$ ist, ist $\psi'$ insbesondere auch ein Morphismus von $\lbrace B \vert B \in Obj_{\mathcal{B}} \rbrace$ nach $C$. Somit existiert genau ein $q' \in Hom_{\mathcal{B}}(C_2,C')$ mit $\psi^2 \circ q' = \psi'$.
+\comment{
+\begin{center}
+\begin{tikzcd}
+   & \lbrace B \vert B \in Obj_{\mathcal{B}} \rbrace \arrow[rd, "\psi^2"] \arrow[ld, "\psi'"'] &                                         \\
+C' &                                                                                           & C_2 \arrow[ll, "\exists ! q'"', dashed]
+\end{tikzcd}
+\end{center}
+}
+\item[]
+Zeige nun $q' \circ f \defshow q' \circ g$. Sei dazu $c \in C_1$ beliebig und $\gamma \in Morph_{\mathcal{B}}, \, b \in B_{\gamma}$ mit $\psi^1_{B_{\gamma}}(b) = c$, dann gilt:
+\begin{gather*}
+(q' \circ f)(c)
+= (q' \circ f \circ \psi^1_{B_{\gamma}})(b)
+= (q' \circ \zeta_{B_{\gamma}})(b)
+= (q' \circ \psi^2_{B_{\gamma}})(b)
+= \psi'_{B_{\gamma}}(b) \\
+(q' \circ g)(c)
+= (q' \circ g \circ \psi^1_{B_{\gamma}})(b)
+= (q' \circ \zeta'_{B_{\gamma}})(b)\\
+= (q' \circ \psi^2_{\gamma({B_{\gamma}})} \circ \gamma)(b)
+= (\psi'_{\gamma(B_{\gamma})} \circ \gamma)(b)
+= \psi'_{B_{\gamma}}(b)
+\end{gather*}
+Somit können wir die universelle Eigenschaft von $q$ auf $q'$ anwenden und erhalten ein eindeutiges $\varphi \in Hom(C,C')$ mit $q' = q \circ \varphi$.
+\begin{center}
+\begin{tikzcd}
+   &  & \mathcal{B} \arrow[rd, "\psi^2"] \arrow[lldd, "\psi'"'] \arrow[rrdd, "\psi", bend left=49] &                                                                &                                               \\
+   &  &                                                                                            & C_2 \arrow[rd, "q"] \arrow[llld, "\exists ! q'"', dashed] &                                               \\
+C' &  &                                                                                            &                                                                & C \arrow[llll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+\end{itemize}
+Dieses $\varphi \in Hom(C,C')$ erfüllt auch $\psi \circ \varphi = \psi^2 \circ q \circ \varphi = \psi^2 \circ q' = \psi'$ und ist nach Konstruktion eindeutig. Damit gilt $\colimes \mathcal{B} = (C,\psi)$.
+}
+\end{proof}
+
+
+
+
+
+
+
+
+
+\textcolor{blue}{\textbf{Differential des Kolimes}}
+\begin{theorem} \label{Differential des Kolimes} \textit{[Theorem 16.8 \ModulsOfDifferenzials]}\\
+Sei $\mathcal{B} \hookrightarrow (R-Algebren)$ ein Diagramm. Nach \cref{R-Algebra-Kolimiten} existiert dessen Kolimes $T \defeq \colimes \mathcal{B}$. Für den Differentialraum von $T$ über $R$ gilt:
+\begin{gather*}
+\colimes \mathcal{F} = \divR{T}{R}
+\end{gather*}
+Wobei der Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{T-Module}$ folgendermaßen definiert ist:
+\begin{gather*}
+\function{\mathcal{F}}{Obj_{\mathcal{B}}}{Obj_{(T-Module)}}{S}{\Tensor{T}{S}{\divR{S}{R}}}\\
+\function{\mathcal{F}}{Morp_{\mathcal{B}}}{Morph_{(T-Module)}}{\varphi}{D\varphi}\\
+\functionback{\mathcal{F}}{(\functionfront{\varphi}{S_1}{S_2})}{(\function{D\varphi}{\divR{S_1}{R}}{\divR{S_2}{R}}{\divf{S_1}(s_1)}{(\divf{S_2} \circ \varphi)(s_1)})}
+\end{gather*} 
+\end{theorem}
+
+
+
+
+
+
+
+
+
 
 
 \ \\
@@ -329,5 +445,25 @@ Wobei die Form von $\mathcal{C}$ genau dem Fall aus \cref{Lokalisierung von Modu
 \tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{\divf{S}(x)}{t^n}{t}} \longmapsto \tensor{\loke{s}{u}{U}}{\lok{S}{tt'}}{\loke{t'^n\divf{S}(x)}{(tt')^n}{tt'}}
 \end{gather*}
 Somit folgt $\colimes \mathcal{C} = \lok{\divR{S}{R}}{U}$ und wir haben $\divR{\lok{S}{U}}{R} = \lok{\divR{S}{R}}{U}$ gezeigt.
+\end{proof}
+
+
+\ \\
+\begin{bem}\comment{\label{Derivation erfuellt Quotientenregel}}\textit{[Eigene Überlegung]}\\
+Sei $R(x)$ die Algebra der Rationalen Funktionen über $R$. Dann erfüllt die universelle Derivation von $R(x)$ die Quotientenregel, wie wir sie von der analytischen Ableitung von rationalen Funktionen kennen. Für $P(x),Q(x) \in R[x]$ gilt also:
+\begin{gather*}
+\divf{R(x)} \left( \frac{P(x)}{Q(x)} \right) = \frac{Q(x)P'(x) - P(x)Q'(x)}{Q(x)^2} \divf{R(x)}(x)
+\end{gather*}
+Wobei $P'(x)$ der analytischen Ableitung von Polynomfunktionen entspricht \textit{(siehe \cref{Derivation ist Ableitung})}
+\end{bem}
+\begin{proof}
+Wähle $P(x), Q(x) \in P[x]$ beliebig und nutze die Rechenregeln, die wir bisher für $\divf{R(x)}$ kennen gelernt haben:
+\begin{gather*}
+\divf{R(x)} \left( \frac{P(x)}{Q(x)} \right)\\
+= \frac{1}{Q(x)}\divf{R(x)} \left( P(x) \right) + P(x)\divf{R(x)} \left( \frac{1}{Q(x)} \right) \textit{ (Leibnizregel)}\\
+= \frac{1}{Q(x)}\divf{R(x)} \left( P(x) \right) - \frac{P(x)}{Q(x)^2}\divf{R(x)} \left( Q(x) \right) \textit{ (\cref{Differenzial der Lokalisierung})}\\
+= \left( \frac{P'(x)}{Q(x)} - \frac{P(x)Q'(x)}{Q(x)^2} \right)\divf{R(x)} (x) \textit{ (\cref{Derivation ist Ableitung})}\\
+= \frac{Q(x)P'(x) - P(x)Q'(x)}{Q(x)^2} \divf{R(x)}(x)
+\end{gather*}
 \end{proof}
 \end{document}
