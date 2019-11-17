@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  16 NOV 2019 18:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.7.3)  17 NOV 2019 18:44
 entering extended mode
 **./Colimes.tex
 (Colimes.tex
@@ -502,7 +502,16 @@ Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `amsthm' support loaded on input line 3026.
 )
 \c@Aussage=\count127
- (Colimes.aux)
+ (Colimes.aux
+
+LaTeX Warning: Label `Darstellung der Polynomalgebra als Tensorprodukt' multipl
+y defined.
+
+
+LaTeX Warning: Label `Darstellung der Polynomalgebra als Tensorprodukt@cref' mu
+ltiply defined.
+
+)
 \openout1 = `Colimes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
@@ -517,8 +526,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
-
-("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+ ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count128
 \scratchdimen=\dimen171
@@ -582,138 +590,82 @@ ABD: EveryShipout initializing macros [1
 
 {C:/Users/luki/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Kapitel 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 91.
+LaTeX Font Info:    Try loading font information for U+msa on input line 93.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 91.
+LaTeX Font Info:    Try loading font information for U+msb on input line 93.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (13.99612pt too wide) detected at line 96
-[]
- []
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
-
-Overfull \hbox (18.85747pt too wide) detected at line 107
-[]
  []
 
 [2
 
 ]
-Overfull \hbox (11.24179pt too wide) detected at line 140
+Overfull \hbox (13.99612pt too wide) detected at line 158
 []
  []
 
 
-Overfull \hbox (35.55164pt too wide) detected at line 149
+Overfull \hbox (18.85747pt too wide) detected at line 169
 []
  []
-
-
-LaTeX Warning: Reference `Darstellung der Polynomalgebra als Tensorprodukt' on 
-page 1 undefined on input line 162.
 
 [3]
+Overfull \hbox (11.24179pt too wide) detected at line 202
+[]
+ []
+
+[4]
+Overfull \hbox (88.28998pt too wide) detected at line 214
+[]
+ []
+
+
+Overfull \hbox (30.4788pt too wide) in paragraph at lines 218--220
+\OT1/cmr/m/it/10 Nach be-mer-kung 3 ent-spricht $\OML/cmm/m/it/10 d[]$ \OT1/cmr
+/m/it/10 der for-ma-len Ab-lei-tung $\OML/cmm/m/it/10 []$\OT1/cmr/m/it/10 . F[
+]ur $\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )
+\OML/cmm/m/it/10 ; P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; []  ; x[]\OT1/cmr/m/
+n/10 ) \OMS/cmsy/m/n/10 2
+ []
+
+[5]
+Overfull \hbox (55.73413pt too wide) in paragraph at lines 253--260
+ [] 
+ []
+
 
 LaTeX Warning: Reference `Differenzial des Kolimes von R-Algebren' on page 1 un
-defined on input line 184.
+defined on input line 283.
 
 
-Overfull \hbox (19.22495pt too wide) in paragraph at lines 188--190
-\OT1/cmr/m/n/10 Zuletzt wen-de den so-eben ge-zeig-ten kor-ro-lar 3 an und nut-
+Overfull \hbox (19.22495pt too wide) in paragraph at lines 287--289
+\OT1/cmr/m/n/10 Zuletzt wen-de den so-eben ge-zeig-ten kor-ro-lar 6 an und nut-
 ze schlie-lich $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; :::; 
 x[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 229--231
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--231
-
- []
-
-[5]
-
-LaTeX Warning: Reference `Lokalisierung von Algebren als Kolimes' on page 1 und
-efined on input line 356.
-
-
-Overfull \hbox (105.92044pt too wide) in paragraph at lines 375--376
- [] 
- []
-
-
-Overfull \hbox (65.66058pt too wide) detected at line 380
-[]
- []
-
-
-Overfull \hbox (3.98581pt too wide) detected at line 387
-[]
- []
-
-[6]
-Overfull \hbox (5.70627pt too wide) detected at line 393
-[]
- []
-
-
-LaTeX Warning: Reference `Lokalisierung von Algebren als Kolimes' on page 1 und
-efined on input line 396.
-
-
-Overfull \hbox (30.17001pt too wide) detected at line 403
-[]
- []
-
-
-LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 410.
-
-
-Overfull \hbox (13.29659pt too wide) in paragraph at lines 409--411
-\OT1/cmr/m/n/10 Als letz-ten Schritt wol-len wir [] an-wen-den. Nut-ze da-zu $[
-]$
- []
-
-
-Overfull \hbox (115.74835pt too wide) in paragraph at lines 421--422
- [] 
- []
-
-[7]
-
-LaTeX Warning: Reference `Vereinfachung des Kolimes' on page 1 undefined on inp
-ut line 439.
-
-
-LaTeX Warning: Reference `Lokalisierung von Moduln als Kolimes' on page 1 undef
-ined on input line 440.
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
-
- []
-
-[9] (Colimes.aux)
+[6] [7] (Colimes.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 16527 strings out of 492895
- 340736 string characters out of 3133483
- 404342 words of memory out of 3000000
- 20136 multiletter control sequences out of 15000+200000
- 8828 words of font info for 33 fonts, out of 3000000 for 9000
+ 16298 strings out of 492895
+ 335050 string characters out of 3133483
+ 396342 words of memory out of 3000000
+ 19909 multiletter control sequences out of 15000+200000
+ 8209 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,16n,84p,471b,1106s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,15n,84p,471b,1047s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -728,9 +680,9 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on Colimes.pdf (9 pages, 219724 bytes).
+Output written on Colimes.pdf (7 pages, 197691 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
+ 89 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -157,7 +157,12 @@ Analog erhalte auch $id_{\divR{S}{R}'} = \varphi \circ \varphi'$. Damit existier
 \ \\
 \textcolor{blue}{\textbf{Differenzial ist Ableitung}}
 \begin{korrolar}\label{Derivation ist Ableitung}\textit{[Eigene Überlegung]}\\
-Sei $R$ ein Körper, somit entspricht die universellen Derivation des Polynomrings $R[x]$ der analytischen Ableitung von Polynomfunktionen. Für $P(x) \in R[x]$ gilt also:
+Für Differentialraum des Plynomrings $R[x]$ gilt:
+\begin{gather*}
+\divR{R[x]}{R} = R[x]\langle \div{R[x]}(x) \rangle
+\end{gather*}
+Wobei $R[x] \langle \divf{R[x]}(x)\rangle$ das von $\divf{R[x]}(x)$ erzeugt Modul über $R[x]$ ist.\\
+Genauer gesagt entspricht die universellen Derivation des Polynomrings $R[x]$ der formalen Ableitung von Polynomfunktionen, wie wir sie aus der Analysis kennen. Für $P(x) \in R[x]$ gilt also:
 \begin{gather*}
 \divf{R[x]}(P(x)) = P'(x)\divf{R[x]}(x)
 \end{gather*}
@@ -605,42 +610,6 @@ P[\lbrace x_i \rbrace_{i \in \Lambda}]
 \end{itemize}
 Dies zeigt, dass sich diesen drei Fällen eine unendliche Indexmenge $\Lambda$ immer auf endliche Indexmengen $\lbrace 1, \dots , n\rbrace$ zurückführen lässt.
 \end{bem}
-
-
-\ \\
-\textcolor{blue}{\textbf{Darstellung der Polynomalgebra als Tensorprodukt}}
-\begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}\textit{[Eigene Überlegung]}\\
-Die Polynomalgebra $R[\lbrace x_i \rbrace_{i \in \Lambda}]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
-\begin{gather*}
-R[\lbrace x_i \rbrace_{i \in  \Lambda}] = \bigotimes_{i \in \Lambda} R[x_i]
-\end{gather*}
-\end{bem}
-\begin{proof}
-Im Falle einer endlichen Indexmenge $\Lambda$ wollen wir induktiv vorgehen. Seien für den Induktionsschritt $S_x \defeq R[x_1, \dots x_n]$ und $S_y \defeq R[y_1, \dots , y_m]$ zwei Polynomalgebren über R, zeige:
-\begin{gather*}
-S_{xy} \defeq R[x_1, \dots , x_n, y_1 , \dots , y_m] \simeq \Tensor{S_x}{R}{S_y}
-\end{gather*}
-Dazu betrachten wir folgende bilineare Funktion:
-\begin{gather*}
-\function{g'}{S_x \oplus S_y}{S}{(P,Q)}{P \cdot Q}
-\end{gather*}
-Erhalte nun eine Funktion $\functionfront{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}$ aus der universellen Eigenschaft des Tensorproduktes:
-\begin{center}
-\begin{tikzcd}
-S_x \oplus S_y \arrow[r, "g"] \arrow[rd, "g'"'] & \Tensor{S_x}{R}{S_y} \arrow[d, "\exists ! \varphi", dashed] \\
-                                                & S_{xy}                                       
-\end{tikzcd}
-\ \\
-$\function{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}{\tensor{P}{R}{Q}}{P \cdot Q}$
-\end{center}
-Der Homomorphismus $\varphi$ ist surjektiv und bildet die Erzeuger $\lbrace \tensor{x_i}{R}{1} \rbrace \cup \lbrace \tensor{1}{R}{y_j} \rbrace$ von $\Tensor{S_x}{R}{S_y}$ eindeutig auf die Erzeuger $\lbrace x_i \rbrace \cup \lbrace y_j \rbrace$ von $S_{xy}$ ab. Folglich ist $\varphi$ ein Isomorphismus.\\
-Indunktiv erhalten wir daraus für den Fall $\vert \Lambda \vert < \infty$ folgenden Isomorphismus:
-\begin{gather*}
-\function{\Phi}{\bigotimes_{i \in \Lambda} R[x_i]}{R[\lbrace x_i \rbrace_{i \in \Lambda} ]}{(P_1(x_1), \dots P_n(x_n))}{\prod_{i=1}^{n} P_i(x_i)}
-\end{gather*}
-Dies ist auch im Fall $\Lambda = \infty$ ein Isomorphismus, da wir auch in diesem Fall nur Tensorprodukte endlich vieler Polynome bzw. Polynome in endlich vielen Variablen betrachten \textit{(siehe \cref{Unendliche Indexmengen})}.\\
-Da das Tensorprodukt $\bigotimes_{i \in \Lambda} R[x_i]$ bis auf eine Eindeutige Isomorphie eindeutig bestimmt ist, definiere dies ab jetzt als $R[\lbrace x_i \rbrace_{i \in \Lambda}]$.
-\end{proof}
 
 
 \comment{
