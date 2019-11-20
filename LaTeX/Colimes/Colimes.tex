@@ -117,11 +117,11 @@ Dann gilt:
 \begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}\textit{[Eigene Überlegung]}\\
 Die Polynomalgebra $R[\lbrace x_i \rbrace_{i \in \Lambda}]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
 \begin{gather*}
-R[\lbrace x_i \rbrace_{i \in  \Lambda}] = \bigotimes_{i \in \Lambda} R[x_i]
+R[\lbrace x_i \rbrace_{i \in  \Lambda}] \simeq \bigotimes_{i \in \Lambda} R[x_i]
 \end{gather*}
 \end{bem}
 \begin{proof}
-Im Falle einer endlichen Indexmenge $\Lambda$ wollen wir induktiv vorgehen. Seien für den Induktionsschritt $S_x \defeq R[x_1, \dots x_n]$ und $S_y \defeq R[y_1, \dots , y_m]$ zwei Polynomalgebren über R, zeige:
+Im Falle einer endlichen Indexmenge $\Lambda$ wollen wir induktiv vorgehen. Seien für den Induktionsschritt $n,m \in \mathbb{N}$ und $\nolinebreak{S_x \defeq R[x_1, \dots x_n]}$, $\nolinebreak{S_y \defeq R[y_1, \dots , y_m]}$ zwei Polynomalgebren über R, zeige:
 \begin{gather*}
 S_{xy} \defeq R[x_1, \dots , x_n, y_1 , \dots , y_m] \simeq \Tensor{S_x}{R}{S_y}
 \end{gather*}
@@ -144,8 +144,9 @@ Indunktiv erhalten wir daraus für den Fall $\vert \Lambda \vert < \infty$ folge
 \function{\Phi}{\bigotimes_{i \in \Lambda} R[x_i]}{R[\lbrace x_i \rbrace_{i \in \Lambda} ]}{(P_1(x_1), \dots P_n(x_n))}{\prod_{i=1}^{n} P_i(x_i)}
 \end{gather*}
 Dies ist auch im Fall $\Lambda = \infty$ ein Isomorphismus, da wir auch in diesem Fall nur Tensorprodukte endlich vieler Polynome bzw. Polynome in endlich vielen Variablen betrachten \textit{(siehe \cref{Unendliche Indexmengen})}.\\
-Da das Tensorprodukt $\bigotimes_{i \in \Lambda} R[x_i]$ bis auf eine Eindeutige Isomorphie eindeutig bestimmt ist, definiere dies ab jetzt als $R[\lbrace x_i \rbrace_{i \in \Lambda}]$.
+Bedenke zuletzt noch, dass das Tensorprodukt $\bigotimes_{i \in \Lambda} R[x_i]$ bis auf eine Eindeutige Isomorphie eindeutig bestimmt ist.
 \end{proof}
+
 
 \ \\
 \textcolor{blue}{\textbf{Differenzial des Koproduktes}}
@@ -154,7 +155,7 @@ Seien $\lbrace S_i \rbrace_{i \in \Lambda}$ R-Algebren und $T = \bigotimes_{i \i
 Dann gilt:
 \begin{gather*}
 \divR{T}{R} = \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )\\
-\text{mit: }\function{\divf{T}}{R}{\divR{T}{R}}{\left(\otimes_{i = 1}^n s_i\right)}{\left(\tensor{\left(\otimes_{i = 2}^n s_i\right)}{S_1}{\divf{S_1}(s_1)},\dots,\tensor{\otimes_{i = 1}^{n - 1}\left( s_i \right)}{S_n}{\divf{S_n}}(s_n)\right)}
+\text{mit: }\function{\divf{T}}{R}{\divR{T}{R}}{\left(\otimes_{i = 1}^n s_i\right)}{\left(\tensor{\left(\otimes_{i = 2}^n s_i\right)}{S_1}{\divf{R[x_1]}(s_1)},\dots,\tensor{\left( \otimes_{i = 1}^{n - 1} s_i \right)}{S_n}{\divf{R[x_n]}}(s_n)\right)}
 \end{gather*}
 \end{prop}
 \begin{proof} Zeige, dass $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$ gilt.\\
@@ -167,7 +168,7 @@ Für $i \in \Lambda$ lässt sich  $T$ als $\Tensor{\left(\bigotimes_{j \in \Lamb
 \function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{(0,\dots,0,\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)},0,\dots,0)} \\
 \function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{t}{\sum_{i = 1}^n e_i(t)}
 \end{gather*}
-Da $\divf{S_i}$ eine Derivation ist, ist $e'$ und somit nach \cref{Summe von Derivationen} und \cref{Unendliche Indexmengen} auch $e$ eine Derivation. Mithilfe der universellen Eigenschaft von $\divf{T}$ erhalten wir einen eindeutigen Homomorphismus $\varphi$ mit $\varphi \circ \divf{T} = e$:
+Da $\divf{S_i}$ eine Derivation ist, ist $e_i$ und somit nach \cref{Summe von Derivationen} und \cref{Unendliche Indexmengen} auch $e$ eine Derivation. Mithilfe der universellen Eigenschaft von $\divf{T}$ erhalten wir einen eindeutigen Homomorphismus $\varphi$ mit $\varphi \circ \divf{T} = e$:
 \comment{
 \begin{center}
 \begin{tikzcd}
@@ -191,7 +192,7 @@ Mithilfe der universellen Eigenschaft von $\divf{S_i}$ erhalten wir dadurch eine
 Damit erhalten wir folgenden kommutatives Diagramm:
 \begin{center}
 \begin{tikzcd}
-S_i \arrow[rd, "h_i"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, "a"] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
+S_i \arrow[rd, "h_i"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, , hook] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
                                           & \divR{T}{R}                                                    &                     
 \end{tikzcd}
 \end{center}
@@ -210,7 +211,10 @@ Definiere also ab jetzt $\bigoplus_{i\in \Lambda} (\Tensor{T}{S_i}{\divR{S_i}{R}
 \begin{bem}\label{Mehrdimmensionales Algebraisches Differentieren} \textit{[Eigene Bemerkung]}\\
 Sei $R(\lbrace x_i \rbrace_{i \in \Lambda})$ ein Polynomring über R. Bezeichne mit $\delta_{j}$ die formale Ableitung in Richtung $x_j$, wie wir sie aus der Analysis für Polynomfunktionen über $\mathbb{R}^n$ kennen:
 \begin{gather*}
-\function{\delta_{j}}{R(\lbrace x_i \rbrace_{i \in \Lambda})}{R(\lbrace x_i \rbrace_{i \in \Lambda})}{\sum_k \left( a_k \cdot x_j^{n_{j,k}}\prod_{i \neq j} x_i^{n_{i,k}}\right)}{\sum_{k,n_{j,k} > 0} \left( a_k \cdot n_{j,k} \cdot x_j^{n_{j,k} - 1}\prod_{i \neq j} x_i^{n_{i,k}}\right)}
+\functionfront{\delta_{j}}{R(\lbrace x_i \rbrace_{i \in \Lambda})}{R(\lbrace x_i \rbrace_{i \in \Lambda})}\\
+{\sum_k \left( a_k \cdot x_j^{n_{j,k}}\prod_{i \neq j} x_i^{n_{i,k}}\right)}
+\longmapsto
+{\sum_{k,n_{j,k} > 0} \left( a_k \cdot n_{j,k} \cdot x_j^{n_{j,k} - 1}\prod_{i \neq j} x_i^{n_{i,k}}\right)}
 \end{gather*}
 Betrachte den Differentialraum von $R[\lbrace x_i \rbrace_{i \in \Lambda}]$  über $R[\lbrace x_i \rbrace_{i \in \Lambda \setminus\lbrace j \rbrace}]$:
 \begin{gather*}
@@ -229,7 +233,7 @@ Nach \cref{Derivation ist Ableitung} entspricht $\divf{j}$ der formalen Ableitun
 \begin{korrolar}\label{Differenzial von Polynomalgebren 1}
 Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
 \begin{gather*}
-\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle 
+\divR{S}{R} = \bigoplus_{i = 1}^n S \langle \divf{S}(x_i) \rangle 
 \end{gather*}
 Für die universelle Derivation $\divf{S}$ gilt hierbei mit der Notation von \cref{Mehrdimmensionales Algebraisches Differentieren}:
 \begin{gather*}
@@ -237,36 +241,36 @@ Für die universelle Derivation $\divf{S}$ gilt hierbei mit der Notation von \cr
 \end{gather*}
 \end{korrolar}
 \begin{proof}
-Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, ist $S$ isomorph zu $S' \defeq \bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]$. In \cref{Differenzial des Koproduktes} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
+Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, ist $S$ isomorph zu $S' \defeq \bigotimes_{i = 1}^n R[x_i]$. In \cref{Differenzial des Koproduktes} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
 \begin{gather*}
 \divR{S'}{R} = \bigoplus_{i \in \Lambda} (\Tensor{S'}{R[x_i]}{\divR{R[x_i]}{R}})
 \end{gather*}
 Mithilfe von \cref{Derivation ist Ableitung} können wir ${\divR{R[x_i]}{R}}$ für $i \in \Lambda$ weiter umformen:
 \begin{gather*}
-\divR{S'}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle})
-\simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} S' \langle \divf{R[x_i]}(x_i) \rangle 
+\divR{S'}{R} = \bigoplus_{i = 1}^n (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle})
+\simeq \bigoplus_{i = 1}^n S' \langle \divf{R[x_i]}(x_i) \rangle 
 \end{gather*}
 Nutze nun $S' \simeq S$ und betrachte $\divf{R[x_i]}$ als Einschränkung von $\divf{S}$. Dadurch erhalten wir die gewünschte Darstellung von $\divR{S}{R}$.\\
-Definiere ab nun also $\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle$.\\
+Definiere ab nun also $\divR{S}{R} = \bigoplus_{i = 1}^n S \langle \divf{S}(x_i) \rangle$.\\
 Um zu zeigen, dass hierbei die universelle Derivation die gewünschte Form annimmt gehe zunächst die bisher genutzten Derivationen und Isomorphismen durch:
 \begin{center}
 $\functionfront{\divf{S}}{S}{\divR{S}{R}}$
 \begin{tikzcd}
 S \arrow[d]  &  & \prod_{i = 1}^n P_i(x_i) \arrow[d, maps to] \\
 S' \arrow[d] &  & \otimes_{i = 1}^n P_i(x_i)\arrow[d, maps to]                        \\
-\bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle}) \arrow[d]  &  & (\dots , (\tensor{\otimes_{k \neq j} P_k(x_k)}{R[x_i]}{\divf{R{x_i}}(P(x_i))}) , \dots) \arrow[d, maps to]                        \\
+\bigoplus_{i = 1}^n (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle}) \arrow[d]  &  & (\dots , (\tensor{\otimes_{k \neq i} P_k(x_k)}{R[x_i]}{\divf{R{x_i}}(P(x_i))}) , \dots) \arrow[d, maps to]                        \\
 \bigoplus_{i \in \Lambda} S \langle \divf{S}(x_i) \rangle            &  & (\dots , \left( \prod_{k \neq i} P_k(x_k) \right) P'(x_i) \divf{S}(x_i) , \dots)
 \end{tikzcd}
 \end{center}
-Betrachte nun \cref{Mehrdimmensionales Algebraisches Differentieren}. Dabei stellen wir fest, dass wir von $\divf{S}(x_j) = \divf{j}(x_j)$ ausgehen können, da $\lbrace \divf{S}(x_i) \rbrace_{i \in \Lambda}$ linear unabhängig ist.\\
-Rechne also für $\prod_{i = 1}^n P_i(x_i) \in P(\lbrace x_i \rbrace_i)$ und $j \in \lbrace 1, \cdots , n \rbrace$ nach, ob unsere gewünschte Darstellung von $\divf{S}$ zutrifft:
+Betrachte nun \cref{Mehrdimmensionales Algebraisches Differentieren}. Dabei stellen wir fest, dass wir für $j \in \Lambda$ von $\divf{S}(x_j) = \divf{j}(x_j)$ ausgehen können, da $\lbrace \divf{S}(x_i) \rbrace_{i \in \Lambda}$ linear unabhängig ist.\\
+Rechne also für $\prod_{i = 1}^n P_i(x_i) \in R[\lbrace x_i \rbrace_{i \in \Lambda}]$ und $j \in \lbrace 1, \cdots , n \rbrace$ nach, ob unsere gewünschte Darstellung von $\divf{S}$ zutrifft:
 \begin{gather*}
 \delta_{j}\left(\prod_{i = 1}^n P(x_i)\right)\divf{S}(x_j) = \divf{j}\left(\prod_{i = 1}^n P(x_i)\right)
 \textit{ (\cref{Mehrdimmensionales Algebraisches Differentieren})}\\
 = P_j(x_j)\divf{j} \left( \prod_{i \neq j} P_i(x_i) \right) + \left( \prod_{i \neq j} P_i(x_i) \right) \divf{j}(P_j(x_j))
 \textit{ (Leibnizregel)} \\
 = 0 + \left( \prod_{i \neq j} P_i(x_i) \right) \delta_j(P(x_j))\divf{j}(x_j)
-=  \left( \prod_{i \neq j} P_i(x_i) \right) P'(x_j)\divf{j}(x_j)\\
+=  \left( \prod_{i \neq j} P_i(x_i) \right) P'(x_j)\divf{j}(x_j)
 \end{gather*}
 \end{proof}
 
@@ -276,11 +280,11 @@ Rechne also für $\prod_{i = 1}^n P_i(x_i) \in P(\lbrace x_i \rbrace_i)$ und $j 
 \begin{korrolar}\label{Differenzial von Polynomalgebren 2}
 Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
 \begin{gather*}
-\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \Verz{\divf{T}(x_i)}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i = 1}^n T \Verz{\divf{T}(x_i)}
 \end{gather*}
 \end{korrolar}
 \begin{proof}
-Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Differenzial des Kolimes von R-Algebren} an:
+Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Differenzial des Koproduktes} an:
 \begin{gather*}
 T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
 \Rightarrow \divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus (\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})
@@ -288,8 +292,150 @@ T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
 Zuletzt wende den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
 \begin{gather*}
 \Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}}\\
-\simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i \in \lbrace 1,...,n \rbrace} R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
-\simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{R}(x_i) \rangle
+\simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i = 1}^n R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
+\simeq \bigoplus_{i = 1}^n T \langle \divf{R}(x_i) \rangle
+\end{gather*}
+Damit haben wir Isomorphie gezeigt. Definiere also $(\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i = 1}^n T \Verz{\divf{T}(x_i)}$ als den Differentialraum von $T$ über $R$.\\
+Abschließend wollen wir noch $\divf{T}$ betrachten, sei dazu $s\prod_{i =1}^k x_i^{n_i} \in T$ ein beliebiges Monom:
+\begin{gather*}
+d_T\left(s\prod_{i =1}^k x_i^{n_i}\right) \\
+= \left(\tensor{\prod_{i =1}^k x_i^{n_i}}{S}{\divf{S}(s)},
+ \tensor{s}{R[\lbrace x_i \rbrace_{i \in \Lambda}]}{\divf{R[\lbrace x_i \rbrace_{i \in \Lambda}]}}\left(\prod_{i =1}^k x_i^{n_i}\right)\right)\\
+=\left(\tensor{\prod_{i =1}^k x_i^{n_i}}{S}{\divf{S}(s)},
+s \cdot \delta_1 \left( \prod_{i =1}^k x_i^{n_i} \right) \divf{R[x_1](x_1)} , \dots , s \cdot \delta_n \left( \prod_{i =1}^k x_i^{n_i} \right) \divf{R[x_n](x_n)} \right)
 \end{gather*}
 \end{proof}
+
+
+\ \\
+\begin{prop}\label{Differenzial des Produktes von Algebren}
+Seien $S_1, \dots , S_n$ R-Algebren. Sei dazu $S \defeq \prod_{i \in \lbrace 1, \dots , n \rbrace} S_i$ deren direktes Produkt.
+Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}
+\end{gather*}
+Wobei die universelle Derivation folgende Form hat:
+\begin{gather*}
+\function{\divf{S}}{S}{\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}}{s}{((\divf{S_1} \circ p_1)(s) , \dots , (\divf{S_1} \circ p_1)(s) )}
+\end{gather*}
+\end{prop}
+
+
+\ \\
+\begin{korrolar}\label{Jakobimatrizen}\textit{[Eigene Überlegung]}\\
+Sei $S = R[x_1 \cdots , x_m]$ der Polynomring in $m$ Variablen über $R$ und $\nolinebreak{S^n = \bigoplus_{k = 1}^n S}$ der $n$-fache Produktraum von $S$.\\
+Somit entspricht mit der Notation von \cref{Mehrdimmensionales Algebraisches Differentieren} der Differentialraum von $S^n$ über $R$ den Jakobimatrizen, wie wir sie aus Analysis kennen:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i = 1}^n \left( \bigoplus_{j = 1}^m S\langle \divf{S}(x_i) \rangle \right)\\
+\text{mit: } \function{\divf{S^n}}{S^n}{\divR{S^n}{R}}{P}{(\delta_j(P_i))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}}
+\end{gather*}
+Wobei wir $J_{(P_1, \dots ,P_n)} \defeq (\delta_j(P_i))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}$ die Jakobimatrix von $P$ nennen.
+\end{korrolar}
+\begin{proof}
+Zunächst erinnern wir uns daran, dass bei Algebren und Moduln die endlichen Summen den endlichen Produkten entsprechen.
+In \cref{Differenzial des Produktes von Algebren} haben wir den Differentialraum endlicher Produkte beschrieben:
+\begin{gather*}
+\divR{S^n}{R} = \bigoplus_{i=1}^n \divR{S}{R}
+\end{gather*}
+In \cref{Differenzial von Polynomalgebren 1} haben wir gesehen, dass $\divR{S}{R}$ dem gewünschten Produktraum entspricht:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{j = 1}^m S\langle \divf{S}(x_i) \rangle
+\end{gather*}
+Betrachte also noch genauer, wie die universelle Ableitung in diesem beiden Fällen beschrieben wird. Für ein beliebiges $P = (P_1, \dots , P_n) \in S^n$ gilt:
+\begin{gather*}
+\divf{S^n}
+\begin{pmatrix}
+P_1\\
+\vdots\\
+P_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+\divf{S}(P_1)\\
+\vdots\\
+\divf{S}(P_n)
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)
+\end{pmatrix}\
+\end{gather*}
+Es gilt also $\divf{S^n}(P) = (\delta_j(P_i)\divf{S}(x_j))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}$, was genau der Bildung der Jakobimatrix entspricht.
+\end{proof}
+
+
+\ \\
+\newpage
+\begin{korrolar}\label{Derivtion mittels Jakobimatrizen} \textit{[Kapitel 16.1 \ModulsOfDifferenzials]}\\
+Sei  $S = R[x_1, \dots ,x_m]$ ein Polynomring über $R$ und $I = (P_1,\dots, P_n) \subseteq S$ ein Ideal. Betrachte $T = S/I$. Dann gilt:
+\begin{gather*}
+\divR{T}{R} = \left( \bigoplus_{i = 1}^m S \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t_1, \cdots, t_n) J_{(P_1,\dots, P_n)} \, \vert (t_1 , \dots t_n) \in T^n \right\rbrace\\
+\text{mit: } 
+\function{\divf{T}}{T}{\divR{T}{R}}{\left[Q(x_1,\cdots, x_m)\right]_T}{\left[\delta_1(Q)\divf{S}(x_1), \cdots , \delta_m(Q)\divf{S}(x_m)
+\right]_{J_{(P_1 , \dots , P_n)}}}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte zunächst die Conormale Sequenz \textit{(\cref{Konormale Sequenz})} von $\function{\pi}{S}{T}{s}{[s]_T}$:
+\begin{center}
+\begin{tikzcd}
+I/I^2 \arrow[r, "\tensor{1}{S}{d_{S}}"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\ \\
+Nach dieser gilt $\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) / (\tensor{1}{S}{d_{S}})(I)$.
+\end{center}
+Nach \cref{Differenzial von Polynomalgebren 1} und da $T = S/I$ ein Faktorring von $S$ ist, ist die folgende Funktion $\Phi$ eine Isomorphie:
+\begin{gather*}
+\Phi: 
+\Tensor{T}{S}{\divR{S}{R}} 
+\longrightarrow \Tensor{T}{S}{\bigoplus_{i = 1}^m S \langle \divf{S}(x_i) \rangle} 
+\longrightarrow \bigoplus_{i = 1}^m T \langle \divf{S}(x_i) \rangle\\
+\functionback{\Phi}{\tensor{[s]_T}{}{\divf{S}(Q)}}{([s \cdot \delta_{1}(P)]_T\divf{S}(x_1), \dots , [s \cdot \delta_{m}(P)]_T\divf{S}(x_m))}
+\end{gather*}
+Betrachte nun also noch $(\Phi \circ (\tensor{1}{S}{d_{S}}))(I)$ näher. Sei dazu $P = \sum_{i = 1}^n s_iP_i \in I$ beliebig, somit gilt:
+\begin{gather*}
+\text{Wir können eine solche Summe als } P = \sum_{i = 1}^n s_iP_i = (s_1, \cdots s_n)
+\begin{pmatrix}
+P_1\\
+\vdots\\
+P_n
+\end{pmatrix}
+\text{ schreiben. Also:} \\
+(\Phi \circ (\tensor{1}{S}{d_{S}}))(P)
+= \sum_{i = 1}^n \divf{S}(s_iP_i)\\
+= \sum_{i = 1}^n [s_i]_T \cdot \divf{S}(P_i) + [P_i]_T \cdot \divf{S}(s_i) \textit{\hspace{1,5em}(Leibnizregel)}\\
+= \sum_{i = 1}^n [s_i]_T \cdot \divf{S}(P_i) + 0 \text{\hspace{2em}($[P_i]_T = 0$, \textit{da} $T = S/I$)} \\
+= ([s_1]_T , \cdots , [s_n]_T)
+\begin{pmatrix}
+\divf{S}(P_1)\\
+\vdots\\
+\divf{S}(P_n)
+\end{pmatrix}\\
+=
+([s_1]_T , \cdots , [s_n]_T)
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)
+\end{pmatrix}
+\end{gather*}
+Mit der Notation aus \cref{Jakobimatrizen} gilt somit:
+\begin{gather*}
+(\Phi \circ (\tensor{1}{S}{\divf{S}}))(I) = \left\lbrace (t_1, \cdots, t_n) J_{(P_1,\dots, P_n)} \, \vert (t_1 , \dots t_n) \in T^n \right\rbrace
+\end{gather*}
+Damit haben wir folgende Isomorphie gezeigt:
+\begin{gather*}
+\divR{T}{R} 
+\simeq (\Tensor{T}{S}{\divR{S}{R}}) / (\tensor{1}{S}{d_{S}})(I) 
+\simeq \left( \bigoplus_{i =1}^m S \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t) J_{(P_1,\dots, P_n)} \, \vert t \in T^n \right\rbrace
+\end{gather*}
+Da der Differentialraum von $T$ über $R$ bis auf eine eindeutige Isomorphie eindeutig ist, definiere diesen ab nun über diese Isomorphie. Anhand von $\Phi$ sehen wir, dass somit auch $\divf{T}$ die geforderte Form annimmt.
+\end{proof}
+
+
+\ \\
+\begin{bsp}
+\end{bsp}
 \end{document}
