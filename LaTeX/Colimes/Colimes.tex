@@ -436,6 +436,43 @@ Da der Differentialraum von $T$ über $R$ bis auf eine eindeutige Isomorphie ein
 
 
 \ \\
-\begin{bsp}
+
+\begin{bsp}\comment{\label{Bsp Moduloraeume}} \textit{[Eigene Überlegungen]}\\
+Kürze $\divf{S}(s)$ durch $dx$ ab.
+\begin{itemize}
+\item Betrachte dem Ring $S = \mathbb{Z}[x]/(3x) = \lbrace \nolinebreak{\sum_{i = 0}^n a_i xi \vert \, a_0 \in \mathbb{Z} \, \wedge \, a_i \in \mathbb{Z}_3 \text{ für } i \geq 1 \rbrace}$ als $\mathbb{Z}$-Algebra. Dann gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = \left( S\divf{S}d(x) \right)/\lbrace s \cdot 3dx \vert s \in S \rbrace = S/(3\mathbb{Z}) dx = \mathbb{Z}_3[x] dx
+\end{gather*}
+
+\item Für $n \in \mathbb{N}$ mit $n \geq 2$ ist $S = \mathbb{Z}[x]/(nx)$ eine $\mathbb{Z}$-Algebra. Hierbei gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = S/(n) dx = \mathbb{Z}_n[x] dx
+\end{gather*}
+
+\item Betrachte für $n \in \mathbb{N}$ mit $n \geq 2$ die $\mathbb{Z}$-Algebra $S = \mathbb{Z}[x,y]/(nxy)$. Für diese gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx \oplus S dy) / (Sny \cdot dx \oplus Snx \cdot dy)\\
+= S/(ny)dx \oplus S/(nx)dy\\
+= \mathbb{Z}/(ny)dx \oplus \mathbb{Z}/(nx) dy\\\
+\end{gather*}
+
+\item Betrachte für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ die $\mathbb{Z}$-Algebra $S = \mathbb{Z}[x,y]/(nx,ny)$. Für diese gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx)/\lbrace (s_1,s_2)
+\begin{pmatrix}
+ndx\\
+mdx
+\end{pmatrix}
+ \cdot dx \vert (s_1,s_2) \in S^2 \rbrace \\
+= \mathbb{Z}/(n\mathbb{Z} + m\mathbb{Z})[x]dx 
+= \mathbb{Z}_{ggT(n,m)}[x]dx
+\end{gather*}
+
+\item Betrachte für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ die $\mathbb{Z}$-Algebra $S = \nolinebreak{\mathbb{Z}[x,y,z]/(nx + ny, mx + mz, mz^2)}$
+\end{itemize}
 \end{bsp}
+
 \end{document}
