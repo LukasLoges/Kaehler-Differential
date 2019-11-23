@@ -1,0 +1,8 @@
+\begin{tikzcd}
+(f(x))/(f(x)^2) \arrow[r, "1"] & \Tensor{T}{L[x]}{\divR{L[x]}{k}} \arrow[r, "2"]       & \divR{T}{k} \arrow[r] & 0           &   & (1) \\
+T\Verz{\divf{L[x]}(f(x))} \arrow[r, "1'"]              & \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)} \arrow[r, "2'"]      & \divR{T}{k} \arrow[r] & 0           &   & (2) \\
+                               & \Tensor{T}{L}{\divR{L}{k}} \arrow[r, "\varphi"] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0 & (3)
+\end{tikzcd}
+
+
+

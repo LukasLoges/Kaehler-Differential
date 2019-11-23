@@ -1,0 +1,684 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{tikz-cd}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usetikzlibrary{babel}
+\usepackage{cleveref}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+\newcommand{\ModulsOfDifferenzials}{David Eisenbud 1994}
+\newcommand{\Algebra}{Christian Karpfinger, Kurt Meyberg 2009}
+
+\newcounter{Aussage}[chapter]
+
+\newtheorem{satz}[Aussage]{Satz}
+\newtheorem{theorem}[Aussage]{Theorem}
+\newtheorem{prop}[Aussage]{Proposition}
+\newtheorem{korrolar}[Aussage]{Korrolar}
+\newtheorem{lemma}[Aussage]{Lemma}
+\newtheorem{bem}[Aussage]{Bemerkung}
+\newtheorem{definition}[Aussage]{Definition}
+\newtheorem{bsp}[Aussage]{Beispiel}
+
+\newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
+\newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
+\newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
+\newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\divf}[1]{d_{#1}}
+\comment{\newcommand{\divf}[2][]{d_{#1}}}
+\newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\tensor}[3]{#1 \otimes #3}
+\newcommand{\lok}[2]{#1 [#2^{-1}]}
+\newcommand{\loke}[3]{(\frac{#1}{#2})_{_{#3}}}
+\comment{\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}}
+
+\newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand*{\defeqr}{= \mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}}
+
+\newcommand*{\defshow}{\stackrel{!}{=}}
+\newcommand{\kernel}[1]{kern(#1)}
+\newcommand{\immage}[1]{im(#1)}
+\newcommand{\Verz}[1]{\langle #1 \rangle}
+
+
+\begin{document}
+\chapter{Kolimes}
+\section{Ableiten von Polynomen}
+
+\textcolor{blue}{\textbf{Darstellung der Polynomalgebra als Tensorprodukt}}
+\begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}\textit{[Eigene Überlegung]}\\
+Die Polynomalgebra $R[\lbrace x_i \rbrace_{i \in \Lambda}]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
+\begin{gather*}
+R[\lbrace x_i \rbrace_{i \in  \Lambda}] \simeq \bigotimes_{i \in \Lambda} R[x_i]
+\end{gather*}
+\end{bem}
+\begin{proof}
+Im Falle einer endlichen Indexmenge $\Lambda$ wollen wir induktiv vorgehen. Seien für den Induktionsschritt $n,m \in \mathbb{N}$ und $\nolinebreak{S_x \defeq R[x_1, \dots x_n]}$, $\nolinebreak{S_y \defeq R[y_1, \dots , y_m]}$ zwei Polynomalgebren über R, zeige:
+\begin{gather*}
+S_{xy} \defeq R[x_1, \dots , x_n, y_1 , \dots , y_m] \simeq \Tensor{S_x}{R}{S_y}
+\end{gather*}
+Dazu betrachten wir folgende bilineare Funktion:
+\begin{gather*}
+\function{g'}{S_x \oplus S_y}{S}{(P,Q)}{P \cdot Q}
+\end{gather*}
+Erhalte nun eine Funktion $\functionfront{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}$ aus der universellen Eigenschaft des Tensorproduktes:
+\begin{center}
+\begin{tikzcd}
+S_x \oplus S_y \arrow[r, "g"] \arrow[rd, "g'"'] & \Tensor{S_x}{R}{S_y} \arrow[d, "\exists ! \varphi", dashed] \\
+                                                & S_{xy}                                       
+\end{tikzcd}
+\ \\
+$\function{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}{\tensor{P}{R}{Q}}{P \cdot Q}$
+\end{center}
+Der Homomorphismus $\varphi$ ist surjektiv und bildet die Erzeuger $\lbrace \tensor{x_i}{R}{1} \rbrace \cup \lbrace \tensor{1}{R}{y_j} \rbrace$ von $\Tensor{S_x}{R}{S_y}$ eindeutig auf die Erzeuger $\lbrace x_i \rbrace \cup \lbrace y_j \rbrace$ von $S_{xy}$ ab. Folglich ist $\varphi$ ein Isomorphismus.\\
+Indunktiv erhalten wir daraus für den Fall $\vert \Lambda \vert < \infty$ folgenden Isomorphismus:
+\begin{gather*}
+\function{\Phi}{\bigotimes_{i \in \Lambda} R[x_i]}{R[\lbrace x_i \rbrace_{i \in \Lambda} ]}{(P_1(x_1), \dots P_n(x_n))}{\prod_{i=1}^{n} P_i(x_i)}
+\end{gather*}
+Dies ist auch im Fall $\Lambda = \infty$ ein Isomorphismus, da wir auch in diesem Fall nur Tensorprodukte endlich vieler Polynome bzw. Polynome in endlich vielen Variablen betrachten \textit{(siehe \cref{Unendliche Indexmengen})}.\\
+Bedenke zuletzt noch, dass das Tensorprodukt $\bigotimes_{i \in \Lambda} R[x_i]$ bis auf eine Eindeutige Isomorphie eindeutig bestimmt ist.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial des Koproduktes}}
+\begin{prop} \label{Differenzial des Koproduktes} \textit{[vlg. Korolar 16.5 \ModulsOfDifferenzials]}\\
+Seien $\lbrace S_i \rbrace_{i \in \Lambda}$ R-Algebren und $T = \bigotimes_{i \in \Lambda} S_i$ deren Koprodukt.\\
+Dann gilt:
+\begin{gather*}
+\divR{T}{R} = \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )\\
+\text{mit: }\function{\divf{T}}{R}{\divR{T}{R}}{\left(\otimes_{i = 1}^n s_i\right)}{\left(\tensor{\left(\otimes_{i = 2}^n s_i\right)}{S_1}{\divf{R[x_1]}(s_1)},\dots,\tensor{\left( \otimes_{i = 1}^{n - 1} s_i \right)}{S_n}{\divf{R[x_n]}}(s_n)\right)}
+\end{gather*}
+\end{prop}
+\begin{proof} Zeige, dass $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$ gilt.\\
+Für $i \in \Lambda$ lässt sich  $T$ als $\Tensor{\left(\bigotimes_{j \in \Lambda \setminus \lbrace i \rbrace} S_i \right)}{R}{S_i}$ betrachten, nutze dies um folgende $R$-lineare Derivationen zu definieren:
+\begin{gather*}
+\comment{
+\function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{(0,\dots,0,\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)},0,\dots,0)} \\
+\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{\sum_{i = 1}^n e_i(\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i})}
+}
+\function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{(0,\dots,0,\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)},0,\dots,0)} \\
+\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{t}{\sum_{i = 1}^n e_i(t)}
+\end{gather*}
+Da $\divf{S_i}$ eine Derivation ist, ist $e_i$ und somit nach \cref{Summe von Derivationen} und \cref{Unendliche Indexmengen} auch $e$ eine Derivation. Mithilfe der universellen Eigenschaft von $\divf{T}$ erhalten wir einen eindeutigen Homomorphismus $\varphi$ mit $\varphi \circ \divf{T} = e$:
+\comment{
+\begin{center}
+\begin{tikzcd}
+T \arrow[rd, "e"'] \arrow[r, "\divf{T}"] & \divR{T}{R} \arrow[d, "\exists ! \varphi", dashed] \\
+                                    & \bigoplus_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
+\end{tikzcd}
+\end{center}
+}
+\begin{gather*}
+\function{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda}(\Tensor{T}{S_i}{\divR{S_i}{R}})}{\divf{T}(s_1 \otimes \dots \otimes s_n)}{\sum_{i = 1}^n e_i(\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i})}\\
+\functionback{\varphi}{\divf{T}(1 \otimes s_i \otimes 1)}{(0,\tensor{1}{S_i}{d_{S_i}(s_i)},0)}
+\end{gather*}
+Suche nun eine Umkehrfunktion $\phi$ zu $\varphi$. Definiere dazu für $i \in \Lambda$ folgendes R-lineares Differential:
+\begin{gather*}
+\function{h_i}{S_i}{\divR{T}{R}}{s_i}{\divf{T}(\tensor{(\otimes_{j \neq i} 1)}{R}{s_i})}
+\end{gather*}
+Mithilfe der universellen Eigenschaft von $\divf{S_i}$ erhalten wir dadurch einen eindeutigen Homomorphismus $h_i'$ mit $h_i' \circ \divf{T} = h_i$. Nutze diesen um einen weiteren Homomorphismus zu definieren:
+\begin{gather*}
+\function{\phi_i}{\Tensor{T}{S_i}{\divR{S_i}{R}}}{\divR{T}{R}}{\tensor{t}{S_i}{\divf{S_i}(s_i)}}{t \cdot (h' \circ \divf{S_i})(s_i) = t \cdot h_i(s_i)}
+\end{gather*}
+Damit erhalten wir folgenden kommutatives Diagramm:
+\begin{center}
+\begin{tikzcd}
+S_i \arrow[rd, "h_i"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, , hook] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
+                                          & \divR{T}{R}                                                    &                     
+\end{tikzcd}
+\end{center}
+Zuletzt bilden wir die Summe $\phi \defeq \sum_{i \in \Lambda} \phi_i$ und erhalten damit eine Umkehrfunktion von $\varphi$:
+\begin{gather*}
+\function{\phi}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(\tensor{t_i}{S_1}{\divf{S_1}(s_1)},\dots,\tensor{t_n}{S_n}{\divf{S_n}(s_n)})}{\sum_{i = 1}^n t_i \cdot h_i(s_i)}\\
+\functionback{\phi}{(0,\tensor{1}{S_i}{d_{S_i}(s_i)},0)}{\divf{T}(1 \otimes s_i \otimes 1)}
+\end{gather*}
+Somit gilt $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$.\\
+Definiere also ab jetzt $\bigoplus_{i\in \Lambda} (\Tensor{T}{S_i}{\divR{S_i}{R}})$ als des Differentialraum von $T$ über $R$. Damit gilt $\divf{T} = e$.\\
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Mehrdimmensionales Algebraisches Differentieren}}
+\begin{bem}\label{Mehrdimmensionales Algebraisches Differentieren} \textit{[Eigene Bemerkung]}\\
+Sei $R(\lbrace x_i \rbrace_{i \in \Lambda})$ ein Polynomring über R. Bezeichne mit $\delta_{j}$ die formale Ableitung in Richtung $x_j$, wie wir sie aus der Analysis für Polynomfunktionen über $\mathbb{R}^n$ kennen:
+\begin{gather*}
+\functionfront{\delta_{j}}{R(\lbrace x_i \rbrace_{i \in \Lambda})}{R(\lbrace x_i \rbrace_{i \in \Lambda})}\\
+{\sum_k \left( a_k \cdot x_j^{n_{j,k}}\prod_{i \neq j} x_i^{n_{i,k}}\right)}
+\longmapsto
+{\sum_{k,n_{j,k} > 0} \left( a_k \cdot n_{j,k} \cdot x_j^{n_{j,k} - 1}\prod_{i \neq j} x_i^{n_{i,k}}\right)}
+\end{gather*}
+Betrachte den Differentialraum von $R[\lbrace x_i \rbrace_{i \in \Lambda}]$  über $R[\lbrace x_i \rbrace_{i \in \Lambda \setminus\lbrace j \rbrace}]$:
+\begin{gather*}
+\functionfront{\divf{j}}{R[\lbrace x_i \rbrace_{i \in \Lambda}]}{\divR{R[\lbrace x_i \rbrace_{i \in \Lambda}]}{R[\lbrace x_i \rbrace_{i \in \Lambda \setminus\lbrace j \rbrace}]}}
+\end{gather*}
+Nach \cref{Derivation ist Ableitung} entspricht $\divf{j}$ der formalen Ableitung $\delta_{j}$. Für $P_j(x_j),P(x_1,\cdots,x_n) \in R{\lbrace x_i \rbrace}_{i \in \Lambda}$ gilt also:
+\begin{gather}
+\delta_{j}(P_j(x_j)) = P'(x_j)\\
+\divf{j}(P(x_1,\cdots,x_n)) = \delta_{j}(P(x_1, \cdots ,x_n))\divf{j}(x_j)
+\end{gather}
+\end{bem}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial von Polynomalgebren 1} \textit{[vlg. Proposition 16.1 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 1}
+Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i = 1}^n S \langle \divf{S}(x_i) \rangle 
+\end{gather*}
+Für die universelle Derivation $\divf{S}$ gilt hierbei mit der Notation von \cref{Mehrdimmensionales Algebraisches Differentieren}:
+\begin{gather*}
+\function{\divf{S}}{S}{\divR{S}{R}}{P(x_1,\cdots,x_n)}{(\delta_{1}(P)\divf{S}(x_1), \cdots , \delta_{n}(P)\divf{S}(x_n))}
+\end{gather*}
+Hierbei wird oft zur besserem Übersicht $\divf{S}(x_i) = dx_i$ geschrieben.
+\end{korrolar}
+\begin{proof}
+Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, ist $S$ isomorph zu $S' \defeq \bigotimes_{i = 1}^n R[x_i]$. In \cref{Differenzial des Koproduktes} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
+\begin{gather*}
+\divR{S'}{R} = \bigoplus_{i \in \Lambda} (\Tensor{S'}{R[x_i]}{\divR{R[x_i]}{R}})
+\end{gather*}
+Mithilfe von \cref{Derivation ist Ableitung} können wir ${\divR{R[x_i]}{R}}$ für $i \in \Lambda$ weiter umformen:
+\begin{gather*}
+\divR{S'}{R} = \bigoplus_{i = 1}^n (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle})
+\simeq \bigoplus_{i = 1}^n S' \langle \divf{R[x_i]}(x_i) \rangle 
+\end{gather*}
+Nutze nun $S' \simeq S$ und betrachte $\divf{R[x_i]}$ als Einschränkung von $\divf{S}$. Dadurch erhalten wir die gewünschte Darstellung von $\divR{S}{R}$.\\
+Definiere ab nun also $\divR{S}{R} = \bigoplus_{i = 1}^n S \langle \divf{S}(x_i) \rangle$.\\
+Um zu zeigen, dass hierbei die universelle Derivation die gewünschte Form annimmt gehe zunächst die bisher genutzten Derivationen und Isomorphismen durch:
+\begin{center}
+$\functionfront{\divf{S}}{S}{\divR{S}{R}}$
+\begin{tikzcd}
+S \arrow[d]  &  & \prod_{i = 1}^n P_i(x_i) \arrow[d, maps to] \\
+S' \arrow[d] &  & \otimes_{i = 1}^n P_i(x_i)\arrow[d, maps to]                        \\
+\bigoplus_{i = 1}^n (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle}) \arrow[d]  &  & (\dots , (\tensor{\otimes_{k \neq i} P_k(x_k)}{R[x_i]}{\divf{R{x_i}}(P(x_i))}) , \dots) \arrow[d, maps to]                        \\
+\bigoplus_{i \in \Lambda} S \langle \divf{S}(x_i) \rangle            &  & (\dots , \left( \prod_{k \neq i} P_k(x_k) \right) P'(x_i) \divf{S}(x_i) , \dots)
+\end{tikzcd}
+\end{center}
+Betrachte nun \cref{Mehrdimmensionales Algebraisches Differentieren}. Dabei stellen wir fest, dass wir für $j \in \Lambda$ von $\divf{S}(x_j) = \divf{j}(x_j)$ ausgehen können, da $\lbrace \divf{S}(x_i) \rbrace_{i \in \Lambda}$ linear unabhängig ist.\\
+Rechne also für $\prod_{i = 1}^n P_i(x_i) \in R[\lbrace x_i \rbrace_{i \in \Lambda}]$ und $j \in \lbrace 1, \cdots , n \rbrace$ nach, ob unsere gewünschte Darstellung von $\divf{S}$ zutrifft:
+\begin{gather*}
+\delta_{j}\left(\prod_{i = 1}^n P(x_i)\right)\divf{S}(x_j) = \divf{j}\left(\prod_{i = 1}^n P(x_i)\right)
+\textit{ (\cref{Mehrdimmensionales Algebraisches Differentieren})}\\
+= P_j(x_j)\divf{j} \left( \prod_{i \neq j} P_i(x_i) \right) + \left( \prod_{i \neq j} P_i(x_i) \right) \divf{j}(P_j(x_j))
+\textit{ (Leibnizregel)} \\
+= 0 + \left( \prod_{i \neq j} P_i(x_i) \right) \delta_j(P(x_j))\divf{j}(x_j)
+=  \left( \prod_{i \neq j} P_i(x_i) \right) P'(x_j)\divf{j}(x_j)
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial von Polynomalgebren 2} \textit{[vgl. Korrolar 16.6 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 2}
+Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i = 1}^n T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Differenzial des Koproduktes} an:
+\begin{gather*}
+T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
+\Rightarrow \divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus (\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})
+\end{gather*}
+Zuletzt wende den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
+\begin{gather*}
+\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}}\\
+\simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i = 1}^n R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
+\simeq \bigoplus_{i = 1}^n T \langle \divf{R}(x_i) \rangle
+\end{gather*}
+Damit haben wir Isomorphie gezeigt. Definiere also $(\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i = 1}^n T \Verz{\divf{T}(x_i)}$ als den Differentialraum von $T$ über $R$.\\
+Abschließend wollen wir noch $\divf{T}$ betrachten, sei dazu $s\prod_{i =1}^k x_i^{n_i} \in T$ ein beliebiges Monom:
+\begin{gather*}
+d_T\left(s\prod_{i =1}^k x_i^{n_i}\right) \\
+= \left(\tensor{\prod_{i =1}^k x_i^{n_i}}{S}{\divf{S}(s)},
+ \tensor{s}{R[\lbrace x_i \rbrace_{i \in \Lambda}]}{\divf{R[\lbrace x_i \rbrace_{i \in \Lambda}]}}\left(\prod_{i =1}^k x_i^{n_i}\right)\right)\\
+=\left(\tensor{\prod_{i =1}^k x_i^{n_i}}{S}{\divf{S}(s)},
+s \cdot \delta_1 \left( \prod_{i =1}^k x_i^{n_i} \right) \divf{R[x_1](x_1)} , \dots , s \cdot \delta_n \left( \prod_{i =1}^k x_i^{n_i} \right) \divf{R[x_n](x_n)} \right)
+\end{gather*}
+Daran ist zu erkennen, dass auch $\divf{T}$ die geforderte Form annimmt.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Jakobimatrizen}}
+\begin{korrolar}\label{Jakobimatrizen}\textit{[Eigene Überlegung]}\\
+Sei $S = R[x_1 \cdots , x_m]$ der Polynomring in $m$ Variablen über $R$ und $\nolinebreak{S^n = \bigoplus_{k = 1}^n S}$ der $n$-fache Produktraum von $S$.\\
+Somit entspricht mit der Notation von \cref{Mehrdimmensionales Algebraisches Differentieren} der Differentialraum von $S^n$ über $R$ den Jakobimatrizen, wie wir sie aus Analysis kennen:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i = 1}^n \left( \bigoplus_{j = 1}^m S\langle \divf{S}(x_i) \rangle \right)\\
+\text{mit: } \function{\divf{S^n}}{S^n}{\divR{S^n}{R}}{P}{(\delta_j(P_i))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}}
+\end{gather*}
+Wobei wir $J_{(P_1, \dots ,P_n)} \defeq (\delta_j(P_i))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}$ die Jakobimatrix von $P$ nennen.
+\end{korrolar}
+\begin{proof}
+Zunächst erinnern wir uns daran, dass bei Algebren und Moduln die endlichen Summen den endlichen Produkten entsprechen.
+In \cref{Differenzial des Produktes von Algebren} haben wir den Differentialraum endlicher Produkte beschrieben:
+\begin{gather*}
+\divR{S^n}{R} = \bigoplus_{i=1}^n \divR{S}{R}
+\end{gather*}
+In \cref{Differenzial von Polynomalgebren 1} haben wir gesehen, dass $\divR{S}{R}$ dem gewünschten Produktraum entspricht:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{j = 1}^m S\langle \divf{S}(x_i) \rangle
+\end{gather*}
+Betrachte also noch genauer, wie die universelle Ableitung in diesem beiden Fällen beschrieben wird. Für ein beliebiges $P = (P_1, \dots , P_n) \in S^n$ gilt:
+\begin{gather*}
+\divf{S^n}
+\begin{pmatrix}
+P_1\\
+\vdots\\
+P_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+\divf{S}(P_1)\\
+\vdots\\
+\divf{S}(P_n)
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_m(P_1) \divf{S}(x_m)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_m(P_n) \divf{S}(x_m)
+\end{pmatrix}\
+\end{gather*}
+Es gilt also $\divf{S^n}(P) = (\delta_j(P_i)\divf{S}(x_j))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}$, was genau der Bildung der Jakobimatrix entspricht.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Bsp Jakobimatrix}}
+\begin{bsp}\label{Bsp Jakobimatrix} \textit{[Eigene Überlegung]}\\
+Wir wollen einmal konkret mit \cref{Jakobimatrizen} rechnen. Betrachte dazu die $\mathbb{Q}$-Algebra $ S = \mathbb{Q}[x,y,z]^2 = \mathbb{Q}[x,y,z] \oplus \mathbb{Q}[x,y,z]$ und folgendes Polynom $P(x,y,z) \in S$:
+\begin{gather*}
+ P(x,y,z) = 
+\begin{pmatrix}
+P_1(x,y,z)\\
+P_2(x,y,z)
+\end{pmatrix}
+=
+\begin{pmatrix}
+3x^2y\\
+xz-yz
+\end{pmatrix}
+\end{gather*}
+Nach \cref{Jakobimatrizen} ist $\divR{S}{\mathbb{Q}}$ ein freies Modul vom Rang $3$ über $S$:
+\begin{gather*}
+\divR{S}{\mathbb{Q}} = \left( Sdx \oplus Sdy \oplus Sdz \right) \oplus \left( Sdx \oplus Sdy \oplus Sdz \right)
+\end{gather*}
+Die universelle Deriavation verhält sich wie das formale Ableiten. Bilde also zunächst die formale Ableitung von $P_1$ und $P_2$ wie in \cref{Differenzial von Polynomalgebren 1} beschrieben:
+\begin{gather*}
+\divf{\mathbb{Q}[x,y,z]}(P_1)
+= \divf{\mathbb{Q}[x,y,z]}(3x^2y)\\
+=(\delta_1(3x^2y)dx \, , \, \delta_2(3x^2y) dy \, , \, \delta_3(3x^2y) dz)\\
+=(6xy \, dx \, , 3x^2  \,dy \, , \,0)\\
+\ \\
+\divf{\mathbb{Q}[x,y,z]}(P_1)
+= \divf{\mathbb{Q}[x,y,z]}(xz - yz)\\
+= (\delta_1(xz - yz) \, dx \, , \, \delta_2(xz - yz) \, dy \, , \, \delta_3(xz - yz) \, dz)\\
+= (z \, dx \, , \, -z \, dy \, , \, (x - y)dz)
+\end{gather*}
+Um die Jakobimatrix von zu $P$ bilden schreibe nun diese beiden Tupel untereinander in eine Matrix:
+\begin{gather*}
+\divf{\mathbb{Q}[x,y,z]}(P)
+= \divf{\mathbb{Q}[x,y,z]}\left(
+\begin{pmatrix}
+3x^2y\\
+xz-yz
+\end{pmatrix}
+\right)
+= 
+\begin{pmatrix}
+\divf{\mathbb{Q}[x,y,z]}(3x^2y) \\
+\divf{\mathbb{Q}[x,y,z]}(P_1)
+\end{pmatrix}\\
+=
+\begin{pmatrix}
+6xy \, dx  &  3x^2 \, dy  &  0\\
+z \,   dx  &  -z   \, dy  & (x - y) \, dz
+\end{pmatrix}
+\end{gather*}
+Wir gehen also genauso vor, wie wir es vom Ableiten von Polynomfunktionen über $\mathbb{R}^2$ aus der Analysis kennen. Dabei ist zu beachten, dass wir Polynome über $\mathbb{Q}^2$ abgeleitet haben. Des Weiteren hätten wir auch die $\mathbb{Z}$-Algebra $\mathbb{Z}[x,y,z]^2$ mit $P \in \mathbb{Z}[x,y,z]^2$ betrachten können und wären dabei analog vorgegangen.
+\end{bsp}
+
+
+\ \\
+\textcolor{blue}{\textbf{Derivtion mittels Jakobimatrizen}}
+\begin{korrolar}\label{Derivation mittels Jakobimatrizen} \textit{[Kapitel 16.1 \ModulsOfDifferenzials]}\\
+Sei  $S = R[x_1, \dots ,x_m]$ ein Polynomring über $R$ und $I = (P_1,\dots, P_n) \subseteq S$ ein Ideal. Betrachte $T = S/I$. Dann gilt:
+\begin{gather*}
+\divR{T}{R} 
+= \left( \bigoplus_{i = 1}^m T \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t_1, \cdots, t_n) J_{(P_1,\dots, P_n)} \, \vert (t_1 , \dots t_n) \in T^n \right\rbrace\\
+\comment{
+vl. Falsch
+= \bigoplus_{i  = 1}^m S/(P_1 , \dots , P_n , \delta_{i}(P_1) , \dots \delta_{i}(P_n) \langle \divf{S}(x_i) \rangle)\\
+\text{mit: } 
+\function{\divf{T}}{T}{\divR{T}{R}}{\left[Q(x_1,\cdots, x_m)\right]_T}{\left( [\delta_1(Q)], \dots , [\delta_m(Q)] \right)}
+}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte zunächst die Conormale Sequenz \textit{(\cref{Konormale Sequenz})} von $\function{\pi}{S}{T}{s}{[s]_T}$:
+\begin{center}
+\begin{tikzcd}
+I/I^2 \arrow[r, "\tensor{1}{S}{d_{S}}"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\ \\
+Nach dieser gilt $\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) / (\tensor{1}{S}{d_{S}})(I)$.
+\end{center}
+Nach \cref{Differenzial von Polynomalgebren 1} und da $T = S/I$ ein Faktorring von $S$ ist, ist die folgende Funktion $\Phi$ eine Isomorphie:
+\begin{gather*}
+\Phi: 
+\Tensor{T}{S}{\divR{S}{R}} 
+\longrightarrow \Tensor{T}{S}{\bigoplus_{i = 1}^m S \langle \divf{S}(x_i) \rangle} 
+\longrightarrow \bigoplus_{i = 1}^m T \langle \divf{S}(x_i) \rangle\\
+\functionback{\Phi}{\tensor{[s]_T}{}{\divf{S}(Q)}}{([s \cdot \delta_{1}(P)]_T\divf{S}(x_1), \dots , [s \cdot \delta_{m}(P)]_T\divf{S}(x_m))}
+\end{gather*}
+Betrachte nun also noch $(\Phi \circ (\tensor{1}{S}{d_{S}}))(I)$ näher. Sei dazu $P = \sum_{i = 1}^n s_iP_i \in I$ beliebig, somit gilt:
+\begin{gather*}
+\text{Wir können eine solche Summe als } P = \sum_{i = 1}^n s_iP_i = (s_1, \cdots s_n)
+\begin{pmatrix}
+P_1\\
+\vdots\\
+P_n
+\end{pmatrix}
+\text{ schreiben. Also:} \\
+(\Phi \circ (\tensor{1}{S}{d_{S}}))(P)
+= \sum_{i = 1}^n \divf{S}(s_iP_i)\\
+= \sum_{i = 1}^n [s_i]_T \cdot \divf{S}(P_i) + [P_i]_T \cdot \divf{S}(s_i) \textit{\hspace{1,5em}(Leibnizregel)}\\
+= \sum_{i = 1}^n [s_i]_T \cdot \divf{S}(P_i) + 0 \text{\hspace{2em}($[P_i]_T = 0$, \textit{da} $T = S/I$)} \\
+= ([s_1]_T , \cdots , [s_n]_T)
+\begin{pmatrix}
+\divf{S}(P_1)\\
+\vdots\\
+\divf{S}(P_n)
+\end{pmatrix}\\
+=
+([s_1]_T , \cdots , [s_n]_T)
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)
+\end{pmatrix}
+\end{gather*}
+Mit der Notation aus \cref{Jakobimatrizen} gilt somit:
+\begin{gather*}
+(\Phi \circ (\tensor{1}{S}{\divf{S}}))(I) = \left\lbrace (t_1, \cdots, t_n) J_{(P_1,\dots, P_n)} \, \vert (t_1 , \dots t_n) \in T^n \right\rbrace
+\end{gather*}
+Damit haben wir folgende Isomorphie gezeigt:
+\begin{gather*}
+\divR{T}{R} 
+\simeq (\Tensor{T}{S}{\divR{S}{R}}) / (\tensor{1}{S}{d_{S}})(I) 
+\simeq \left( \bigoplus_{i =1}^m S \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t) J_{(P_1,\dots, P_n)} \, \vert t \in T^n \right\rbrace
+\end{gather*}
+Da der Differentialraum von $T$ über $R$ bis auf eine eindeutige Isomorphie eindeutig ist, definiere diesen ab nun über diese Isomorphie. Anhand von $\Phi$ sehen wir, dass $\divf{T}$ die geforderte Form annimmt.
+\comment{
+vl. Falsch
+Anhand von $\Phi$ sehen wir, dass $\divf{T}$ folgende Form annimmt.
+\begin{gather*}
+\function{\divf{T}}{T}{\divR{T}{R}}{\left[Q(x_1,\cdots, x_m)\right]_T}{\left[\delta_1(Q)\divf{S}(x_1), \cdots , \delta_m(Q)\divf{S}(x_m)
+\right]_{J_{(P_1 , \dots , P_n)}}}
+\end{gather*}
+Zeige also noch:
+\begin{gather*}
+\left( \bigoplus_{i = 1}^m T \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t_1, \cdots, t_n)
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_m(P_1) \divf{S}(x_m)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_m(P_n) \divf{S}(x_m)
+\end{pmatrix}
+\, \vert (t_1 , \dots t_n) \in T^n \right\rbrace\\
+= \bigoplus_{i  = 1}^m S/(P_1 , \dots , P_n , \delta_{i}(P_1) , \dots \delta_{i}(P_n) \langle \divf{S}(x_i) \rangle)\\
+\end{gather*}
+Betrachte dazu für $i \in \lbrace 1, \dots , m \brace$ das von $\divf{S}(x_i)$ erzeugte Modul. Dieses erhält durch die $i$-te Spalte von $J_{(P_1,\dots ,P_n)}$ zusätzliche Relationen:
+\begin{gather*}
+( T \langle \divf{S}(x_i) \rangle ) / \brace (t_1 , \dots ) \lbrace
+\end{gather*}
+}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Bsp Derivation mittels Jakobimatrizen}}
+\begin{bsp}\comment{\label{Bsp Derivation mittels Jakobimatrizen}} \textit{[Eigene Überlegungen]}\\
+\begin{em}
+Durch \cref{Derivation mittels Jakobimatrizen} können wir nun für eine große Klasse von Algebren, deren Differentialraum bestimmen. Nutze dazu die Notation aus \cref{Differenzial von Polynomalgebren 1}.
+\end{em}
+\begin{itemize}
+\item[(1)] Nutze die Jakobimatrix, die wir in \cref{Bsp Jakobimatrix} ausgerechnet haben, um den Differentialraum von $\mathbb{Q}[x,y,z]^2/I$ über $\mathbb{Q}$ zu bestimmen, wobei $I \subseteq \mathbb{Q}[x,y,z]$ ein Ideal von folgender Form ist:
+\begin{gather*}
+I = (P_1(x,y,z),P_2(x,y,z)) = (3x^2y , \, zx - zy)\\
+\textit{mit } J_{(P_1,P_2)}  =
+\begin{pmatrix}
+6xy \, dx  &  3x^2 \, dy  &  0\\
+z \,   dx  &  -z   \, dy  & (x - y) \, dz
+\end{pmatrix}
+\comment{\textit{ (siehe \cref{Bsp Jakobimatrix})}} 
+\end{gather*}
+In \cref{Derivation mittels Jakobimatrizen} ist angegeben, wie wir mittels $J_{P_1,P_2}$ den Differentialraum von $\mathbb{Q}[x,y,z]^2/I$ über $\mathbb{Q}$ bestimmen können:
+\begin{gather*}
+\divR{S}{\mathbb{Q}} 
+= \left( Sdx \oplus Sdy \oplus Sdz \right) / \left\lbrace (s_1, \, s_2) J_{(P_1, \, P_2)} \, \vert (s_2, \in s_2) \in S^2 \right\rbrace\\ \\
+= \left( Sdx \oplus Sdy \oplus Sdz \right) / \left\lbrace (s_1, \, s_2) 
+\begin{pmatrix}
+6xy \, dx  &  3x^2 \, dy  &  0\\
+z \,   dx  &  -z   \, dy  & (x - y) \, dz
+\end{pmatrix}
+\, \vert (s_2, \in s_2) \in S^2 \right\rbrace
+\end{gather*}
+\comment{
+vl. Falsch
+Nun betrachten wir die Module, die von $dx$ , $dy$ und $dz$ erzeugt werden jeweils für sich.
+\begin{gather*}
+\mathbb{Q}[x,y,z]/(P_1,P_2,\delta_1(P_1),\delta_1(P_2)) \, dx \\
+= \mathbb{Q}[x,y,z]/(3x^2y , \, zx - zy , \, 6xy \, , z) \, dx \\
+= \mathbb{Q}[x,y,z]/(xy , \, z) \, dx \\
+= \mathbb{Q}[x,y]/(xy) \, dx \\
+\ \\
+\mathbb{Q}[x,y,z]/(P_1,P_2,\delta_2(P_1),\delta_2(P_2)) \, dy \\ 
+= \mathbb{Q}[x,y,z]/(3x^2y , \, zx - zy , \, 3x^2 , \, -z) \, dy \\
+= \mathbb{Q}[x,y,z]/(x^2 , \, z) \, dy \\
+= \mathbb{Q}[x,y]/(x^2) \, dy \\
+\ \\
+\mathbb{Q}[x,y,z]/(P_1,P_2,\delta_3(P_1),\delta_3(P_2)) \, dz \\ 
+= \mathbb{Q}[x,y,z]/(3x^2y , \, zx - zy , \, 0 , \, x - y) \, dz \\
+= \mathbb{Q}[x,y,z]/(x^2y , \, x - y) \, dz \\
+= \mathbb{Q}[x,z]/(x^3) \, dz \\
+\ \\
+\Rightarrow \divR{S}{\mathbb{Q}} = \mathbb{Q}[x,y]/(xy) \, dx \, \oplus \, \mathbb{Q}[x,y]/(x^2) \, dy \, \oplus \, \mathbb{Q}[x,z]/(x^3) \, dz
+\end{gather*}
+Nun sehen wir, wie wichtig es war die drei Moduln jeweils für sich zu betrachten. Wir haben bei jedem Modul durch eine Relation eine Variable eliminiert, wobei die genaue Form der Relation mit der wir das getan haben weiterhin die Wirkung von S auf das Modul  bestimmt.\\
+So gilt $z \, dx = 0 $ aber $y \, dz = x \, dz$.
+}
+
+\end{itemize}
+\begin{em}
+Da wir im Differentialraum zusätzliche Polynome raus teilen, kann es auch vorkommen, dass dieser der Nullraum ist:
+\end{em}
+\begin{itemize}
+\item[(2.1)] Sei $R$ ein beliebiger Ring. Wähle $r \in R$ und setze $S = R[x]/(x - r)$. Somit gilt $\divR{S}{R} = 0$. Rechne dies nach:
+\begin{gather*}
+\divR{S}{R} = Sdx/\lbrace s dx \vert s \in S \rbrace = S/S dx = 0
+\end{gather*}
+Alternativ kann man auch direkt sehen, dass in diesem Fall durch\\
+$S \longrightarrow R, \, x \longmapsto r$ ein Isomorphismus gegeben ist. Da $\divf{S}(1) = 0$ gilt \textit{(siehe \cref{Differenzial indempotenter Elemente})}, gilt insbesondere $\divf{S}(R) = 0$ und somit auch $\divR{S}{R} = 0$.
+
+\item[(2.2)] Sei $k$ ein beliebiger Körper. Wähle nun $a,b \in k$ und betrachte\\
+$L = k[x]/(ax - b)$ als $k$-Algebra. Dann gilt $\divR{L}{k} = 0$:
+\begin{gather*}
+L = k[x]/(ax - b) = k[x]/(x - a^{-1}b) \\
+\Rightarrow^{(2.1)} \divR{L}{k} = 0
+\end{gather*}
+\end{itemize}
+\begin{em}
+Um erst mal ein besseres Gefühl für Kähler-Differential zu bekommen, betrachte die Differentialräume von $\mathbb{Z}$-Algebren. Dabei tasten wir uns langsam von den einfachen Fällen hin zu komplexeren Beispielen:
+\end{em}
+\begin{itemize}
+\item[(3.1)] Betrachte den Ring $S = \mathbb{Z}[x]/(3x) = \nolinebreak{ \left\lbrace \sum_{i = 0}^n a_i x^i \vert \, a_0 \in \mathbb{Z} \, \wedge \, a_i \in \mathbb{Z}_3 \text{ für } i \geq 1 \right\rbrace}$ als $\mathbb{Z}$-Algebra. Der Differentialraum von S über $\mathbb{Z}$ ist das Modul der Polynome über $\mathbb{Z}_3$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = \left( S\divf{S}d(x) \right)/\lbrace s \cdot 3dx \vert s \in S \rbrace = S/3\mathbb{Z}[x] \, dx = \mathbb{Z}_3[x] dx
+\end{gather*}
+
+\item[(3.2)] Allgemeiner können wir auch $n \in \mathbb{N}$ mit $n \geq 2$ und $S = \mathbb{Z}[x]/(nx)$ als $\mathbb{Z}$-Algebra wählen. Gehe in diesem Fall analog zu \textit{(3.1)} vor:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = S/n\mathbb{Z} \, dx = \mathbb{Z}_n[x] dx
+\end{gather*}
+
+\item[(3.3)] Für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ und $S = \mathbb{Z}[x,y]/(nx,mx)$ gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx)/\lbrace (s_1,s_2)
+\begin{pmatrix}
+ndx\\
+mdx
+\end{pmatrix}
+ \cdot dx \vert (s_1,s_2) \in S^2 \rbrace \\
+= \mathbb{Z}[x]/ \left(n\mathbb{Z}[x] + m\mathbb{Z}[x]\right) \, dx 
+= \mathbb{Z}_{ggT(n,m)}[x]dx
+\end{gather*}
+
+\item[(3.4)] Betrachte noch, welche Auswirkungen es hat, wenn wir auch Polynome hören Grades betrachten. Wähle als $\mathbb{Z}$-Algebra also\\ $S = \mathbb{Z}[x]/(3x,x^2) = \lbrace a_0 + a_1x \vert a_0 \in \mathbb{Z}_3 \, \wedge \, a_1 \in \mathbb{Z} \rbrace$. Für diese gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = Sdx/\left\lbrace (s_1,s_2)
+\begin{pmatrix}
+3 \cdot dx\\
+2x \cdot dx
+\end{pmatrix}
+\vert (s_1,s_2) \in S^2 \right\rbrace\\
+=\mathbb{Z}[x]/(3,2x,3x,2x^2) \, dx
+=\mathbb{Z}[x]/(3,x) \, dx
+=\mathbb{Z}_3 dx
+\end{gather*}
+
+\item[(3.5)] Für $S = \mathbb{Z}[x]/(3x^3, x^4) = \left\lbrace \sum_{i = 1}^3 a_ix^i \vert \, a_0 , a_1 , a_2 \in \mathbb{Z} \, \wedge \, a_3 \in \mathbb{Z}_3 \right\rbrace$ gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = Sdx/\left\lbrace (s_1,s_2)
+\begin{pmatrix}
+9x^2 \cdot dx\\
+4x^3 \cdot dx
+\end{pmatrix}
+\vert (s_1,s_2) \in S \right\rbrace\\
+=\mathbb{Z}[x]/(9x^2,3x^3,4x^3,x^4)\,dx \\
+= \mathbb{Z}[x]/(9x^2,x^3) \, dx 
+= \left\lbrace \left( \sum_{i = 0}^2 a_ix^i \right)dx \, \vert \, a_0,a_1 \in \mathbb{Z} \, \wedge \, a_2 \in \mathbb{Z}_9 \right\rbrace
+\end{gather*}
+
+\item[(3.6)] Wir können mittlerweile auch Polynome in mehreren Variablen betrachten. Wähle also $n \in \mathbb{N}$ mit $n \geq 2$ und betrachte $S = \mathbb{Z}[x,y]/(nx,my)$, somit gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx \oplus S dy) / \left\lbrace (s_1,s_2)
+\begin{pmatrix}
+n dx & 0 \\
+0    & m dy
+\end{pmatrix}
+\vert (s_1, s_2) \in S^2 \right\rbrace \\
+= \mathbb{Z}[x,y]/(nx, my ,n) \, dx \, \oplus \,  \mathbb{Z}[x,y]/(ny , my , m) \, dy \\
+= \mathbb{Z}[x,y]/(my , n) \, dx \, \oplus \, \mathbb{Z}[x,y]/(nx,m) \, dy \\
+= \mathbb{Z}_n[x,y]/(my) \, dx \, \oplus \, \mathbb{Z}_m[x,y]/(nx) \, dy \\
+= (\mathbb{Z}_n[x])[y]/(my) \, dy \, \oplus \, (\mathbb{Z}_m[y])[x]/(nx) \, dy \\
+= \left\lbrace \sum_{i = 0}^n P_i(x) y_i \vert P_0(x) \in \mathbb{Z}_n[x] \, \wedge \, P_i(x) \in \mathbb{Z}_{ggt(n,m)}[x] \textit{ für } i \geq 1 \right\rbrace \\
+\oplus \left\lbrace \sum_{i = 0}^n P_i(y) x_i \vert P_0(y) \in \mathbb{Z}_m[y] \, \wedge \, P_i(y) \in \mathbb{Z}_{ggt(n,m)}[y] \textit{ für } i \geq 1 \right\rbrace
+\end{gather*}
+Beachte, dass wir die von $dx$ und $dy$ erzeugten Module separat betrachten können liegt daran, dass die Jakobimatrix von $(nx,my)$ eine Diagonalmatrix ist.
+
+\item[(3.7)] Rechne also noch ein Beispiel ohne Diagonalmatrix durch. Wähle $n \in \mathbb{N}$ mit $n \geq 2$ und betrachte $S = \mathbb{Z}[x,y]/(nxy)$, somit gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx \oplus S dy) /  \left\lbrace s
+(ny \, dx , \, nx \, dxy)
+\vert s \in S \right\rbrace\\
+= (Sdx \, \oplus \, Sdy) / (S(ny \, dx \, + \, nx \, dy))\\
+= (\mathbb{Z}[x,y] \, dx \oplus \mathbb{Z}[x,y] \, dy) / (nxy \, dx \, , \, nxy \, dy \, , \, ny \, dx \, + \, nx \, dy)
+\end{gather*}
+
+\item[(3.8)] Berechne zuletzt noch ein Beispiel mit konkreten Zahlen. Betrachte dazu die $\mathbb{Z}$-Algebra $S = \mathbb{Z}[x,y]/(2xy , y^2)$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}[x,y]
+= (S dx \oplus S dy) / \left\lbrace (s_1,s_2)
+\begin{pmatrix}
+2y dx  &  2x dy \\
+0      &  2y dy
+\end{pmatrix}
+\vert (s_1,s_2) \in S^2 \right\rbrace\\
+= (Sdx \oplus Sdy)/(2y \, dx + 2x \, dy \, , \, 2y \,dy) \\
+= (\mathbb{Z}[x]dx \oplus \mathbb{Z}[x]dy)/(2xy \, dx \, , \, y^2 \, dx \, , \, 2y \, dx + 2x \, dy \, , \, 2xy \, dy  \, , \, y^2 \, dy \, , \,  2y \,dy)\\
+= (\mathbb{Z}[x]dx \oplus \mathbb{Z}[x]dy)/(2xy \, dx \, , \, y^2 \, dx \, , \, 2y \, dx + 2x \, dy \, , \, y^2 \, dy \, , \,  2y \,dy)
+\end{gather*}
+Für $(x^3y + x^2y) \in S$ gilt somit:
+\begin{gather*}
+\divf{s}(x^3y + x^2y) = ((3x^2y + xy)dx \, , \, (x^3 + y^2)dy) = (x^2y \, dx \, , \, (x^3 + y^2)dy)
+\end{gather*}
+\end{itemize}
+\begin{em}
+Betrachte das Differential von Körpererweiterungen.
+\end{em}
+\begin{itemize}
+\item[(4)]
+Für die $\mathbb{R}$-Algebra $\mathbb{C} = R[x]/(x^2 - 1)$ der Komplexen Zahlen gilt $\divR{\mathbb{C}}{\mathbb{R}} = 0$:
+\begin{gather*}
+\divR{\mathbb{C}}{\mathbb{R}} = \mathbb{C}dx / \mathbb{C}(2x \, dx) = \mathbb{R} /(x^2 -1, \, 2x) \, dx = 0\\
+\textit{da } (x^2 - 1) + \frac{1}{2}(2x) = 1 \textit{, also } (x^2 -1, \, 2x) = (x^2 -1, \, 2x, 1) = \mathbb{R}
+\end{gather*}
+\comment{
+\item[(3'.1)] Wir können mittlerweile auch Polynome in mehreren Variablen betrachten. Wähle also $n \in \mathbb{N}$ mit $n \geq 2$ und $S = \mathbb{Z}[x,y]/(nxy)$, somit gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx \oplus S dy) /  \left\lbrace s
+(ny \, dx , \, nx \, dxy)
+\vert s \in S \right\rbrace\\
+= S/(ny) \, dx \oplus S/(nx) \, dy\\
+= \mathbb{Z}[x]/(ny) \, dx \oplus \mathbb{Z}[x]/(nx) \, dy\\\
+\end{gather*}
+
+\item[(3'.2)] Für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ und $S = \mathbb{Z}[x,y]/(nx,ny)$ gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx)/\lbrace (s_1,s_2)
+\begin{pmatrix}
+ndx\\
+mdx
+\end{pmatrix}
+ \cdot dx \vert (s_1,s_2) \in S^2 \rbrace \\
+= \mathbb{Z}[x]/ \left(n\mathbb{Z}[x] + m\mathbb{Z}[x]\right) \, dx 
+= \mathbb{Z}_{ggT(n,m)}[x]dx
+\end{gather*}
+
+\item[(3'.3)] Wir wollen uns mal an ein etwas kompliziertes Beispiel wagen. Betrachte für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ den Raum der Differentiale von \\$S = \nolinebreak{\mathbb{Z}[x,y,z]/(nx + ny, mx + mz)}$ über $\mathbb{Z}$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (Sdx \oplus Sdy \oplus Sdz)/\left\lbrace (s_1,s_2) 
+\begin{pmatrix}
+ndx & ndy & 0\\
+0   & ndy & mdz
+\end{pmatrix}
+\vert (s_1,s_2) \in S^2 \right\rbrace\\
+=\mathbb{Z}_n[x,y,z]/(mx + mz) \, dx \, \oplus \, \mathbb{Z}_{ggT(n,m)}[x,y,z] \, dy \, \oplus \, \mathbb{Z}_m[x,y,z]/(nx + ny) \, dz
+\end{gather*}
+
+\item[(3'.4)] Setze in \textit{(3'.3)} \, $n = 2$ und $m = 3$. Betrachte also den Differentialraum von \\
+$\nolinebreak{S = \mathbb{Z}[x,y,z]/(2x + 2y, 3x + 3z)}$ über $\mathbb{Z}$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+=\mathbb{Z}_2[x,y,z]/(3x + 3z) \, dx \, \oplus \, \mathbb{Z}_{ggT(2,3)}[x,y,z] \, dy \, \oplus \, \mathbb{Z}_3[x,y,z]/(2x + 2y) \, dz \\
+= \mathbb{Z}_2[x,y,z]/(x + z) \, dx \, \oplus \, 0 \, dy \, \oplus \, \mathbb{Z}_3[x,y,z]/(2x + 2y) \, dz\\
+= \mathbb{Z}_2[x,y] \, dx \, \oplus \, \mathbb{Z}_3[x,y,z]/(2x + 2y) \, dz
+\end{gather*}
+}
+\end{itemize}
+\end{bsp}
+\end{document}

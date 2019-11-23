@@ -1,0 +1,2227 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{tikz-cd}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usetikzlibrary{babel}
+\usepackage{cleveref}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+\newcommand{\ModulsOfDifferenzials}{David Eisenbud 1994}
+\newcommand{\Algebra}{Christian Karpfinger, Kurt Meyberg 2009}
+
+\newcounter{Aussage}[chapter]
+
+\newtheorem{satz}[Aussage]{Satz}
+\newtheorem{theorem}[Aussage]{Theorem}
+\newtheorem{prop}[Aussage]{Proposition}
+\newtheorem{korrolar}[Aussage]{Korrolar}
+\newtheorem{lemma}[Aussage]{Lemma}
+\newtheorem{bem}[Aussage]{Bemerkung}
+\newtheorem{definition}[Aussage]{Definition}
+\newtheorem{bsp}[Aussage]{Beispiel}
+
+\newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
+\newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
+\newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
+\newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\divf}[1]{d_{#1}}
+\comment{\newcommand{\divf}[2][]{d_{#1}}}
+\newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\tensor}[3]{#1 \otimes #3}
+\newcommand{\lok}[2]{#1 [#2^{-1}]}
+\newcommand{\loke}[3]{(\frac{#1}{#2})_{_{#3}}}
+\comment{\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}}
+
+\newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand*{\defeqr}{= \mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}}
+                     
+\newcommand*{\defshow}{\stackrel{!}{=}}
+\newcommand{\kernel}[1]{kern(#1)}
+\newcommand{\immage}[1]{im(#1)}
+\newcommand{\Verz}[1]{\langle #1 \rangle}
+
+
+\begin{document}
+\chapter{Einführung des Kähler-Differentials}
+
+\textcolor{blue}{\textbf{Definition Leibnizregel}}
+\begin{definition}\label{Definition Leibnizregel} \textit{[Kapitel 16 \ModulsOfDifferenzials]}\\
+Sei S ein Ring und M ein S-Modul
+\begin{itemize}
+\item[]Ein Homomoprphismus abelscher Gruppen $\functionfront{d}{S}{M}$ ist eine \underline{Derivation}, falls gilt:
+\begin{gather*}
+\forall s_1,s_2 \in S :\, d(s_1 \cdot s_2) = s_1d(s_2) + s_2d(s_1) \textbf{ (Leibnitzregel)}
+\end{gather*}
+\item[]Sei S eine R-Algebra, dann nennen wir eine \underline{Derivation} $\functionfront{d}{S}{M}$ \underline{$R$-linear}, falls sie zusätzlich ein R-Modulhomomorphismus ist, also falls gilt:
+\begin{gather*}
+\forall r_1,r_2 \in R \, \forall s_1,s_2 \in S : \, d(r_1 s_1 + r_2 s_2) = r_1 d(s_1) + r_2 d(s_2)
+\end{gather*}
+\end{itemize}
+\end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{Summe von Derivationen}}
+\begin{lemma}\label{Summe von Derivationen} \textit{[Eigene Überlegung]} \\
+Seien $S$ eine $R$-Algebra und $M$ ein $S$-Modul. Seien weiter $\functionfront{d,d'}{S}{M}$ zwei Derivationen. 
+Dann ist auch $\functionfront{d,d'}{S}{M}$ eine Derivation.
+\end{lemma}
+\begin{proof}
+Zeige also, dass $d+d'$ die Leibnizregel erfüllt \textit{(siehe \cref{Definition Leibnizregel})}. Seien dazu $s_1,s_2 \in S$ beliebig, somit gilt:
+\begin{gather*}
+(d+d')(s_1s_2) 
+= d(s_1s_2) + d'(s_1s_2) \\
+= s_1d(s_2) + s_2d(s_1) + s_1d'(s_2) + s_2d'(s_1) \\
+= s_1 \left( d(s_2) + d'(s_2) \right) + s_2 \left( d(s_1) + d'(s_1) \right) \\
+= s_1(d+d')(s_2) + s_2(d+d')(s_1)
+\end{gather*}
+Damit erfüllt $\functionfront{d+d'}{S}{M}$ die Leibnizregel und ist eine Derivation.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial indempotenter Elemente}}
+\begin{lemma}\label{Differenzial indempotenter Elemente} \textit{[Aufgabe 16.1 \ModulsOfDifferenzials]} \\
+Sei S ein Ring und $M$ ein $S$-Modul und $\functionfront{d}{S}{M}$ eine Derivation. Sei weiter $a \in S$ ein indempotentes Element ($a^2 = a$).
+\begin{center}
+Dann gilt $d(a) = 0$. 
+\end{center}
+Insbesondere gilt somit auch $d(1) = 0$.
+\end{lemma}
+\begin{proof}
+Nutze hierfür allein die Leibnizregel \textit{(cref{Definition Leibnizregel})}
+\begin{gather*}
+\text{Schritt 1: } \divf{S}(a) = \divf{S}(a^2) = a\divf{S}(a) + a\divf{S}(a) \\
+\text{Schritt 2: } a\divf{S}(a) = a\divf{S}(a^2) = a^2\divf{S}(a) + a^2\divf{S}(a) = a\divf{S}(a) + a\divf{S}(a)\\
+\Rightarrow \divf{S}(a) = a\divf{S}(a) = 0
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Definition Kaehler-Differenzial}}
+\begin{definition}\label{Definition Kaehler-Differenzial} \textit{Kapitel 16 \ModulsOfDifferenzials}\\
+Sei $S$ eine $R$-Algebra.\\
+Das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Derivation $\functionfront{\divf{S}}{S}{\divR{S}{R}}$ mit $\immage{\divf{S}} = \divR{S}{R}$ sind durch die folgende universelle Eigenschaft definiert:
+\begin{center}
+Für alle R-linearen Derivationen $\functionfront{e}{S}{M}$ von S in ein $S$-Modul $M$ existiert genau ein $S$-Modulhomomorphismus $\functionfront{e'}{\divR{S}{R}}{M}$, sodass folgendes Diagramm kommutiert:\\
+\begin{tikzcd}
+S \arrow[r, "\divf{S}"] \arrow[rd, "e"'] & \divR{S}{R} \arrow[d, "\exists ! e'", dashed] \\
+                                  & M                                  
+\end{tikzcd}
+\end{center}
+\end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{Eindeutigkeit des Kaehler-Differentials}}
+\begin{lemma}\label{Eindeutigkeit des Kaehler-Differentials}(Das Kähler-Differentials ist eindeutig) \textit{[Eigene Überlegung]}\\
+Sei S eine $R$-Algebra.\\
+Dann ist das $S$-Modul $\divR{S}{R}$ der Kähler-Differenziale von $S$ über $R$ und die dazugehörige universelle $R$-lineare Derivation $\divf{S}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
+\end{lemma}
+\begin{proof}
+Seien $\functionfront{\divf{S}}{S}{\divR{S}{R}} und \functionfront{\divf{S}'}{S}{\divR{S}{R}'}$ beide eine universelle $R$-lineare Derivation.\\
+Durch die universelle Eigenschaft der universellen Ableitung erhalten wir eindeutig bestimmte Funktionen
+$\functionfront{\varphi}{\divR{S}{R}}{\divR{S}{R}'}$ und $\functionfront{\varphi'}{\divR{S}{R}'}{\divR{S}{R}}$, für welche die folgenden Diagramme kommutieren:
+\begin{center}
+\begin{tikzcd}
+S \arrow[r, "\divf{S}"] \arrow[rd, "\divf{S}'"'] & \divR{S}{R} \arrow[d, "\exists !\varphi", dashed] &  & S \arrow[r, "\divf{S}'"] \arrow[rd, "\divf{S}"'] & \divR{S}{R}' \arrow[d, "\exists ! \varphi'", dashed] \\
+                                   & \divR{S}{R}'                                      &  &                                    & \divR{S}{R}                                     
+\end{tikzcd}
+\end{center}
+Wende nun die Universelle Eingenschaft von $\divf{S}$ auf $\divf{S}$ selbst an und erhalte $id_{\divR{S}{R}} = \varphi' \circ \varphi$. 
+\begin{center}
+\begin{tikzcd}
+S \arrow[r, "\divf{S}"] \arrow[rd, "\divf{S}"'] & \divR{S}{R} \arrow[d, "\exists ! id_{\divR{S}{R}} = \varphi' \circ \varphi", dashed] \\
+                                   & \divR{S}{R}                                                              
+\end{tikzcd}
+\end{center}
+Analog erhalte auch $id_{\divR{S}{R}'} = \varphi \circ \varphi'$. Damit existiert genau ein Isomorphismus $\functionfront{\varphi' \circ \varphi}{\divR{R}{S}}{\divR{R}{S}'}$ mit $\divf{S}' = \divf{S} \circ (\varphi' \circ \varphi)$.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial ist Ableitung}}
+\begin{korrolar}\label{Derivation ist Ableitung}\textit{[Eigene Überlegung]}\\
+Für Differentialraum des Plynomrings $R[x]$ gilt:
+\begin{gather*}
+\divR{R[x]}{R} = R[x]\langle \div{R[x]}(x) \rangle
+\end{gather*}
+Wobei $R[x] \langle \divf{R[x]}(x)\rangle$ das von $\divf{R[x]}(x)$ erzeugt Modul über $R[x]$ ist.\\
+Genauer gesagt entspricht die universellen Derivation des Polynomrings $R[x]$ der formalen Ableitung von Polynomfunktionen, wie wir sie aus der Analysis kennen. Für $P(x) \in R[x]$ gilt also:
+\begin{gather*}
+\divf{R[x]}(P(x)) = P'(x)\divf{R[x]}(x)
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Da $\divf{R[x]}$ $R$-linear ist, genügt es die Behauptung für Monome $P(x) \in k[x]$ zu zeigen, führe dazu eine Induktion über den Grad $n$ von $P(x) = ax^n$:
+\begin{spacing}{1.5}
+\begin{itemize}
+\item[\textbf{IA}:] $\divf{R[x]}(ax) = a\divf{R[x]}(x) + x\divf{R[x]}(a) = a\divf{R[x]}(x)$
+\item[\textbf{IV}:] Für $n \in \mathbb{N}$ gilt $\divf{S}(ax^n) = na x^{n-1}\divf{S}(x)$
+\item[\textbf{IS}:] 
+$\divf{S}(ax^{n+1}) = ax^n\divf{R[x]}(x) + x\divf{R[x]}(ax^n) = ax^n\divf{R[x]}(x) + x \cdot (na x^{n-1}\divf{R[x]}(x))$\\
+$ = (n+1)ax^n\divf{R[x]}(x)$
+\end{itemize}
+\end{spacing}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Propositon 11 delta}}
+\begin{lemma}\label{Propositon 11 delta} \textit{[Lemma 16.11 \ModulsOfDifferenzials]} \\
+Seien $S$, $S'$ zwei $R$-Algebren. Sei weiter $\functionfront{f}{S}{S'}$ ein $R$-Algebrenhomomorphismus und $\functionfront{\delta}{S}{S'}$ ein Homomorphismus abelscher Gruppen mit $\delta(S)^2 = 0$. Dann gilt:
+\begin{center}
+$f$ + $\delta$ ist ein $R$-Algebrenhomomorphismus\\
+$\Leftrightarrow$\\
+$\delta$ ist eine $R$-linear und $\forall s_1,s_2 \in S :\, \delta(s_1 \cdot s_2) = f(s_1)\delta(s_2) + f(s_2)\delta(s_1)$.
+\end{center}
+\end{lemma}
+\begin{proof} \ \\
+\begin{itemize}
+\item[\underline{\glqq $\Rightarrow$ \grqq :}] Da $f$ und $f$ + $\delta$ $R$-linear sind, ist auch $\delta = (f + \delta) - f$ $R$-linear.\\
+Seien nun $s_1,s_2 \in S$ beliebig, somit gilt:
+\begin{gather*}
+(f + \delta)(s_1 \cdot s_2) = (f + \delta)(s_1) \cdot (f + \delta)(s_2)\\
+\Rightarrow f(s_1 \cdot s_2) + \delta(s_1 \cdot s_2) = f(s_1)f(s_2) + f(s_1)\delta(s_2) + f(s_2)\delta(s_1) + \delta(s_1)\delta(s_2)\\
+\Rightarrow \delta(s_1 \cdot s_2) = f(s_1)\delta(s_2) + f(s_2)\delta(s_1) + \delta(s_1)\delta(s_2) \textit{ mit } \delta(s_1)\delta(s_2) \in \delta(S)^2 = 0 \\
+\Rightarrow \delta(s_1 \cdot s_2) = f(s_1)\delta(s_2) + f(s_2)\delta(s_1) + \delta(s_1)\delta(s_2)
+\end{gather*}
+\item[\underline{\glqq $\Leftarrow$ \grqq :}]
+Da $f$ und $\delta$ beide $R$-lineare Homomorphismen abelscher Gruppen sind, trifft die auch für $f + \delta$ zu.\\
+Wähle nun also $s_1,s_2 \in S$ beliebig, somit gilt:
+\begin{gather*}
+(f + \delta)(s_1) \cdot (f + \delta)(s_2) \\
+= f(s_1)f(s_2) + f(s_1)\delta(s_2) + f(s_2)\delta(s_1) + \delta(s_1)\delta(s_2)\\
+= f(s_1 \cdot s_2) + \delta(s_1 \cdot s_2) \\
+= (f + \delta)(s_1 \cdot s_2)
+\end{gather*}
+Damit haben wir gezeigt, dass $f + \delta$ ein $R$-Algebrenhomomorphismus ist.
+\end{itemize}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Kontruktion Kaehler-Differential}}
+\begin{theorem} (Konstruktion des Kähler-Differentials\comment{\label{Kontruktion Kaehler-Differential}}\textit{[Theorem 16.21 \ModulsOfDifferenzials]} \\
+Sei $S$ ein $R$-Algebra. Definiere eine $S$-Modulstruktur auf $\Tensor{S}{R}{S}$ durch:
+\begin{gather*}
+S \oplus (\Tensor{S}{R}{S}) \longrightarrow \Tensor{S}{R}{S} ,(s,\tensor{s_1}{R}{s_2}) \longmapsto \tensor{ss_1}{R}{s_2}
+\end{gather*}
+Betrachte $\function{\mu}{\Tensor{S}{R}{S}}{S}{\tensor{s_1}{R}{s_2}}{s_1 \cdot s_2}$ mit $I \defeq \kernel{\mu}$.\\
+\begin{center}
+Dann ist durch $\function{e}{S}{I/I^2}{s}{[\tensor{s}{R}{1} - \tensor{1}{R}{s}]}$ die universelle $R$-lineare Derivation auf $S$ definiert.
+\end{center}
+\end{theorem}
+\begin{proof}
+Zeige zunächst, dass $e$ eine $R$-linare Derivation ist. Betrachte dazu:
+\begin{gather*}
+\function{f_1}{S}{\Tensor{S}{R}{S}}{s}{\tensor{s}{R}{1}} , \function{f_2}{S}{\Tensor{S}{R}{S}}{s}{\tensor{1}{R}{s}} \\
+\textit{Damit ist die Wirkung von $S$ auf $\Tensor{S}{R}{S}$ durch }\\ S \oplus (\Tensor{S}{R}{S}) \longrightarrow \Tensor{S}{R}{S} ,(s,\tensor{s_1}{R}{s_2}) \longmapsto f_1(s)(\tensor{s_1}{R}{s_2}) \textit{ gegeben.}
+\end{gather*}
+Setze nun in der Notation von \cref{Propositon 11 delta} $f = f_1$ und $\delta = e$.\\
+Damit ist $f + \delta = f_1 + \delta = f_2$ ein $R$-Algebra-Homomorphismus und es folgt aus \cref{Propositon 11 delta} und unserer Definition der Wirkung von $S$ auf $\Tensor{S}{R}{S}$, dass $e$ eine $R$-lineare Derivation ist. Durch die Universelle Eigenschaft von $\divf{S}$ existiert also genau ein $R$-Algebrenhomomorphismus $\functionfront{e'}{\divR{S}{R}}{I/I^2}$ mit $e = \divf{S} \circ e'$.\\
+Betrachte nun folgende Umkehrabbildung $\phi$ zu $e'$:
+\begin{gather*}
+\function{\phi}{I/I^2}{\divR{S}{R}}{[\tensor{s_1}{R}{s_2}]}{s_1\divf{S}(s_2)}
+\end{gather*}
+Um zu prüfen, dass $\phi$ die Umkehrabbildung von $e$ ist, wähle $s,s_1,s_2 \in S$ beliebig, somit gilt:
+\begin{gather*}
+(\phi \circ e')(\divf{S}(s)) = (\phi \circ e)(s) = \phi([\tensor{s}{R}{1} - \tensor{1}{R}{s}]) = s\divf{S}(1) + 1\divf{S}(b) = \divf{S}(b) \\
+(e' \circ \phi)([\tensor{s_1}{R}{s_2}]) = e'(s_1\divf{s_2}) = s_1 e(s_2) = [s_1\tensor{1}{R}{s_2} - s_1\tensor{s_2}{R}{1}] =
+[\tensor{s_1}{R}{s_2} - \tensor{s_1s_2}{R}{1}] = [\tensor{s_1}{R}{s_2}]
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial des Produktes von Algebren} \textit{[Proposition 16.10 \ModulsOfDifferenzials]}}
+\begin{prop}\label{Differenzial des Produktes von Algebren}
+Seien $S_1, \dots , S_n$ R-Algebren. Sei dazu $S \defeq \prod_{i \in \lbrace 1, \dots , n \rbrace} S_i$ deren direktes Produkt.
+Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}
+\end{gather*}
+Wobei die universelle Derivation folgende Form hat:
+\begin{gather*}
+\function{\divf{S}}{S}{\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}}{s}{((\divf{S_1} \circ p_1)(s) , \dots , (\divf{S_1} \circ p_1)(s) )}
+\end{gather*}
+\end{prop}
+\begin{proof}
+Sei für $i \in \lbrace 1, \dots ,n \rbrace$ jeweils $e_i \in S$ die Einbettung des Einselement's von $S_i$ in $S$, somit ist $\functionfront{p_i}{e_iS}{S_i}$ ein Isomorphismus.\\
+Nutze weiter, dass $e_i$ jeweils ein indempotentes Element von $({e_i}^2 = e_i)$ von $S$ ist:
+\begin{gather*}
+\text{Nach \cref{Differenzial indempotenter Elemente} gilt } \divf{S}(e_i) = 0 \\
+\Rightarrow \forall s \in s : \divf{S}(e_is)= \divf{S}({e_i}^2s) = e_i\divf{S}(e_is) + e_is\divf{S}(e_i) = e_i\divf{S}(e_is) \\
+\end{gather*}
+Mit diesem Wissen können wir einen Isomorphismus $\functionfront{\Phi}{\divR{S}{R}}{\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}}$ definieren:
+\begin{center}
+\begin{tikzcd}
+\divR{S}{R} \arrow[d] & \divf{S}(s) = \sum_{i \in \lbrace 1, \dots , n \rbrace} \divf{S}(e_is) \arrow[d, maps to] \\
+\prod_{i \in \lbrace 1, \dots , n \rbrace} e_i\divf{S}(e_iS) \arrow[d] & \left( e_1\divf{S}(e_1s), \dots , e_n\divf{S}(e_ns) \right) \arrow[d,, maps to] \\
+\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}                & \left( (\divf{S_1} \circ p_1) (s), \dots , (\divf{S_n} \circ p_n) (s) \right)                         
+\end{tikzcd}
+\end{center}
+Da der Differenzialraum $\divR{S}{R}$ bis auf eine eindeutige Isomophie eindeutig ist \textit{(\cref{Eindeutigkeit des Kaehler-Differentials})}, definiere diesen ab jetzt als $\prod_{i \in \lbrace 1, \dots , n \rbrace} \divR{S_i}{R}$.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Realtiv Cotangent Sequenz}}
+\begin{satz}\label{Cotangent Sequenz} \textbf{(Relativ Cotangent Sequenz)} \textit{[vgl. Proposition 16.2 \ModulsOfDifferenzials]}\\
+Seien $\functionfront{\alpha}{R}{S}$ und $\functionfront{\beta}{S}{T}$ zwei Ringhomomorphismen. Dann existiert folgende exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S}{\divR{S}{R}} \arrow[r, "D_{\beta}"] & \divR{T}{R} \arrow[rrr, "\divf{T_R}(t) \mapsto \divf{T_S}(t)"] &  &  & \divR{T}{S} \arrow[r]  & 0
+\end{tikzcd}
+\ \\
+mit: $\function{D_{\beta}}{\Tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{t}{S}{\divf{S}(s)}}{t(\divf{T_R} \circ \beta)(s)}$
+\end{center}
+Im Besonderen gilt für die Differenzialräume von $T$ über $R$ und $S$:
+\begin{gather*}
+\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle
+\end{gather*}
+\end{satz}
+\begin{proof}
+Durch $st \defeq \beta (S) \cdot t$ und $rt \defeq (\beta \circ \alpha) (r) \cdot t$ können wir $T$ als $S$- bzw. $R$-Algebra betrachten.\\
+Zeige zunächst, dass $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ surjektiv ist:
+\begin{itemize}
+\item[]
+$\divf{T_S}$ ist $R$ - Linear, da $R$ durch $(\beta \circ \alpha)$ auf $T$ wirkt, es lässt sich also die universelle Eigenschaft von $\divf{T_R}$ auf $\divf{T_S}$ anwenden:
+\begin{center}
+\begin{tikzcd}
+T \arrow[r, "\divf{T_R}"] \arrow[rd, "\divf{T_S}"'] & \divR{T}{R} \arrow[d, "\exists ! g", dashed] \\
+                                  & \divR{T}{S}                                  
+\end{tikzcd}
+\end{center}
+Wir können also alle Elemente $\divf{T_S}(s) \in \divR{T}{S}$ als $g(\divf{T_R}(s))$ darstellen.
+Dies zeigt, dass $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ surjektiv ist.
+\end{itemize}
+Zeige nun, dass $\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle$ gilt:
+\begin{itemize}
+\item[] Definiere zunächst folgende $S$-lineare Derivation:
+\begin{gather*}
+\function{e}{T}{\divR{T}{R} / T \langle (\divf{T_R} \circ \beta)(S) \rangle }{t}{[\divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}}
+\end{gather*}
+Wir sehen, dass $e$ auch $S$-linear ist:
+\begin{gather*}
+\text{Seien dazu } s \in S \text{ und } t \in T \text{ beliebig, somit gilt:}\\
+e(st) = [\divf{T_R}(st)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}\\
+=[\beta(s) \divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle} + [t \divf{T}(\beta(s))]_{T \langle (\divf{T} \circ \beta)(S) \rangle}\\
+= [\beta(s) \divf{T}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle} + 0 = se(t)
+\end{gather*}
+Dies bedeutet, dass wir die universelle Eigenschaft von $\divf{T_S}$ anwenden können:
+\begin{center}
+\begin{tikzcd}
+T \arrow[r, "\divf{T_S}"] \arrow[rd, "e"'] & \divR{T}{S} \arrow[d, "\exists ! e'", dashed] \\
+                                  & \divR{T}{R}/T \divR{S}{R}                                  
+\end{tikzcd}
+\end{center}
+Dadurch erhalten wir $\functionfront{e'}{\divR{T}{S}}{\divR{T}{R}/T \divR{S}{R}}$.\\
+Für die Umkehrfunktion $\phi$ nutze $\function{g}{\divR{T}{R}}{\divR{T}{S}}{\divf{T_R}(t)}{\divf{T_S}(t)}$ vom Beginn des Beweises:
+\begin{gather*}
+\text{Für alle } s \in S \text{ gilt } \divf{T_S}(s) = 0.\\
+\text{ Somit gilt } T \langle (\divf{T_R} \circ \beta)(S) \rangle \subseteq \kernel{g}.\\
+\text{Also ist die Umkehrfunktion $\phi$ von $e'$ wohldefiniert: }\\
+ \function{\phi}{\divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle}{\divR{T}{S}}{[\divf{T_R}(t)]_{T \langle (\divf{T_R} \circ \beta)(S) \rangle}}{\divf{T_S}(t)}.
+\end{gather*}
+Damit gilt $\divR{T}{S} \simeq \divR{T}{R}/T \langle (\divf{T_R} \circ \beta)(S) \rangle$.\\
+Auf unsere Sequenz bezogen bedeutet dies:
+\begin{gather*}
+\text{Es gilt } \immage{\divR{T}{R} \rightarrow \divR{T}{S}} \simeq \divR{T}{R} / \immage{D_{\beta}}.\\
+\text{Somit gilt auch } \immage{D_{\beta}} = \kernel{ \divR{T}{R} \rightarrow \divR{T}{S} }. 
+\end{gather*}
+Damit haben wir gezeigt, dass die \textbf{Relative Cotangent Sequenz} exakt ist.
+\end{itemize}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Konormale Sequenz} \textit{[vlg. Proposition 16.3 \ModulsOfDifferenzials]}}
+\begin{satz} \label{Konormale Sequenz}
+\raggedright
+Sei $\functionfront{\pi}{S}{T}$ ein R-Algebrenephimorphismus mit Kern($\pi$):= I \\
+Dann ist folgende Sequenz rechtsexakt: \\
+\begin{center}
+\begin{tikzcd}
+I/I^2 \arrow[r, "\tensor{1}{S}{\divf{S}}"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\ \\
+\begin{spacing}{1.5}
+mit: $\function{\tensor{1}{S}{\divf{S}}}{I/I^2}{{\Tensor{T}{S}{\divR{S}{R}}}}{[s]}{\tensor{1}{S}{\divf{S}(s)}}$\\
+$\function{D\pi}{\Tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{t}{S}{\divf{S}(s)}}{t \cdot (\divf{S} \circ \pi)(s)}$
+\end{spacing}
+\end{center}
+\end{satz}
+\begin{proof} \ \\
+Zeigen zunächst, dass $\tensor{1}{S}{\divf{S}}$ wohldefiniert ist. Seien dazu $s,s' \in I$ beliebig, somit gilt:
+\begin{gather*}
+(\tensor{1}{S}{\divf{S}})(s \cdot s')
+= \tensor{1}{S}{s\divf{S}(s')} + \tensor{1}{S}{s'\divf{S}(s)}
+= \tensor{\pi(s)}{S}{\divf{S}(s')} + \tensor{\pi(s')}{S}{\divf{S}(s)}
+= 0
+\end{gather*}
+$D\pi$ ist surjektiv, da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $\divf{S}$ und $\divf{T}$ erzeugt werden und sich somit die Surjektivität von $\pi$ auf $D\pi$ vererbt:
+\begin{center}
+\begin{tikzcd}
+\divR{S}{R} \arrow[r, " D\pi ", two heads]                & \divR{T}{R}                \\
+S \arrow[r, " \pi ", two heads] \arrow[u, " \divf{S} "] & T \arrow[u, " \divf{T} "]
+\end{tikzcd}
+\end{center}
+Für $\immage{\tensor{1}{S}{\divf{S}}} \defshow \kernel{D\pi}$ zeige $(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R}$:
+\begin{gather*}
+\comment{
+(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \\
+= (\Tensor{T}{S}{\divR{S}{R}})/(\Tensor{T}{S}{\divf{S}(I)}) \\
+= \Tensor{T}{S}{(\divR{S}{R}/\divf{S}(I))} \\ 
+= \Tensor{T}{S}{(\divf{S}(S)/ \divf{S}(I))} \\
+\simeq \Tensor{T}{S}{\divf{S}(S/I)} \\
+\simeq \Tensor{T}{S}{\divf{T}(T)} \\
+}
+(\Tensor{T}{S}{\divR{S}{R}})/(\Tensor{T}{S}{\divf{S}(I)})
+= \Tensor{T}{S}{(\divR{S}{R}/\divf{S}(I))}
+\simeq \Tensor{T}{S}{\divf{S}(S/I)}
+\simeq \Tensor{T}{S}{\divf{T}(T)}
+\end{gather*}
+\end{proof}
+
+
+\chapter{Kolimiten}
+\section{Einführung in den Kolimes}
+\textcolor{blue}{\textbf{Definition des Kolimes}}
+\begin{definition}\label{Definition des Kolimes} \textit{[vgl. Anhang A6 \ModulsOfDifferenzials]}
+Sei $\mathcal{A}$ eine Kategorie.
+\begin{itemize}
+\item Ein \underline{Diagramm} über $\mathcal{A}$ ist eine Kategorie $\mathcal{B}$ zusammen mit einem Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$.
+\item Sei $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Diagramm und $A \in \mathcal{A}$ ein Objekt. Dann definieren wir einen \underline{Morphismus} $\functionfront{\psi}{\mathcal{F}}{A}$ als eine Menge von Funktionen 
+$\nolinebreak{\lbrace \psi_B \in Hom(F(B),A) \vert B \in \mathcal{B} \rbrace}$, wobei für alle $B_1,B_2 \in \mathcal{B}$ und $\varphi \in Hom(B_1,B_2)$ folgendes Diagramm kommutiert:
+\begin{center}
+\begin{tikzcd}
+\mathcal{F}(B_1) \arrow[rrd, "\psi_{B_1}"] \arrow[dd, "\mathcal{F}(\varphi )"] &  &   \\
+                                   &  & C \\
+\mathcal{F}(B_2) \arrow[rru, "\psi_{B_2}"']                 &  &  
+\end{tikzcd}
+\end{center}
+\item Der \underline{Kolimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Paar aus einem Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$, welche folgende universelle Eingenschaft erfüllen:
+\begin{center}
+Für Objekte $A' \in \mathcal{A}$ und alle Morphismen $\functionfront{\psi '}{\mathcal{F}}{A'}$ existiert genau eine Funktion $\varphi \in Hom(A,A')$, sodass folgendes Diagramm kommutiert:
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi '"'] &                            \\
+A' &                                    & A \arrow[ll, "\exists ! \varphi "', dashed]
+\end{tikzcd}
+\end{center}
+\end{itemize}
+\end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{Eindeutigkeit des Kolimes} \textit{[vgl. A6 \ModulsOfDifferenzials]}}
+\begin{lemma}\label{Eindeutigkeit des Kolimes}
+Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor. Dann ist im Falle der Existenz $\colimes \mathcal{F}$ eindeutig bestimmt.
+\end{lemma}
+\begin{proof}
+Seien $A_1 \in \mathcal{A}, (\functionfront{\psi_1}{\mathcal{F}}{A_1}) $ und $A_2 \in \mathcal{A} , (\functionfront{\psi_2}{\mathcal{F}}{A_2}) $ beide gleich $\colimes \mathcal{F}$.\\
+Erhalte durch die universelle Eigenschaft des Kolimes die eindeutig bestimmten Funktionen $\varphi_1 \in Hom_{\mathcal{A}}(A_1,A_2)$ und $\varphi_2 \in Hom_{\mathcal{A}}(A_2,A_1)$, für welche die folgende Diagramme kommutieren:
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_2"'] &                            &  &   & \mathcal{F} \arrow[rd, "\psi_2"] \arrow[ld, "\psi_1"'] &                            \\
+A_2 &                                    & A_1 \arrow[ll, "\exists ! \varphi_1"', dashed] &  & A_1 &                                    & A_2 \arrow[ll, "\exists ! \varphi_2"', dashed]
+\end{tikzcd}
+\end{center}
+\begin{flushleft}
+Wende nun die Universelle Eigenschaft von $\psi_1$ auf $\psi_1$ selbst an und erhalte $id_{A_1} = \varphi_2 \circ \varphi_1$. Analog erhalte auch $id_{A_2} = \varphi_1 \circ \varphi_2$.
+\end{flushleft}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_1"'] &                            \\
+A_1 &                                    & A_1 \arrow[ll, "\exists ! id_{A_1} = \varphi_2 \circ \varphi_1"', dashed]
+\end{tikzcd}
+\end{center}
+Somit existiert genau eine Isomorphie $\functionfront{\varphi_1}{A_1}{A_2}$.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Vereinfachung des Kolimes}}
+\begin{korrolar}\label{Vereinfachung des Kolimes} \textit{[Eigene Überlegung ]}\\
+Sei $\mathcal{A}$ eine Kategorie und $(\mathcal{B}, \functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}})$ ein Diagramm. Betrachte die Unterkategorie $\mathcal{F}(B) \subseteq \mathcal{A}$ zusammen mit dem Inklusionsfunktor $\mathcal{F}(B)\hookrightarrow \mathcal{A}$ ebenfalls als Diagramm. Dann gilt:
+\begin{center}
+$\colimes \mathcal{F}$ existiert genau dann, wenn $\colimes (\mathcal{F}(\mathcal{B}) \hookrightarrow \mathcal{A})$ existiert.\\
+Mit $\colimes \mathcal{F} = \colimes (\mathcal{F}(\mathcal{B}) \hookrightarrow \mathcal{A})$.
+\end{center}
+\end{korrolar}
+\begin{proof}
+Dies folgt direkt aus unserer Definition von Morphismen:\\
+In \cref{Definition des Kolimes} haben wir einen Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ als eine Menge von Funktionen $\mathcal{\psi_B} \in Hom_{\mathcal{A}}(\mathcal{F}(B),A)$ definiert. Dies zeigt, dass es keinen Unterschied macht, ob wir von Morphismen $\functionfront{\psi}{\mathcal{F}}{A}$ oder von Morphismen $\functionfront{\psi}{(\mathcal{F}(B)\hookrightarrow \mathcal{A})}{A}$ reden.\\
+Wenn wir nun die universelle Eigenschaft des Kolimes genauer betrachten, sehen wir, dass diese sich nur auf Morphismen $\mathcal{F} \longrightarrow A$ bzw. $(\mathcal{F}(\mathcal{B}) \hookrightarrow \mathcal{A}) \longrightarrow A$ und auf die Kategorie $\mathcal{A}$ bezieht. Es macht also keinen Unterschied, ob wir vom Kolimes des Diagramms $(\mathcal{B}, \functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}})$ oder vom Kolimes des Diagramms $(\mathcal{F}(B),\mathcal{F}(B)\hookrightarrow \mathcal{A})$ sprechen.
+\end{proof}
+Es genügt also im Fall von Kolimtenn Diagramme $(\mathcal{B},\mathcal{B}\hookrightarrow\mathcal{A})$ mit $\mathcal{B} \subseteq \mathcal{A}$ zu betrachten. Zur Vereinfachung schreibe für $\mathcal{B} \subseteq \mathcal{A}$ in Zukunft $\colimes \mathcal{B}$ anstatt von $\colimes (\mathcal{B} \hookrightarrow \mathcal{A})$.
+
+
+\ \\
+\textcolor{blue}{\textbf{DifferenzkokernUndKoproduktDef}}
+\begin{definition}\label{DifferenzkokernUndKoproduktDef} \textit{[vlg. A6 \ModulsOfDifferenzials]}\\
+Sei $\mathcal{A}$ eine Kategorie.
+\begin{itemize}
+\item Das Koprodukt von $ \lbrace B_i \rbrace_{i \in \Lambda} \subseteq \mathcal{A}$ wird durch $\coprod_{i \in \Lambda} \lbrace B_i \rbrace := \colimes\mathcal{B}$ definiert, wobei $\lbrace B_i \rbrace_{i \in \Lambda}$ die Objekte und die Identitätsabbildungen $\lbrace \functionfront{id_{B_i}}{B_i}{B_i} \rbrace_{i \in \Lambda}$ die einzigen Morphismen von $\mathcal{B}$ sind.
+\item Der Differenzkokern von $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ wird durch $\colimes \mathcal{C}$ definiert,
+wobei $\lbrace C_1,C_2 \rbrace$ die Objekte und $ \lbrace f,g \rbrace$ zusammen mit den Identitätsabbildungen die Morphismen von $\mathcal{C}$ sind.
+\end{itemize}
+\end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{NeuDifferenzenkokerndef}}
+\begin{bem}\label{NeuDifferenzenkokerndef} \textit{[Wikipedia]}\\
+Sei $\mathcal{A}$ eine Kategorie. Sei weiter $C_1,C_2 \in Obj_{\mathcal{A}}$ und $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.\\
+Im Falle der Existenz ist der Differnenzenkokern von $f,g$ nach \cref{DifferenzkokernUndKoproduktDef} durch ein Objekt $C \in Obj_{\mathcal{A}}$ und einen Morphismus $\psi = \lbrace \psi_{C_1}, \psi_{C_2}\rbrace$ gegeben, wobei gilt:
+\begin{gather*}
+\psi_{C_2} = f \circ \psi_1 = g \circ \psi_2
+\end{gather*}
+Wir sehen, dass $\psi$ eindeutig durch $q \defeq \psi_2 \in Hom_{\mathcal{A}}(C_1,C_2)$ gegeben ist. Der Differnzenkokern ist also eindeutig durch $(C \in obj_\mathcal{A},q \in Hom_{\mathcal{A}}(C_1,C_2))$ gegeben, wobei $q$ folgenden Eigenschaften besitzt:
+\begin{center}
+Es gilt $f \circ q = g \circ g$ und\\
+für alle $C \in Obj_{A}$ und $q' \in Hom_{\mathcal{A}}$ mit $f \circ q' = g \circ q'$ existiert genau ein $\varphi \in Hom_{\mathcal{A}}$, mit $q \circ \varphi = q'$:\\
+\ \\
+\begin{tikzcd}
+C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & C \arrow[d, "\exists !\varphi", dashed] \\
+                                 &                                     & C'                                     
+\end{tikzcd}
+\end{center}
+\end{bem}
+Wenn wir fortan vom Differenzkokern sprechen meinen wir damit das Paar $(C,q)$.
+
+
+\ \\
+\textcolor{blue}{\textbf{Kolimes durch Koprodukt und Differenzkokern}}
+\begin{theorem}\label{Kolimes durch Koprodukt und Differenzkokern} \textit{[Proposition A6.1 \ModulsOfDifferenzials]}\\
+Sei $\mathcal{A}$ eine Kategorie, in der Koprodukte beliebiger Mengen von Objekten und Differenzkokerne von je zwei Morphismen existieren. Dann existiert für jedes Diagramm $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ dessen Kolimes $\colimes \mathcal{F}$.
+\end{theorem}
+\begin{proof}
+In \cref{Vereinfachung des Kolimes} haben wir gesehen, dass es genügt den Fall $\mathcal{B} \subseteq \mathcal{A}$ zu betrachten. Konstruiere also für eine beliebige Unterkategorie $\mathcal{B} \subseteq \mathcal{A}$ deren Kolimes $\colimes\mathcal{B}$:\\
+Bezeichne für jeden Morphismus $\gamma \in Morph_{\mathcal{C}}$ dessen Definitionsbreich mit $B_{\gamma} \in \mathcal{B}$. Weiter, wenn wir einen Morphismus $\psi$ gegeben haben und $\psi_{\gamma(B_{\gamma})}$ betrachten, ist damit $\psi_{B}$ gemeint, wobei $B$ die Zielmenge von $\gamma$ ist. Definiere nun:
+\begin{itemize}
+\item $C_1 \defeq \coprod_{\gamma \in Morph_{\mathcal{B}}} B_{\gamma}$ ist das Koprodukt aller Objekte von $\mathcal{B}$, in dem jedes Objekt so oft vorkommt, wie es Definitionsbereich eines $\gamma \in Morph_{\mathcal{B}}$ ist.\\
+Sei $\functionfront{\psi^1}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_1}$ der dazugehörige Morphismus.
+\item $C_2 \defeq \coprod_{B \in Obj_\mathcal{B}}$ ist das Koprodukt aller Objekte von $\mathcal{B}$.\\
+Sei $\functionfront{\psi^2}{\lbrace B \vert B \in Obj_\mathcal{B} \rbrace}{C_2}$ der dazugehörige Morphismus.
+\end{itemize}
+Konstruiere nun $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ so, dass der Differenzkokern von $f$ und $g$ dem Kolimes von $\mathcal{B}$ entspricht. Nutze dazu die universelle Eigenschaft von $(C_1,\psi^1) = \colimes \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$:
+\begin{itemize}
+\item[]
+Für $f$ betrachte den Morphismus $\functionfront{\zeta}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})}$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wähle $f \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, mit $\zeta = f \circ \psi^1$.
+\item[]
+Für $g$ betrachte den Morphismus $\functionfront{\zeta'}{\lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace}{C_2}$,\\
+mit $\zeta'_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})} \circ \gamma$ für $B_{\gamma} \in \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace$.\\
+Wähle $g \in Hom_{\mathcal{B}}(C_1,C_2)$ als die eindeutige Funktion, mit $\zeta' = g \circ \psi^1$.
+\end{itemize}
+\begin{center}
+\begin{tikzcd}
+    & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta"'] &                                        &     & \lbrace B_{\gamma} \vert \gamma \in Morph_{\mathcal{B}}\rbrace \arrow[rd, "\psi^1"] \arrow[ld, "\zeta'"'] &                                       \\
+C_2 &                                                                                                          & C_1 \arrow[ll, "\exists ! f"', dashed] & C_2 &                                                                                                           & C_1 \arrow[ll, "\exists! g"', dashed] \\
+    & \zeta_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})}                                                                                                  &                                        &     & \zeta'_{B_{\gamma}} \defeq \psi^2_{\gamma(B_{\gamma})} \circ \gamma                                                                                                   &                                      
+\end{tikzcd}
+\end{center}
+Sei $C \in Obj_{\mathcal{B}}$ zusammen mit $q \in Hom_{\mathcal{A}}(C_2,C)$ der Differenzkokern von $f$,$g$.\\
+Betrachte abschließend $\functionfront{\psi}{\mathcal{B}}{C}$, mit $\psi_{B} = q \circ \psi^2_B$ für $B \in Obj_{\mathcal{B}}$.\\
+Um zu sehen, dass $\psi$ ein Morphismus ist, wähle $B_1,B_2 \in Obj_{\mathcal{B}}$ beliebig und betrachte folgendes kommutatives Diagramm:
+\begin{center}
+\begin{tikzcd}
+B_1 \arrow[rd, "\psi^1_{B_1}"] \arrow[rr, "\psi^2_{B_1} = \zeta_{B_1}"] \arrow[dd, "\gamma"'] \arrow[rrdd, "\zeta'_{B_2}"', bend right] &                                      & C_2 \arrow[rd, "q"]  &   \\
+                                                                                                                        & C_1 \arrow[ru, "f"'] \arrow[rd, "g"] &                      & C \\
+B_2 \arrow[rr, "\psi^2_{B_2}"']                                                                                         &                                      & C_2 \arrow[ru, "q"'] &  
+\end{tikzcd}
+\end{center}
+Zeige nun, dass $(C,\psi)$ die Universelle Eigenschaft des Kolimes besitzt.
+Nutze dazu nacheinander die universellen Eigenschaften von $(C_2,\psi^2)$ und $(q,C)$:
+\begin{itemize}
+\item[]
+Da $\psi'$ ein Morphismus von $\mathcal{B}$ nach $C'$ ist, ist $\psi'$ insbesondere auch ein Morphismus von $\lbrace B \vert B \in Obj_{\mathcal{B}} \rbrace$ nach $C$. Somit existiert genau ein $q' \in Hom_{\mathcal{B}}(C_2,C')$ mit $\psi^2 \circ q' = \psi'$.
+\comment{
+\begin{center}
+\begin{tikzcd}
+   & \lbrace B \vert B \in Obj_{\mathcal{B}} \rbrace \arrow[rd, "\psi^2"] \arrow[ld, "\psi'"'] &                                         \\
+C' &                                                                                           & C_2 \arrow[ll, "\exists ! q'"', dashed]
+\end{tikzcd}
+\end{center}
+}
+\item[]
+Zeige nun $q' \circ f \defshow q' \circ g$. Sei dazu $c \in C_1$ beliebig und $\gamma \in Morph_{\mathcal{B}}, \, b \in B_{\gamma}$ mit $\psi^1_{B_{\gamma}}(b) = c$, dann gilt:
+\begin{gather*}
+(q' \circ f)(c)
+= (q' \circ f \circ \psi^1_{B_{\gamma}})(b)
+= (q' \circ \zeta_{B_{\gamma}})(b)
+= (q' \circ \psi^2_{B_{\gamma}})(b)
+= \psi'_{B_{\gamma}}(b) \\
+(q' \circ g)(c)
+= (q' \circ g \circ \psi^1_{B_{\gamma}})(b)
+= (q' \circ \zeta'_{B_{\gamma}})(b)\\
+= (q' \circ \psi^2_{\gamma({B_{\gamma}})} \circ \gamma)(b)
+= (\psi'_{\gamma(B_{\gamma})} \circ \gamma)(b)
+= \psi'_{B_{\gamma}}(b)
+\end{gather*}
+Somit können wir die universelle Eigenschaft von $q$ auf $q'$ anwenden und erhalten ein eindeutiges $\varphi \in Hom(C,C')$ mit $q' = q \circ \varphi$.
+\begin{center}
+\begin{tikzcd}
+   &  & \mathcal{B} \arrow[rd, "\psi^2"] \arrow[lldd, "\psi'"'] \arrow[rrdd, "\psi", bend left=49] &                                                                &                                               \\
+   &  &                                                                                            & C_2 \arrow[rd, "q"] \arrow[llld, "\exists ! q'"', dashed] &                                               \\
+C' &  &                                                                                            &                                                                & C \arrow[llll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+\end{itemize}
+Dieses $\varphi \in Hom(C,C')$ erfüllt auch $\psi \circ \varphi = \psi^2 \circ q \circ \varphi = \psi^2 \circ q' = \psi'$ und ist nach Konstruktion eindeutig. Damit gilt $\colimes \mathcal{B} = (C,\psi)$.
+\end{proof}
+
+
+\ \\
+\begin{bem}\label{Unendliche Indexmengen}(Unendliche Indexmengen)\\
+Wir wollen uns hier nochmal kurz in Erinnerung rufen, was es bedeutet, wenn wir eine unendlich große Indexmenge $\Lambda$ vor uns haben:
+\begin{itemize}
+\item[1.] Sei $\mathcal{A}$ eine Kategorie und $\lbrace B_i \rbrace_{i \in \Lambda} \subseteq Obj_{\mathcal{A}}$, dann gilt:
+\begin{gather*}
+\bigoplus_{i \in \Lambda} B_i 
+= \bigcup_{\lbrace i_1, \dots, i_n \rbrace \subseteq \Lambda} \bigoplus_{k = 1}^{n} B_{i_k} 
+= \left\lbrace (b_{i_1}, \dots , b_{i_n}) \vert n \in \mathbb{N} \wedge \lbrace i_1, \dots ,i_n \rbrace \subseteq \Lambda \right\rbrace
+\end{gather*}
+\item[2.] Sei $\lbrace M_i \rbrace_{i \in \Lambda}$ eine Menge von $R$-Moduln (oder $R$-Algebren), dann gilt:
+\begin{gather*}
+\bigotimes_{i \in \Lambda} M_i 
+= \bigcup_{\lbrace i_1, \dots, i_n \rbrace \subseteq \Lambda} \bigotimes_{k = 1}^{n} M_{i_k} 
+= \left\lbrace (m_{i_1} \otimes \dots \otimes m_{i_n}) \vert n \in \mathbb{N} \wedge \lbrace i_1, \dots ,i_n \rbrace \subseteq \Lambda \right\rbrace
+\end{gather*}
+\item[3.] Für den Polynomring über $R$ in unendlich vielen Variablen $\lbrace x_i \rbrace_{i \in \Lambda}$ gilt:
+\begin{gather*}
+P[\lbrace x_i \rbrace_{i \in \Lambda}] 
+= \bigcup_{\lbrace i_1, \dots, i_n \rbrace \subseteq \Lambda} P[x_{i_1} , \dots , x_{i_n}] 
+= \left\lbrace P(x_{i_1}, \dots , x_{i_n}) \vert n \in \mathbb{N} \wedge \lbrace i_1, \dots ,i_n \rbrace \subseteq \Lambda \right\rbrace
+\end{gather*}
+\end{itemize}
+Dies zeigt, dass sich diesen drei Fällen eine unendliche Indexmenge $\Lambda$ immer auf endliche Indexmengen $\lbrace 1, \dots , n\rbrace$ zurückführen lässt.
+\end{bem}
+
+
+\comment{
+\textcolor{blue}{\textbf{Tensorprodukt des Differenzenkokerns} \textit{[Eigene Bemerkung]}}
+\begin{bem} \comment{\label{Tensorprodukt des Differenzenkokerns}}
+Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\Tensor{T}{C_1}{M}$ definieren. 
+\begin{gather*}
+\textit{für } s_1 \in S_1 \textit{ und } \tensor{t}{S_1}{m}) \in \Tensor{T}{C_1}{M} \textit{ gilt: }\\
+s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \tensor{((q \circ g)) \cdot (s_1)t}{S_1}{m}
+\end{gather*}
+\end{bem}
+}
+
+
+\ \\
+\textcolor{blue}{\textbf{R-Algebra-Kolimiten}}
+\begin{prop} \label{R-Algebra-Kolimiten} \textit{[vlg. Proposition A6.7 \ModulsOfDifferenzials]}\\
+In der Kategorie der R-Algebren existieren Kolimiten beliebiger Diagramme, wobei gilt:
+\begin{itemize}
+\item[\textbf{1.}] Das Koprodukt einer Familie von $R-Algebren$ $\lbrace S_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} S_i$. 
+\item[\textbf{2.}] Der Differenzkokern zweier R-Algebrenhomomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{S_2/Q}{y}{[y]}$,\\
+wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in S_1 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
+\end{itemize}
+\end{prop}
+\begin{proof} \ \\
+\underline{Zu \textit{\textbf{1.}}:} Sei $\mathcal{B} = \lbrace S_i \rbrace_{i \in \Lambda}$ die Unterkategorie der R-Algebren, welche $\lbrace S_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Somit gilt nach \cref{DifferenzkokernUndKoproduktDef} $\coprod_{i \in \Lambda} S_i = \colimes \mathcal{B}$. Seien weiter:
+\begin{itemize}
+\item[]$\functionfront{\psi}{\mathcal{B}}{\coprod_{i \in \Lambda} S_i}$ der Morphismus des Koprodukts und
+\item[]$\functionfront{g}{\bigoplus_{i \in \Lambda} S_i}{\bigotimes_{i \in \Lambda} S_i}$ die multilineare Abbildung des Tensorprodukts.
+\end{itemize}
+Konstruiere daraus einen Morphismus $\psi'$ und eine multilineare Abbildung $g'$:
+\begin{gather*}
+\functionfront{\psi'}{\mathcal{B}}{\bigotimes_{i \in \Lambda} S_i} \text{, mit } \function{\psi'_{S_i}}{S_i}{\bigotimes_{i \in \Lambda} S_i}{s_i}{g(1,..,1,s_i,1,..,1)} \text{ für } i \in \Lambda\\
+\function{g'}{\bigoplus_{i \in \Lambda} S_i}{\coprod_{i \in \Lambda} S_1}{s}{\prod_{i \in \lbrace i \in \Lambda \vert s_i \neq 0 \rbrace} \psi_i(s_i)}
+\end{gather*}
+\ \\
+Somit liefern uns die universellen Eigenschaften folgende zwei R-Algebra-Homomorphismen:
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            &   & \bigoplus_i S_i \arrow[ld, "g'"'] \arrow[rd, "g"] &                                         \\
+\bigotimes_{i \in \Lambda} S_i &                                           & \coprod_{i \in \Lambda} S_1 \arrow[ll, "\exists ! \varphi"', dashed] & \coprod_{i \in \Lambda} S_i &                                     & \bigotimes_{i \in \Lambda} S_i \arrow[ll, "\exists ! \phi"', dashed]
+\end{tikzcd}
+\ \\
+\ \\
+$\functionfront{\varphi}{\coprod_{i \in \Lambda} S_i}{\bigotimes_{i \in \Lambda} S_i} \hspace{9 em} \functionfront{\phi}{\bigotimes_{i \in \Lambda} S_i}{\coprod_{i \in \Lambda} S_i}$
+\end{center}
+Wende nun die Universelle Eigenschaft von $\psi$ auf $\psi$ selbst an und erhalte $id_{\coprod_{i \in \Lambda} S_i} = \phi \circ \varphi$. Analog erhalte auch durch die universelle Eigenschschaft des Tensorpruduktes $id_{\bigotimes_i S_i} = \varphi \circ \phi$.
+\begin{center}
+\begin{tikzcd}
+         & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i S_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
+\coprod_{i \in \Lambda} S_i &                                                    & \coprod_{i \in \Lambda} S_i \arrow[ll, "\exists ! id_{\coprod_{i \in \Lambda} S_i} = \phi \circ \varphi "', dashed] &  & \bigotimes_{i \in \Lambda} S_i &                                                  & \bigotimes_i S_i \arrow[ll, "\exists ! id_{\bigotimes_i S_i} = \varphi \circ \phi "', dashed]
+\end{tikzcd}
+\end{center}
+Damit haben wir Isomorphismen zwischen $\coprod_{i \in \Lambda} S_i$ und $\bigotimes_i S_i$ gefunden.\\
+Da das Koprodukt $\coprod_{i \in \Lambda} S_i = \colimes \mathcal{B}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt ist \textit{(\cref{Eindeutigkeit des Kolimes})}, definiere dies ab jetzt als $\bigotimes_{i \in \Lambda} S_i$.\\
+\ \\
+\underline{Zu \textit{\textbf{2.}}:} Zeige, dass $\functionfront{q}{S_2}{S_2/Q}$ die in \cref{NeuDifferenzenkokerndef} eingeführten Eigenschaften des Differenzkokern`s  besitzt:
+\begin{gather*}
+q \circ f = q \circ g \text{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace.
+\end{gather*}
+Sei nun ein R-Algabrahomomorphismus $\functionfront{q'}{S_2}{T'}$ mit $q' \circ f = q' \circ g$ gegeben.\\
+Somit gilt $q' \circ (f - g) = 0$, wodurch $Q$ ein Untermodul von $Q' \defeq \kernel{q'}$ ist.\\ Mit dem Isomorphiesatz für R-Algebren erhalten wir:
+\begin{gather*}
+ \nolinebreak{S_2/Q' \simeq (S_2/Q)/(Q'/Q)}.
+\end{gather*}
+Somit ist $\function{q'}{S_2}{(S_2/Q)/(Q'/Q)}{y}{[y]'}$ eine isomorphe Darstellung von $\functionfront{q'}{S_2}{T'}$.
+\begin{gather*}
+\Rightarrow \exists ! \function{\varphi}{S_2/Q}{(S_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
+\end{gather*}
+Also ist $S_2/Q$ zusammen mit $\functionfront{q}{S_2}{S_2/Q}$ der bis auf eine eindeutige Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.\\
+\ \\
+Damit haben wir gezeigt, dass Koprodukte beliebiger Mengen von R-Algebren und Differenzkokerne von je zwei R-Algebrenhomomorphismus existieren. Nach \cref{Kolimes durch Koprodukt und Differenzkokern} existieren somit in der Kategorie der R-Algebren Kolimiten beliebiger Diagramme.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{R-Modul-Kolimiten}}
+\begin{prop}\label{R-Modul-Kolimiten} \textit{[Proposition A6.2 \ModulsOfDifferenzials]}\\
+In der Kategorie der R-Moduln existieren Kolimiten beliebiger Diagramme, wobei gilt:
+\begin{itemize}
+\item[\textbf{1.}] Das Koprodukt einer Familie von $R-Moduln$ $\lbrace M_i \rbrace_{i \in \Lambda}$ entspricht deren direkter Summe $\bigoplus_{i \in \Lambda} M_i$.
+\item[\textbf{2.}] Der Differenzenkokern zweier R-Modulhomomorphismen $\functionfront{f,g}{M_1}{M_2}$ entspricht dem Homomorphismus $\function{q}{M_2}{M_2/Q}{y}{[y]}$,\\
+wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in M_1 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
+\end{itemize}
+\end{prop}
+\begin{proof} \ \\
+\underline{Zu \textit{\textbf{1.}}:}
+Sei $\mathcal{B} = \lbrace M_i \rbrace_{i \in \Lambda}$ die Unterkategorie der R-Moduln, welche $\lbrace M_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Betrachte als Morphismus $\psi$ die jeweilige Einbettung von $M_i$ in $\bigoplus_{i \in \Lambda} M_i$:
+\begin{gather*}
+\functionfront{\psi}{\mathcal{B}}{\bigoplus_{i \in \Lambda} M_i} \text{ mit } \function{\psi_{M_i}}{M_i}{\bigoplus_{i \in \Lambda} M_i}{m_i}{(0, ...\cdots ,0,m_i,0, \cdots ,0)} \text{ für } i \in \Lambda
+\end{gather*}
+Somit lässt sich jedes $(m_1, \cdots m_n) \in \bigoplus_{i \in \Lambda} M_i$ \textit{(im Fall von $\vert \lambda \vert = \infty$ siehe \cref{Unendliche Indexmengen})} eindeutig durch die Elemente $m_i \in M_i$ (für $i \in \lbrace i , \cdots , n \rbrace$) darstellen:
+\begin{gather*}
+(m_1, \cdots ,m_n) = \sum_{i = 1}^n \psi_{M_i}(m_i)
+\end{gather*}
+Damit erfüllt $\psi$ die universelle Eigenschaft von $\colimes \mathcal{B}$, denn sei $\functionfront{\psi'}{\mathcal{B}}{M'}$ ein bieliebiger Morphismus, so existiert genau ein R-Modulhomomorphismus:
+\begin{center}
+$\function{\varphi}{\bigoplus_{i \in \Lambda} M_i }{M'}{(m_1, \cdots , m_n)}{\sum_{i = 1}^n \psi'_{M_i}(m_i)}$
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+M' &                                              & \bigoplus_i M_i \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}\\
+\end{center}
+\comment{
+Für ein beliebiges $i$ existiert genau ein $\function{\varphi_i}{M_i \oplus 0}{M'}{(0,...,0,m_i,0,...,0}{\psi_i '(m_i)}$ mit $\psi_i ' = \psi_i \circ \varphi_i$\\
+$\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\sum_i \psi_i(m_i)}$\\
+}
+Also ist $\oplus_{i \in \Lambda} M_i$ zusammen mit den Einbettungen $\infunctionfront{\psi_{M_i}}{M_i}{\bigoplus_{i \in \Lambda} M_i}$ das bis auf eine eindeutige Isomorphie eindeutig bestimmte Koprodukt von $\lbrace M_i \rbrace_{i \in \Lambda}$.
+\ \\
+\textit{\textbf{2.}} Gehe hier vor wie bei \cref{R-Algebra-Kolimiten}. Dort haben wir schon gezeigt, dass der Differenzkokern von zwei R-Algebra-Homomorphismen dem Kokern, von deren Differenz entspricht.\\
+\ \\
+Damit haben wir gezeigt, dass Koprodukte beliebiger Mengen von R-Moduln und Differenzkokerne von je zwei R-Modulhomomorphismen existieren. Nach \cref{Kolimes durch Koprodukt und Differenzkokern} existieren somit in der Kategorie der R-Moduln Kolimiten beliebiger Diagramme.
+\end{proof}
+
+
+\section{Darstellung von Lokalisierung als Kolimes}
+\ \\
+\textcolor{blue}{\textbf{Lokalisierung von Algebren als Kolimes}}
+\begin{prop}\label{Lokalisierung von Algebren als Kolimes} \textit{[vlg. Aufgabe A6.7 \ModulsOfDifferenzials]} \\
+Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
+Dann gilt:
+\begin{gather*}
+ S[U^{-1}] = \colimes \mathcal{B}
+\end{gather*}
+Wobei $\mathcal{B}$ aus den Objekten $\lbrace \lok{S}{t} \vert t \in U \rbrace$ und den Morphismen\\
+$\lok{S}{t} \longrightarrow \lok{S}{tt'}, \loke{s}{t^n}{t} \longmapsto \loke{st'^n}{(tt')^n}{(tt')}$ (für $t,t' \in U$) besteht.
+\end{prop}
+\begin{proof}
+Sei $\functionfront{\psi}{\mathcal{B}}{T}$ der Kolimes von $\mathcal{B}$. Zeige $\lok{S}{U} \simeq T$, definiere dazu:
+\begin{gather*}
+\functionfront{\psi'}{\mathcal{B}}{\lok{S}{U}}\\
+\function{\psi'_{\lok{S}{t}}}{\lok{S}{t}}{\lok{S}{U}}{\loke{s}{t^n}{t}}{\loke{s}{t^n}{U}}
+\end{gather*}
+$\psi'$ ist ein Morphismus, da für beliebige $t,t' \in U$ und $s \in S$ gilt:
+\begin{gather*}
+\loke{s}{t^n}{U} = \loke{st'^n}{(tt')^n}{U}
+\end{gather*}
+Durch die Universelle Eigenschaft des Kolimes erhalten wir einen eindeutigen Homomorphismus $\varphi$ mit:
+\begin{gather*}
+\varphi \circ \psi_{\lok{S}{t}} = \psi'_{\lok{S}{t}} \text{ für alle } \lok{S}{t} \in \mathcal{B}.
+\end{gather*}
+\comment{
+\begin{center}
+\begin{tikzcd}
+            & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+{S[U^{-1}]} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+}
+Für die Umkehrabbildung $\functionfront{\phi}{S[U^{-1}]}{T}$ benötigen wir kleinere Vorüberlegungen:\\
+Zunächst stellen wir fest, dass $\psi'$ ganz $\lok{S}{U}$ abdeckt, also:
+\begin{gather*}
+\text{Jedes } \loke{s}{u}{U} \in \lok{S}{U} \text{ lässt sich in der Form } \loke{s}{u}{U} = \psi_{\lok{S}{t}}(\loke{s}{t}{t}) \text{ schreiben }\textit{(für t = u).}
+\end{gather*}
+Allerdings ist diese Darstellung nicht eindeutig. Zeige also noch, dass $\phi$ unabhängig von der Wahl von eines Repräsentanten ist. Seien dazu $s_1,s_2 \in S , \, t_1,t_2 \in U$ beliebig, somit gilt:
+\begin{align*}
+\textit{Sei }\psi'_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi'_{\lok{S}{t}}(\loke{s_2}{t_2}{t})\\
+\Rightarrow  \exists u \in U: (s_1t_1 - s_2t_2) \cdot u = 0\\
+\Rightarrow  \loke{s_1u}{t_1u}{tu} = \loke{s_2u}{t_2u}{tu}\\
+\Rightarrow  \psi_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi_{\lok{S}{t}}(\loke{s_2}{t_2}{t})
+\end{align*}
+Mit diesem Wissen können wir den R-Algebra-Homomorphismus $\functionfront{\phi}{\lok{S}{U}}{T}$ definieren:
+\begin{gather*}
+\function{\phi}{\lok{S}{U}}{T}{\psi'_{\lok{S}{t}}(\loke{s}{t}{t})}{\psi_{\lok{S}{t}}(\loke{s}{t}{t})}
+\end{gather*}
+$\phi \circ \varphi = id_T$ ergibt sich direkt aus der universellen Eigenschaft des Kolimes:
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                              \\
+T &                                                    & T \arrow[ll, "\exists ! id_T = \phi \circ \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\varphi \circ \phi \defshow id_{\lok{S}{U}}$ wähle $s \in S , t \in U$ beliebig. Für diese gilt:
+\begin{gather*}
+(\varphi \circ \phi)(\psi'(\loke{s}{t}{t})) =
+ \varphi (\psi(\loke{s}{t}{t}) =
+  \psi'(\loke{s}{t}{t})
+\end{gather*}
+Damit haben wir gezeigt, dass $\varphi,\phi$ Isomorphismen sind und somit $T \simeq \lok{S}{U}$ gilt. Da der Kolimes bis auf eine eindeutige Isomorphie eindeutig ist \textit{(siehe \cref{Eindeutigkeit des Kolimes})}, definiere ab sofort $\colimes \mathcal{B}$ als $\lok{S}{U}$.\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Lokalisierung von Moduln als Kolimes} \textit{[Beweis von Proposition 16.9 \ModulsOfDifferenzials]}}
+\begin{korrolar}\comment{\label{Lokalisierung von Moduln als Kolimes}}
+Sei M ein S-Modul, wobei S eine R-Algebra ist. Sei weiter $U \subseteq S$ multiplikativ abgeschlossen. Dann gilt:
+\begin{gather*}
+\lok{M}{U} = \colimes \mathcal{C}
+\end{gather*}
+Wobei $\mathcal{C}$ aus den Objekten $\lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \vert t \in U \rbrace$ und folgenden Morphismen besteht:
+\begin{gather*}
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \longrightarrow
+\Tensor{\lok{S}{U}}{\lok{S}{(tt')}}{\lok{M}{(tt')}} ,\\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} \longmapsto
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{t'^nm}{(tt')^n}{t}} 
+\end{gather*}
+\end{korrolar}
+Auch wenn sich \cref{Lokalisierung von Algebren als Kolimes} hier nicht direkt anwenden lässt, so können wir doch im Beweis gleich vorgehen.
+\begin{proof}
+Sei $\functionfront{\psi}{\mathcal{C}}{T}$ der Colimes von $\mathcal{C}$. Zeige $\lok{M}{U} \simeq T$, definiere dazu folgenden Morphismus:
+\begin{gather*}
+\functionfront{\psi'}{\mathcal{C}}{\lok{M}{U}} \\
+\function{\psi'_{t}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}}
+\end{gather*}
+Die Wohldefiniertheit von $\psi'_t$ für ein beliebiges $t \in U$ folgt direkt aus der Universellen Eigenschaft des Tensorprodukt`s. Denn für die bilineare Abbildung
+ $\function{f}{\lok{S}{U} \oplus \lok{M}{t}}{\lok{M}{t}}{(\loke{s}{u}{U}, \loke{m}{t^n}{t})}{\loke{sm}{ut^n}{U}}$  gilt:
+\begin{center}
+\begin{tikzcd}
+\lok{S}{U} \oplus \lok{M}{t} \arrow[r, "g"] \arrow[rd, "f"'] & \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \arrow[d, "\exists ! \psi'_t", dashed] \\
+                                      & \lok{M}{U}                               
+\end{tikzcd}
+\end{center} 
+Durch die Universelle Eigenschaft des Kolimes erhalten wir nun einen eindeutigen Homomorphismus $\functionfront{\varphi}{T}{\lok{M}{U}}$ mit:
+\begin{gather*}
+\varphi \circ \psi_{t} = \psi'_{t} \text{ für alle } t \in U.
+\end{gather*}
+\comment{
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{C} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+\lok{M}{U} &                                                     & T \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+}
+Für die Umkehrabbildung $\functionfront{\phi}{\lok{M}{U}}{T}$ benötigen wir kleinere Vorüberlegungen:\\
+Wir stellen fest, dass für jedes $t \in U$ gilt:
+\begin{gather*}
+\text{Jedes } \loke{m}{u}{U} \in \lok{M}{U} \text{ lässt sich in der Form } \loke{m}{u}{U} = {\psi_t(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}}}) \text{ schreiben.}
+\end{gather*}
+Diese Darstellung ist unabhängig von den Wahl von $t \in U$, denn für beliebige $t_1,t_2,u \in U$ und $m \in M$ gilt:
+\begin{gather*}
+\psi'_{t_1}({\tensor{\loke{1}{u}{U}}{\lok{M}{t_1}}{\loke{m}{1}{t_1}}}) 
+= \loke{m}{u}{U} 
+= \psi'_{t_2}({\tensor{\loke{1}{u}{U}}{\lok{M}{t_2}}{\loke{m}{1}{t_2}}})\\
+\text{Für $\psi$ gilt in diesem Fall: }\\
+\psi_{t_1}({\tensor{\loke{1}{u}{U}}{\lok{M}{t_1}}{\loke{m}{1}{t_1}}})
+= \psi_{t_1t_2}({\tensor{\loke{1}{u}{U}}{\lok{M}{t_1t_2}}{\loke{m}{1}{t_1t_2}}})
+= \psi_{t_2}({\tensor{\loke{1}{u}{U}}{\lok{M}{t_2}}{\loke{m}{1}{t_2}}})
+\end{gather*}
+Definiere nun mit diesem Wissen folgenden Homomorphismus:
+\begin{gather*}
+\function{\phi}{\lok{M}{U}}{T}{\psi_t(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}})}{\psi'_t(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}})}
+\end{gather*}
+$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Kolimes.\\
+Für $\varphi \circ \phi \defshow id_{\lok{M}{U}}$ wähle $\loke{m}{u}{U} \in \lok{M}{U}$ beliebig, für dieses gilt:
+\begin{gather*}
+(\varphi \circ \phi) (\psi'_t(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}}))
+ =\varphi(\psi_t(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}}))
+  =\psi'_t(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}})
+\end{gather*}
+Damit haben wir $T \simeq \lok{M}{U}$ gezeigt, definiere also ab sofort $\lok{M}{U}$ als den Kolimes von $\mathcal{C}$.
+\end{proof}
+
+
+\section{Kähler-Differenzial von Kolimiten}
+\subsection{Ableiten von Polynomen}
+
+\textcolor{blue}{\textbf{Darstellung der Polynomalgebra als Tensorprodukt}}
+\begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}\textit{[Eigene Überlegung]}\\
+Die Polynomalgebra $R[\lbrace x_i \rbrace_{i \in \Lambda}]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
+\begin{gather*}
+R[\lbrace x_i \rbrace_{i \in  \Lambda}] \simeq \bigotimes_{i \in \Lambda} R[x_i]
+\end{gather*}
+\end{bem}
+\begin{proof}
+Im Falle einer endlichen Indexmenge $\Lambda$ wollen wir induktiv vorgehen. Seien für den Induktionsschritt $n,m \in \mathbb{N}$ und $\nolinebreak{S_x \defeq R[x_1, \dots x_n]}$, $\nolinebreak{S_y \defeq R[y_1, \dots , y_m]}$ zwei Polynomalgebren über R, zeige:
+\begin{gather*}
+S_{xy} \defeq R[x_1, \dots , x_n, y_1 , \dots , y_m] \simeq \Tensor{S_x}{R}{S_y}
+\end{gather*}
+Dazu betrachten wir folgende bilineare Funktion:
+\begin{gather*}
+\function{g'}{S_x \oplus S_y}{S}{(P,Q)}{P \cdot Q}
+\end{gather*}
+Erhalte nun eine Funktion $\functionfront{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}$ aus der universellen Eigenschaft des Tensorproduktes:
+\begin{center}
+\begin{tikzcd}
+S_x \oplus S_y \arrow[r, "g"] \arrow[rd, "g'"'] & \Tensor{S_x}{R}{S_y} \arrow[d, "\exists ! \varphi", dashed] \\
+                                                & S_{xy}                                       
+\end{tikzcd}
+\ \\
+$\function{\varphi}{\Tensor{S_x}{R}{S_y}}{S_{xy}}{\tensor{P}{R}{Q}}{P \cdot Q}$
+\end{center}
+Der Homomorphismus $\varphi$ ist surjektiv und bildet die Erzeuger $\lbrace \tensor{x_i}{R}{1} \rbrace \cup \lbrace \tensor{1}{R}{y_j} \rbrace$ von $\Tensor{S_x}{R}{S_y}$ eindeutig auf die Erzeuger $\lbrace x_i \rbrace \cup \lbrace y_j \rbrace$ von $S_{xy}$ ab. Folglich ist $\varphi$ ein Isomorphismus.\\
+Indunktiv erhalten wir daraus für den Fall $\vert \Lambda \vert < \infty$ folgenden Isomorphismus:
+\begin{gather*}
+\function{\Phi}{\bigotimes_{i \in \Lambda} R[x_i]}{R[\lbrace x_i \rbrace_{i \in \Lambda} ]}{(P_1(x_1), \dots P_n(x_n))}{\prod_{i=1}^{n} P_i(x_i)}
+\end{gather*}
+Dies ist auch im Fall $\Lambda = \infty$ ein Isomorphismus, da wir auch in diesem Fall nur Tensorprodukte endlich vieler Polynome bzw. Polynome in endlich vielen Variablen betrachten \textit{(siehe \cref{Unendliche Indexmengen})}.\\
+Bedenke zuletzt noch, dass das Tensorprodukt $\bigotimes_{i \in \Lambda} R[x_i]$ bis auf eine Eindeutige Isomorphie eindeutig bestimmt ist.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial des Koproduktes}}
+\begin{prop} \label{Differenzial des Koproduktes} \textit{[vlg. Korolar 16.5 \ModulsOfDifferenzials]}\\
+Seien $\lbrace S_i \rbrace_{i \in \Lambda}$ R-Algebren und $T = \bigotimes_{i \in \Lambda} S_i$ deren Koprodukt.\\
+Dann gilt:
+\begin{gather*}
+\divR{T}{R} = \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )\\
+\text{mit: }\function{\divf{T}}{R}{\divR{T}{R}}{\left(\otimes_{i = 1}^n s_i\right)}{\left(\tensor{\left(\otimes_{i = 2}^n s_i\right)}{S_1}{\divf{R[x_1]}(s_1)},\dots,\tensor{\left( \otimes_{i = 1}^{n - 1} s_i \right)}{S_n}{\divf{R[x_n]}}(s_n)\right)}
+\end{gather*}
+\end{prop}
+\begin{proof} Zeige, dass $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$ gilt.\\
+Für $i \in \Lambda$ lässt sich  $T$ als $\Tensor{\left(\bigotimes_{j \in \Lambda \setminus \lbrace i \rbrace} S_i \right)}{R}{S_i}$ betrachten, nutze dies um folgende $R$-lineare Derivationen zu definieren:
+\begin{gather*}
+\comment{
+\function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{(0,\dots,0,\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)},0,\dots,0)} \\
+\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{\sum_{i = 1}^n e_i(\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i})}
+}
+\function{e_i}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i}}{(0,\dots,0,\tensor{(\otimes_{j \neq i} s_j)}{R}{d_{S_i}(s_i)},0,\dots,0)} \\
+\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{t}{\sum_{i = 1}^n e_i(t)}
+\end{gather*}
+Da $\divf{S_i}$ eine Derivation ist, ist $e_i$ und somit nach \cref{Summe von Derivationen} und \cref{Unendliche Indexmengen} auch $e$ eine Derivation. Mithilfe der universellen Eigenschaft von $\divf{T}$ erhalten wir einen eindeutigen Homomorphismus $\varphi$ mit $\varphi \circ \divf{T} = e$:
+\comment{
+\begin{center}
+\begin{tikzcd}
+T \arrow[rd, "e"'] \arrow[r, "\divf{T}"] & \divR{T}{R} \arrow[d, "\exists ! \varphi", dashed] \\
+                                    & \bigoplus_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
+\end{tikzcd}
+\end{center}
+}
+\begin{gather*}
+\function{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda}(\Tensor{T}{S_i}{\divR{S_i}{R}})}{\divf{T}(s_1 \otimes \dots \otimes s_n)}{\sum_{i = 1}^n e_i(\tensor{(\otimes_{j \neq i} s_j)}{R}{s_i})}\\
+\functionback{\varphi}{\divf{T}(1 \otimes s_i \otimes 1)}{(0,\tensor{1}{S_i}{d_{S_i}(s_i)},0)}
+\end{gather*}
+Suche nun eine Umkehrfunktion $\phi$ zu $\varphi$. Definiere dazu für $i \in \Lambda$ folgendes R-lineares Differential:
+\begin{gather*}
+\function{h_i}{S_i}{\divR{T}{R}}{s_i}{\divf{T}(\tensor{(\otimes_{j \neq i} 1)}{R}{s_i})}
+\end{gather*}
+Mithilfe der universellen Eigenschaft von $\divf{S_i}$ erhalten wir dadurch einen eindeutigen Homomorphismus $h_i'$ mit $h_i' \circ \divf{T} = h_i$. Nutze diesen um einen weiteren Homomorphismus zu definieren:
+\begin{gather*}
+\function{\phi_i}{\Tensor{T}{S_i}{\divR{S_i}{R}}}{\divR{T}{R}}{\tensor{t}{S_i}{\divf{S_i}(s_i)}}{t \cdot (h' \circ \divf{S_i})(s_i) = t \cdot h_i(s_i)}
+\end{gather*}
+Damit erhalten wir folgenden kommutatives Diagramm:
+\begin{center}
+\begin{tikzcd}
+S_i \arrow[rd, "h_i"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, , hook] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
+                                          & \divR{T}{R}                                                    &                     
+\end{tikzcd}
+\end{center}
+Zuletzt bilden wir die Summe $\phi \defeq \sum_{i \in \Lambda} \phi_i$ und erhalten damit eine Umkehrfunktion von $\varphi$:
+\begin{gather*}
+\function{\phi}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(\tensor{t_i}{S_1}{\divf{S_1}(s_1)},\dots,\tensor{t_n}{S_n}{\divf{S_n}(s_n)})}{\sum_{i = 1}^n t_i \cdot h_i(s_i)}\\
+\functionback{\phi}{(0,\tensor{1}{S_i}{d_{S_i}(s_i)},0)}{\divf{T}(1 \otimes s_i \otimes 1)}
+\end{gather*}
+Somit gilt $\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}}) \simeq \divR{T}{R}$.\\
+Definiere also ab jetzt $\bigoplus_{i\in \Lambda} (\Tensor{T}{S_i}{\divR{S_i}{R}})$ als des Differentialraum von $T$ über $R$. Damit gilt $\divf{T} = e$.\\
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Mehrdimmensionales Algebraisches Differentieren}}
+\begin{bem}\label{Mehrdimmensionales Algebraisches Differentieren} \textit{[Eigene Bemerkung]}\\
+Sei $R(\lbrace x_i \rbrace_{i \in \Lambda})$ ein Polynomring über R. Bezeichne mit $\delta_{j}$ die formale Ableitung in Richtung $x_j$, wie wir sie aus der Analysis für Polynomfunktionen über $\mathbb{R}^n$ kennen:
+\begin{gather*}
+\functionfront{\delta_{j}}{R(\lbrace x_i \rbrace_{i \in \Lambda})}{R(\lbrace x_i \rbrace_{i \in \Lambda})}\\
+{\sum_k \left( a_k \cdot x_j^{n_{j,k}}\prod_{i \neq j} x_i^{n_{i,k}}\right)}
+\longmapsto
+{\sum_{k,n_{j,k} > 0} \left( a_k \cdot n_{j,k} \cdot x_j^{n_{j,k} - 1}\prod_{i \neq j} x_i^{n_{i,k}}\right)}
+\end{gather*}
+Betrachte den Differentialraum von $R[\lbrace x_i \rbrace_{i \in \Lambda}]$  über $R[\lbrace x_i \rbrace_{i \in \Lambda \setminus\lbrace j \rbrace}]$:
+\begin{gather*}
+\functionfront{\divf{j}}{R[\lbrace x_i \rbrace_{i \in \Lambda}]}{\divR{R[\lbrace x_i \rbrace_{i \in \Lambda}]}{R[\lbrace x_i \rbrace_{i \in \Lambda \setminus\lbrace j \rbrace}]}}
+\end{gather*}
+Nach \cref{Derivation ist Ableitung} entspricht $\divf{j}$ der formalen Ableitung $\delta_{j}$. Für $P_j(x_j),P(x_1,\cdots,x_n) \in R{\lbrace x_i \rbrace}_{i \in \Lambda}$ gilt also:
+\begin{gather}
+\delta_{j}(P_j(x_j)) = P'(x_j)\\
+\divf{j}(P(x_1,\cdots,x_n)) = \delta_{j}(P(x_1, \cdots ,x_n))\divf{j}(x_j)
+\end{gather}
+\end{bem}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial von Polynomalgebren 1} \textit{[vlg. Proposition 16.1 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 1}
+Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i = 1}^n S \langle \divf{S}(x_i) \rangle 
+\end{gather*}
+Für die universelle Derivation $\divf{S}$ gilt hierbei mit der Notation von \cref{Mehrdimmensionales Algebraisches Differentieren}:
+\begin{gather*}
+\function{\divf{S}}{S}{\divR{S}{R}}{P(x_1,\cdots,x_n)}{(\delta_{1}(P)\divf{S}(x_1), \cdots , \delta_{n}(P)\divf{S}(x_n))}
+\end{gather*}
+Hierbei wird oft zur besserem Übersicht $\divf{S}(x_i) = dx_i$ geschrieben.
+\end{korrolar}
+\begin{proof}
+Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, ist $S$ isomorph zu $S' \defeq \bigotimes_{i = 1}^n R[x_i]$. In \cref{Differenzial des Koproduktes} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
+\begin{gather*}
+\divR{S'}{R} = \bigoplus_{i \in \Lambda} (\Tensor{S'}{R[x_i]}{\divR{R[x_i]}{R}})
+\end{gather*}
+Mithilfe von \cref{Derivation ist Ableitung} können wir ${\divR{R[x_i]}{R}}$ für $i \in \Lambda$ weiter umformen:
+\begin{gather*}
+\divR{S'}{R} = \bigoplus_{i = 1}^n (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle})
+\simeq \bigoplus_{i = 1}^n S' \langle \divf{R[x_i]}(x_i) \rangle 
+\end{gather*}
+Nutze nun $S' \simeq S$ und betrachte $\divf{R[x_i]}$ als Einschränkung von $\divf{S}$. Dadurch erhalten wir die gewünschte Darstellung von $\divR{S}{R}$.\\
+Definiere ab nun also $\divR{S}{R} = \bigoplus_{i = 1}^n S \langle \divf{S}(x_i) \rangle$.\\
+Um zu zeigen, dass hierbei die universelle Derivation die gewünschte Form annimmt gehe zunächst die bisher genutzten Derivationen und Isomorphismen durch:
+\begin{center}
+$\functionfront{\divf{S}}{S}{\divR{S}{R}}$
+\begin{tikzcd}
+S \arrow[d]  &  & \prod_{i = 1}^n P_i(x_i) \arrow[d, maps to] \\
+S' \arrow[d] &  & \otimes_{i = 1}^n P_i(x_i)\arrow[d, maps to]                        \\
+\bigoplus_{i = 1}^n (\Tensor{S'}{R[x_i]}{R[x_i]\langle \divf{R[x_i]}(x_i) \rangle}) \arrow[d]  &  & (\dots , (\tensor{\otimes_{k \neq i} P_k(x_k)}{R[x_i]}{\divf{R{x_i}}(P(x_i))}) , \dots) \arrow[d, maps to]                        \\
+\bigoplus_{i \in \Lambda} S \langle \divf{S}(x_i) \rangle            &  & (\dots , \left( \prod_{k \neq i} P_k(x_k) \right) P'(x_i) \divf{S}(x_i) , \dots)
+\end{tikzcd}
+\end{center}
+Betrachte nun \cref{Mehrdimmensionales Algebraisches Differentieren}. Dabei stellen wir fest, dass wir für $j \in \Lambda$ von $\divf{S}(x_j) = \divf{j}(x_j)$ ausgehen können, da $\lbrace \divf{S}(x_i) \rbrace_{i \in \Lambda}$ linear unabhängig ist.\\
+Rechne also für $\prod_{i = 1}^n P_i(x_i) \in R[\lbrace x_i \rbrace_{i \in \Lambda}]$ und $j \in \lbrace 1, \cdots , n \rbrace$ nach, ob unsere gewünschte Darstellung von $\divf{S}$ zutrifft:
+\begin{gather*}
+\delta_{j}\left(\prod_{i = 1}^n P(x_i)\right)\divf{S}(x_j) = \divf{j}\left(\prod_{i = 1}^n P(x_i)\right)
+\textit{ (\cref{Mehrdimmensionales Algebraisches Differentieren})}\\
+= P_j(x_j)\divf{j} \left( \prod_{i \neq j} P_i(x_i) \right) + \left( \prod_{i \neq j} P_i(x_i) \right) \divf{j}(P_j(x_j))
+\textit{ (Leibnizregel)} \\
+= 0 + \left( \prod_{i \neq j} P_i(x_i) \right) \delta_j(P(x_j))\divf{j}(x_j)
+=  \left( \prod_{i \neq j} P_i(x_i) \right) P'(x_j)\divf{j}(x_j)
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial von Polynomalgebren 2} \textit{[vgl. Korrolar 16.6 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 2}
+Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i = 1}^n T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Differenzial des Koproduktes} an:
+\begin{gather*}
+T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
+\Rightarrow \divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus (\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})
+\end{gather*}
+Zuletzt wende den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
+\begin{gather*}
+\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}}\\
+\simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i = 1}^n R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
+\simeq \bigoplus_{i = 1}^n T \langle \divf{R}(x_i) \rangle
+\end{gather*}
+Damit haben wir Isomorphie gezeigt. Definiere also $(\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i = 1}^n T \Verz{\divf{T}(x_i)}$ als den Differentialraum von $T$ über $R$.\\
+Abschließend wollen wir noch $\divf{T}$ betrachten, sei dazu $s\prod_{i =1}^k x_i^{n_i} \in T$ ein beliebiges Monom:
+\begin{gather*}
+d_T\left(s\prod_{i =1}^k x_i^{n_i}\right) \\
+= \left(\tensor{\prod_{i =1}^k x_i^{n_i}}{S}{\divf{S}(s)},
+ \tensor{s}{R[\lbrace x_i \rbrace_{i \in \Lambda}]}{\divf{R[\lbrace x_i \rbrace_{i \in \Lambda}]}}\left(\prod_{i =1}^k x_i^{n_i}\right)\right)\\
+=\left(\tensor{\prod_{i =1}^k x_i^{n_i}}{S}{\divf{S}(s)},
+s \cdot \delta_1 \left( \prod_{i =1}^k x_i^{n_i} \right) \divf{R[x_1](x_1)} , \dots , s \cdot \delta_n \left( \prod_{i =1}^k x_i^{n_i} \right) \divf{R[x_n](x_n)} \right)
+\end{gather*}
+Daran ist zu erkennen, dass auch $\divf{T}$ die geforderte Form annimmt.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Jakobimatrizen}}
+\begin{korrolar}\label{Jakobimatrizen}\textit{[Eigene Überlegung]}\\
+Sei $S = R[x_1 \cdots , x_m]$ der Polynomring in $m$ Variablen über $R$ und $\nolinebreak{S^n = \bigoplus_{k = 1}^n S}$ der $n$-fache Produktraum von $S$.\\
+Somit entspricht mit der Notation von \cref{Mehrdimmensionales Algebraisches Differentieren} der Differentialraum von $S^n$ über $R$ den Jakobimatrizen, wie wir sie aus Analysis kennen:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i = 1}^n \left( \bigoplus_{j = 1}^m S\langle \divf{S}(x_i) \rangle \right)\\
+\text{mit: } \function{\divf{S^n}}{S^n}{\divR{S^n}{R}}{P}{(\delta_j(P_i))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}}
+\end{gather*}
+Wobei wir $J_{(P_1, \dots ,P_n)} \defeq (\delta_j(P_i))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}$ die Jakobimatrix von $P$ nennen.
+\end{korrolar}
+\begin{proof}
+Zunächst erinnern wir uns daran, dass bei Algebren und Moduln die endlichen Summen den endlichen Produkten entsprechen.
+In \cref{Differenzial des Produktes von Algebren} haben wir den Differentialraum endlicher Produkte beschrieben:
+\begin{gather*}
+\divR{S^n}{R} = \bigoplus_{i=1}^n \divR{S}{R}
+\end{gather*}
+In \cref{Differenzial von Polynomalgebren 1} haben wir gesehen, dass $\divR{S}{R}$ dem gewünschten Produktraum entspricht:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{j = 1}^m S\langle \divf{S}(x_i) \rangle
+\end{gather*}
+Betrachte also noch genauer, wie die universelle Ableitung in diesem beiden Fällen beschrieben wird. Für ein beliebiges $P = (P_1, \dots , P_n) \in S^n$ gilt:
+\begin{gather*}
+\divf{S^n}
+\begin{pmatrix}
+P_1\\
+\vdots\\
+P_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+\divf{S}(P_1)\\
+\vdots\\
+\divf{S}(P_n)
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_m(P_1) \divf{S}(x_m)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_m(P_n) \divf{S}(x_m)
+\end{pmatrix}\
+\end{gather*}
+Es gilt also $\divf{S^n}(P) = (\delta_j(P_i)\divf{S}(x_j))_{i \in \lbrace 1 , \dots , n \rbrace , j \in \lbrace 1 , \dots , m \rbrace}$, was genau der Bildung der Jakobimatrix entspricht.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Bsp Jakobimatrix}}
+\begin{bsp}\label{Bsp Jakobimatrix} \textit{[Eigene Überlegung]}\\
+Wir wollen einmal konkret mit \cref{Jakobimatrizen} rechnen. Betrachte dazu die $\mathbb{Q}$-Algebra $ S = \mathbb{Q}[x,y,z]^2 = \mathbb{Q}[x,y,z] \oplus \mathbb{Q}[x,y,z]$ und folgendes Polynom $P(x,y,z) \in S$:
+\begin{gather*}
+ P(x,y,z) = 
+\begin{pmatrix}
+P_1(x,y,z)\\
+P_2(x,y,z)
+\end{pmatrix}
+=
+\begin{pmatrix}
+3x^2y\\
+xz-yz
+\end{pmatrix}
+\end{gather*}
+Nach \cref{Jakobimatrizen} ist $\divR{S}{\mathbb{Q}}$ ein freies Modul vom Rang $3$ über $S$:
+\begin{gather*}
+\divR{S}{\mathbb{Q}} = \left( Sdx \oplus Sdy \oplus Sdz \right) \oplus \left( Sdx \oplus Sdy \oplus Sdz \right)
+\end{gather*}
+Die universelle Deriavation verhält sich wie das formale Ableiten. Bilde also zunächst die formale Ableitung von $P_1$ und $P_2$ wie in \cref{Differenzial von Polynomalgebren 1} beschrieben:
+\begin{gather*}
+\divf{\mathbb{Q}[x,y,z]}(P_1)
+= \divf{\mathbb{Q}[x,y,z]}(3x^2y)\\
+=(\delta_1(3x^2y)dx \, , \, \delta_2(3x^2y) dy \, , \, \delta_3(3x^2y) dz)\\
+=(6xy \, dx \, , 3x^2  \,dy \, , \,0)\\
+\ \\
+\divf{\mathbb{Q}[x,y,z]}(P_1)
+= \divf{\mathbb{Q}[x,y,z]}(xz - yz)\\
+= (\delta_1(xz - yz) \, dx \, , \, \delta_2(xz - yz) \, dy \, , \, \delta_3(xz - yz) \, dz)\\
+= (z \, dx \, , \, -z \, dy \, , \, (x - y)dz)
+\end{gather*}
+Um die Jakobimatrix von zu $P$ bilden schreibe nun diese beiden Tupel untereinander in eine Matrix:
+\begin{gather*}
+\divf{\mathbb{Q}[x,y,z]}(P)
+= \divf{\mathbb{Q}[x,y,z]}\left(
+\begin{pmatrix}
+3x^2y\\
+xz-yz
+\end{pmatrix}
+\right)
+= 
+\begin{pmatrix}
+\divf{\mathbb{Q}[x,y,z]}(3x^2y) \\
+\divf{\mathbb{Q}[x,y,z]}(P_1)
+\end{pmatrix}\\
+=
+\begin{pmatrix}
+6xy \, dx  &  3x^2 \, dy  &  0\\
+z \,   dx  &  -z   \, dy  & (x - y) \, dz
+\end{pmatrix}
+\end{gather*}
+Wir gehen also genauso vor, wie wir es vom Ableiten von Polynomfunktionen über $\mathbb{R}^2$ aus der Analysis kennen. Dabei ist zu beachten, dass wir Polynome über $\mathbb{Q}^2$ abgeleitet haben. Des Weiteren hätten wir auch die $\mathbb{Z}$-Algebra $\mathbb{Z}[x,y,z]^2$ mit $P \in \mathbb{Z}[x,y,z]^2$ betrachten können und wären dabei analog vorgegangen.
+\end{bsp}
+
+
+\ \\
+\textcolor{blue}{\textbf{Derivtion mittels Jakobimatrizen}}
+\begin{korrolar}\label{Derivation mittels Jakobimatrizen} \textit{[Kapitel 16.1 \ModulsOfDifferenzials]}\\
+Sei  $S = R[x_1, \dots ,x_m]$ ein Polynomring über $R$ und $I = (P_1,\dots, P_n) \subseteq S$ ein Ideal. Betrachte $T = S/I$. Dann gilt:
+\begin{gather*}
+\divR{T}{R} 
+= \left( \bigoplus_{i = 1}^m T \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t_1, \cdots, t_n) J_{(P_1,\dots, P_n)} \, \vert (t_1 , \dots t_n) \in T^n \right\rbrace\\
+\comment{
+vl. Falsch
+= \bigoplus_{i  = 1}^m S/(P_1 , \dots , P_n , \delta_{i}(P_1) , \dots \delta_{i}(P_n) \langle \divf{S}(x_i) \rangle)\\
+\text{mit: } 
+\function{\divf{T}}{T}{\divR{T}{R}}{\left[Q(x_1,\cdots, x_m)\right]_T}{\left( [\delta_1(Q)], \dots , [\delta_m(Q)] \right)}
+}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte zunächst die Conormale Sequenz \textit{(\cref{Konormale Sequenz})} von $\function{\pi}{S}{T}{s}{[s]_T}$:
+\begin{center}
+\begin{tikzcd}
+I/I^2 \arrow[r, "\tensor{1}{S}{d_{S}}"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\ \\
+Nach dieser gilt $\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) / (\tensor{1}{S}{d_{S}})(I)$.
+\end{center}
+Nach \cref{Differenzial von Polynomalgebren 1} und da $T = S/I$ ein Faktorring von $S$ ist, ist die folgende Funktion $\Phi$ eine Isomorphie:
+\begin{gather*}
+\Phi: 
+\Tensor{T}{S}{\divR{S}{R}} 
+\longrightarrow \Tensor{T}{S}{\bigoplus_{i = 1}^m S \langle \divf{S}(x_i) \rangle} 
+\longrightarrow \bigoplus_{i = 1}^m T \langle \divf{S}(x_i) \rangle\\
+\functionback{\Phi}{\tensor{[s]_T}{}{\divf{S}(Q)}}{([s \cdot \delta_{1}(P)]_T\divf{S}(x_1), \dots , [s \cdot \delta_{m}(P)]_T\divf{S}(x_m))}
+\end{gather*}
+Betrachte nun also noch $(\Phi \circ (\tensor{1}{S}{d_{S}}))(I)$ näher. Sei dazu $P = \sum_{i = 1}^n s_iP_i \in I$ beliebig, somit gilt:
+\begin{gather*}
+\text{Wir können eine solche Summe als } P = \sum_{i = 1}^n s_iP_i = (s_1, \cdots s_n)
+\begin{pmatrix}
+P_1\\
+\vdots\\
+P_n
+\end{pmatrix}
+\text{ schreiben. Also:} \\
+(\Phi \circ (\tensor{1}{S}{d_{S}}))(P)
+= \sum_{i = 1}^n \divf{S}(s_iP_i)\\
+= \sum_{i = 1}^n [s_i]_T \cdot \divf{S}(P_i) + [P_i]_T \cdot \divf{S}(s_i) \textit{\hspace{1,5em}(Leibnizregel)}\\
+= \sum_{i = 1}^n [s_i]_T \cdot \divf{S}(P_i) + 0 \text{\hspace{2em}($[P_i]_T = 0$, \textit{da} $T = S/I$)} \\
+= ([s_1]_T , \cdots , [s_n]_T)
+\begin{pmatrix}
+\divf{S}(P_1)\\
+\vdots\\
+\divf{S}(P_n)
+\end{pmatrix}\\
+=
+([s_1]_T , \cdots , [s_n]_T)
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_n(P_1) \divf{S}(x_n)
+\end{pmatrix}
+\end{gather*}
+Mit der Notation aus \cref{Jakobimatrizen} gilt somit:
+\begin{gather*}
+(\Phi \circ (\tensor{1}{S}{\divf{S}}))(I) = \left\lbrace (t_1, \cdots, t_n) J_{(P_1,\dots, P_n)} \, \vert (t_1 , \dots t_n) \in T^n \right\rbrace
+\end{gather*}
+Damit haben wir folgende Isomorphie gezeigt:
+\begin{gather*}
+\divR{T}{R} 
+\simeq (\Tensor{T}{S}{\divR{S}{R}}) / (\tensor{1}{S}{d_{S}})(I) 
+\simeq \left( \bigoplus_{i =1}^m S \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t) J_{(P_1,\dots, P_n)} \, \vert t \in T^n \right\rbrace
+\end{gather*}
+Da der Differentialraum von $T$ über $R$ bis auf eine eindeutige Isomorphie eindeutig ist, definiere diesen ab nun über diese Isomorphie. Anhand von $\Phi$ sehen wir, dass $\divf{T}$ die geforderte Form annimmt.
+\comment{
+vl. Falsch
+Anhand von $\Phi$ sehen wir, dass $\divf{T}$ folgende Form annimmt.
+\begin{gather*}
+\function{\divf{T}}{T}{\divR{T}{R}}{\left[Q(x_1,\cdots, x_m)\right]_T}{\left[\delta_1(Q)\divf{S}(x_1), \cdots , \delta_m(Q)\divf{S}(x_m)
+\right]_{J_{(P_1 , \dots , P_n)}}}
+\end{gather*}
+Zeige also noch:
+\begin{gather*}
+\left( \bigoplus_{i = 1}^m T \langle \divf{S}(x_i) \rangle \right) / \left\lbrace (t_1, \cdots, t_n)
+\begin{pmatrix}
+\delta_1(P_1) \divf{S}(x_1) & \dots & \delta_m(P_1) \divf{S}(x_m)\\
+\vdots & \ddots & \vdots \\
+\delta_1(P_n) \divf{S}(x_1) & \dots & \delta_m(P_n) \divf{S}(x_m)
+\end{pmatrix}
+\, \vert (t_1 , \dots t_n) \in T^n \right\rbrace\\
+= \bigoplus_{i  = 1}^m S/(P_1 , \dots , P_n , \delta_{i}(P_1) , \dots \delta_{i}(P_n) \langle \divf{S}(x_i) \rangle)\\
+\end{gather*}
+Betrachte dazu für $i \in \lbrace 1, \dots , m \brace$ das von $\divf{S}(x_i)$ erzeugte Modul. Dieses erhält durch die $i$-te Spalte von $J_{(P_1,\dots ,P_n)}$ zusätzliche Relationen:
+\begin{gather*}
+( T \langle \divf{S}(x_i) \rangle ) / \brace (t_1 , \dots ) \lbrace
+\end{gather*}
+}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Bsp Derivation mittels Jakobimatrizen}}
+\begin{bsp}\comment{\label{Bsp Derivation mittels Jakobimatrizen}} \textit{[Eigene Überlegungen]}\\
+\begin{em}
+Durch \cref{Derivation mittels Jakobimatrizen} können wir nun für eine große Klasse von Algebren, deren Differentialraum bestimmen. Nutze dazu die Notation aus \cref{Differenzial von Polynomalgebren 1}.
+\end{em}
+\begin{itemize}
+\item[(1)] Nutze die Jakobimatrix, die wir in \cref{Bsp Jakobimatrix} ausgerechnet haben, um den Differentialraum von $\mathbb{Q}[x,y,z]^2/I$ über $\mathbb{Q}$ zu bestimmen, wobei $I \subseteq \mathbb{Q}[x,y,z]$ ein Ideal von folgender Form ist:
+\begin{gather*}
+I = (P_1(x,y,z),P_2(x,y,z)) = (3x^2y , \, zx - zy)\\
+\textit{mit } J_{(P_1,P_2)}  =
+\begin{pmatrix}
+6xy \, dx  &  3x^2 \, dy  &  0\\
+z \,   dx  &  -z   \, dy  & (x - y) \, dz
+\end{pmatrix}
+\comment{\textit{ (siehe \cref{Bsp Jakobimatrix})}} 
+\end{gather*}
+In \cref{Derivation mittels Jakobimatrizen} ist angegeben, wie wir mittels $J_{P_1,P_2}$ den Differentialraum von $\mathbb{Q}[x,y,z]^2/I$ über $\mathbb{Q}$ bestimmen können:
+\begin{gather*}
+\divR{S}{\mathbb{Q}} 
+= \left( Sdx \oplus Sdy \oplus Sdz \right) / \left\lbrace (s_1, \, s_2) J_{(P_1, \, P_2)} \, \vert (s_2, \in s_2) \in S^2 \right\rbrace\\ \\
+= \left( Sdx \oplus Sdy \oplus Sdz \right) / \left\lbrace (s_1, \, s_2) 
+\begin{pmatrix}
+6xy \, dx  &  3x^2 \, dy  &  0\\
+z \,   dx  &  -z   \, dy  & (x - y) \, dz
+\end{pmatrix}
+\, \vert (s_2, \in s_2) \in S^2 \right\rbrace
+\end{gather*}
+\comment{
+vl. Falsch
+Nun betrachten wir die Module, die von $dx$ , $dy$ und $dz$ erzeugt werden jeweils für sich.
+\begin{gather*}
+\mathbb{Q}[x,y,z]/(P_1,P_2,\delta_1(P_1),\delta_1(P_2)) \, dx \\
+= \mathbb{Q}[x,y,z]/(3x^2y , \, zx - zy , \, 6xy \, , z) \, dx \\
+= \mathbb{Q}[x,y,z]/(xy , \, z) \, dx \\
+= \mathbb{Q}[x,y]/(xy) \, dx \\
+\ \\
+\mathbb{Q}[x,y,z]/(P_1,P_2,\delta_2(P_1),\delta_2(P_2)) \, dy \\ 
+= \mathbb{Q}[x,y,z]/(3x^2y , \, zx - zy , \, 3x^2 , \, -z) \, dy \\
+= \mathbb{Q}[x,y,z]/(x^2 , \, z) \, dy \\
+= \mathbb{Q}[x,y]/(x^2) \, dy \\
+\ \\
+\mathbb{Q}[x,y,z]/(P_1,P_2,\delta_3(P_1),\delta_3(P_2)) \, dz \\ 
+= \mathbb{Q}[x,y,z]/(3x^2y , \, zx - zy , \, 0 , \, x - y) \, dz \\
+= \mathbb{Q}[x,y,z]/(x^2y , \, x - y) \, dz \\
+= \mathbb{Q}[x,z]/(x^3) \, dz \\
+\ \\
+\Rightarrow \divR{S}{\mathbb{Q}} = \mathbb{Q}[x,y]/(xy) \, dx \, \oplus \, \mathbb{Q}[x,y]/(x^2) \, dy \, \oplus \, \mathbb{Q}[x,z]/(x^3) \, dz
+\end{gather*}
+Nun sehen wir, wie wichtig es war die drei Moduln jeweils für sich zu betrachten. Wir haben bei jedem Modul durch eine Relation eine Variable eliminiert, wobei die genaue Form der Relation mit der wir das getan haben weiterhin die Wirkung von S auf das Modul  bestimmt.\\
+So gilt $z \, dx = 0 $ aber $y \, dz = x \, dz$.
+}
+
+\end{itemize}
+\begin{em}
+Da wir im Differentialraum zusätzliche Polynome raus teilen, kann es auch vorkommen, dass dieser der Nullraum ist:
+\end{em}
+\begin{itemize}
+\item[(2.1)] Sei $R$ ein beliebiger Ring. Wähle $r \in R$ und setze $S = R[x]/(x - r)$. Somit gilt $\divR{S}{R} = 0$. Rechne dies nach:
+\begin{gather*}
+\divR{S}{R} = Sdx/\lbrace s dx \vert s \in S \rbrace = S/S dx = 0
+\end{gather*}
+Alternativ kann man auch direkt sehen, dass in diesem Fall durch\\
+$S \longrightarrow R, \, x \longmapsto r$ ein Isomorphismus gegeben ist. Da $\divf{S}(1) = 0$ gilt \textit{(siehe \cref{Differenzial indempotenter Elemente})}, gilt insbesondere $\divf{S}(R) = 0$ und somit auch $\divR{S}{R} = 0$.
+
+\item[(2.2)] Sei $k$ ein beliebiger Körper. Wähle nun $a,b \in k$ und betrachte\\
+$L = k[x]/(ax - b)$ als $k$-Algebra. Dann gilt $\divR{L}{k} = 0$:
+\begin{gather*}
+L = k[x]/(ax - b) = k[x]/(x - a^{-1}b) \\
+\Rightarrow^{(2.1)} \divR{L}{k} = 0
+\end{gather*}
+\end{itemize}
+\begin{em}
+Um erst mal ein besseres Gefühl für Kähler-Differential zu bekommen, betrachte die Differentialräume von $\mathbb{Z}$-Algebren. Dabei tasten wir uns langsam von den einfachen Fällen hin zu komplexeren Beispielen:
+\end{em}
+\begin{itemize}
+\item[(3.1)] Betrachte den Ring $S = \mathbb{Z}[x]/(3x) = \nolinebreak{ \left\lbrace \sum_{i = 0}^n a_i x^i \vert \, a_0 \in \mathbb{Z} \, \wedge \, a_i \in \mathbb{Z}_3 \text{ für } i \geq 1 \right\rbrace}$ als $\mathbb{Z}$-Algebra. Der Differentialraum von S über $\mathbb{Z}$ ist das Modul der Polynome über $\mathbb{Z}_3$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = \left( S\divf{S}d(x) \right)/\lbrace s \cdot 3dx \vert s \in S \rbrace = S/3\mathbb{Z}[x] \, dx = \mathbb{Z}_3[x] dx
+\end{gather*}
+
+\item[(3.2)] Allgemeiner können wir auch $n \in \mathbb{N}$ mit $n \geq 2$ und $S = \mathbb{Z}[x]/(nx)$ als $\mathbb{Z}$-Algebra wählen. Gehe in diesem Fall analog zu \textit{(3.1)} vor:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = S/n\mathbb{Z} \, dx = \mathbb{Z}_n[x] dx
+\end{gather*}
+
+\item[(3.3)] Für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ und $S = \mathbb{Z}[x,y]/(nx,mx)$ gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx)/\lbrace (s_1,s_2)
+\begin{pmatrix}
+ndx\\
+mdx
+\end{pmatrix}
+ \cdot dx \vert (s_1,s_2) \in S^2 \rbrace \\
+= \mathbb{Z}[x]/ \left(n\mathbb{Z}[x] + m\mathbb{Z}[x]\right) \, dx 
+= \mathbb{Z}_{ggT(n,m)}[x]dx
+\end{gather*}
+
+\item[(3.4)] Betrachte noch, welche Auswirkungen es hat, wenn wir auch Polynome hören Grades betrachten. Wähle als $\mathbb{Z}$-Algebra also\\ $S = \mathbb{Z}[x]/(3x,x^2) = \lbrace a_0 + a_1x \vert a_0 \in \mathbb{Z}_3 \, \wedge \, a_1 \in \mathbb{Z} \rbrace$. Für diese gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = Sdx/\left\lbrace (s_1,s_2)
+\begin{pmatrix}
+3 \cdot dx\\
+2x \cdot dx
+\end{pmatrix}
+\vert (s_1,s_2) \in S^2 \right\rbrace\\
+=\mathbb{Z}[x]/(3,2x,3x,2x^2) \, dx
+=\mathbb{Z}[x]/(3,x) \, dx
+=\mathbb{Z}_3 dx
+\end{gather*}
+
+\item[(3.5)] Für $S = \mathbb{Z}[x]/(3x^3, x^4) = \left\lbrace \sum_{i = 1}^3 a_ix^i \vert \, a_0 , a_1 , a_2 \in \mathbb{Z} \, \wedge \, a_3 \in \mathbb{Z}_3 \right\rbrace$ gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}} = Sdx/\left\lbrace (s_1,s_2)
+\begin{pmatrix}
+9x^2 \cdot dx\\
+4x^3 \cdot dx
+\end{pmatrix}
+\vert (s_1,s_2) \in S \right\rbrace\\
+=\mathbb{Z}[x]/(9x^2,3x^3,4x^3,x^4)\,dx \\
+= \mathbb{Z}[x]/(9x^2,x^3) \, dx 
+= \left\lbrace \left( \sum_{i = 0}^2 a_ix^i \right)dx \, \vert \, a_0,a_1 \in \mathbb{Z} \, \wedge \, a_2 \in \mathbb{Z}_9 \right\rbrace
+\end{gather*}
+
+\item[(3.6)] Wir können mittlerweile auch Polynome in mehreren Variablen betrachten. Wähle also $n \in \mathbb{N}$ mit $n \geq 2$ und betrachte $S = \mathbb{Z}[x,y]/(nx,my)$, somit gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx \oplus S dy) / \left\lbrace (s_1,s_2)
+\begin{pmatrix}
+n dx & 0 \\
+0    & m dy
+\end{pmatrix}
+\vert (s_1, s_2) \in S^2 \right\rbrace \\
+= \mathbb{Z}[x,y]/(nx, my ,n) \, dx \, \oplus \,  \mathbb{Z}[x,y]/(ny , my , m) \, dy \\
+= \mathbb{Z}[x,y]/(my , n) \, dx \, \oplus \, \mathbb{Z}[x,y]/(nx,m) \, dy \\
+= \mathbb{Z}_n[x,y]/(my) \, dx \, \oplus \, \mathbb{Z}_m[x,y]/(nx) \, dy \\
+= (\mathbb{Z}_n[x])[y]/(my) \, dy \, \oplus \, (\mathbb{Z}_m[y])[x]/(nx) \, dy \\
+= \left\lbrace \sum_{i = 0}^n P_i(x) y_i \vert P_0(x) \in \mathbb{Z}_n[x] \, \wedge \, P_i(x) \in \mathbb{Z}_{ggt(n,m)}[x] \textit{ für } i \geq 1 \right\rbrace \\
+\oplus \left\lbrace \sum_{i = 0}^n P_i(y) x_i \vert P_0(y) \in \mathbb{Z}_m[y] \, \wedge \, P_i(y) \in \mathbb{Z}_{ggt(n,m)}[y] \textit{ für } i \geq 1 \right\rbrace
+\end{gather*}
+Beachte, dass wir die von $dx$ und $dy$ erzeugten Module separat betrachten können liegt daran, dass die Jakobimatrix von $(nx,my)$ eine Diagonalmatrix ist.
+
+\item[(3.7)] Rechne also noch ein Beispiel ohne Diagonalmatrix durch. Wähle $n \in \mathbb{N}$ mit $n \geq 2$ und betrachte $S = \mathbb{Z}[x,y]/(nxy)$, somit gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx \oplus S dy) /  \left\lbrace s
+(ny \, dx , \, nx \, dxy)
+\vert s \in S \right\rbrace\\
+= (Sdx \, \oplus \, Sdy) / (S(ny \, dx \, + \, nx \, dy))\\
+= (\mathbb{Z}[x,y] \, dx \oplus \mathbb{Z}[x,y] \, dy) / (nxy \, dx \, , \, nxy \, dy \, , \, ny \, dx \, + \, nx \, dy)
+\end{gather*}
+
+\item[(3.8)] Berechne zuletzt noch ein Beispiel mit konkreten Zahlen. Betrachte dazu die $\mathbb{Z}$-Algebra $S = \mathbb{Z}[x,y]/(2xy , y^2)$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}[x,y]
+= (S dx \oplus S dy) / \left\lbrace (s_1,s_2)
+\begin{pmatrix}
+2y dx  &  2x dy \\
+0      &  2y dy
+\end{pmatrix}
+\vert (s_1,s_2) \in S^2 \right\rbrace\\
+= (Sdx \oplus Sdy)/(2y \, dx + 2x \, dy \, , \, 2y \,dy) \\
+= (\mathbb{Z}[x]dx \oplus \mathbb{Z}[x]dy)/(2xy \, dx \, , \, y^2 \, dx \, , \, 2y \, dx + 2x \, dy \, , \, 2xy \, dy  \, , \, y^2 \, dy \, , \,  2y \,dy)\\
+= (\mathbb{Z}[x]dx \oplus \mathbb{Z}[x]dy)/(2xy \, dx \, , \, y^2 \, dx \, , \, 2y \, dx + 2x \, dy \, , \, y^2 \, dy \, , \,  2y \,dy)
+\end{gather*}
+Für $(x^3y + x^2y) \in S$ gilt somit:
+\begin{gather*}
+\divf{s}(x^3y + x^2y) = ((3x^2y + xy)dx \, , \, (x^3 + y^2)dy) = (x^2y \, dx \, , \, (x^3 + y^2)dy)
+\end{gather*}
+\end{itemize}
+\begin{em}
+Betrachte das Differential von Körpererweiterungen.
+\end{em}
+\begin{itemize}
+\item[(4)]
+Für die $\mathbb{R}$-Algebra $\mathbb{C} = R[x]/(x^2 - 1)$ der Komplexen Zahlen gilt $\divR{\mathbb{C}}{\mathbb{R}} = 0$:
+\begin{gather*}
+\divR{\mathbb{C}}{\mathbb{R}} = \mathbb{C}dx / \mathbb{C}(2x \, dx) = \mathbb{R} /(x^2 -1, \, 2x) \, dx = 0\\
+\textit{da } (x^2 - 1) + \frac{1}{2}(2x) = 1 \textit{, also } (x^2 -1, \, 2x) = (x^2 -1, \, 2x, 1) = \mathbb{R}
+\end{gather*}
+\comment{
+\item[(3'.1)] Wir können mittlerweile auch Polynome in mehreren Variablen betrachten. Wähle also $n \in \mathbb{N}$ mit $n \geq 2$ und $S = \mathbb{Z}[x,y]/(nxy)$, somit gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx \oplus S dy) /  \left\lbrace s
+(ny \, dx , \, nx \, dxy)
+\vert s \in S \right\rbrace\\
+= S/(ny) \, dx \oplus S/(nx) \, dy\\
+= \mathbb{Z}[x]/(ny) \, dx \oplus \mathbb{Z}[x]/(nx) \, dy\\\
+\end{gather*}
+
+\item[(3'.2)] Für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ und $S = \mathbb{Z}[x,y]/(nx,ny)$ gilt:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (S dx)/\lbrace (s_1,s_2)
+\begin{pmatrix}
+ndx\\
+mdx
+\end{pmatrix}
+ \cdot dx \vert (s_1,s_2) \in S^2 \rbrace \\
+= \mathbb{Z}[x]/ \left(n\mathbb{Z}[x] + m\mathbb{Z}[x]\right) \, dx 
+= \mathbb{Z}_{ggT(n,m)}[x]dx
+\end{gather*}
+
+\item[(3'.3)] Wir wollen uns mal an ein etwas kompliziertes Beispiel wagen. Betrachte für $n,m \in \mathbb{N}$ mit $n,m \geq 2$ den Raum der Differentiale von \\$S = \nolinebreak{\mathbb{Z}[x,y,z]/(nx + ny, mx + mz)}$ über $\mathbb{Z}$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+= (Sdx \oplus Sdy \oplus Sdz)/\left\lbrace (s_1,s_2) 
+\begin{pmatrix}
+ndx & ndy & 0\\
+0   & ndy & mdz
+\end{pmatrix}
+\vert (s_1,s_2) \in S^2 \right\rbrace\\
+=\mathbb{Z}_n[x,y,z]/(mx + mz) \, dx \, \oplus \, \mathbb{Z}_{ggT(n,m)}[x,y,z] \, dy \, \oplus \, \mathbb{Z}_m[x,y,z]/(nx + ny) \, dz
+\end{gather*}
+
+\item[(3'.4)] Setze in \textit{(3'.3)} \, $n = 2$ und $m = 3$. Betrachte also den Differentialraum von \\
+$\nolinebreak{S = \mathbb{Z}[x,y,z]/(2x + 2y, 3x + 3z)}$ über $\mathbb{Z}$:
+\begin{gather*}
+\divR{S}{\mathbb{Z}}
+=\mathbb{Z}_2[x,y,z]/(3x + 3z) \, dx \, \oplus \, \mathbb{Z}_{ggT(2,3)}[x,y,z] \, dy \, \oplus \, \mathbb{Z}_3[x,y,z]/(2x + 2y) \, dz \\
+= \mathbb{Z}_2[x,y,z]/(x + z) \, dx \, \oplus \, 0 \, dy \, \oplus \, \mathbb{Z}_3[x,y,z]/(2x + 2y) \, dz\\
+= \mathbb{Z}_2[x,y] \, dx \, \oplus \, \mathbb{Z}_3[x,y,z]/(2x + 2y) \, dz
+\end{gather*}
+}
+\end{itemize}
+\end{bsp}
+
+\subsection{Kähler-Differenzial von Kolimiten}
+
+\textcolor{blue}{\textbf{Differenzial des Kolimes von R-Algebren} \textit{[vlg. Korolar 16.7 \ModulsOfDifferenzials]}}
+\comment{Beide Beweise sind sehr kurz gefasst}
+\begin{prop} \label{Differenzial des Kolimes von R-Algebren}
+\ \\
+\begin{itemize}
+\item[\textbf{1.}]
+Sei $T = \otimes_{i \in \Lambda} S_i$ das Koprodukt der R-Algebren $S_i$.\\
+Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )
+\end{gather*}
+\item[\textbf{2.}]
+Seien $S_1,S_2$ R-Algebren und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzkokern von $\varphi$,$\varphi '$.
+Dann ist folgende Sequenz rechtsexakt:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "f"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\begin{gather*}
+\textit{mit: } \function{f}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{\divf{S_1}(x_1)}}{\tensor{t}{S_2}{\divf{S_2}(\varphi(x_1) - \varphi(x_2))}}\\
+\function{g}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{\divf{S_2}(x_2)}}{(\divf{T}\circ q)(x_2)}
+\end{gather*}
+\end{center}
+\end{itemize}
+\end{prop}
+\begin{proof}\ \\
+Für \textit{\textbf{1.}} finde durch die Universelle Eigenschaft des Kähler-Differenzials Isomorphismen $ \divR{T}{R} \longleftrightarrow \bigoplus_{i \in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$.\\
+Definiere das Differenzial $\function{e}{T}{\bigoplus_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{(\tensor{s_i}{R}{...})}{(\tensor{1}{S_i}{\divf{S_1},...)}}$ und erhalte dadurch
+\begin{center}
+\begin{tikzcd}
+T \arrow[rd, "e"'] \arrow[r, "\divf{T}"] & \divR{T}{R} \arrow[d, "\exists ! \varphi", dashed] \\
+                                    & \bigoplus_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
+\end{tikzcd}
+$\functionfront{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}$.
+\end{center}
+Definiere nun das Differenzial $k: S_i \hookrightarrow T \longrightarrow \divR{T}{R}$ und erhalte dadurch:
+\begin{center}
+\begin{tikzcd}
+S_i \arrow[rd, "k"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, "a"] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
+                                          & \divR{T}{R}                                                    &                     
+\end{tikzcd}
+$\functionfront{\phi_i}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}{\divR{T}{R}}$\\
+\begin{gather*}
+\function{\phi}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(...,\tensor{t_i}{S_i}{\divf{S_i}(s_i)},...)}{\prod_{i\in \Lambda} t_i \cdot \phi_i(\divf{S_i}(s_i))}
+\end{gather*}
+\end{center}
+Damit haben wir zwei zueinander inverse Funktionen $\varphi ,\phi$ gefunden.\\
+$\Rightarrow \divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$\\
+\ \\
+Für \textit{\textbf{2.}} Wende \cref{Konormale Sequenz} auf den Differenzkokern $\functionfront{q}{S_2}{S_2/Q}$ \textit{(vlg. \cref{R-Algebra-Kolimiten})} an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
+\begin{center}
+\begin{tikzcd}
+Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+mit $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{\divf{S_2}(s_2)}}$.\\
+Somit gilt $\immage{f} = \Tensor{T}{S_2}{\divf{S_2}(Q)} = \immage{f'}$.\\
+$\Rightarrow$ die gesuchte Sequenz ist exakt.
+\end{proof}s
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial von Polynomalgebren 1} \textit{[vlg. Proposition 16.1 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 1}
+Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle 
+\end{gather*}
+Wobei $S\langle \divf{S}(x_i)\rangle$ das von $\divf{S}(x_i)$ erzeugt Modul über S ist.
+\end{korrolar}
+\begin{proof}
+Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, können wir $S$ als $\bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]$ schreiben. In \cref{Differenzial des Kolimes von R-Algebren} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S}{R[x_i]}{\divR{R[x_i]}{R}})
+\end{gather*}
+Da $R[x_i]$ die aus dem Element $x_i$ erzeugte Algebra über $R$ ist, folgt \textit{[vlg. BEMERKUNG ZU ENDLICH ERZEUGTEN ALGEBREN]}: 
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S}{R[x_i]}{R[x_i]\langle \divf{S[x_i]}(x_i) \rangle})
+\simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle 
+\end{gather*}
+Für die letzte Isomorphie nutze, dass wegen $R[x_i] \subseteq S$ zum Einen $\divf{R[x_i]}$ als Einschränkung von $\divf{S}$ gesehen werden kann und zum Anderen $\Tensor{S}{R[x_i]}{R[x_i]} \simeq S$ gilt.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial von Polynomalgebren 2} \textit{[vgl. Korrolar 16.6 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 2}
+Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Differenzial des Kolimes von R-Algebren} an:
+\begin{gather*}
+T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
+\Rightarrow \divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus (\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})
+\end{gather*}
+Zuletzt wende den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
+\begin{gather*}
+\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}}\\
+\simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i \in \lbrace 1,...,n \rbrace} R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
+\simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{R}(x_i) \rangle
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial der Lokalisierung} \textit{[vlg. Proposition 16.9 \ModulsOfDifferenzials]}}
+\begin{theorem}\label{Differenzial der Lokalisierung}
+Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
+Dann gilt:
+\begin{gather*}
+\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}} \text{, Wobei:}\\
+ \divf{\lok{S}{U}}(\loke{1}{u}{U}) \longmapsto -\tensor{\loke{1}{u^2}{U}}{S}{\divf{S}(u)}
+\end{gather*}
+\end{theorem}
+\begin{proof}
+Wir wollen THEOREM16.8 \comment{\label{THEOREM16.8}} auf $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ aus \cref{Lokalisierung von Algebren als Kolimes} anwenden.\\
+Zeige also zunächsten den einfacheren Fall $\divR{\lok{S}{t}}{R} \simeq \Tensor{\lok{S}{t}}{S}{\divR{S}{R}}$ für ein beliebiges $t \in U$:
+\begin{itemize}
+\item[]
+Nutze hierfür die Isomorphe Darstellung $\lok{S}{t} \simeq S[x]/(tx -1)$, sowie die Isomorphie $\divR{S[x]}{R} \simeq \Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x]\divf{S[x]}(x)$. aus \cref{Differenzial von Polynomalgebren 2}\\
+Daraus erhalten wir folgende Isomorphismen:
+\begin{gather*}
+\functionfront{\alpha}{\lok{S}{t}}{S[x]/(tx -1)} \\
+\functionfront{\beta}{S[x]/(tx -1)}{\lok{S}{t}} \\
+\functionfront{\gamma}{\divR{S[x]}{R}}{ \Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x]\divf{S[x]}(x) }
+\end{gather*}
+Nutze diese nun, um $\divR{\lok{S}{t}}{R}$ isomorph zu $\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}$ umzuformen:
+\begin{center}
+\begin{tikzcd}
+\divR{\lok{S}{t}}{R} \arrow[d, "D\alpha"] & d_{\lok{S}{t}}(\loke{s}{t}{t}) \arrow[d, "D\alpha", maps to] \\
+\divR{S[x]}{R}/\divf{S[x]}(tx - 1) \arrow[d, "\gamma"]  & {[\divf{S[x]}(sx)] = [x\divf{S[x]}(s) + s\divf{S[x]}(x)]} \arrow[d, "\gamma", maps to]  \\
+(\Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x] \divf{S[x]}x) / ((tx - 1) \divf{S[x]}(tx - 1)) \arrow[d, "\beta"]   & {[\tensor{x}{S}{\divf{S}(s)} , s \divf{S[x]}(x)]} \arrow[d, "\beta", maps to]   \\
+(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}) \oplus \lok{S}{t} \divf{S[x]}(x) / \divf{S[x]}(tx - 1) \defeqr M \arrow[d, "f"]       & {[\tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} , s \divf{S[x]}(x)]} \arrow[d, "f", maps to]       \\
+\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}                      & ( \tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} ) - ( \tensor{\loke{s}{t^2}{t}}{S}{\divf{S}(t)} )                              
+\end{tikzcd}
+\end{center}
+Die ersten drei Schritte ergeben sich aus den oben angegeben Isomorphismen. Für den letzten Schritt definiere:
+\begin{gather*}
+\function{f}{M}{\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}}{[\tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} , s \divf{S[x]}(x)]}{( \tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} ) - ( \tensor{\loke{s}{t^2}{t}}{S}{\divf{S}(t)} )}
+\end{gather*}
+Damit $f$ ein Isomorphismus ist, genügt es zu zeigen, dass $\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}$ ein eindeutiges Repräsentantensystem von $M$ ist.\\
+Sei dazu $[m_1,\loke{s}{t^{n}}{t}\divf{S[x]}(x)]$ ein beliebiger Erzeuger von $M$. Somit gilt:
+\begin{gather*}
+\divf{S[x]}(tx-1) = t\divf{S[x]}(x) + \beta(x)\divf{S[x]}(s)\\
+\Rightarrow [0,\divf{S[x]}(x)] = [-\loke{1}{t^2}{t}\divf{S}(t),0]  \\ \comment{\label{\d_S[x] ~ d_S}}
+\Rightarrow [m_1,\loke{s}{t^{n}}{t}\divf{S[x]}(x)] = [m_1 - \loke{s}{t^{n + 2}}{t}\divf{S}(t),0] = [f([m_1,\loke{s}{t^{n}}{t}\divf{S[x]}(x)]),0]
+\end{gather*}
+f ist also wie vermutet ein Isomorphismus und aus obigen Umformungen folgt
+$\divR{\lok{S}{t}}{R} \simeq \Tensor{\lok{S}{t}}{S}{\divR{S}{R}} = \lok{\divR{S}{R}}{t}$. \\
+Definiere für beliebige $t \in U$ folgenden Isomorphismus:
+\begin{gather*}
+f \circ \beta \circ \gamma  \circ D\alpha \defeqr \function{\delta_t}{\divR{\lok{S}{t}}{R}}{\lok{\divR{S}{R}}{t}}{\divf{\lok{S}{t}}(\loke{1}{t}{t})}{- \loke{\divf{S}(t)}{t^2}{t}}
+\end{gather*}
+\end{itemize}
+Zeige nun den Allgemeinen Fall $\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}}$:\\
+Wähle $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ wie in \cref{Lokalisierung von Algebren als Kolimes}, sodass $\colimes \mathcal{B} = \lok{S}{U}$ gilt.\\
+Mit THEOREM16.8 \comment{\label{THEOREM16.8}} folgt somit:
+\begin{gather*}
+\divR{\lok{S}{U}}{R}  = \colimes{\mathcal{F}} \text{ mit:}\\
+\function{\mathcal{F}}{\mathcal{B}}{(\lok{S}{U} - Module)}{\lok{S}{t}}{\tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}}}\\
+( \functionfront{\varphi}{\lok{S}{t}}{\lok{S}{tt'}} )\\ \longmapsto 
+( \functionfront{\tensor{1}{\lok{S}{t}}{D\varphi}}{ \Tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}}}{ \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})}} )
+\end{gather*}
+Zur Vereinfachung der Morphismen in $\mathcal{F}(\mathcal{B})$ definiere folgenden Isomorphismus:
+\begin{gather*}
+\functionfront{g}{ \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})}}{\Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}}}\\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{( \tensor{\loke{s'}{t}{t}}{\lok{S}{t}}{\divf{\lok{S}{tt'}}(x)} )} 
+\longmapsto \tensor{\loke{s}{u}{U}}{\lok{S}{tt'}}{\varphi(\loke{s'}{t}{t})\divf{\lok{S}{tt'}}(x)}
+\end{gather*}
+Als letzten Schritt wollen wir \cref{Lokalisierung von Moduln als Kolimes} anwenden. Nutze dazu $\functionfront{\delta_t}{\divR{\lok{S}{t}}{R}}{\lok{\divR{S}{R}}{t}}$ um den zu $\mathcal{F}$ isomorphen Funktor $\mathcal{F'} \defeq \delta \circ \mathcal{F}$ zu erhalten. Um ein genaueres Bild von $\mathcal{F'}$ zu erlangen, betrachte folgendes Kommutatives Diagramm:
+\begin{center}
+\begin{tikzcd}
+\lok{S}{t} \arrow[r, "\varphi"] \arrow[dd, "\mathcal{F}"] & \lok{S}{tt'} \arrow[d, "\mathcal{F}"]  \\
+                                                 & \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})} \arrow[d, "g"]            \\
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}} \arrow[ru, "\tensor{1}{\lok{S}{t}}{D\varphi}"] \arrow[d, "\delta_t"]         & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}} \arrow[d, "\delta_{tt'}"] \\
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}} \arrow[r, "\tensor{1}{\lok{S}{t}}{\varphi}"]                              & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}                          \\
+\ \\
+\loke{s}{t}{t} \arrow[r, "\varphi"] \arrow[d, "\divf{\lok{S}{t}}"]  & \loke{st'}{tt'}{tt'} \arrow[d, "\divf{\lok{S}{tt'}}"]           \\
+{ \tensor{1}{\lok{S}{t}}{( \loke{1}{t}{t}\divf{\lok{S}{t}}(\loke{s}{1}{t}) + \loke{s}{1}{t}\divf{\lok{S}{t}}(\loke{1}{t}{t}))} \; } \arrow[d, "\delta_t"] \arrow[r, "g \circ (\tensor{1}{\lok{S}{t}}{D\varphi}) "] & {\; \tensor{1}{\lok{S}{tt'}}{( \loke{1}{tt'}{tt'}\divf{\lok{S}{tt'}}(\loke{st'}{1}{tt'}) + \loke{st'}{1}{tt'}\divf{\lok{S}{tt'}}(\loke{1}{tt'}{tt'}))}} \arrow[d, "\delta_{tt'}"] \\
+\tensor{1}{\lok{S}{t}}{( \loke{\divf{S}(s)}{t}{t} - \loke{s\divf{S}(t)}{t^2}{t}  )} \arrow[r, "\tensor{1}{\lok{S}{t}}{\varphi}"]                     & \tensor{1}{\lok{S}{tt'}}{( \loke{t'\divf{S}(s)}{tt'}{tt'} - \loke{st'\divf{S}(t)}{(tt')^2}{tt'}  )} \textbf{(*)}                         
+\end{tikzcd}
+\end{center}
+Dass das Diagramm in dieser Form kommutiert, ergibt sich in fast allen Fällen direkt aus dem Einsetzen in die entsprechenden Homomorphismen. Der einzige Fall, welcher nicht direkt klar ist, ist \textbf{(*)}. Rechne diesen also nochmal nach:
+\begin{gather*}
+\delta_{tt'}( \tensor{1}{\lok{S}{tt'}}{( \loke{1}{tt'}{tt'}\divf{\lok{S}{tt'}}(\loke{st'}{1}{tt'}) + \loke{st'}{1}{tt'}\divf{\lok{S}{tt'}}(\loke{1}{tt'}{tt'}))} )\\
+= \tensor{1}{\lok{S}{tt'}}{( \loke{\divf{S}(st')}{tt'}{tt'} - \loke{t's\divf{S}(tt')}{(tt')^2}{tt'} )} \\
+= \tensor{1}{\lok{S}{tt'}}{( \loke{t'\divf{S}(s')}{tt'}{tt'} + \loke{s\divf{S}(t')}{tt'}{tt'} 
+- \loke{tt'\divf{S}(t')}{(tt')^2}{tt'} - \loke{t'^2s\divf{S}(t)}{(tt')^2}{tt'} )} \\
+\comment{ = \tensor{1}{\lok{S}{tt'}}{( \loke{t'\divf{S}(s)}{tt'}{tt'} + \loke{s\divf{S}(t')}{tt'}{tt'} - \loke{s\divf{S}(tt')}{tt'}{tt'} - \loke{t'^2s\divf{S}(t)}{(tt')^2}{tt'} )} \\ }
+= \tensor{1}{ \lok{S}{tt'}}{( \loke{t'\divf{S}(s)}{tt'}{tt'} - \loke{t'^2s\divf{S}(t)}{(tt')^2}{tt' } )} \\
+= (\tensor{1}{\lok{S}{t}}{\varphi})(\tensor{1}{\lok{S}{t}}{( \loke{\divf{S}(s)}{t}{t} - \loke{s\divf{S}(t)}{t^2}{t}  )})
+\end{gather*}
+\comment{Damit haben wir einen zu $\mathcal{F}$ isomorphen Funktor gefunden:
+\begin{gather*}
+\functionfront{\mathcal{F'}}{\mathcal{B}}{(\lok{S}{U} - Module)}\\
+\lok{S}{t} \longmapsto \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}}\\
+\varphi \longmapsto \tensor{1}{\lok{S}{t}}{\varphi}
+\end{gather*}}
+Damit ist $\mathcal{F'}$ zu $\mathcal{F}$ isomorph und für $\mathcal{C} \defeq \mathcal{F'}(\mathcal{B})$ gilt $\divR{\lok{S}{U}}{R}  = \colimes{\mathcal{F'}} = \colimes{\mathcal{C}}$ \textit{[vlg. \cref{Vereinfachung des Kolimes}]}.
+Wobei die Form von $\mathcal{C}$ genau dem Fall aus \cref{Lokalisierung von Moduln als Kolimes} entspricht:
+\begin{gather*}
+\comment{\divR{\lok{S}{U}}{R}  = \colimes{\mathcal{C}} \text{, wobei:} \\}
+\mathcal{C} = \lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}} \vert t \in U \rbrace \textit{ mit den Morphismen }\\
+\functionfront{\tensor{1}{\lok{S}{t}}{\varphi}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}}}{\Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}} \\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{\divf{S}(x)}{t^n}{t}} \longmapsto \tensor{\loke{s}{u}{U}}{\lok{S}{tt'}}{\loke{t'^n\divf{S}(x)}{(tt')^n}{tt'}}
+\end{gather*}
+Somit folgt $\colimes \mathcal{C} = \lok{\divR{S}{R}}{U}$ und wir haben $\divR{\lok{S}{U}}{R} = \lok{\divR{S}{R}}{U}$ gezeigt.
+\end{proof}
+
+
+\chapter{Körpererweiterungen}
+
+\section{Einführung in transzendente Körpererweiterungen}
+Sei im folgenden $k$ ein Körper.\\
+Wir haben in BEISPIEL \comment{\label{*Differenzial algebraischer Körpererweiteerungen ist Null}} gesehen, dass das Kähler-Differenzial algebraischer Körpererweiterungen über $k$ der Null-Vektorraum über $k$ ist. Dies liegt daran, dass im Falle einer algebraischen Körpererweiterung $k(\alpha)/k$ ein irreduzibles Polynom $f(x) \in k[x]$ existiert, mit $f(\alpha) = 0$ und $k[\alpha] \simeq k[x]/(f(x))$.\\
+Im Falle einer transzendenten Körpererweiterung $k(\beta)$ existiert kein solches Polynom in $k[x]$ und es gilt $k(\beta) \simeq k(x)$. In KORROLAR \comment{\label{*Differenzial rationaler Funktionen}} haben wir gesehen, dass in diesem Falle $\divR{k(x)}{k} \simeq ???$ gilt. Dies motiviert dazu Transzendente Körpererweiterungen und deren Differenzial näher zu untersuchen. Dazu wird hier elementares Wissen über algebraische Körpererweiterungen vorausgesetzt \textit{[eventuell nach zu lesen in \Algebra]}.\\
+In diesem Kapitel führen wir Transzendenzbasisen ein und untersuchen diese näher.\\
+
+\begin{definition}\label{Definition Transzendenzbasis}\textit{[vlg. Anhang A1 \ModulsOfDifferenzials sowie Kapitel 22 \Algebra]}\\
+Sei $L/k$ eine Körpererweiterung. Dann definieren wir:
+\begin{itemize}
+\item[•] Eine endliche Teilmengen $\lbrace l_1, \dots ,l_n \rbrace \subseteq L$ heißt \underline{algebraisch unabhängig} über $k$, falls gilt:
+\begin{gather*}
+\forall P(x_1, \dots , x_n) \in k[x_1,\dots,x_n] : \, P(l_1, \dots , l_n) \neq 0
+\end{gather*}
+\item[•] Eine Teilmenge $B \subseteq L$ heißt \underline{transzendent} über $k$, falls jede ihrer endlichen Teilmengen $\lbrace b_1, \dots , b_n \rbrace \subseteq B$ algebraisch unabhängig über $k$ ist.
+\item[•] Eine Teilmenge $B \subseteq L$ ist eine \underline{Transzendenzbasis} von $L/k$, falls sie transzendent über $k$ und die Körpererweiterung $L/k(B)$ algebraisch ist.
+\item[•] Falls eine Transzendenzbasis von $B$ von $L/k$ existiert, sodass $k(B) = L$ gilt, so ist $L/k$ eine \underline{pur transzendente Körpererweiterung}.
+\end{itemize}
+\end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{pur transzendente Erweiterung} }
+\begin{korrolar}\label{pur transzendente Erweiterung} \textit{[Eigene Überlegung]}\\
+Sei $L/k$ eine pur transzendente Körpererweiterung mit Transzendenzbasis $B$. Dann gilt:
+\begin{gather*}
+L \simeq k(\lbrace x_b \rbrace_{b \in B})
+\end{gather*}
+Insbesondere ist $\lbrace x_b \rbrace_{b \in B}$ eine Transzendenzbasis der Körpererweiterung der rationalen Funktionen $k(\lbrace x_b \rbrace_{b \in B})$ über $k$.
+\end{korrolar}
+\begin{proof} Betrachte folgenden Körpermorphismus und zeige, dass es sich dabei um einen Isomorphismus handelt:
+\begin{gather*}
+\function{\Phi}{k(\lbrace x_b \rbrace_{b \in B})}{k(B)}{\frac{P( x_{b_1} , \dots , x_{b_n} )}{Q( x_{b_1} , \dots , x_{b_n} )}}{\frac{P( b_1 , \dots , b_n )}{Q( b_1 , \dots b_n )}}
+\end{gather*}
+Da $B$ als Transzendenzbasis insbesondere transzendent über $k$ ist, ist jede endliche Teilmenge von algebraisch unabhängig über $k$. Dies bedeutet:
+\begin{gather*}
+\forall \lbrace b_1, \dots , b_n \rbrace \in B \, \forall P( x_{b_1} , \dots , x_{b_n} ) \in k[x_{b_1} , \dots , x_{b_n}] :\\
+P( x_{b_1} , \dots , x_{b_n} ) \Rightarrow P(b_1, \dots ,b_n) \neq 0
+\end{gather*}
+Folglich ist $\Phi$ wohldefiniert und insbesondere injektiv.\\
+Dass $\Phi$ surjektiv ist, folgt direkt aus der Definition von $L = k(B)$ als Quotientenkörper über $k[x]$.\\
+\ \\
+Dass $\lbrace x_b \rbrace_{b \in B}$ Transzendenzbasis von $k(\lbrace x_i \rbrace_{i \in B})$ ist folgt direkt aus \cref{Definition Transzenddenzbasis}. Denn jede endliche Teilmenge $\lbrace x_{b_1}, \dots x_{b_n} \rbrace  \subseteq  \lbrace x_b \rbrace_{b \in B}$ ist transzendent, da $k[x_1,\dots,x_n]$ und $k[x_{b_1}, \dots x_{b_n}]$ isomorph zueinander sind. Außerdem ist die triviale Körpererweiterung $k(x_{b_1}, \dots x_{b_n})/k(x_{b_1}, \dots x_{b_n})$ algebraisch.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Transzendenzbasis ist maximale transzendente Menge}}
+\begin{lemma}\label{Transzendenzbasis ist maximale transzendente Menge}\textit{[Lemma 22.1 \Algebra]}\\
+Sei $L / k$ ein Körpererweiterung und $B \subseteq L$ eine über $k$ transzendente Teilmenge. Dann gilt:\\
+B ist genau dann eine Transzendenzbasis von $L/k$, wenn $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$ ist.
+\end{lemma}
+\begin{proof} \ \\
+\begin{itemize}
+\item[\underline{\glqq $\Rightarrow$:\grqq}] Sei B eine Transzendenzbasis über $k$. Zeige, dass für ein beliebiges Element $a \in L \setminus B$ die Menge $B \cup \lbrace a \rbrace \subseteq L$ nicht transzendent über $k$ ist:
+\begin{gather*}
+\text{Da die Körpererweiterung $L / k(B)$ algebraisch ist, existiert }\\ 0 \neq P(x) \in k(B)[x] \text{ mit } P(a) = 0.
+\end{gather*}
+Aus der Definition von $k(B)$ geht hervor, dass $\lbrace b_1, \dots b_n \rbrace \subseteq B$ existiert, mit $P(x) \in k(\lbrace b_1, \dots b_n \rbrace)[x]$.\\ 
+Wir können ohne weitere Einschränkung annehmen, dass $P(x) \in k[\lbrace b_1, \dots ,b_n \rbrace][x]$ gilt, denn falls dies nicht der Fall sein sollte, wähle $m \in \mathbb{N}$ groß genug, sodass $\left( P(x) \cdot \left( \prod_i^n b_i \right)^m \right) \in k[\lbrace b_1, \dots ,b_n \rbrace]$ gilt.
+\begin{gather*}
+\text{Wähle nun } P'(x_1, \dots , x_n , x) \in  k[x_1, \dots , x_n , x] \text{ mit } P'(b_1, \dots , b_n, x) = P(x).\\
+\text{Dies erfüllt } P'(b_1, \dots , b_n, a) = 0.
+\end{gather*}
+Folglich ist $B \cup \lbrace b_1,\dots,b_n, a \rbrace$ algebraisch abhängig und insbesondere \\
+$B \cup \lbrace a \rbrace$ nicht transzendent über k.
+\item[\underline{\glqq $\Leftarrow$:\grqq}] Sei $B$ bezüglich der Inklusion ein maximales Element der Menge aller über $k$ transzendenten Elemente aus $L$. Zeige für ein beliebiges Element $a \in L \setminus k(B)$, dass dieses algebraisch über $k(B)$ ist:\\
+\ \\
+Nach Voraussetzung existiert eine endliche Teilmenge $\lbrace b_1, \dots, b_n, a \rbrace \subseteq B \cup \lbrace a \rbrace$, welche algebraisch abhängig über $k$ ist.
+\begin{gather*}
+\text{Also existiert } P(x_1, \dots, x_{n+1}) \in k[x_1,\dots ,x_{n+1}] \text{ mit } P(b_1, \dots , b_n , a) = 0. \\
+\text{Für } P'(x) \defeq P(b_1, \dots , b_n , x) \in k(B)[x] \text{ gilt somit } P'(a) = 0
+\end{gather*}
+Die Existenz eines solchen Polynoms $P'(x)$ zeigt uns, dass $a$ algebraisch über $k(B)$ ist.\\
+Damit haben wir gezeigt, dass jedes $a \in L$ algebraisch über $k(B)$ ist. Folglich ist $L/k(B)$ algebraisch und $B$ eine Transzendenzbasis von $L$ über $k$. 
+\end{itemize}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Existenz von Transzendenzbasen}}
+\begin{prop}\label{Existenz von Transzendenzbasen} 
+\textit{[Kapitel 22.1.3 \Algebra}] \\
+Jede Körpererweiterung $L \subseteq k$ besitzt eine Transzendenzbasis $B \subseteq L$.
+\end{prop}
+\begin{proof}
+Verwende hierzu das Lemma von Zorn:\\
+\cref{Transzendenzbasis ist maximale transzendente Menge} besagt, dass die Transzendenzbasen von $L/k$ gerade die maximalen Elemente der Menge aller über $k$ transzendenten Elemente aus $L$ sind.\\
+Das Lemma von Zorn besagt, dass jede partiell geordenete Menge, in der jede total geordneten Untermenge (auch Kette genannt) eine obere Schranke besitzt, ein Maximales Element besitzt \textit{[vlg. Kapitel A2.3 \Algebra]}.\\
+Sei also $\mathbb{B}$ eine Kette von Transzendenten Mengen.\\
+Offensichtlich ist $\tilde{B} \defeq \bigcup_{B \in \mathbb{B}} \in L$ eine obere Schranke von $\mathbb{B}$. Zeige also noch, dass $\tilde{B}$ auch transzendent ist.\\
+\underline{$\mathbb{A}$nnahme: $\tilde{B}$ ist nicht transzendent:}\\
+Also existiert $\lbrace b_1,\dots,b_n \rbrace \in \tilde{B}$ mit: $\lbrace b_1,\dots,b_n \rbrace$ ist algebraisch abhängig über $k$. Da $\mathbb{B}$ bezüglich der Inklusion total geordnet ist, existiert ein $B \in \mathbb{B}$ mit $\lbrace b_1,\dots,b_n \rbrace \subseteq B$. Dies steht aber im Widerspruch dazu, dass $B \in \mathbb{B}$ transzendent über $k$ ist.\\
+Damit war unsere $\mathbb{A}$nnahme falsch und wir haben gezeigt, dass die Menge der über $k$ transzendente Teilmengen von $L$ mindestens ein maximales Element und damit $L/k$ eine Transzendenzbasis besitzt.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textit{Transzendent ist pur transzendent plus algebraisch 1}}
+\begin{korrolar}\label{Transzendent ist pur transzendent plus algebraisch 1}\textit{[Eigene Überlegung]}
+Für jede Körpererweiterung $L/k$ existiert ein Zwischenkörper $K \subseteq L$, sodass $K/k$ eine pur transzendente und $L/K$ eine algebraische Körpererweiterung ist.
+\end{korrolar}
+\begin{proof}
+Nach \cref{Existenz von Transzendenzbasen} existiert eine Transzendenzbasis $B$ von $L/k$.\\
+Wie in \cref{Definition Transzendenzbasis} beschrieben ist somit $k(B)/k$ pur transzendent und $L/k(B)$ algebraisch.\\
+Wähle also $K \defeq k(B)$.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Transzendenzbasen sind immer gleich lang} \textit{[Theorem A1.1 \ModulsOfDifferenzials]}}
+\begin{prop}\comment{\label{Transzendenzbasen sind immer gleich lang}}
+Sei $L / k$ eine Körpererweiterung. Seinen weiter $A$, $B$ zwei Transzendenzbasen von $L$ über $k$. Dann gilt:
+\begin{gather*}
+\vert A \vert = \vert B \vert
+\end{gather*}
+Wir nennen $\vert B \vert$ den \underline{Transzendenzgrad} von $L/k$.
+\end{prop}
+\begin{proof}
+Im Fall von $\vert A \vert = \vert B \vert = \infty$ sind wir schon fertig, Sei also ohne Einschränkung $A = \lbrace a_1, \dots , a_m \rbrace$ und $B = \lbrace b_1, \dots , b_n \rbrace$ mit $min(m,n) = n < \infty$.\\
+Wir wollen zunächst in $n$ Schritten die Elemente aus $B$ durch Elemente aus $A$ ersetzten und damit zeigen, dass $\lbrace a_1, \dots , a_n \rbrace$ eine Transzendenzbasis von $L$ über $k$ ist:\\
+\ \\
+Für den $i$-ten Schritt definiere $A_i \defeq \lbrace a_1,\dots,a_{i-1} \rbrace \subseteq A$, $B_i \defeq \lbrace b_i,\dots,b_n \rbrace \subseteq B$ und gehe davon aus, dass $A_i \cup B_i$ eine Transzendenzbasis ist:\\
+Nach \cref{Transzendenzbasis ist maximale transzendente Menge} ist $\lbrace a_i \rbrace \cup A_{i} \cup B_{i} = A_{i+1} \cup B_{i}$ nicht transzendent und somit algebraisch abhängig.
+\begin{gather*}
+\text{Also existiert } P \in k[x,x_1,\dots,x_n] \text{ mit } P(a_i,a_1,\dots,a_{i-1},b_i,\dots,b_n) = 0. \\
+\text{Definiere } P'(x) \defeq P(a_i,a_1,\dots,a_{i-1},x,b_{i+1},\dots,b_n) \in k(A_{i+1} \cup B_{i+1})[x].\\
+\text{Dieses erfüllt } P'(b_i) = 0.
+\end{gather*}
+Da $A_i \subseteq A$ algebraisch unabhängig ist, gilt $P(a_1,\dots,a_{i-1},x_i,\dots,x_n) \neq 0$. Nummeriere also gegebenenfalls $B$ vor der Bildung von $P'(x)$ so um, dass auch $P'(x) \neq 0$ gilt.\\
+Die Existenz eines solchen $P'(x)$ zeigt uns, dass die Körpererweiterungen \\$L \subset k(A_{i+1} \cup B_i) = k(A_{i+1} \cup B_{i+1})(\lbrace b_i \rbrace) \subset k(A_{i+1} \cup B_{i+1})$ algebraisch sind und legt nahe, dass $A_{i+1} \cup B_{i+1}$ wieder eine Transzendenzbasis ist.\\
+Um dies zu zeigen nehme zunächst an $A_{i+1} \cup B_{i+1}$ wäre algebraisch abhängig.
+\begin{gather*}
+\text{Also existiert } Q \in k[x_1, \dots ,x_n] \text{ mit } Q(a_1, \dots ,a_i,b_{i+1},\dots,b_n) = 0. \\
+\text{Definiere } Q'(x) \defeq Q(a_1,\dots,a_{i-1},x,b_{i+1},b_n) \in k(a_1,\dots,a_{i-1},b_{i+1},b_n)[x]. \\
+\text{Dieses erfüllt } Q'(a_i) = 0.
+\end{gather*}
+Da $(A_{i+1} \cup B_{i+1}) \setminus \lbrace a_i \rbrace \subseteq A_i \cup B_i$ algebraisch unabhängig ist gilt $Q'(x) \neq 0$.\\
+Die Existenz eines solchen $Q'(x)$ zeigt uns, dass die Körpererweiterung \\$L \subset k(A_{i+1} \cup B_{i+1}) \subset k((A_{i+1} \cup B_{i+1})\setminus\lbrace a_i \rbrace) = k((A_i \cup B_i)\setminus\lbrace b_i \rbrace)$ algebraisch ist. Damit ist $(A_i\cup B_i)\setminus\lbrace b_i \rbrace$ eine Transzendenzbasis, was nach \cref{Transzendenzbasis ist maximale transzendente Menge} im Widerspruch dazu steht, dass $A_i \cup B_i$ eine Transzendenzbasis ist.\\
+Folglich ist $A_{i+1} \cup B_{i+1}$ transzendent und somit eine Transzendenzbasis von $L$ über $k$.\ \\
+\ \\
+Dieses Verfahren zeigt uns, dass $\lbrace a_1, \dots , a_n \rbrace \subseteq A$ eine Transzendenbasis von $L$ über $k$ ist. Nach \cref{Transzendenzbasis ist maximale transzendente Menge} muss somit $A = \lbrace a_1, \dots , a_n \rbrace$ und $m = n$ gelten.
+\end{proof}
+
+
+
+\ \\
+\textcolor{blue}{\textbf{Unterschiedliche Transzendenzbasen bsp}}
+\begin{bsp}\comment{\label{Unterschiedliche Transzendenzbasen bsp}}\textit{[Eigene Überlegung]}
+Sei dazu $L = k(y)$ der Körper der rationalen Funktionen über $k$. Betrachte zwei unterschiedliche Transzendenzbasen von $L/k$:
+\begin{itemize}
+\item[\textbf{1.}] $B = \lbrace y \rbrace$ ist eine Transzendenzbasis von $L/k$ mit $\deg(L/k(B)) = 1$.
+\item[\textbf{2.}] Für $n \in \mathbb{N}$ ist $B'= \lbrace y^n\rbrace$ eine Transzendenzbasis von $L/k$ mit\\
+$\deg(L/k(B)) = n$.
+\begin{gather*}
+f(x) = x^n - y^n \in k(y^n)[x] \text{ ist Minnimalpolynom von $x$ über $k(y^n)$.} \\
+\Rightarrow k(y)/k(y^n) \text{ ist eine algebraische Körpererweiterung vom Grad $n$}
+\end{gather*}
+\end{itemize}
+Dies zeigt, dass die Form des Körpers $k(B)$ und insbesondere der Grad der Körpererweiterung $L/k(B)$ sehr von der Wahl der Transzendenzbasis B abhängt.
+\end{bsp}
+
+
+\section{Kähler-Differenzial von Körpererweiterungen}
+
+
+\textcolor{blue}{\textbf{Definition der Differenzialbasis} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}}
+\begin{definition}\comment{\label{Definition der Differenzialbasis}}
+Sei $L \supset k$ eine Körpererweiterung. Dann nennen wir eine Teilmenge $\lbrace b_i \rbrace_{i \in \Lambda} \subseteq L$ eine \underline{Differenzialbasis} von $L$ über $k$, falls $\lbrace \divf{K}(b_i)\rbrace_{i \in \Lambda}$ eine Vektorraumbasis von $\divR{L}{R}$ über $L$ ist.
+\end{definition}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 1} \textit{[vlg. Chapter 16.5 \ModulsOfDifferenzials]}}
+\begin{bsp}\label{Differential von rationalen Funktionen 1}
+Sei $k$ ein Körper und $L = k(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $k$.\\
+Dann gilt:
+\begin{gather*}
+\divR{L}{k} \simeq L \Verz{\divf{k[x_1,\dots x_n]}(x_i)}
+\end{gather*}
+Insbesondere ist $\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Differenzialbasis von $\divR{L}{k}$.
+\end{bsp}
+\begin{proof}
+Betrachte $L = \lok{k[x_1,\dots,x_n]}{k[x_1,\dots,x_n]}$ als Lokalisierung um \cref{Differenzial der Lokalisierung} anwenden zu können. Anschließend forme noch $\divR{k[x_1,\dots,x_n]}{k}$ mithilfe von \cref{Differenzial von Polynomalgebren 1} isomorph um:
+\begin{gather*}
+\divR{L}{k} \simeq \tensor{L}{k[x_1,\dots,x_n]}{\divR{k[x_1,\dots,x_n]}{k}} \\
+\simeq \tensor{L}{k[x_1,\dots,x_n]}{\oplus_{i \in \lbrace 1,\dots,n \rbrace} k[x_1,\dots,x_n] \Verz{\divf{k[x_1,\dots x_n]}(x_i)}} \\
+\simeq L \Verz{\divf{k[x_1,\dots x_n]}(x_i)}
+\end{gather*}
+Damit ist $\lbrace \divf{L}(x_i) \rbrace_{i \in \lbrace 1,\dots,n \rbrace}$ eine Vektorraumbasis von $\divR{L}{k}$.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differential von rationalen Funktionen 2} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\begin{korrolar}\label{Differential von rationalen Funktionen 2}
+Sei $k$ ein Körper und $L \supset k$ eine Körpererweiterung und $T = L(\lbrace x_i \rbrace_{i \in \lbrace 1,\dots,n \rbrace})$ der Körper der rationalen Funktionen in $n$ Varablen über $L$. Dann gilt:
+\begin{gather*}
+\divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachten $T$ als Lokalisierung von $L[x_1,\dots,x_n]$ und gehen dann analog zu \cref{Differential von rationalen Funktionen 1} vor:
+\begin{gather*}
+\divR{T}{k} \simeq \Tensor{T}{L[x_1,\dots,x_n]}{\divR{L[x_1,\dots,x_n]}{k}} \textit{ (\cref{Differenzial der Lokalisierung})} \\
+\divR{L[x_1,\dots,x_n]}{R} \simeq (\Tensor{L[x_1,\dots,x_n]}{L}{\divR{L}{R}}) \oplus_{i \in \lbrace 1,...,n \rbrace} L[x_1,\dots,x_n] \Verz{\divf{L[x_1,\dots,x_n]}(x_i)} \textit{ (\cref{Differenzial von Polynomalgebren 2})} \\
+\Rightarrow \divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Cotangent Sequenz von Koerpern 1} \textit{[Aufgabe 16.6 \ModulsOfDifferenzials]}}
+\begin{bem}\label{Cotangent Sequenz von Koerpern 1}
+Sei $L \supset k$ eine Körpererweiterung und $T = L(x_1, \dots ,x_n)$ der Körper der rationalen Funktionen in $n$ Variablen über $L$. Dann ist die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Tensor{T}{L}{\divR{L}{k}} \arrow[r] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Im Genauen ist $\function{\varphi}{\Tensor{T}{L}{\divR{L}{k}}}{\divR{T}{k}}{\tensor{t}{L}{\divf{L}(l)}}{t \cdot \divf{T}(l)}$ injektiv.
+\end{bem}
+\begin{proof}
+Die Injektivität von $\varphi$ folgt direkt aus der isomorphen Darstellung von $\divR{T}{k}$, die wir uns in \cref{Differential von rationalen Funktionen 2} erarbeitet haben.
+\begin{gather*}
+\divR{T}{k} \simeq (\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}
+\end{gather*}
+Um sicher zu gehen definiere $\varphi' \simeq \varphi$ und durchlaufe die in \cref{Differential von rationalen Funktionen 2} genutzten Isomorphismen noch einmal Schritt für Schritt:
+\begin{center}
+$\functionfront{\varphi'}{\Tensor{T}{L}{\divR{L}{k}}}{\Tensor{T}{L}{\divR{L}{R}} \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}}$\\
+\ \\
+\begin{tikzcd}
+\Tensor{T}{L}{\divR{L}{k}} \arrow[d, hook]                 &  &  & \tensor{t}{L}{\divf{L}(l)} \arrow[d, maps to] \\
+\divR{T}{k} \arrow[d, "\cref{Differenzial der Lokalisierung}", two heads, hook] &  &  & t\divf{T}(l) \arrow[d, maps to] \\
+\Tensor{T}{S}{\divR{L[x_1,\dots ,x_n]}{k}} \arrow[d, "\cref{Differenzial von Polynomalgebren 2}", two heads, hook] &  &  & \tensor{t}{S}{\divf{S}(l)} \arrow[d, maps to] \\
+\Tensor{T}{S}{((\Tensor{S}{L}{\divR{L}{k}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} S \Verz{\divf{S}(x_i)}}) \arrow[d, "", two heads, hook] &  &  & \tensor{t}{S}{(\divf{L}(l),0)} \arrow[d, maps to] \\
+(\Tensor{T}{L}{\divR{L}{R}}) \oplus \bigoplus_{i \in \lbrace 1,\dots,n \rbrace} T \Verz{\divf{T}(x_i)}                                 &  &  & (\tensor{t}{L}{\divf{L}(l)},0)                   
+\end{tikzcd} 
+\end{center}
+Damit ist $\varphi$ eine injektive Einbettung von $\Tensor{T}{L}{\divR{L}{k}}$ in $\divR{T}{k}$.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Aufbaulemma Koerperdifferenzial} \textit{[vlg. Lemma 16.15 \ModulsOfDifferenzials]}}
+\begin{lemma}\label{Aufbaulemma Koerperdifferenzial}
+Sei $L \subset T$ eine seperable und algebraische Körpererweiterung und $R \longrightarrow L$ ein Ringhomomorphismus. Dann gilt:
+\begin{gather*}
+\divR{T}{R} = \Tensor{T}{L}{\divR{L}{R}}
+\end{gather*}
+Insbesondere ist in diesem Fall die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $R \rightarrow L \hookrightarrow T$ eine kurze Exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Tensor{T}{L}{\divR{L}{R}} \arrow[r] & \divR{T}{R} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+\end{lemma}
+\begin{proof}
+Wähle $\alpha \in T$ mit $L[\alpha] = T$. Sei weiter f(x) das Minimalpolynom von $\alpha$. Betrachte dazu die conormale Sequenz von  $\functionfront{\pi}{L[x]}{L[x]/(f) \simeq T}$ \textit{(\cref{Konormale Sequenz})}:
+\begin{center}
+\begin{tikzcd}
+(f)/(f^2) \arrow[r, "\tensor{1}{L[x]}{\divf{L[x]}}"] & \Tensor{T}{L[x]}{\divR{L[x]}{R}} \arrow[r, "D\pi"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Wende nun Proposition 16.6 auf $\divR{L[x]}{R}$ an und tensoriere mit $T$, somit gilt:
+\begin{gather*}
+\Tensor{T}{L[x]}{\divR{L[x]}{R}} \simeq \Tensor{T}{L}{\divR{L}{R}} \oplus T\langle \divf{L[x]}(x) \rangle
+\end{gather*}
+Zusammen mit der conormalen Sequenz bedeutet dies:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{L}{\divR{L}{R}} \oplus T \Verz{\divf{L[x]}(x)})/(\divf{L[x]}(f))
+\end{gather*}
+Wenn wir $\functionfront{\divf{L[x]}}{(f)}{\Tensor{T}{L}{\divR{L}{R}} \oplus T \Verz{\divf{L[x](x)}}}$ wie in \cref{Differenzial ist Ableitung} betrachten , sehen wir:
+\begin{gather*}
+\divf{L[x]}((f)) = J \oplus (f'(\alpha)\divf{L[x]}) = J \oplus T \Verz{\divf{S[x]}(x)}\\
+\text{,wobei $J \subseteq \Tensor{T}{L}{\divR{L}{R}}$ ein Ideal ist.}
+\end{gather*}
+Für die letzte Gleichheit nutze, dass $T \supset L$ seperabel und somit $f'(\alpha) \neq 0$ ist und nach obiger Wahl $T = L[\alpha]$ gilt.\\
+Damit erhalten wir nun:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{L}{\divR{L}{R}})/J \\
+\Rightarrow \Tensor{T}{L}{\divR{L}{R}} \hookrightarrow \divR{T}{R} \textit{ ist surjektiv.}
+\end{gather*}
+Somit muss J = 0 gelten und es folgt $\Tensor{T}{L}{\divR{L}{R}} \simeq \divR{T}{R}$.\\
+Damit haben wir insbesondere auch gezeigt, dass $\Tensor{T}{L}{\divR{L}{R}} \rightarrow \divR{T}{R}$ injektiv und somit die COTANGENT SEQUENZ von $R \rightarrow L \hookrightarrow T$ eine kurze exakte Sequenz ist.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Transzendenzbasis ist Differenzialbasis} \textit{[vlg. Theorem 16.4 \ModulsOfDifferenzials]}}
+\begin{theorem}\comment{\label{Transzendenzbasis ist Differenzialbasis}}
+Sei $T \supset k$ eine seperabel generierte Körpererweiterung und $B = \lbrace b_i \rbrace_{i \in \Lambda} \subseteq T$. Dann ist $B$ genau dann eine Differenzialbasis von $T$ über $k$, falls eine der folgedenen Bedingungen erfüllt ist:
+\begin{itemize}
+\item[\textbf{1.}] char(k) = 0 und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\item[\textbf{2.}] char(k) = p und $B$ ist eine p-Basis von $T$ über $k$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+\ \\
+\begin{itemize}
+\item[\underline{\textbf{1.}\glqq$\Leftarrow$\grqq:}] Sei $B$ eine Transzendenzbasis von $T$ über $k$.\\
+Damit ist die Körpererweiterung $L \defeq k(B) \supset k$ algebraisch und seperabel. \comment{ mit \label{*Transzendenzbasisdef}} Mit \cref{Aufbaulemma Koerperdifferenzial} folgt:
+\begin{gather*}
+\divR{T}{k} = \Tensor{T}{L}{\divR{L}{k}}
+\end{gather*}
+Betrachte $L = \lok{k[B]}{k[B] \setminus 0}$ als Lokalisierung und wende \cref{Differenzial der Lokalisierung} auf $\divR{L}{k}$ an, somit gilt:
+\begin{gather*}
+\divR{L}{k} = \Tensor{L}{k[B]}{\divR{k[B]}{k}}
+\end{gather*}
+In \cref{Differenzial von Polynomalgebren 1} \comment{\label{*Differenzial von Polynomalgebren brauche ich für unendliche Mengen Lambda}} haben wir gesehen, dass $\divR{k[B]}{k}$ ein freis Modul über $k[B]$ mit $\lbrace b_i \rbrace_{i \in \Lambda}$ als Basis ist. Dies liefert uns letztendlich die gewünschte Darstellung
+\begin{gather*}
+\divR{T}{k} = \bigoplus_{\lbrace i \in \Lambda \rbrace} T \Verz{\divf{T}(b_i)}.
+\end{gather*}
+\item[\underline{\textbf{1.}\glqq$\Rightarrow$\grqq:}]Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+Zeige zunächst, dass T algebraisch über $L \defeq k(B)$ ist:
+\begin{gather*}
+\text{Die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$ besagt }\\
+\divR{T}{L} \simeq \divR{T}{k}/T \Verz{\divf{T}(S)} \text{ und nach Vorraussetzung gilt } \divR{T}{k} = T \Verz{\divf{T}(B)}.
+\\
+\Rightarrow \divR{T}{L} \simeq \divR{T}{k}/T\Verz{\divf{T}(L)} = \divR{T}{k}/T\Verz{\divf{T}(B)}=
+\divR{T}{k}/\divR{T}{k} = 0
+\end{gather*}
+Da, wie wir in \glqq$\Leftarrow_{1.}$\grqq gezeigt haben, jede Transzendenzbasis $B'$ von $T$ über $L$ auch eine Differenzialbasis von $\divR{T}{L} = 0$ ist, gilt für diese $B' = \emptyset$. Somit ist $T$ schon algebraisch über $L$.\\
+\ \\
+Zeige noch, dass $B$ auch algebraisch unabhängig über $L$ ist:\\
+Sei dazu $\Gamma$ eine minimale Teilmenge von $\Lambda$, für welche $T$ noch algebraisch über $k(\lbrace b_i \rbrace_{i \in \Gamma})$ ist. Für diese ist $\lbrace b_i \rbrace_{i \in \Gamma}$ algebraisch unabhängig über K.\\
+Damit ist nach \glqq$\Leftarrow_{1.}$\grqq $\lbrace b_i \rbrace_{i \in \Gamma}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Also muss schon $\Gamma = \Lambda$ gegolten haben und $B$ ist eine Transzendenzbasis von $T$ über $k$.
+\item[\underline{\textbf{2.}\glqq$\Leftarrow$\grqq:}] Sei B eine p-Basis von T über k.\\
+Somit wird nach DEFINITION-PROPOSITION \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}} $T$ von $B$ als Algebra über $(k * T^p)$ und $\divR{T}{(k * T^p)}$ von $\divf{T}(B)$ als Vektorraum über $T$ 
+\textit{(PROPOSITION)} \comment{\label{*Differenzial vererbt Erzeugendensystem}} erzeugt. Zeige also $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$:\\
+Die Cotangent Sequenz \textit{(\cref{Cotangent Sequenz})} von $K \hookrightarrow (k * T^p) \hookrightarrow T$ besagt:
+\begin{gather*}
+\divR{T}{(T^p * k)} \simeq \divR{T}{k}/\divf{T}(T^p * k)
+\end{gather*}
+\begin{gather*}
+\text{Für beliege } t^p \in T^p \text{ gilt } \divf{T}(t^p) = pt^{p-1}\divf{T}(t) = 0 \text{,  da }char(T) = p.\\
+\Rightarrow \divf{T}(T^p * k) = \divf{T}(k(T^p)) = 0
+\end{gather*}
+Damit ist $\functionfront{\divf{T}}{T}{\divR{T}{k}}$ auch $(T^p *k)$-linear und es gilt $\divR{T}{k} \simeq \divR{T}{(T^p * k)}$.
+\item[\underline{\textbf{2.}\glqq$\Rightarrow$\grqq:}] Sei $\divf{T}(B)$ eine Vektorraumbasis von $\divR{T}{k}$.\\
+Zeige zunächst, dass $T$ von $B$ als Algebra über $k$ erzeugt wird:
+\begin{gather*}
+\text{Die COTANGENT SEQUENZ (\cref{Cotangent Sequenz}) von $k \hookrightarrow L \defeq k(B) \hookrightarrow T$ besagt }\\
+\divR{T}{L} \simeq \divR{T}{k}/T \Verz{\divf{T}(L)} \text{ und nach Vorraussetzung gilt } \divR{T}{k} = T \langle \divf{T}(B) \rangle. \\
+\Rightarrow \divR{T}{L} \simeq \divR{T}{k}/T\Verz{\divf{T}(L)} = \divR{T}{k}/T\Verz{\divf{T}(B)}=
+\divR{T}{k}/\divR{T}{k} = 0
+\end{gather*}
+Da, wie wir in \glqq$\Leftarrow_{2.}$\grqq gezeigt haben, jede p-Basis $B'$ von $T$ über $L$ auch eine Differenzialbasis von $\divR{T}{L} = 0$ ist, gilt für diese $B' = \emptyset$. Somit wird $T$ schon von $B$ als Algebra über $k$ erzeugt.\\
+\ \\
+Zeige noch, dass $B$ auch minimal als Erzeugendensystem von $T$ als Algebra über $k$ ist:\\
+Sei dazu $\Gamma$ die minimale Teilmenge von $\Lambda$, für welche $T$ noch von $\lbrace b_i \rbrace_{i \in \Gamma}$ als Algebra über $k$ erzeugt wird. Dann ist $\lbrace b_i \rbrace_{i \in \Gamma}$ eine p-Basis von $T$ über $k$. Somit ist nach \glqq$\Leftarrow_{2.}$\grqq $\lbrace b_i \rbrace_{i \in \Gamma}$ ebenfalls eine Differenzialbasis von $T$ über $k$. Es muss also schon $\Gamma = \Lambda$ gegolten haben und $B$ ist eine p-Basis von $T$ über $k$. \comment{\label{*p-Basis ist minnimaler Erzeuger von T als Algebra}}
+\end{itemize}
+\end{proof}
+
+
+\chapter{Aufgaben}
+\begin{itemize}
+\item Aufgabe 6.7 aus \ModulsOfDifferenzials \, ist \cref{Lokalisierung von Algebren als Kolimes}.
+\item Aufgabe 16.6 a) aus \ModulsOfDifferenzials \, ist \cref{Cotangent Sequenz von Koerpern 1}.
+\end{itemize}
+
+
+\ \\
+\textcolor{blue}{\textbf{Cotangent Sequenz von Koerpern 3} \textit{[Aufgabe 16.6 b) \ModulsOfDifferenzials]}}
+\textcolor{red}{Wir nennen eine Körpererweiterung $T \supset L$ \underline{pur inseperabel}, falls gilt:}
+\begin{gather*}
+\textcolor{red}{ char(L) = p > 0 \textit{ und } \forall t \in T \, \exists l \in  L \, \exists n \in \mathbb{N} : t^{p^n} = l }
+\end{gather*}
+\begin{prop}\label{Cotangent Sequenz von Koerpern 3}
+Seien $T \supset L \supset k$ endliche Körpererweiterungen. Betrachte die COTANGENT SEQUENZ \textit{(\cref{Cotangent Sequenz})} von $k \hookrightarrow L \hookrightarrow T$:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{L}{\divR{L}{k}} \arrow[r, "\varphi"] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0
+\end{tikzcd}
+\ \\
+\end{center}
+Sei weiter die Körpererweiterung $T \supset L$ algebraisch und pur inseperabel und existiere ein $\alpha \in T$ mit $L(\alpha) = T$ und $Mipo(\alpha) = f(x) = x^p - a$.\\
+Dann gilt:
+\begin{center}
+$\varphi$ ist injektiv $\Leftrightarrow$ $\divf{L}(a) = 0$
+\end{center}
+\end{prop}
+\begin{proof}
+Lege zunächst $T =L[x]/(f(x))$ fest und betrachte den kanonischen Epimorphismus $\functionfront{\pi}{L[x]}{T}$, sowie die dazugehörige Konormale Sequenz \textit{(\cref{Konormale Sequenz})}. Forme diese leicht um \textbf{(2)}, sodass wir sie mit der COTANGENT SEQUENZ von $k \hookrightarrow L \hookrightarrow T$ \textbf{(3)} vergleichen können:
+\begin{center}
+\begin{tikzcd}
+(f(x))/(f(x)^2) \arrow[r, "\tensor{1}{L[x]}{\divf{L[x]}}"] & \Tensor{T}{L[x]}{\divR{L[x]}{k}} \arrow[r, "D\pi"]       & \divR{T}{k} \arrow[r] & 0           &   & (1) \\
+T\Verz{\divf{L[x]}(f(x))} \arrow[r, hook]              & \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)} \arrow[r, "\widetilde{D\pi}"]      & \divR{T}{k} \arrow[r] & 0           &   & (2) \\
+                               & \Tensor{T}{L}{\divR{L}{k}} \arrow[r, "\varphi"] & \divR{T}{k} \arrow[r] & \divR{T}{L} \arrow[r] & 0 & (3)
+\end{tikzcd}
+\end{center}
+Zeige, dass \textbf{(2)} auch wirkliche exakt ist:
+\begin{gather*}
+(\tensor{1}{L[x]}{\divf{L[x]}})(f(x))
+ =  \Tensor{T}{L[x]}{L[x]\Verz{\divf{L[x]}(f(x))}}
+  \simeq T \Verz{\divf{L[x]}(f(x))} \\
+\Rightarrow \text{ Ersetze } \functionfront{\tensor{1}{L[x]}{\divf{L[x]}}}{(f(x))/(f(x)^2)}{\Tensor{T}{L[x]}{\divR{L[x]}{k}}}\\ \text{ durch }  T \Verz{\divf{L[x]}(f(x))} \hookrightarrow \Tensor{T}{L[x]}{\divR{L[x]}{k}}. \\
+\ \\
+\text{nach \cref{Differenzial von Polynomalgebren 2} gilt } \divR{L[x]}{k} \simeq \Tensor{L[x]}{L}{\divR{L}{k}} \oplus L[x]\Verz{\divf{L[x]}(x)}\\
+\text{und tensorieren mit $T$ ergibt } \Tensor{T}{L[x]}{\divR{L[x]}{k}} \simeq \Tensor{T}{L}{\divR{L}{k}} \oplus T\Verz{\divf{L[x]}(x)}.
+\end{gather*}
+\begin{itemize}
+\item[\underline{\glqq $\Rightarrow$ \grqq:}]
+Wenn wir nun unsere zwei exakten Sequenzen betrachten sehen wir, dass $\varphi$ eine Einschränkung von $D\pi$ auf einen kleineren Definitionsbereich ist. Zeige also, dass $D\pi$ injektiv ist:
+\begin{gather*}
+\text{Nach Vorraussetung gilt } \divf{L}(a) = 0 \text{ also auch } \divf{L[x]}(a) = 0\\
+\Rightarrow d_{L[x]}(f) = d_{L[x]}(x^p) - d_{L[x]}(a) =  px^{p-1}d_{L[x]}(x) - d_{L[x]}(a) = 0 - 0 \\
+\Rightarrow T\Verz{\divf{L[x]}(f(x))} = 0\\
+\end{gather*}
+Bezogen auf die exakte Sequenz \textbf{(2)} bedeutet dies, dass $D \pi$ injektiv ist.
+\item[\underline{\glqq $\Leftarrow$ \grqq:}]
+Da $\varphi$ nach Vorrausetzung injektiv ist, genügt es $\varphi{\tensor{1}{L}{a}} = 0$ zu zeigen:
+\begin{gather*}
+\text{In $T$ gilt } [f(x)]_{T} = 0 \\
+\Rightarrow 0 = \divf{T}([f(x)]_T) = \divf{T}([x^p]_T) - \divf{T}([a]_T) = \divf{T}([a]_T) \\
+\Rightarrow \varphi(\tensor{1}{L}{d_{L}(a)}) = \divf{T}([a]_T) = 0 
+\end{gather*}
+Da $\varphi$  nach Voraussetzung injektiv ist, gilt $\tensor{1}{L[x]}{\divf{L[x]}(a)} = 0$ und somit auch $\divf{L}(a) = 0$.
+\end{itemize}
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Cotangent Sequenz von Koerpern 3 Beispiel} \textit{[Aufgabe 16.6 b) \ModulsOfDifferenzials]}}
+\begin{bsp}\comment{\label{Cotangent Sequenz von Koerpern 3 Beispiel}}
+\comment{bin mir nicht sicher, ob $T \supset L$ pur inseperabel ist, bzw. ob dies für \texit{Cotangent Sequenz von Koerpern 3} überhaupt notwendig ist.}
+Betrachte das in \cref{Cotangent Sequenz von Koerpern 3} gegebenen Szenario und wähle:
+\begin{gather*}
+k = \mathbb{F}_3, \, L = k[y]/(y^2 + 1) , \, T = L(\sqrt[3]{y}) \simeq L[x]/(x^3 - y).
+\end{gather*}
+Hierbei gilt $d_{L}(x) \neq 0$ und somit ist $\functionfront{\varphi}{\Tensor{T}{L}{\divR{L}{k}}}{\divR{L}{k}}$ nicht injektiv.
+\end{bsp}
+
+
+\ \\
+\textcolor{blue}{\textbf{seperabel generierte Koerpererweiterung mit DifR(T)(R) ist 0} \textit{[Aufgabe 16.10 \ModulsOfDifferenzials (steht im Bezug zu Korrolar 16.17)]}}
+\begin{bsp}\comment{\label{unendliche, seperabel generierte Koerpererweiterung mit DifR(T)(R) ist 0}}
+Sei $k$ ein Körper mit $char(k) = p > 0$ und sei weiter $K(x)$ der Raum der Rationalen Funktionen über k.
+\begin{gather*}
+\textit{Definiere: } L \defeq k(x^{1/{p^{\infty}}}) = \colimes \lbrace k(x^{1/{p^{n}}}) \vert n \in \mathbb{N} \rbrace
+\end{gather*}
+Dann gilt : $\divR{L}{k} = 0$\\
+\textcolor{red}{Prüfe noch, ob $L \supset k$ eine seperabel generierte Körpererweiterung \comment{\label{*Def seperabel generierte Körpererweiterung}} ist.}
+\end{bsp}
+\begin{proof}\comment{Skizzenhaft}
+Es gilt:
+\begin{gather*}
+\divf{L}(x^{1/{p^{n}}})
+= \divf{L} \left( \prod_{i \in \lbrace 1,\dots,p \rbrace} x^{1/{p^{n+1}}}\right)
+=  p \cdot \left( \prod_{i \in \lbrace 1,\dots,p-1 \rbrace} x^{1/{p^{n+1}}} \right) \cdot \divf{L}(x^{1/{p^{n+1}}})
+= 0
+\end{gather*}
+Nute noch \cref{Differenzial des Kolimes von R-Algebren} und \cref{Differential von rationalen Funktionen 1} um zu folgern, dass $\divR{L}{k}$ von \\
+$\lbrace \divf{L}(x^{1/{p^{n}}}) \vert n \in \mathbb{N} \rbrace$ erzeugt wird.
+\end{proof}
+
+
+\ \\
+\textcolor{blue}{\textbf{Differenzial algebraischer Algebren ist Null} \textit{[Aufgabe 16.11 \ModulsOfDifferenzials]}}
+\begin{bsp}\comment{\label{Differenzial algebraischer Algebren ist Null}}
+Sei $K$ ein Körper mit $char(K) = 0$ \comment{Dies habe ich im gesamten Beweis nicht verwendet.} und $T$ eine noethersche K-Algebra. Dann gilt:
+\begin{gather*}
+\divR{T}{K} = 0 \\
+\Leftrightarrow \\
+T = \prod_{i \in \lbrace 1, \dots, n \rbrace} K(\alpha_i) \textit{ ist ein endliches Produkt algebraischer Körpererweiterungen.} 
+\end{gather*}
+\end{bsp}
+\begin{proof}
+\ \\
+\begin{itemize}
+\item[\underline{{\glqq $\Rightarrow$ \grqq :}}]
+Da $T$ noethersch ist, ist $T$ als Algebra über $K$ endlich erzeugt und es gilt:
+\begin{gather*}
+\comment{
+T = T'/I \\
+\text{Mit: } T' \defeq \left( \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i] \right) \text{ und } I \defeq \left( \prod_{i \in \lbrace 1,\dots,n \rbrace} I_i \right) \subseteq T' \text{ ist ein Ideal.} \\
+\text{Also gilt } T = \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]/I_i
+}
+T = \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]/I_i \\
+\text{Wobei } I_i \subseteq K[\alpha_i] \text{ ein Ideal ist.} (\forall i \in \lbrace 1, \dots ,n \rbrace)
+\end{gather*}
+Zur Vereinfachung definiere $T' \defeq \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]$. Betrachte nun den Differentialraum von T genauer:
+\begin{gather*}
+\divR{T}{K} = \divf{T'} \left( \prod_{i \in \lbrace 1,\dots,n \rbrace} K[\alpha_i]/I_i \right)\\
+= \prod_{i \in \lbrace 1,\dots,n \rbrace} \divf{K[\alpha]}\left( K[\alpha_i]/I_i \right) \textit{ (\cref{Differenzial des Produktes von Algebren})}
+\end{gather*}
+Betrachte also jeweils für $i \in \lbrace 1,\dots,n \rbrace$ die $K$-Algebra $K[\alpha_i]/I_i$.\\ 
+Sei $I_i \neq K[\alpha_i]$, da andernfalls $K[\alpha_i]/I_i = 0$ und somit $\alpha_i$ kein Erzeuger vor T wäre. \\
+Unterscheide nun zwischen den zwei möglichen Fällen \underline{$I_i = 0$} und \underline{$I_i \neq 0$}:
+\begin{itemize}
+\item[\underline{\textbf{1.} $I_i = 0$:}] Da $\divR{T}{K} = 0$ gilt, muss  $K[\alpha_i] = 0$ gelten.\\
+$\mathbb{A}$nnhame: $\alpha_i$ ist transzendent über K.
+\begin{gather*}
+\text{Dies bedeutet } K[\alpha_i] \simeq K[x] \\
+\Rightarrow \divR{K[\alpha_i]}{K} \simeq K[x]\langle \divf{K[x]}(x) \rangle \neq 0 \textit{ (\cref{Differenzial von Polynomalgebren 1})}
+\end{gather*}
+Dies steht allerdings im Widerspruch zu $K[\alpha_i] = 0$. Folglich war unsere $\mathbb{A}$nnahme falsch und $\alpha_i$ ist algebraisch über K.\\
+Folglich ist $K[\alpha_i] = K(\alpha_i)$ \comment{Nutze hier \label{*fuer a algebraisch gilt K[a] = K(a)}} eine algebraische Körpererweiterung.
+\item[\underline{\textbf{2.} $I_i \neq 0$:}]
+Zunächst sehen wir, dass $\alpha_i$ transzendent sein muss, da sonst $K[\alpha_i] = K(\alpha_i)$ ein Körper wäre und somit $I_i = K(\alpha_i)$ gelten würde.\\
+Also ist $\alpha_i$ transzendent und es gilt:
+\begin{gather*}
+K[\alpha_i] \simeq K[x] \text{ und } I \simeq (f(x)) \text{ mit } f(x) \in K[x] \\
+\Rightarrow K[\alpha_i] \simeq K[\beta_1, \dots \beta_n] = K(\beta_1, \dots \beta_n) \text{, wobei $\beta_1, \dots \beta_n$ die Nullstellen von f sind.}
+\end{gather*}
+Somit haben wir gezeigt, dass auch in diesem Fall $K[\alpha_i]/I_i$ eine Algebraische Körpererweiterung ist. 
+\end{itemize}
+\item[\underline{{\glqq $\Leftarrow$ \grqq :}}]
+\cref{Differenzial des Produktes von Algebren} besagt, dass das direkte Produkt unter Bildung des Differenzials erhalten bleibt, also gilt in diesem Fall:
+\begin{gather*}
+\divR{T}{K} = \prod_{i \in \lbrace 1, \dots, n \rbrace} \divR{K(\alpha_i)}{K}
+\end{gather*} 
+Nach Voraussetzung sind alle Körpererweiterungen $K{\alpha_i} \supset K$ algebraisch. Wir haben schon in BSP gesehen, dass somit deren Differentiale gleich 0 sind. Folglich ist auch das direkte Produkt der einzelnen Differenziale und somit $\divR{T}{K}$ gleich 0.
+\end{itemize}
+\end{proof}
+\end{document}

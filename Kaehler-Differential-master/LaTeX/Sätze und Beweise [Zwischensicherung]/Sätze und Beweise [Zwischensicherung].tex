@@ -1,0 +1,679 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage[german]{babel}
+\usetikzlibrary{babel}
+\usepackage{cleveref}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\baselinestretch}{1.1}
+
+\newcommand{\ModulsOfDifferenzials}{Kommutativ Algebra with a view Torwards Algebraic Geometrie [David Eisenbud 1994]}
+
+\newcounter{Aussage}[chapter]
+
+\newtheorem{satz}[Aussage]{Satz}
+\newtheorem{theorem}[Aussage]{Theorem}
+\newtheorem{prop}[Aussage]{Proposition}
+\newtheorem{korrolar}[Aussage]{Korrolar}
+\newtheorem{lemma}[Aussage]{Lemma}
+\newtheorem{bem}[Aussage]{Bemerkung}
+\newtheorem{definition}[Aussage]{Definition}
+\newtheorem{bsp}[Aussage]{Beispiel}
+
+\newcommand{\functionfront}[3]{\nolinebreak{#1:#2 \longrightarrow #3}}
+\newcommand{\functionback}[3]{\nolinebreak{#1:#2 \longmapsto #3}}
+\newcommand{\function}[5]{\nolinebreak{#1:#2 \longrightarrow #3 \, , \, #4 \longmapsto #5}}
+\newcommand{\infunctionfront}[3]{\nolinebreak{#1:#2 \hookrightarrow #3}}
+\newcommand{\divR}[2]{\Omega_{#1/#2}}
+\newcommand{\divf}[1]{d_{#1}}
+\newcommand{\Tensor}[3]{#1 \otimes_{#2} #3}
+\newcommand{\tensor}[3]{#1 \otimes #3}
+\newcommand{\lok}[2]{#1 [#2^{-1}]}
+\newcommand{\loke}[3]{(\frac{#1}{#2})_{_{#3}}}
+\comment{\newcommand{\loke}[3]{(#1,#2)_{mod\sim_{#3}}}}
+
+\newcommand{\colimes}[0]{\lim\limits_{ \longrightarrow }}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand*{\defeqr}{= \mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}}
+                     
+\newcommand*{\defshow}{\stackrel{!}{=}}
+\newcommand{\kernel}[1]{kern(#1)}
+\newcommand{\immage}[1]{im(#1)}
+
+\begin{document}
+\chapter{Grundlegende Sätze}
+\begin{bsp}
+Sei $k$ ein Körper, somit entspricht $\function{\divf{k[x]}}{k[x]}{\divR{k[x]}{k}}{f}{f'\divf{k[x]}(x)}$ der analytischen Ableitung.\\
+Teste dies an $f(x)=ax^2 + bx +c$:
+\begin{gather*}
+d(f(x)) = a \cdot d(x^2) + b \cdot d(x) = (2ax + b) d(x) = f'(x) d(x) 
+\end{gather*}
+\end{bsp}
+
+
+\textit{Proposition 16.3 aus \ModulsOfDifferenzials}
+\begin{satz} \label{prop16.3}
+\raggedright
+Sei $\functionfront{\pi}{S}{T}$ ein R-Algebrenephimorphismus mit Kern($\pi$):= I \\
+Dann ist folgende Sequenz rechtsexakt: \\
+\begin{center}
+\begin{tikzcd}
+I/I^2 \arrow[r, "f"] & \Tensor{T}{S}{\divR{S}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+\begin{spacing}{1.5}
+mit: $\function{f}{I/I^2}{{\Tensor{T}{S}{\divR{S}{R}}}}{[a]_{I^2}}{\tensor{1}{S}{\divf{S}(a)}}$\\
+\textsc{\leftskip2.3em} $\function{g}{\Tensor{T}{S}{\divR{S}{R}}}{\divR{T}{R}}{\tensor{b}{S}{\divf{S}(c)}}{b \cdot (\divf{S} \circ \pi)(c)}$
+\end{spacing}
+\end{satz}
+
+\begin{proof} \ \\
+\underline{$f$ ist wohldefiniert:} Seien $a,b\in I^2$. Zeige $f(a \cdot b)=0$ :
+$$ f(a \cdot b) =
+\tensor{1}{S}{( \divf{S} \circ \pi )(a \cdot b)} =
+\tensor{1}{S}{\pi(a) \cdot (\divf{S} \circ \pi )(b) + \pi(b) \cdot ( \divf{S} \circ \pi )(a)} = 0$$
+\underline{$D\pi$ ist surjektiv:}
+
+\begin{center}
+\begin{tikzcd}
+\divR{S}{R} \arrow[r, " D\pi "]                & \divR{T}{R}                \\
+S \arrow[r, " \pi "] \arrow[u, " \divf{S} "] & T \arrow[u, " \divf{T} "]
+\end{tikzcd}
+\end{center}
+Da $\divR{S}{R}$ und $\divR{T}{S}$ jeweils von $\divf{S}$ und $\divf{T}$ erzeugt werden, vererbt sich die Surjektivität von $\pi$ auf $D\pi$. Somit ist auch $\Tensor{1}{S}{D\pi}$ surjektiv.\\
+\underline{$\immage{f}=\kernel{g}$:}\\ Dies folgt direkt aus  der Isomorphie $(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \simeq \divR{T}{R}$:
+\begin{align*}
+(\Tensor{T}{S}{\divR{S}{R}})/Im(f) \\
+= (\Tensor{T}{S}{\divR{S}{R}})/(\Tensor{T}{S}{\divf{S}(I)}) \\
+= \Tensor{T}{S}{(\divR{S}{R}/\divf{S}(I))} \\ 
+= \Tensor{T}{S}{(\divf{S}(S)/ \divf{S}(I))} \\
+\simeq \Tensor{T}{S}{\divf{S}(S/I)} \\
+\simeq \Tensor{T}{S}{\divf{T}(T)} \\
+\end{align*}
+\end{proof}
+
+\chapter{Kolimes}
+In diesem Kapitel werden wir das Konzept des Kolimes als Konstrukt der Kathegorientheorie kennen lernen. Am Ende des Kapitels werden wir sehen, dass der Kolimes von R-Algebren mit der Bildung des Kähler-Differenzials harmoniert. Dies wird es uns im folgenden vereinfachen, bestimmte Eigenschaften des Kähler-Differenzials nachzuweisen.\\
+\section{Einführung in den Kolimes}
+\textit{Vgl. Anhang A6 aus \ModulsOfDifferenzials .}
+\begin{definition}
+Sei $\mathcal{A}$ eine Kategorie und $C \in \mathcal{A}$ ein Objekt
+\begin{itemize}
+\item Ein \underline{Diagramm} über $\mathcal{A}$ ist eine Kategorie $\mathcal{B}$ zusammen mit einem Funktor $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$.
+\item Ein \underline{Morphismus} $\functionfront{\psi}{\mathcal{F}}{C}$ ist eine Menge von Funktionen 
+$\nolinebreak{\lbrace \psi_B \in Hom(F(B),C) \vert B \in \mathcal{B} \rbrace}$, wobei für alle $B_1,B_2 \in \mathcal{B}$ und $\varphi \in Hom(B_1,B_2)$ folgendes Diagramm kommutiert:
+\begin{center}
+\begin{tikzcd}
+\mathcal{F}(B_1) \arrow[rrd, "\psi_{B_1}"] \arrow[dd, "\mathcal{F}(\varphi )"] &  &   \\
+                                   &  & C \\
+\mathcal{F}(B_2) \arrow[rru, "\psi_{B_2}"]                 &  &  
+\end{tikzcd}
+\end{center}
+\item Der \underline{Kolimes} $\colimes \mathcal{F}$ eines Diagramms $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ist ein Objekt $A \in \mathcal{A}$ zusammen mit einem Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ und folgender universellen Eigenschaft:
+\begin{center}
+\comment{$\forall Morphismen \functionfront{\psi '}{\mathcal{F}}{\mathcal{A}'}\exists ! \varphi \in Hom_{\mathcal{A}}(A,A') \forall B \in \mathcal{B}: \varphi \circ \psi_B = \psi'_B $}
+
+für alle Morphismen $\functionfront{\psi '}{\mathcal{F}}{A'}$ existiert genau eine Funktion $\varphi \in Hom(A,A')$, sodass folgendes Diagramm kommutiert:
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi"] \arrow[ld, "\psi '"'] &                            \\
+A' &                                    & A \arrow[ll, "\exists ! \varphi "', dashed]
+\end{tikzcd}
+\end{center}
+\end{itemize}
+\end{definition}
+
+
+Bevor der Kolimes weiter charakterisiert wird, zeigen wir zunächst, dass er durch die obige Definition eindeutig bestimmt ist.
+\begin{lemma}
+Seien $\mathcal{B},\mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Funktor, so git:\\ 
+Im Falle der Existenz sind $\colimes \mathcal{F}$ und der dazugehörige Morphismus $\functionfront{\psi}{\mathcal{F}}{A}$ bis auf eine eindeutige Isomorphie eindeutig bestimmt.
+\end{lemma}
+\begin{proof}
+Seien $A_1 \in \mathcal{A}, (\functionfront{\psi_1}{\mathcal{F}}{A_1}) $ und $A_2 \in \mathcal{A} , (\functionfront{\psi_2}{\mathcal{F}}{A_2}) $ beide gleich $\colimes \mathcal{F}$.\\
+Erhalte durch die universelle Eigenschaft des Kolimes die eindeutig bestimmten Funktionen $\varphi_1 \in Hom_{\mathcal{A}}(A_1,A_2)$ und $\varphi_2 \in Hom_{\mathcal{A}}(A_2,A_1)$, für welche die folgende Diagramme kommutieren:
+
+\comment{$\functionfront{\varphi_1}{\mathcal{A}_1}{\mathcal{A}_2}$ und $\functionfront{\varphi_2}{\mathcal{A}_2}{\mathcal{A}_1}$}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_2"'] &                            &  &   & \mathcal{F} \arrow[rd, "\psi_2"] \arrow[ld, "\psi_1"'] &                            \\
+A_2 &                                    & A_1 \arrow[ll, "\exists ! \varphi_1"', dashed] &  & A_1 &                                    & A_2 \arrow[ll, "\exists ! \varphi_2"', dashed]
+\end{tikzcd}
+\end{center}
+\begin{flushleft}
+Wende nun die Universelle Eigenschaft von $\psi_1$ auf $\psi_1$ selbst an und erhalte $id_{A_1} = \varphi_2 \circ \varphi_1$. Analog erhalte auch $id_{A_2} = \varphi_1 \circ \varphi_2$.
+\end{flushleft}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{F} \arrow[rd, "\psi_1"] \arrow[ld, "\psi_1"'] &                            \\
+A_1 &                                    & A_1 \arrow[ll, "\exists ! id_{A_1} = \varphi_2 \circ \varphi_1"', dashed]
+\end{tikzcd}
+\end{center}
+Somit existiert genau eine Isomorphie $\functionfront{\varphi_1}{A_1}{A_2}$.
+\end{proof}
+
+
+Im folgenden beschäftigen wir uns mit dem Fall des $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$, bei welchem $\mathcal{B}$ eine Unterkategorie von $\mathcal{A}$ ist. Zur Vereinfachung unterschlagen dabei die triviale Existenz des Funktors $\colimes \infunctionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$. Wir werden also im folgenden von dem Diagramm $\mathcal{B}$ und dem entsprechenden Kolimes $\colimes \mathcal{B}$, sowie dem Morphismus $\functionfront{\phi}{\mathcal{B}}{A} $ sprechen.\\ 
+Dieser Fall ist vor allem so interessant, weil man den Kolimes eines beliebigen Diagramms immer darauf zurückführen kann.
+\begin{bem}\label{Vereinfachung des Kolimes}
+Seien $\mathcal{B} \nsubseteq \mathcal{A}$ zwei Kategorien und $\functionfront{\mathcal{F}}{\mathcal{B}}{\mathcal{A}}$ ein Diagramm.\\
+Dann gilt im Falle der Existenz $\colimes \mathcal{F} = \colimes \mathcal{F}(\mathcal{B})$ 
+\end{bem}
+
+
+Zunächst untersuchen wir bei einer gegebenen Kategorie $\mathcal{A}$ das Koprodukt einer Menge von Objekten $B_i \in \mathcal{A}$, sowie den Differenzkokern zweier Morphismen $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$.
+
+\begin{definition} \label{DifferenzkokernUndKoproduktDef}
+Sei $\mathcal{A}$ eine Kategorie.
+\begin{itemize}
+\item Das Koprodukt von $ \lbrace B_i \rbrace \subseteq \mathcal{A}$ wird durch $\prod_i \lbrace B_i \rbrace := \colimes\mathcal{B}$ definiert, 
+wobei $\mathcal{B}$ $\lbrace B_i \rbrace$ als Objekte und die Identitätsabbildungen $\functionfront{id_{B_i}}{B_i}{B_i}$ als Morphismen enthält.
+\item Der Differenzkokern (oder auch Coequilizer) von $f,g \in Hom_{\mathcal{A}}(C_1,C_2)$ wird durch $\colimes \mathcal{C}$ definiert,
+wobei $\mathcal{C}$ $\lbrace C_1,C_2 \rbrace$ als Objekte und $ \lbrace f,g \rbrace \defeq Hom_{\mathcal{C}}(C_1,C_2)$ als Morphismen enthält.
+\end{itemize}
+\end{definition}
+
+In der Einführung des Differenzkokern`s in \cref{DifferenzkokernUndKoproduktDef} ist deutliche zu sehen, inwiefern dieser ein Kolimes ist. Um aber mit dem Differenzkokern besser zu arbeiten wird er meist anders eingeführt. Daher betrachten auch wir ab nun eine andere, aber äquivalente Definition des Differenzkokern`s.
+
+\begin{lemma}\label{NeuDifferenzenkokerndef} Sei $\mathcal{A}$ eine Kategorie mit $C_1,C_2 \in Hom_{\mathcal{A}}(C_1,C_2)$, so sind folgende Formulierungen äquivalent zur Definition des Differenzkokern`s $T \defeq \colimes \mathcal{C}$
+\begin{itemize}
+\item[1.] Es existiert ein Morphismus $\functionfront{\psi}{\mathcal{C}}{T}$, mit der Eigenschaft, dass für alle Morphismen $\functionfront{\psi '}{\mathcal{C}}{T'}$ genau ein $\varphi \in Hom_{\mathcal{A}}(T,T')$ mit $\varphi \circ \psi = \psi '$ existiert.
+\item[2.] Es existiert ein $q \in Hom_{\mathcal{A}}(C_2,T)$ mit $q \circ f = q \circ g$ und der Eigenschaft, dass für alle Morphismen $q' \in Hom_{\mathcal{A}}(C_2,Z)$ mit $q' \circ f = q' \circ g$ genau ein $\varphi \in Hom_{\mathcal{A}}(T,T')$ mit $\varphi \circ q = q'$ existiert.
+\begin{center}
+\begin{tikzcd}
+C_1 \arrow[r, "{f,g}"] \arrow[r] & C_2 \arrow[r, "q"] \arrow[rd, "q'"] & T \arrow[d, "\exists !\varphi", dashed] \\
+                                 &                                     & T'                                     
+\end{tikzcd}
+\end{center}
+\end{itemize}
+\end{lemma}
+\begin{proof}
+\textit{1.} ist offensichtlich eine Ausformulierung der Einführung des Kolimes aus \cref{DifferenzkokernUndCoproduktDef}, zeige also im folgenden noch die Äquivalenz von \textit{1.} und \textit{2.}
+\begin{itemize}
+\item \underline{1 $\Rightarrow$ 2:}
+\begin{itemize}
+\item[] Da $\functionfront{\psi}{\mathcal{C}}{T}$ ein Morphismus ist, gilt für $\lbrace f,g \rbrace = Hom_{\mathcal{C}}(C_1,C_2)$:\\ $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_1} \circ \psi_{C_2}$, setze also 
+ $q  \defeq \psi_{C_2}$.
+\item[] Sei nun $q' \in Hom_{\mathcal{A}}(C_2,T)$ mit der Eigenschaft $q' \circ f = q' \circ g$ gegeben:\\
+ Definiere den Morphismus $\functionfront{\psi '}{\mathcal{C}}{T}$ als $\lbrace \psi_1 = q' \circ f , \psi_2 = q' \rbrace$,  somit folgt direkt aus der Universellen Eigenschaft von $\psi$, dass genau ein $\varphi \in Hom_{A}(C_2,T)$ existiert, mit $ \varphi \circ q = q '$.
+\end{itemize}
+\item \underline{2 $\Rightarrow$ 1:}
+\begin{itemize}
+\item[] Definiere $\functionfront{\psi }{\mathcal{C}}{T}$ als $\lbrace \psi_1 = q \circ f , \psi_2 = q \rbrace$.
+Durch die Eigenschaft von $q$ gilt $\psi_{C_1} = \psi_{C_2} \circ f = \psi_{C_2} \circ g$.
+\item[] Sei nun $\functionfront{\psi '}{\mathcal{C}}{\mathcal{A}}$ ein beliebiger Morphismus.\\
+Definiere $d' \defeq \psi '$, somit existiert durch die Eigenschaft von $d$ genau ein $\varphi \in Hom_{\mathcal{A}}(C_2,T)$ mit $\varphi \circ q = q'$.
+\begin{gather*}
+\Rightarrow \varphi \circ \psi_2 = \psi '_2 \\
+\textit{und }\varphi \circ \psi_1 = \varphi \circ \psi_2 \circ f = \varphi \circ \psi '_2 \circ f = \varphi \circ \psi '_1
+\end{gather*}
+\end{itemize}
+\end{itemize}
+\end{proof}
+Wenn im weiteren Verlauf von dem Differenzkokern zweier Homomorphismen $\functionfront{f,g}{C_1}{C_2}$ gesprochen wird, meinen wir damit den Homomorphismus $\functionfront{q}{C_2}{T}$ aus \cref{NeuDifferenzenkokerndef}.
+
+
+\begin{bem}
+Seien $f,g \in Hom_{\mathcal{A}}(S_1,S_2)$ R-Algebra-Homomorphismen, so können wir für den Differenzenkokern $\functionfront{q}{S_2}{T}$ für ein beliebiges $S_1$-Modul das Tensorprodukt $\Tensor{T}{C_1}{M}$ definieren. 
+\begin{gather*}
+\textit{für } s_1 \in S_1 \textit{ und } \tensor{t}{S_1}{m}) \in \Tensor{T}{C_1}{M} \textit{ gilt: }\\
+s_1 \cdot (\tensor{t}{S_1}{m}) = \tensor{((q \circ f)(s_1)) \cdot t}{S_1}{m} = \tensor{((q \circ g)) \cdot (s_1)t}{S_1}{m}
+\end{gather*}
+\end{bem}
+
+
+Da wir es hauptsächlich mit R-Algebren zu tun haben, wollen wir natürlich auch wissen, wie sich Koprodukte und Differenzkokerne von R-Algebren verhalten. Daher betrachten wir in der folgenden Proposition genauer welche Form diese haben.
+\begin{prop} \label{R-Algebra-Kolimiten}
+in der Kategorie der R-Algebren existieren Koprodukte und Differenzkokerne, wobei:
+\begin{itemize}
+\item[\textbf{1.}] Das Koprodukt einer endlichen Familie von $R-Algebren$ $\lbrace S_i \rbrace_{i \in \Lambda}$ entspricht deren Tesorprodukt $\bigotimes_{i \in \Lambda} S_i$. 
+\item[\textbf{2.}] Der Differenzkokern zweier R-Algebra-Homomorphismen $\functionfront{f,g}{S_1}{S_2}$ einspricht dem Homomorphismus $\function{q}{S_2}{S_2/Q}{y}{[y]}$, wobei $Q \defeq \lbrace f(x) - g(x)\mid x \in S_2 \rbrace$ das Bild der Differenz von $f$ und $g$ ist.
+\end{itemize}
+\end{prop}
+\begin{proof}
+Zu \textit{\textbf{1.}}:\\
+Sei $\mathcal{B}$ die Unterkategorie der R-Algebren, welche $\lbrace S_i \rbrace_{i \in \Lambda}$ zusammen mit den Identitätsabbildungen enthält. Wir wollen die universellen Eigenschaften des Tensorproduktes und des Kähler-Differenzials nutzen, um einen Isomorphismus zwischen $\colimes \mathcal{F}$ und $\bigotimes_{i \in \Lambda} B_i$ zu finden.\\ 
+Es sind der Morphismus $\functionfront{\psi}{\mathcal{B}}{\colimes \mathcal{B}}$ und die bilineare Abbildung $\functionfront{g}{\oplus_i S_i}{\otimes_i S_i}$ gegeben.\\
+Konstruiere den Morphismus $\functionfront{\psi'}{\mathcal{B}}{\otimes_i S_i}$ durch $\function{\psi'_i}{S_i}{\otimes_i S_i}{s_i}{g(1,..,1,s_i,1,..,1)}$ für $i \in \lambda$ und die bilineare Abbildung $\function{f}{\oplus_i S_i}{\colimes \mathcal{B}}{s}{\prod_i \psi_i(s_i)}$.\\
+\ \\
+Somit liefern uns die universellen Eigenschaften folgende zwei R-Algebra-Homomorphismen:
+\begin{gather*}
+\functionfront{\varphi}{\colimes \mathcal{B}}{\bigotimes_i S_i} \\
+\functionfront{\phi}{\bigotimes_i S_i}{\colimes \mathcal{B}}.
+\end{gather*}
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            &  &   & \oplus_i S_i \arrow[rd, "g"] \arrow[ld, "f"'] &                                         \\
+\otimes_i S_i &                                           & \colimes \mathcal{B} \arrow[ll, "\exists ! \varphi"', dashed] &  & \colimes \mathcal{B} &                                    & \otimes_i S_i \arrow[ll, "\exists ! \phi"', dashed]
+\end{tikzcd}
+\end{center}
+Die Eindeutigkeit der universellen Eigenschaften liefert uns, das $\varphi$ und $\phi$ zueinander Inverse sind und somit haben wir unsere gesuchten Isomorphismen zwischen $\colimes \mathcal{B}$ und $\bigotimes_i S_i$ gefunden.
+\begin{center}
+\begin{tikzcd}
+         & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                                              &  &                  & \bigoplus_i S_i \arrow[rd, "g"] \arrow[ld, "g"'] &                                                                                     \\
+\colimes \mathcal{B} &                                                    & \colimes \mathcal{F} \arrow[ll, "\exists ! id_{\colimes \mathcal{B}} = \phi \circ \varphi "', dashed] &  & \bigotimes_i S_i &                                                  & \bigotimes_i S_i \arrow[ll, "\exists ! id_{\bigotimes_i S_i} = \varphi \circ \phi "', dashed]
+\end{tikzcd}
+\end{center}
+\ \\
+Zu \textit{\textbf{2.}}:\\
+Zeige, dass $\functionfront{q}{S_2}{S_2/Q}$ die in \cref{NeuDifferenzenkokerndef} eingeführten Eigenschaften des Differenzkokern`s  besitzt.
+\begin{gather*}
+q \circ f = q \circ g \text{ gilt, da } \kernel{q} = Q = \lbrace f(x) - g(x)\mid x \in C_2 \rbrace.
+\end{gather*}
+Sei nun eine Funktion $q' \in Hom_{\mathcal{A}}(S_2,T')$ mit $q' \circ f = q' \circ$ gegeben.\\
+Somit gilt $q' \circ (f - g) = 0$, wodurch $Q$ ein Untermodul von $Q' \defeq \kernel{q'}$ ist.\\ Mit dem Isomorphiesatz \comment{HOMOMORPHIESATZ [kommutative Algebra 2.10]} für R-Algebren erhalten wir:
+\begin{gather*}
+ \nolinebreak{S_2/Q' \simeq (S_2/Q)/(Q'/Q)}.
+\end{gather*}
+Somit ist $\function{q'}{S_2}{(S_2/Q)/(Q'/Q)}{y}{[y]'}$ eine isomorphe Darstellung von $\functionfront{q'}{S_2}{T'}$.
+\begin{gather*}
+\Rightarrow \exists ! \function{\varphi}{S_2/Q}{(S_2/Q)/(Q'/Q)}{[y]}{[y]'}\textit{ mit }(\varphi \circ q) = q'.
+\end{gather*}
+Also ist $\functionfront{q}{S_2}{S_2/Q}$ der bis auf Isomorphie eindeutig bestimmte Differenzkokern von $f$ und $g$.
+\end{proof}
+
+
+Da wir nun auch mal die konkrete Form von Kolimten kennen, können wir uns überlegen bei welchen Algebren es sich um einen Kolimes handelt. Dabei interessiert und vor allem der Kolimes, denn viele Algebren lassen sich als Tensorprodukt von Unteralgebren darstellen. Ein klassisches Beispiel dafür ist die Polynomalgebra $R[x_1,...,x_n]$.
+\begin{bem}\label{Darstellung der Polynomalgebra als Tensorprodukt}
+Die Polynomalgebra $R[x_1,...,x_d]$ über R lässt sich wie folgt als Tensorprodukt darstellen:
+\begin{gather*}
+R[x_1,...,x_n] = \bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]
+\end{gather*}
+Genauer gilt für zwei Polynomalgebren $A = R[x_1,...,x_{n_A}], \, B = R[y_1,...,y_{n_B}]$ über R:
+\begin{gather*}
+\Tensor{A}{R}{B}  = R[x_1,...,x_{n_A},y_1,...,y_{n_B}]
+\end{gather*}
+\end{bem}
+Skizziere den Beweis.
+\begin{proof}
+Zeige, dass für $\function{g}{A \oplus B}{R[x_1,...,x_{n_A},y_1,...,y_{n_B}]}{(a,b)}{a \cdot b}$ die Universelle Eigenschaft des Tensorproduktes gilt:
+\begin{center}
+\begin{tikzcd}
+A \oplus B \arrow[r, "g"] \arrow[rd, "f"] & {R[x_1,...,x_{n_A},y_1,...,y_{n_B}]} \arrow[d, "\exists ! \varphi", dashed] \\
+                                          & M                                                                  
+\end{tikzcd}
+\end{center}
+Es ist leicht nachzurechnen, dass es sich bei $\varphi$ um folgende Funktion handeln muss:
+\begin{gather*}
+\function{\varphi}{R[x_1,...,x_{n_A},y_1,...,y_{n_B}]}{M}{(x_i \cdot y_j)}{f(x_i,1) \cdot f(1,y_i)}
+\end{gather*}
+\end{proof}
+
+
+Um im weiteren auch Koprodukte bzw. Differenzenkokerne des Kählerdifferenzials betrachten zu können, wollen wir wissen, wie sich diese in der Kategorie der R-Module verhalten. Daher betrachten wir in der folgenden Proposition genauer welche Form diese haben.
+\begin{prop}\label{R-Modul-Kolimiten}
+In Der Kategorie der R-Module  existieren Koprodukte und Differenzkokerne, wobei:
+\begin{itemize}
+\item[\textbf{1.}] das Koprodukt $\colimes \mathcal{B}$ von R-Modulen $M_i \in (R-Module)$entspricht der direkten Summe $\sum_i M_i$.
+\item[\textbf{2.}] der Differenzenkokern zweier Homomorphismen $\functionfront{f,g}{M_1}{M_2}$ entspricht dem Kokern $M_2/\immage{f-g}$ der Differenzenabbildung.
+\end{itemize}
+\end{prop}
+\begin{proof}
+\begin{itemize}
+
+für \textit{\textbf{1.}} Sei $\functionfront{\phi}{\lbrace M_i \rbrace}{\mathcal{B}}$ ein beliebiger Morphismus. Zeige: \\
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi_i"] \arrow[ld, "\psi_i"'] &                                            \\
+M' &                                              & \bigoplus_i M_i \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}\\
+\end{center}
+Für ein beliebiges $i$ existiert genau ein $\function{\varphi_i}{M_i \oplus 0}{M'}{(0,...,0,m_i,0,...,0}{\psi_i '(m_i)}$
+ mit $\psi_i ' = \psi_i \circ \varphi_i$\\
+$\Rightarrow  \exists ! \function{\varphi}{\bigoplus_i M_i}{M'}{(m_1,...,m_n)}{\sum_i \psi_i(m_i)}$\\
+\ \\
+\textit{\textbf{2.}} ist Analog zu \cref{R-Algebra-Kolimiten}
+\end{itemize}
+\end{proof}
+Die in \cref{R-Modul-Kolimiten} gezeigten Darstellungen gelten mit kurzen Überlegungen auch für S-Module, wobei S eine R-Algebra ist.\\
+\ \\
+Eine Anwendung des Kolimes ist die Lokalisation. Hier können wir den Kolimes nutzen, um die multiplikativ abgeschlossene Menge $U \subseteq S$ ohne Einschränkung auf den Fall $U = \lbrace t^n \vert n \in \mathbb{N}_0 \rbrace$ für ein $t \in S$ herunter zu brechen. Betrachte dazu die folgenden zwei Aussagen.\\
+\textit{Aufgabe A6.7 aus \ModulsOfDifferenzials.}
+\begin{lemma}\label{Lokalisierung von Algebren als Kolimes}
+Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
+Dann gilt:
+\begin{gather*}
+ S[U^{-1}] = \colimes \mathcal{B}
+\end{gather*}
+Wobei $\mathcal{B}$ aus den Objekten $\lbrace \lok{S}{t} \vert t \in U \rbrace$ und den Morphismen\\
+$\lok{S}{t} \longrightarrow \lok{S}{tt'}, \loke{s}{t^n}{t} \longmapsto \loke{st'^n}{(tt')^n}{(tt')} \,
+\forall t,t' \in U$ besteht.\\
+\end{lemma}
+\begin{proof}
+Sei $\functionfront{\psi}{\mathcal{B}}{A}$ der Kolimes von $\mathcal{B}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu:
+\begin{gather*}
+\functionfront{\psi'}{\mathcal{B}}{\lok{S}{U}}\\
+\function{\psi'_{\lok{S}{t}}}{\lok{S}{t}}{\lok{S}{t}}{\loke{s}{t^n}{t}}{\loke{s}{t^n}{U}}
+\end{gather*}
+$\psi'$ ist ein Morphismus, da für beliebige $t,t' \in U$ und $s \in S$ gilt:
+$$\loke{s}{t^n}{U} = \loke{st'^n}{(tt')^n}{U}$$
+Durch die Universelle Eigenschaft des Kolimes erhalten wir den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{S}{U}}$.
+\begin{center}
+\begin{tikzcd}
+            & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+{S[U^{-1}]} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\functionfront{\phi}{S[U^{-1}]}{A}$ benötigen wir kleinere Vorüberlegungen.\\
+Zunächst können wir jedes Element $\loke{s}{u}{U} \in \lok{S}{U}$ als $\psi_{\lok{S}{t}}(\loke{s}{t}{t})$ schreiben.\\
+\comment{\label{wobei u = t}}
+Weiter gilt für alle $s_1,s_2 \in S , \, t_1,t_2 \in U$: 
+\begin{align*}
+\textit{Sei }\psi'_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi'_{\lok{S}{t}}(\loke{s_2}{t_2}{t})\\
+\Rightarrow  \exists u \in U: (s_1t_1 - s_2t_2) \cdot u = 0\\
+\Rightarrow  \loke{s_1u}{t_1u}{tu} = \loke{s_2u}{t_2u}{tu}\\
+\Rightarrow  \psi_{\lok{S}{t}}(\loke{s_1}{t_1}{t}) = \psi_{\lok{S}{t}}(\loke{s_2}{t_2}{t})
+\end{align*}
+Mit diesem Wissen können wir den R-Algebra-Homomorphismus $\functionfront{\phi}{\lok{S}{U}}{A}$ definieren:
+\begin{gather*}
+\function{\phi}{\lok{S}{U}}{A}{\psi'_{\lok{S}{t}}(\loke{s}{t}{t})}{\psi_{\lok{S}{t}}(\loke{s}{t}{t})}
+\end{gather*}
+$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Kolimes:
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{B} \arrow[rd, "\psi"] \arrow[ld, "\psi"'] &                                                              \\
+A &                                                    & A \arrow[ll, "\exists ! id_A = \phi \circ \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\varphi \circ \phi \defshow id_{\lok{S}{U}}$ wähle beliebige $s \in S , t \in U$, für diese gilt:
+\begin{gather*}
+(\varphi \circ \phi)(\psi'(\loke{s}{t}{t})) =
+ \varphi (\psi(\loke{s}{t}{t}) =
+  \psi'(\loke{s}{t}{t})
+\end{gather*}
+Damit haben wir gezeigt, dass $\varphi,\phi$ Isomorphismen sind und somit $A \simeq \lok{S}{U}$ gilt.\\
+Da der Kolimes bis auf Isomorphie eindeutig ist, definiere ab sofort $\lok{S}{U}$ als den eindeutigen Kolimes von $\mathcal{B}$.
+ \end{proof}
+
+
+\begin{korrolar}\comment{\label{Lokalisierung von Moduln als Kolimes}}
+Sei M ein S-Modul, wobei S eine R-Algebra ist. Sei weiter $U \subseteq S$ multiplikativ abgeschlossen. Dann gilt:
+\begin{gather*}
+\lok{M}{U} = \colimes \mathcal{C}
+\end{gather*}
+Wobei $\mathcal{C}$ aus den Objekten $\lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \vert t \in U \rbrace$ und folgenden Morphismen besteht:
+\begin{gather*}
+\tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \longrightarrow
+\tensor{\lok{S}{U}}{\lok{S}{(tt')}}{\lok{M}{(tt')}} ,\\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}} \longmapsto
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{t'^nm}{(tt')^n}{t}} 
+\end{gather*}
+\end{korrolar}
+\textit{Auch wenn sich \cref{Lokalisierung von Algebren als Kolimes} hier nicht direkt anwenden lässt, so können wir doch im Beweis gleich vorgehen.}
+\begin{proof}
+Schließe zunächst den trivialen Fall $0 \in U$ aus.\\
+Sei $\functionfront{\psi}{\mathcal{C}}{A}$ der Colimes von $\mathcal{C}$. Zeige $\lok{S}{U} \simeq A$, definiere dazu folgenden Morphismus \comment{\label{das phi ein Mophismus ist überlasse ich dem Leser}}:
+\begin{gather*}
+\functionfront{\psi}{\mathcal{C}}{\lok{M}{U}} \\
+\comment{
+\function{\psi_{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}} \\
+}
+\function{\psi_{t}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}}}{\lok{M}{U}}{\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{m}{t^n}{t}}}{\loke{sm}{ut^n}{U}}
+\end{gather*}
+
+Die Wohldefiniertheit von $\psi'_t$ für ein beliebiges $t \in U$ folgt direkt aus der Universellen Eigenschaft des Tensorprodukt`s. Denn für die bilineare Abbildung
+ $\function{f}{\lok{S}{U} \oplus \lok{M}{t}}{\lok{M}{t}}{(\loke{s}{u}{U}, \loke{m}{t^n}{t})}{\loke{sm}{ut^n}{U}}$  gilt:
+\begin{center}
+\begin{tikzcd}
+\lok{S}{U} \oplus \lok{M}{t} \arrow[r, "g"] \arrow[rd, "f"'] & \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{M}{t}} \arrow[d, "\exists ! \psi'_t", dashed] \\
+                                      & \lok{M}{U}                               
+\end{tikzcd}
+\end{center} 
+ 
+Durch die Universelle Eigenschaft des Kolimes erhalten wir nun den eindeutigen Homomorphismus $\functionfront{\varphi}{A}{\lok{M}{U}}$.
+\begin{center}
+\begin{tikzcd}
+  & \mathcal{C} \arrow[rd, "\psi"] \arrow[ld, "\psi'"'] &                                            \\
+\lok{M}{U} &                                                     & A \arrow[ll, "\exists ! \varphi"', dashed]
+\end{tikzcd}
+\end{center}
+Für $\functionfront{\phi}{\lok{M}{U}}{A}$ benötigen wir kleinere Vorüberlegungen.\\
+Zunächst können wir jedes Element $\loke{m}{u}{U} \in \lok{M}{U}$ als $\nolinebreak{\psi(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}}})$ schreiben.
+Wobei mit $\psi$ gemeint ist, dass wir ein beliebiges $t \in U$ wählen und dann $\psi_t$ betrachten. Diese Verallgemeinerung ist möglich, da für beliebige $t_1,t_2,u \in U$ und $m \in M$ gilt:
+\begin{gather*}
+\psi_{t_1}({\tensor{\loke{1}{u}{U}}{\lok{M}{t_1}}{\loke{m}{1}{t_1}}}) =
+\loke{m}{u}{U} = 
+\psi_{t_2}({\tensor{\loke{1}{u}{U}}{\lok{M}{t_2}}{\loke{m}{1}{t_2}}})
+\end{gather*}
+Definiere nun mit diesem Wissen folgenden Homomorphismus:
+\begin{gather*}
+\function{\phi}{\lok{M}{U}}{A}{\psi(\tensor{\loke{1}{u}{U}}{\lok{\loke{m}{1}{}}{M}}{t})}{\psi'(\tensor{\loke{1}{u}{U}}{\lok{\loke{m}{1}{t}}{M}}{t})}
+\end{gather*}
+$\phi \circ \varphi = id_A$ ergibt sich direkt aus der Universellen Eigenschaft des Kolimes.\\
+Für $\varphi \circ \phi \defshow id_{\lok{M}{U}}$ wähle $\loke{m}{u}{U} \in \lok{M}{U}$ beliebig, für dieses gilt:
+\begin{gather*}
+(\varphi \circ \phi) (\psi'(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}})) \\
+ =\varphi(\psi(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}})) \\
+  =\psi'(\tensor{\loke{1}{u}{U}}{\lok{M}{t}}{\loke{m}{1}{t}})
+\end{gather*}
+Damit haben wir $A \simeq \lok{M}{U}$ gezeigt, definiere also ab sofort $\lok{M}{U}$ als den eindeutigen Kolimes von $\mathcal{C}$.
+\end{proof}
+\ \\
+\section{Kähler-Differenzial von Kolimiten}
+Wie schon angekündigt, bringen wir nun dieses Kapitel zu einem Ende, indem wir die gerade kennen gelernte Theorie mit dem Kähler-Differenzial in Verbindung setzen.\\
+Folgende Proposition zeigt uns, dass Differenzkokerne und Koprodukte unter der Bildung des Kähler-Differenzial`s erhalten bleiben.\\
+\textit{vlg.Korrolar 16.7 aus \ModulsOfDifferenzials.}
+\comment{Beide Beweise sind sehr kurz gefasst}
+\begin{prop} \label{Kaehlerdifferenzial des Kolimes von R-Algebren}
+\ \\
+\begin{itemize}
+\item[\textbf{1.}]
+Sei $T = \otimes_{i \in \Lambda} S_i$ das Koprodukt der R-Algebren $S_i$.\\
+Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )
+\end{gather*}
+\item[\textbf{2.}]
+Seien $S_1,S_2$ R-Algebren und $\functionfront{\varphi,\varphi'}{S_1}{S_2}$ R-Algebra-Homomorphismen. Sei weiter $\functionfront{q}{S_2}{T}$ der Differenzkokern von $\varphi$,$\varphi '$.
+Dann ist folgende Sequenz rechtsexakt:
+\begin{center}
+\begin{tikzcd}
+\Tensor{T}{S_1}{\divR{S_1}{R}} \arrow[r, "f"] & \Tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\begin{gather*}
+\textit{mit: } \function{f}{\tensor{T}{S_1}{\divR{S_1}{R}}}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\tensor{t}{S_2}{\divf{S_1}(x_1)}}{\tensor{t}{S_2}{\divf{S_2}(\varphi(x_1) - \varphi(x_2))}}\\
+\function{g}{\Tensor{T}{S_2}{\divR{S_2}{R}}}{\divR{T}{R}}{\tensor{t}{S_2}{\divf{S_2}(x_2)}}{(\divf{T}\circ q)(x_2)}
+\end{gather*}
+\end{center}
+\end{itemize}
+\end{prop}
+\begin{proof}\ \\
+Für \textit{\textbf{1.}} finde durch die Universelle Eigenschaft des Kähler-Differenzials Isomorphismen $ \divR{T}{R} \longleftrightarrow \bigoplus_{i \in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$.\\
+Definiere das Differenzial $\function{e}{T}{\sum_{i \in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}}{(\tensor{s_i}{R}{...})}{(\tensor{1}{S_i}{\divf{S_1},...)}}$ und erhalte dadurch
+\begin{center}
+\begin{tikzcd}
+T \arrow[rd, "e"'] \arrow[r, "\divf{T}"] & \divR{T}{R} \arrow[d, "\exists ! \varphi", dashed] \\
+                                    & \sum_{i\in \Lambda} \Tensor{T}{S_i}{\divR{S_i}{R}}                                       
+\end{tikzcd}
+$\functionfront{\varphi}{\divR{T}{R}}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}$.
+\end{center}
+Definiere nun das Differenzial $k: S_i \hookrightarrow T \longrightarrow \divR{T}{R}$ und erhalte dadurch:
+\begin{center}
+\begin{tikzcd}
+S_i \arrow[rd, "k"'] \arrow[r, "\divf{S_i}"] & \divR{S_i}{R} \arrow[d, "\exists ! k'", dashed] \arrow[r, "a"] & \Tensor{T}{S_i}{\divR{S_i}{R}} \arrow[ld, "\phi_i"] \\
+                                          & \divR{T}{R}                                                    &                     
+\end{tikzcd}
+$\functionfront{\phi_i}{\bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )}{\divR{T}{R}}$\\
+\begin{gather*}
+\function{\phi}{\sum_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}})}{\divR{T}{R}}{(...,\tensor{t_i}{S_i}{\divf{S_i}(s_i)},...)}{\prod_{i\in \Lambda} t_i \cdot \phi_i(\divf{S_i}(s_i))}
+\end{gather*}
+\end{center}
+Damit haben wir zwei zueinander inverse Funktionen $\varphi ,\phi$ gefunden.\\
+$\Rightarrow \divR{T}{R} \simeq \bigoplus_{i\in \Lambda} ( \Tensor{T}{S_i}{\divR{S_i}{R}} )$\\
+\ \\
+Für \textit{\textbf{2.}} Wende \cref{prop16.3} auf den Differenzkokern $\functionfront{q}{S_2}{S_2/Q}$ \textit{(vlg. \cref{R-Algebra-Kolimiten})} an und erhalte dadurch eine exakte Sequenz, welche ähnlich zu der gesuchten ist:
+\begin{center}
+\begin{tikzcd}
+Q/Q^2 \arrow[r, "f'"] & \tensor{T}{S_2}{\divR{S_2}{R}} \arrow[r, "g"] & \divR{T}{R} \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+mit $\function{f'}{Q/Q^2}{{\Tensor{T}{S_2}{\divR{S}{R}}}}{[s_2]_{Q^2}}{\tensor{1}{S_2}{\divf{S_2}(s_2)}}$.\\
+Somit gilt $\immage{f} = \Tensor{T}{S_2}{\divf{S_2}(Q)} = \immage{f'}$.\\
+$\Rightarrow$ die gesuchte Sequenz ist exakt.
+\end{proof}
+
+
+An dieser Stelle wollen wir uns daran erinnern, dass wir in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gesehen haben, dass es sich bei der Polynomalgebra um das Koprodukt von Algebren handelt. Daher können wir nun in den folgenden zwei Korrolaren das Kähler-Differenzial von Polynomalgebren spezifizieren.
+\textit{ Vergleiche Proposition 16.1 aus \ModulsOfDifferenzials.}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 1}
+Sei $S = R[x_1,...,x_n]$ eine Polynomalgebra über R. Dann gilt:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle 
+\end{gather*}
+Wobei $S\langle \divf{S}(x_i)\rangle$ das von $\divf{S}(x_i)$ erzeugt Modul über S ist.
+\end{korrolar}
+\begin{proof}
+Wie in \cref{Darstellung der Polynomalgebra als Tensorprodukt} gezeigt, können wir $S$ als $\bigotimes_{i \in \lbrace 1,...,n \rbrace} R[x_i]$ schreiben. In \cref{Kaehlerdifferenzial des Kolimes von R-Algebren} haben wir gezeigt, wie das Differenzial eines solchen Tensorproduktes aussieht:
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S}{R[x_i]}{\divR{R[x_i]}{R}})
+\end{gather*}
+Da $R[x_i]$ die aus dem Element $x_i$ erzeugte Algebra über $R$ ist, folgt \textit{[vlg. BEMERKUNG ZU ENDLICH ERZEUGTEN ALGEBREN]}: 
+\begin{gather*}
+\divR{S}{R} = \bigoplus_{i \in \lbrace 1,...,n \rbrace} (\Tensor{S}{R[x_i]}{R[x_i]\langle \divf{S[x_i]}(x_i) \rangle})
+\simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} S \langle \divf{S}(x_i) \rangle 
+\end{gather*}
+Für die letzte Isomorphie nutze, dass wegen $R[x_i] \subseteq S$ zum Einen $\divf{R[x_i]}$ als Einschränkung von $\divf{S}$ gesehen werden kann und zum Anderen $\Tensor{S}{R[x_i]}{R[x_i]} \simeq S$ gilt.
+\end{proof}
+
+
+\textit{Vergleiche Korrolar 16.6 aus \ModulsOfDifferenzials.}
+\begin{korrolar}\label{Differenzial von Polynomalgebren 2}
+Sei S eine R-Algebra und $T \defeq S[x_1,...,x_n]$ eine Polynomalgebra über S. Dann gilt:
+\begin{gather*}
+\divR{T}{R} \simeq (\Tensor{T}{S}{\divR{S}{R}}) \oplus \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{S}(x_i) \rangle
+\end{gather*}
+\end{korrolar}
+\begin{proof}
+Betrachte $T$ als Tensorprodukt über R-Algebren und wende anschließend \cref{Kaehlerdifferenzial des Kolimes von R-Algebren} an:
+\begin{gather*}
+T \simeq \Tensor{S}{R}{R[x_1,...,x_n]} \\
+\Rightarrow T \simeq \Tensor{(\Tensor{T}{S}{\divR{S}{R}})}{T}{(\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}})}
+\end{gather*}
+Zuletzt nutze den soeben gezeigten \cref{Differenzial von Polynomalgebren 1} an und nutze schließlich $R[x_1,...,x_n] \subseteq T$ um das Tensorprodukt zu vereinfachen:
+\begin{gather*}
+\Tensor{T}{R[x_1,...,x_n]}{\divR{R[x_1,...,x_n]}{R}}\\
+\simeq \Tensor{T}{R[x_1,...,x_n]}{\bigoplus_{i \in \lbrace 1,...,n \rbrace} R[x_1,...,x_n]\langle \divf{R[x_i]}(x_i) \rangle } \\
+\simeq \bigoplus_{i \in \lbrace 1,...,n \rbrace} T \langle \divf{R}(x_i) \rangle
+\end{gather*}
+\end{proof}
+
+
+Wir haben nun gezeigt, dass der Kolimes unter Bildung des Kähler-Differenzial`s erhalten bleibt. Außerdem habe wir gesehen, wie man Lokalisierung als Kolimes darstellen kann. Daher können wir nun abschließend ein Theorem formulieren, welches besagt, dass auch Lokalisierung unter Bildung des Kähler-Differenzials erhalten bleibt.
+\begin{theorem}\comment{\label{Lokalisierung des Kähler-Differenzials}}
+Sei $S$ eine $R-Algebra$ und $U \subseteq S$ multiplikativ abgeschlossen.
+Dann gilt:
+\begin{gather*}
+\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}} \text{, Wobei:}\\
+ \divf{\lok{S}{U}}(\loke{1}{u}{U}) \longmapsto -\tensor{\loke{1}{u^2}{U}}{S}{\divf{S}(u)}
+\end{gather*}
+\end{theorem}
+\begin{proof}
+Wir wollen THEOREM16.8 \comment{\label{THEOREM16.8}} auf $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ aus \cref{Lokalisierung von Algebren als Kolimes} anwenden.\\
+Zeige also zunächsten den einfacheren Fall $\divR{\lok{S}{t}}{R} \simeq \Tensor{\lok{S}{t}}{S}{\divR{S}{R}}$ für ein beliebiges $t \in U$:
+\begin{itemize}
+\item[]
+Nutze hierfür die Isomorphe Darstellung $\lok{S}{t} \simeq S[x]/(tx -1)$, sowie die Isomorphie $\divR{S[x]}{R} \simeq \Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x]\divf{S[x]}(x)$. aus \cref{Differenzial von Polynomalgebren 2}\\
+Daraus erhalten wir folgende Isomorphismen:
+\begin{gather*}
+\functionfront{\alpha}{\lok{S}{t}}{S[x]/(tx -1)} \\
+\functionfront{\beta}{S[x]/(tx -1)}{\lok{S}{t}} \\
+\functionfront{\gamma}{\divR{S[x]}{R}}{ \Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x]\divf{S[x]}(x) }
+\end{gather*}
+Nutze diese nun, um $\divR{\lok{S}{t}}{R}$ isomorph zu $\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}$ umzuformen:
+\begin{center}
+\begin{tikzcd}
+\divR{\lok{S}{t}}{R} \arrow[d, "D\alpha"] & d_{\lok{S}{t}}(\loke{s}{t}{t}) \arrow[d, "D\alpha", maps to] \\
+\divR{S[x]}{R}/\divf{S[x]}(tx - 1) \arrow[d, "\gamma"]  & {[\divf{S[x]}(sx)] = [x\divf{S[x]}(s) + s\divf{S[x]}(x)]} \arrow[d, "\gamma", maps to]  \\
+(\Tensor{S[x]}{S}{\divR{S}{R}} \oplus S[x] \divf{S[x]}x) / ((tx - 1) \divf{S[x]}(tx - 1)) \arrow[d, "\beta"]   & {[\tensor{x}{S}{\divf{S}(s)} , s \divf{S[x]}(x)]} \arrow[d, "\beta", maps to]   \\
+(\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}) \oplus \lok{S}{t} \divf{S[x]}(x) / \divf{S[x]}(tx - 1) \defeqr M \arrow[d, "f"]       & {[\tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} , s \divf{S[x]}(x)]} \arrow[d, "f", maps to]       \\
+\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}                      & ( \tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} ) - ( \tensor{\loke{s}{t^2}{t}}{S}{\divf{S}(t)} )                              
+\end{tikzcd}
+\end{center}
+Die ersten drei Schritte ergeben sich aus den oben angegeben Isomorphismen. Für den letzten Schritt definiere:
+\begin{gather*}
+\function{f}{M}{\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}}{[\tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} , s \divf{S[x]}(x)]}{( \tensor{\loke{1}{t}{t}}{S}{\divf{S}(s)} ) - ( \tensor{\loke{s}{t^2}{t}}{S}{\divf{S}(t)} )}
+\end{gather*}
+Damit $f$ ein Isomorphismus ist, genügt es zu zeigen, dass $\Tensor{\lok{S}{t}}{S}{\divR{S}{R}}$ ein eindeutiges Repräsentantensystem von $M$ ist.\\
+Sei dazu $[m_1,\loke{s}{t^{n}}{t}\divf{S[x]}(x)]$ ein beliebiger Erzeuger von $M$. Somit gilt:
+\begin{gather*}
+\divf{S[x]}(tx-1) = t\divf{S[x]}(x) + \beta(x)\divf{S[x]}(s)\\
+\Rightarrow [0,\divf{S[x]}(x)] = [-\loke{1}{t^2}{t}\divf{S}(t),0]  \\ \comment{\label{\d_S[x] ~ d_S}}
+\Rightarrow [m_1,\loke{s}{t^{n}}{t}\divf{S[x]}(x)] = [m_1 - \loke{s}{t^{n + 2}}{t}\divf{S}(t),0] = [f([m_1,\loke{s}{t^{n}}{t}\divf{S[x]}(x)]),0]
+\end{gather*}
+f ist also wie vermutet ein Isomorphismus und aus obigen Umformungen folgt
+$\divR{\lok{S}{t}}{R} \simeq \Tensor{\lok{S}{t}}{S}{\divR{S}{R}} = \lok{\divR{S}{R}}{t}$. \\
+Definiere für beliebige $t \in U$ folgenden Isomorphismus:
+\begin{gather*}
+f \circ \beta \circ \gamma  \circ D\alpha \defeqr \function{\delta_t}{\divR{\lok{S}{t}}{R}}{\lok{\divR{S}{R}}{t}}{\divf{\lok{S}{t}}(\loke{1}{t}{t})}{- \loke{\divf{S}(t)}{t^2}{t}}
+\end{gather*}
+\end{itemize}
+
+
+Zeige nun den Allgemeinen Fall $\divR{\lok{S}{U}}{R} \simeq \Tensor{\lok{S}{U}}{S}{\divR{S}{R}}$:\\
+Wähle $\mathcal{B} = \lbrace \lok{S}{t} \vert t \in U \rbrace$ wie in \cref{Lokalisierung von Algebren als Kolimes}, sodass $\colimes \mathcal{B} = \lok{S}{U}$ gilt.\\
+Mit THEOREM16.8 \comment{\label{THEOREM16.8}} folgt somit:
+\begin{gather*}
+\divR{\lok{S}{U}}{R}  = \colimes{\mathcal{F}} \text{ mit:}\\
+\function{\mathcal{F}}{\mathcal{B}}{(\lok{S}{U} - Module)}{\lok{S}{t}}{\tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}}}\\
+( \functionfront{\varphi}{\lok{S}{t}}{\lok{S}{tt'}} )\\ \longmapsto 
+( \functionfront{\tensor{1}{\lok{S}{t}}{D\varphi}}{ \Tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}}}{ \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})}} )
+\end{gather*}
+Zur Vereinfachung der Morphismen in $\mathcal{F}(\mathcal{B})$ definiere folgenden Isomorphismus:
+\begin{gather*}
+\functionfront{g}{ \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})}}{\Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}}}\\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{( \tensor{\loke{s'}{t}{t}}{\lok{S}{t}}{\divf{\lok{S}{tt'}}(x)} )} 
+\longmapsto \tensor{\loke{s}{u}{U}}{\lok{S}{tt'}}{\varphi(\loke{s'}{t}{t})\divf{\lok{S}{tt'}}(x)}
+\end{gather*}
+Als letzten Schritt wollen wir \cref{Lokalisierung von Moduln als Kolimes} anwenden. Nutze dazu $\functionfront{\delta_t}{\divR{\lok{S}{t}}{R}}{\lok{\divR{S}{R}}{t}}$ um den zu $\mathcal{F}$ isomorphen Funktor $\mathcal{F'} \defeq \delta \circ \mathcal{F}$ zu erhalten. Um ein genaueres Bild von $\mathcal{F'}$ zu erlangen, betrachte folgendes Kommutatives Diagramm:
+\begin{center}
+\begin{tikzcd}
+\lok{S}{t} \arrow[r, "\varphi"] \arrow[dd, "\mathcal{F}"] & \lok{S}{tt'} \arrow[d, "\mathcal{F}"]  \\
+                                                 & \Tensor{\lok{S}{U}}{\lok{S}{t}}{( \Tensor{\lok{S}{t}}{\lok{S}{t}}{\divR{\lok{S}{tt'}}{R}})} \arrow[d, "g"]            \\
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{\divR{\lok{S}{t}}{R}} \arrow[ru, "\tensor{1}{\lok{S}{t}}{D\varphi}"] \arrow[d, "\delta_t"]         & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\divR{\lok{S}{tt'}}{R}} \arrow[d, "\delta_{tt'}"] \\
+\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}} \arrow[r, "\tensor{1}{\lok{S}{t}}{\varphi}"]                              & \Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}                          \\
+\ \\
+\loke{s}{t}{t} \arrow[r, "\varphi"] \arrow[d, "\divf{\lok{S}{t}}"]  & \loke{st'}{tt'}{tt'} \arrow[d, "\divf{\lok{S}{tt'}}"]           \\
+{ \tensor{1}{\lok{S}{t}}{( \loke{1}{t}{t}\divf{\lok{S}{t}}(\loke{s}{1}{t}) + \loke{s}{1}{t}\divf{\lok{S}{t}}(\loke{1}{t}{t}))} \; } \arrow[d, "\delta_t"] \arrow[r, "g \circ (\tensor{1}{\lok{S}{t}}{D\varphi}) "] & {\; \tensor{1}{\lok{S}{tt'}}{( \loke{1}{tt'}{tt'}\divf{\lok{S}{tt'}}(\loke{st'}{1}{tt'}) + \loke{st'}{1}{tt'}\divf{\lok{S}{tt'}}(\loke{1}{tt'}{tt'}))}} \arrow[d, "\delta_{tt'}"] \\
+\tensor{1}{\lok{S}{t}}{( \loke{\divf{S}(s)}{t}{t} - \loke{s\divf{S}(t)}{t^2}{t}  )} \arrow[r, "\tensor{1}{\lok{S}{t}}{\varphi}"]                     & \tensor{1}{\lok{S}{tt'}}{( \loke{t'\divf{S}(s)}{tt'}{tt'} - \loke{st'\divf{S}(t)}{(tt')^2}{tt'}  )} \textbf{(*)}                         
+\end{tikzcd}
+\end{center}
+Dass das Diagramm in dieser Form kommutiert, ergibt sich in fast allen Fällen direkt aus dem Einsetzen in die entsprechenden Homomorphismen. Der einzige Fall, welcher nicht direkt klar ist, ist \textbf{(*)}. Rechne diesen also nochmal nach:
+\begin{gather*}
+\delta_{tt'}( \tensor{1}{\lok{S}{tt'}}{( \loke{1}{tt'}{tt'}\divf{\lok{S}{tt'}}(\loke{st'}{1}{tt'}) + \loke{st'}{1}{tt'}\divf{\lok{S}{tt'}}(\loke{1}{tt'}{tt'}))} )\\
+= \tensor{1}{\lok{S}{tt'}}{( \loke{\divf{S}(st')}{tt'}{tt'} - \loke{t's\divf{S}(tt')}{(tt')^2}{tt'} )} \\
+= \tensor{1}{\lok{S}{tt'}}{( \loke{t'\divf{S}(s')}{tt'}{tt'} + \loke{s\divf{S}(t')}{tt'}{tt'} 
+- \loke{tt'\divf{S}(t')}{(tt')^2}{tt'} - \loke{t'^2s\divf{S}(t)}{(tt')^2}{tt'} )} \\
+\comment{ = \tensor{1}{\lok{S}{tt'}}{( \loke{t'\divf{S}(s)}{tt'}{tt'} + \loke{s\divf{S}(t')}{tt'}{tt'} - \loke{s\divf{S}(tt')}{tt'}{tt'} - \loke{t'^2s\divf{S}(t)}{(tt')^2}{tt'} )} \\ }
+= \tensor{1}{ \lok{S}{tt'}}{( \loke{t'\divf{S}(s)}{tt'}{tt'} - \loke{t'^2s\divf{S}(t)}{(tt')^2}{tt' } )} \\
+= (\tensor{1}{\lok{S}{t}}{\varphi})(\tensor{1}{\lok{S}{t}}{( \loke{\divf{S}(s)}{t}{t} - \loke{s\divf{S}(t)}{t^2}{t}  )})
+\end{gather*}
+\comment{Damit haben wir einen zu $\mathcal{F}$ isomorphen Funktor gefunden:
+\begin{gather*}
+\functionfront{\mathcal{F'}}{\mathcal{B}}{(\lok{S}{U} - Module)}\\
+\lok{S}{t} \longmapsto \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}}\\
+\varphi \longmapsto \tensor{1}{\lok{S}{t}}{\varphi}
+\end{gather*}}
+Damit ist $\mathcal{F'}$ zu $\mathcal{F}$ isomorph und für $\mathcal{C} \defeq \mathcal{F'}(\mathcal{B})$ gilt $\divR{\lok{S}{U}}{R}  = \colimes{\mathcal{F'}} = \colimes{\mathcal{C}}$ \textit{[vlg. \cref{Vereinfachung des Kolimes}]}.
+Wobei die Form von $\mathcal{C}$ genau dem Fall aus \cref{Lokalisierung von Moduln als Kolimes} entspricht:
+\begin{gather*}
+\comment{\divR{\lok{S}{U}}{R}  = \colimes{\mathcal{C}} \text{, wobei:} \\}
+\mathcal{C} = \lbrace \Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}} \vert t \in U \rbrace \textit{ mit den Morphismen }\\
+\functionfront{\tensor{1}{\lok{S}{t}}{\varphi}}{\Tensor{\lok{S}{U}}{\lok{S}{t}}{\lok{\divR{S}{R}}{t}}}{\Tensor{\lok{S}{U}}{\lok{S}{tt'}}{\lok{\divR{S}{R}}{tt'}}} \\
+\tensor{\loke{s}{u}{U}}{\lok{S}{t}}{\loke{\divf{S}(x)}{t^n}{t}} \longmapsto \tensor{\loke{s}{u}{U}}{\lok{S}{tt'}}{\loke{t'^n\divf{S}(x)}{(tt')^n}{tt'}}
+\end{gather*}
+Damit folgt $\colimes \mathcal{C} = \lok{\divR{S}{R}}{U}$ und wir haben $\divR{\lok{S}{U}}{R} = \lok{\divR{S}{R}}{U}$ gezeigt.
+\end{proof}
+\chapter{Aufgaben}
+\begin{itemize}
+\item Aufgabe A6.7 aus \ModulsOfDifferenzials ist \cref{Lokalisierung als Kolimes}.
+\end{itemize}
+\end{document}
